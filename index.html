@@ -10,7 +10,6 @@
         .font-serif { font-family: 'Merriweather', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
         
-        /* Tıbbi görseller için netlik artırıcı render ayarı */
         .crisp-image {
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
@@ -53,10 +52,13 @@
             </div>
             
             <!-- Açılır Seçenekler Kutusu -->
-            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                <div class="py-2 flex flex-col text-left">
-                    <button onclick="openVakalarSection()" class="w-full text-left px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
+            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                <div class="py-3 flex flex-col text-left">
+                    <div class="px-5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-gray-400 border-b border-gray-100 mb-1">
                         Vaka Örnekleri
+                    </div>
+                    <button onclick="openVakalarSection('pno')" class="w-full text-left px-5 py-3 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
+                        <span>Pnömotoraks Vakaları</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                     </button>
                 </div>
@@ -71,7 +73,7 @@
         <!-- Sekme (Tab) Başlıkları -->
         <div class="flex items-center justify-center gap-3 mb-10 border-b border-gray-200 pb-4">
             <button onclick="switchTab('pno')" id="tab-pno" class="px-6 py-2.5 rounded-xl font-medium text-sm transition-all bg-[#094d61] text-white shadow-sm">
-                Pnömotoraks Vaka Örnekleri
+                Pnömotoraks Vakaları
             </button>
         </div>
         
@@ -146,7 +148,7 @@
     <!-- EKRANIN ORTASINDA %50 GENİŞLİKTE VE ZOOM ÖZELLİKLİ MODAL (LIGHTBOX) -->
     <div id="imageModal" class="fixed inset-0 bg-[#14262c]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         
-        <!-- Modal İçerik Kutusu (Ekranın Tam Ortasında ve %50 Genişlikte) -->
+        <!-- Modal İçerik Kutusu -->
         <div class="relative w-full md:w-1/2 max-w-2xl bg-[#14262c] border border-white/15 rounded-2xl shadow-2xl p-4 flex flex-col items-center justify-center max-h-[90vh]">
             
             <!-- Kapatma Butonu -->
@@ -163,7 +165,7 @@
                 <button onclick="resetZoom()" class="text-xs text-white hover:bg-white/20 px-2 h-8 rounded flex items-center justify-center font-medium">Sıfırla</button>
             </div>
 
-            <!-- Görsel Kapsayıcı (Zoom Taşmasını Önler) -->
+            <!-- Görsel Kapsayıcı -->
             <div class="w-full overflow-hidden rounded-xl bg-black/50 border border-white/10 flex items-center justify-center p-2 min-h-[300px]">
                 <img id="modalImage" src="" alt="Grafi Büyük Görünüm" class="max-w-full max-h-[55vh] object-contain transition-transform duration-150 ease-out crisp-image cursor-grab active:cursor-grabbing">
             </div>
@@ -175,11 +177,17 @@
 
     <!-- Scriptler -->
     <script>
-        // Vaka Örnekleri Bölümünü Açma Fonksiyonu
-        function openVakalarSection() {
+        function openVakalarSection(tabName) {
             const sec = document.getElementById('vakalar');
             sec.classList.remove('hidden');
+            if (tabName) {
+                switchTab(tabName);
+            }
             sec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function switchTab(tabName) {
+            document.getElementById('content-pno').classList.remove('hidden');
         }
 
         // Modal ve Zoom Yönetimi
@@ -216,3 +224,27 @@
 
         function resetZoom() {
             currentScale = 1;
+            updateImageTransform();
+        }
+
+        function updateImageTransform() {
+            modalImg.style.transform = `scale(${currentScale})`;
+        }
+
+        modalImg.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                zoomImage(0.15);
+            } else {
+                zoomImage(-0.15);
+            }
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
