@@ -16,189 +16,18 @@
     <!-- Üst/Ana Bölüm -->
     <main class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
         
-        <!-- Küçültülmüş ve Ay-Yıldızı Ortalanmış Türk Bayrağı -->
-        <div class="w-7 h-7 md:w-8 md:h-8 rounded-full overflow-hidden border border-white shadow-sm mb-4 transition-transform hover:scale-110 flex items-center justify-center bg-[#E30A17]">
-            <img src="https://flagcdn.com/tr.svg" alt="Türk Bayrağı" class="w-full h-full object-cover object-[42%_center] scale-125">
-        </div>
-
-        <!-- Büyük Ana Başlık: GÖĞÜS CERRAHİSİ -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#14262c] mb-3 uppercase tracking-wide">
-            Göğüs Cerrahisi
-        </h1>
-        
-        <!-- Alt Başlık / İsim: Ass. Dr. Mustafa Türker -->
-        <h2 class="text-xl md:text-2xl font-semibold text-[#0d687a] mb-12">
-            Ass. Dr. Mustafa Türker
-        </h2>
-        
-        <!-- HOVER İLE AÇILAN HAMBURGER MENÜ -->
-        <div class="relative group">
-            
-            <!-- Menü Butonu (Hamburger İkonu) -->
-            <div class="w-14 h-14 bg-[#094d61] hover:bg-[#0d687a] rounded-full flex items-center justify-center shadow-lg shadow-[#094d61]/20 cursor-pointer transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </div>
-            
-            <!-- Açılır Seçenekler Kutusu -->
-            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                <div class="py-2 flex flex-col text-left">
-                    
-                    <a href="#vakalar" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
-                        Vaka Örnekleri
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                    
-                    <a href="#" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
-                        Hakkımda
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                    
-                    <a href="#" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
-                        İletişim
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-        
-    </main>
-
-    <!-- Pnömotoraks Vakaları ve Grafikler Bölümü -->
-    <section id="vakalar" class="max-w-4xl mx-auto p-6 pb-24">
-        
-        <div class="flex items-center justify-center mb-10">
-            <h3 class="text-2xl md:text-3xl font-serif text-[#14262c] border-b-2 border-[#094d61] pb-3 px-4">
-                Pnömotoraks Vakaları
-            </h3>
-        </div>
-        
-        <!-- Vaka Metinleri -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
-                <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 01</div>
-                <h4 class="text-xl font-bold text-[#14262c] mb-3">Primer Spontan Pnömotoraks</h4>
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    Genç erişkin hastada gelişen nüks pnömotoraks vakası. Tek port (Uniportal) VATS yaklaşımı ile apikal bül rezeksiyonu ve mekanik plörodez uygulanarak opere edildi. Erken post-op dönemde tüp torakostomi sonlandırılarak şifa ile taburcu edildi.
-                </p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
-                <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 02</div>
-                <h4 class="text-xl font-bold text-[#14262c] mb-3">Travmatik Pnömotoraks</h4>
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    Künt toraks travması sonrası başvuran hastada saptanan pnömotoraks ve kosta fraktürleri. Acil şartlarda tüp torakostomi uygulanarak akciğer ekspansiyonu sağlandı. Yataklı serviste analjezi ve solunum fizyoterapisi ile takip edildi.
-                </p>
-            </div>
-        </div>
-
-        <!-- Radyolojik Görüntüler (Grafiler) -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50">
-            <h4 class="text-xl font-bold text-[#14262c] mb-6 border-b pb-3">Radyolojik Görüntüler</h4>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                
-                <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Grafi+1', 'Sağ hemitoraksta apikal bölgede plevral ayrılma çizgisinin net olarak izlendiği primer spontan pnömotoraks PA Akciğer grafisi.')" class="cursor-pointer group">
-                    <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="https://placehold.co/400x400/14262c/white?text=Grafi+1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="PA Akciğer Grafisi">
-                        <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
-                        </div>
-                    </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Vaka 1 - PA Grafi</p>
-                </div>
-
-                <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Grafi+2', 'Travma sonrası sol hemitoraksta pnömotoraks ve eşlik eden multipl kosta fraktürleri görünümü.')" class="cursor-pointer group">
-                    <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="https://placehold.co/400x400/14262c/white?text=Grafi+2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Travmatik Pnömotoraks">
-                        <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
-                        </div>
-                    </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Vaka 2 - PA Grafi</p>
-                </div>
-
-                <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Tomografi+Kesiti', 'Sekonder pnömotoraks vakasında altta yatan dev büllöz yapıları gösteren Toraks CT aksiyel kesiti.')" class="cursor-pointer group">
-                    <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="https://placehold.co/400x400/14262c/white?text=CT+Kesiti" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Toraks CT">
-                        <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
-                        </div>
-                    </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Vaka 3 - Toraks CT</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- BÜYÜTÜLMÜŞ GÖRSEL EKRANI (MODAL) -->
-    <div id="imageModal" class="fixed inset-0 bg-[#14262c]/95 z-50 hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <button onclick="closeModal()" class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none p-2 bg-white/10 rounded-full transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <!-- Tam Ortalanmış Vektörel Türk Bayrağı İkonu -->
+        <div class="w-9 h-9 md:w-10 md:h-10 rounded-full overflow-hidden border border-white shadow-sm mb-4 transition-transform hover:scale-110 flex items-center justify-center bg-[#E30A17]">
+            <svg viewBox="0 0 100 100" class="w-full h-full">
+                <!-- Kırmızı Zemin -->
+                <circle cx="50" cy="50" r="50" fill="#E30A17"/>
+                <!-- Dış Beyaz Daire (Hilal) -->
+                <circle cx="45.5" cy="50" r="21" fill="white"/>
+                <!-- İç Kırmızı Daire (Hilal Kesimi) -->
+                <circle cx="50.75" cy="50" r="16.8" fill="#E30A17"/>
+                <!-- Tam Açıda ve Konumda Ortalanmış Yıldız -->
+                <polygon fill="white" points="60,50 65.07,48.24 65.18,42.87 68.43,47.15 73.57,45.59 70.5,50 73.57,54.41 68.43,52.85 65.18,57.13 65.07,51.76"/>
             </svg>
-        </button>
-        <img id="modalImage" src="" alt="Grafi Büyük Görünüm" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/10">
-        <p id="modalText" class="text-gray-200 mt-6 text-center text-sm md:text-base font-sans max-w-2xl leading-relaxed bg-black/30 p-4 rounded-xl"></p>
-    </div>
-
-    <!-- Script -->
-    <script>
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalText = document.getElementById('modalText');
-
-        function openModal(imageSrc, description) {
-            modalImg.src = imageSrc;
-            modalText.innerText = description;
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-            }, 10);
-        }
-
-        function closeModal() {
-            modal.classList.add('opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modalImg.src = '';
-            }, 300);
-        }
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Mustafa Türker | Göğüs Cerrahisi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500;600&display=swap');
-        .font-serif { font-family: 'Merriweather', serif; }
-        .font-sans { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-[#edf2f5] text-slate-800 font-sans antialiased">
-    
-    <!-- Üst/Ana Bölüm -->
-    <main class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-        
-        <!-- Yuvarlak Türk Bayrağı -->
-        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-white shadow-md mb-6 transition-transform hover:scale-105 flex items-center justify-center bg-red-600">
-            <img src="https://flagcdn.com/tr.svg" alt="Türk Bayrağı" class="w-full h-full object-cover">
         </div>
 
         <!-- Büyük Ana Başlık: GÖĞÜS CERRAHİSİ -->
@@ -221,22 +50,12 @@
                 </svg>
             </div>
             
-            <!-- Açılır Seçenekler Kutusu -->
+            <!-- Açılır Seçenekler Kutusu (Sadece Vaka Örnekleri) -->
             <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
                 <div class="py-2 flex flex-col text-left">
                     
                     <a href="#vakalar" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
                         Vaka Örnekleri
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                    
-                    <a href="#" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
-                        Hakkımda
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                    
-                    <a href="#" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
-                        İletişim
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                     </a>
 
