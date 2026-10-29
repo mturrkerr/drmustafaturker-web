@@ -9,11 +9,17 @@
         @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500;600&display=swap');
         .font-serif { font-family: 'Merriweather', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
+        
+        /* Tıbbi görseller için netlik artırıcı render ayarı */
+        .crisp-image {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
     </style>
 </head>
-<body class="bg-[#edf2f5] text-slate-800 font-sans antialiased">
+<body class="bg-[#edf2f5] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
     
-    <!-- Üst/Ana Bölüm -->
+    <!-- Üst/Ana Bölüm (Hero) -->
     <main class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
         
         <!-- Tam Ortalanmış Vektörel Türk Bayrağı İkonu -->
@@ -49,110 +55,143 @@
             <!-- Açılır Seçenekler Kutusu -->
             <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
                 <div class="py-2 flex flex-col text-left">
-                    <a href="#vakalar" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
+                    <button onclick="openVakalarSection()" class="w-full text-left px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
                         Vaka Örnekleri
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
         
     </main>
 
-    <!-- Pnömotoraks Vakaları ve Grafikler Bölümü -->
-    <section id="vakalar" class="max-w-4xl mx-auto p-6 pb-24">
+    <!-- BAŞLANGIÇTA GİZLİ VAKA ÖRNEKLERİ BÖLÜMÜ -->
+    <section id="vakalar" class="hidden max-w-4xl mx-auto p-6 pb-24 w-full transition-all duration-500">
         
-        <div class="flex items-center justify-center mb-10">
-            <h3 class="text-2xl md:text-3xl font-serif text-[#14262c] border-b-2 border-[#094d61] pb-3 px-4">
-                Pnömotoraks Vakaları
-            </h3>
+        <!-- Sekme (Tab) Başlıkları -->
+        <div class="flex items-center justify-center gap-3 mb-10 border-b border-gray-200 pb-4">
+            <button onclick="switchTab('pno')" id="tab-pno" class="px-6 py-2.5 rounded-xl font-medium text-sm transition-all bg-[#094d61] text-white shadow-sm">
+                Pnömotoraks Vaka Örnekleri
+            </button>
         </div>
         
-        <!-- Vaka Metinleri -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
-                <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 01</div>
-                <h4 class="text-xl font-bold text-[#14262c] mb-3">Primer Spontan Pnömotoraks</h4>
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    Genç erişkin hastada gelişen nüks pnömotoraks vakası. Tek port (Uniportal) VATS yaklaşımı ile apikal bül rezeksiyonu ve mekanik plörodez uygulanarak opere edildi. Erken post-op dönemde tüp torakostomi sonlandırılarak şifa ile taburcu edildi.
-                </p>
+        <!-- Sekme İçeriği: Pnömotoraks Vakaları -->
+        <div id="content-pno" class="block">
+            <!-- Vaka Metinleri -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
+                    <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 01</div>
+                    <h4 class="text-xl font-bold text-[#14262c] mb-3">Primer Spontan Pnömotoraks</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Genç erişkin hastada gelişen nüks pnömotoraks vakası. Tek port (Uniportal) VATS yaklaşımı ile apikal bül rezeksiyonu ve mekanik plörodez uygulanarak opere edildi. Erken post-op dönemde tüp torakostomi sonlandırılarak şifa ile taburcu edildi.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
+                    <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 02</div>
+                    <h4 class="text-xl font-bold text-[#14262c] mb-3">Travmatik Pnömotoraks</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Künt toraks travması sonrası başvuran hastada saptanan pnömotoraks ve kosta fraktürleri. Acil şartlarda tüp torakostomi uygulanarak akciğer ekspansiyonu sağlandı. Yataklı serviste analjezi ve solunum fizyoterapisi ile takip edildi.
+                    </p>
+                </div>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
-                <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 02</div>
-                <h4 class="text-xl font-bold text-[#14262c] mb-3">Travmatik Pnömotoraks</h4>
-                <p class="text-gray-600 leading-relaxed text-sm">
-                    Künt toraks travması sonrası başvuran hastada saptanan pnömotoraks ve kosta fraktürleri. Acil şartlarda tüp torakostomi uygulanarak akciğer ekspansiyonu sağlandı. Yataklı serviste analjezi ve solunum fizyoterapisi ile takip edildi.
-                </p>
-            </div>
-        </div>
-
-        <!-- Radyolojik Görüntüler (Grafiler) -->
-        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50">
-            <h4 class="text-xl font-bold text-[#14262c] mb-6 border-b pb-3">Radyolojik Görüntüler</h4>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Radyolojik Görüntüler (Grafiler) -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50">
+                <h4 class="text-xl font-bold text-[#14262c] mb-6 border-b pb-3">Radyolojik Görüntüler</h4>
                 
-                <!-- YÜKLENEN GERÇEK GÖRSEL: pnx 29102611.jpg -->
-                <div onclick="openModal('pnx 29102611.jpg', 'Spontan Pnömotoraks vakasına ait PA Akciğer Grafisi. Akciğer dokusundaki kollaps ve apikal bölgedeki viseral plevra çizgisi izlenmektedir.')" class="cursor-pointer group">
-                    <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="pnx 29102611.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Spontan Pnömotoraks Grafi">
-                        <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    
+                    <!-- Yüklenen Gerçek Görsel -->
+                    <div onclick="openModal('pnx 29102611.jpg', 'Spontan Pnömotoraks vakasına ait PA Akciğer Grafisi. Akciğer dokusundaki kollaps ve apikal bölgedeki viseral plevra çizgisi izlenmektedir.')" class="cursor-pointer group">
+                        <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
+                            <img src="pnx 29102611.jpg" class="w-full h-full object-cover crisp-image group-hover:scale-110 transition-transform duration-500" alt="Spontan Pnömotoraks Grafi">
+                            <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            </div>
                         </div>
+                        <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Spontan Pnömotoraks - Grafi</p>
                     </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Spontan Pnömotoraks - Grafi</p>
-                </div>
 
-                <!-- Taslak Görsel 2 -->
-                <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Grafi+2', 'Travma sonrası sol hemitoraksta pnömotoraks ve eşlik eden multipl kosta fraktürleri görünümü.')" class="cursor-pointer group">
-                    <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="https://placehold.co/400x400/14262c/white?text=Grafi+2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Travmatik Pnömotoraks">
-                        <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                    <!-- Taslak Görsel 2 -->
+                    <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Grafi+2', 'Travma sonrası sol hemitoraksta pnömotoraks ve eşlik eden multipl kosta fraktürleri görünümü.')" class="cursor-pointer group">
+                        <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
+                            <img src="https://placehold.co/400x400/14262c/white?text=Grafi+2" class="w-full h-full object-cover crisp-image group-hover:scale-110 transition-transform duration-500" alt="Travmatik Pnömotoraks">
+                            <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            </div>
                         </div>
+                        <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Travmatik PNX - PA Grafi</p>
                     </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Travmatik PNX - PA Grafi</p>
-                </div>
 
-                <!-- Taslak Görsel 3 -->
-                <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Tomografi+Kesiti', 'Sekonder pnömotoraks vakasında altta yatan dev büllöz yapıları gösteren Toraks CT aksiyel kesiti.')" class="cursor-pointer group">
-                    <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="https://placehold.co/400x400/14262c/white?text=CT+Kesiti" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Toraks CT">
-                        <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
-                        <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                    <!-- Taslak Görsel 3 -->
+                    <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Tomografi+Kesiti', 'Sekonder pnömotoraks vakasında altta yatan dev büllöz yapıları gösteren Toraks CT aksiyel kesiti.')" class="cursor-pointer group">
+                        <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
+                            <img src="https://placehold.co/400x400/14262c/white?text=CT+Kesiti" class="w-full h-full object-cover crisp-image group-hover:scale-110 transition-transform duration-500" alt="Toraks CT">
+                            <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                            </div>
                         </div>
+                        <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Büllöz Akciğer - Toraks CT</p>
                     </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Büllöz Akciğer - Toraks CT</p>
-                </div>
 
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- BÜYÜTÜLMÜŞ GÖRSEL EKRANI (MODAL) -->
-    <div id="imageModal" class="fixed inset-0 bg-[#14262c]/95 z-50 hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <button onclick="closeModal()" class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none p-2 bg-white/10 rounded-full transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <img id="modalImage" src="" alt="Grafi Büyük Görünüm" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/10">
-        <p id="modalText" class="text-gray-200 mt-6 text-center text-sm md:text-base font-sans max-w-2xl leading-relaxed bg-black/30 p-4 rounded-xl"></p>
+    <!-- EKRANIN ORTASINDA %50 GENİŞLİKTE VE ZOOM ÖZELLİKLİ MODAL (LIGHTBOX) -->
+    <div id="imageModal" class="fixed inset-0 bg-[#14262c]/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        
+        <!-- Modal İçerik Kutusu (Ekranın Tam Ortasında ve %50 Genişlikte) -->
+        <div class="relative w-full md:w-1/2 max-w-2xl bg-[#14262c] border border-white/15 rounded-2xl shadow-2xl p-4 flex flex-col items-center justify-center max-h-[90vh]">
+            
+            <!-- Kapatma Butonu -->
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white hover:text-gray-300 focus:outline-none p-2 bg-white/10 rounded-full transition-colors z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Zoom Kontrol Butonları -->
+            <div class="absolute top-6 right-6 flex gap-1 z-20 bg-black/60 backdrop-blur-md p-1 rounded-lg border border-white/20">
+                <button onclick="zoomImage(0.2)" class="text-white hover:bg-white/20 w-8 h-8 rounded font-bold text-lg leading-none flex items-center justify-center">+</button>
+                <button onclick="zoomImage(-0.2)" class="text-white hover:bg-white/20 w-8 h-8 rounded font-bold text-lg leading-none flex items-center justify-center">-</button>
+                <button onclick="resetZoom()" class="text-xs text-white hover:bg-white/20 px-2 h-8 rounded flex items-center justify-center font-medium">Sıfırla</button>
+            </div>
+
+            <!-- Görsel Kapsayıcı (Zoom Taşmasını Önler) -->
+            <div class="w-full overflow-hidden rounded-xl bg-black/50 border border-white/10 flex items-center justify-center p-2 min-h-[300px]">
+                <img id="modalImage" src="" alt="Grafi Büyük Görünüm" class="max-w-full max-h-[55vh] object-contain transition-transform duration-150 ease-out crisp-image cursor-grab active:cursor-grabbing">
+            </div>
+
+            <!-- Alt Açıklama Metni -->
+            <p id="modalText" class="text-gray-200 mt-4 text-center text-xs md:text-sm font-sans w-full leading-relaxed bg-black/40 p-3.5 rounded-xl border border-white/10 max-h-[18vh] overflow-y-auto"></p>
+        </div>
     </div>
 
-    <!-- Script -->
+    <!-- Scriptler -->
     <script>
+        // Vaka Örnekleri Bölümünü Açma Fonksiyonu
+        function openVakalarSection() {
+            const sec = document.getElementById('vakalar');
+            sec.classList.remove('hidden');
+            sec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal ve Zoom Yönetimi
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const modalText = document.getElementById('modalText');
+        let currentScale = 1;
 
         function openModal(imageSrc, description) {
             modalImg.src = imageSrc;
             modalText.innerText = description;
+            resetZoom();
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
@@ -164,14 +203,16 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modalImg.src = '';
+                resetZoom();
             }, 300);
         }
 
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html>
+        function zoomImage(amount) {
+            currentScale += amount;
+            if (currentScale < 0.8) currentScale = 0.8;
+            if (currentScale > 4) currentScale = 4;
+            updateImageTransform();
+        }
+
+        function resetZoom() {
+            currentScale = 1;
