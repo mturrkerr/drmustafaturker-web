@@ -19,13 +19,9 @@
         <!-- Tam Ortalanmış Vektörel Türk Bayrağı İkonu -->
         <div class="w-9 h-9 md:w-10 md:h-10 rounded-full overflow-hidden border border-white shadow-sm mb-4 transition-transform hover:scale-110 flex items-center justify-center bg-[#E30A17]">
             <svg viewBox="0 0 100 100" class="w-full h-full">
-                <!-- Kırmızı Zemin -->
                 <circle cx="50" cy="50" r="50" fill="#E30A17"/>
-                <!-- Dış Beyaz Daire (Hilal) -->
                 <circle cx="45.5" cy="50" r="21" fill="white"/>
-                <!-- İç Kırmızı Daire (Hilal Kesimi) -->
                 <circle cx="50.75" cy="50" r="16.8" fill="#E30A17"/>
-                <!-- Tam Açıda ve Konumda Ortalanmış Yıldız -->
                 <polygon fill="white" points="60,50 65.07,48.24 65.18,42.87 68.43,47.15 73.57,45.59 70.5,50 73.57,54.41 68.43,52.85 65.18,57.13 65.07,51.76"/>
             </svg>
         </div>
@@ -50,15 +46,13 @@
                 </svg>
             </div>
             
-            <!-- Açılır Seçenekler Kutusu (Sadece Vaka Örnekleri) -->
+            <!-- Açılır Seçenekler Kutusu -->
             <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
                 <div class="py-2 flex flex-col text-left">
-                    
                     <a href="#vakalar" class="px-6 py-3.5 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
                         Vaka Örnekleri
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                     </a>
-
                 </div>
             </div>
         </div>
@@ -99,17 +93,19 @@
             
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 
-                <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Grafi+1', 'Sağ hemitoraksta apikal bölgede plevral ayrılma çizgisinin net olarak izlendiği primer spontan pnömotoraks PA Akciğer grafisi.')" class="cursor-pointer group">
+                <!-- YÜKLENEN GERÇEK GÖRSEL: pnx 29102611.jpg -->
+                <div onclick="openModal('pnx 29102611.jpg', 'Spontan Pnömotoraks vakasına ait PA Akciğer Grafisi. Akciğer dokusundaki kollaps ve apikal bölgedeki viseral plevra çizgisi izlenmektedir.')" class="cursor-pointer group">
                     <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
-                        <img src="https://placehold.co/400x400/14262c/white?text=Grafi+1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="PA Akciğer Grafisi">
+                        <img src="pnx 29102611.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Spontan Pnömotoraks Grafi">
                         <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
                         <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                         </div>
                     </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Vaka 1 - PA Grafi</p>
+                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Spontan Pnömotoraks - Grafi</p>
                 </div>
 
+                <!-- Taslak Görsel 2 -->
                 <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Grafi+2', 'Travma sonrası sol hemitoraksta pnömotoraks ve eşlik eden multipl kosta fraktürleri görünümü.')" class="cursor-pointer group">
                     <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
                         <img src="https://placehold.co/400x400/14262c/white?text=Grafi+2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Travmatik Pnömotoraks">
@@ -118,9 +114,10 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                         </div>
                     </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Vaka 2 - PA Grafi</p>
+                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Travmatik PNX - PA Grafi</p>
                 </div>
 
+                <!-- Taslak Görsel 3 -->
                 <div onclick="openModal('https://placehold.co/800x600/14262c/white?text=Tomografi+Kesiti', 'Sekonder pnömotoraks vakasında altta yatan dev büllöz yapıları gösteren Toraks CT aksiyel kesiti.')" class="cursor-pointer group">
                     <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
                         <img src="https://placehold.co/400x400/14262c/white?text=CT+Kesiti" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Toraks CT">
@@ -129,7 +126,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#14262c]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                         </div>
                     </div>
-                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Vaka 3 - Toraks CT</p>
+                    <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Büllöz Akciğer - Toraks CT</p>
                 </div>
 
             </div>
