@@ -41,8 +41,8 @@
             Ass. Dr. Mustafa Türker
         </h2>
         
-        <!-- HOVER İLE AÇILAN HAMBURGER MENÜ -->
-        <div class="relative group">
+        <!-- İKİ KADEMELİ HOVER MENÜ -->
+        <div class="relative group/main">
             
             <!-- Menü Butonu (Hamburger İkonu) -->
             <div class="w-14 h-14 bg-[#094d61] hover:bg-[#0d687a] rounded-full flex items-center justify-center shadow-lg shadow-[#094d61]/20 cursor-pointer transition-all duration-300">
@@ -51,17 +51,25 @@
                 </svg>
             </div>
             
-            <!-- Açılır Seçenekler Kutusu -->
-            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                <div class="py-3 flex flex-col text-left">
-                    <div class="px-5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-gray-400 border-b border-gray-100 mb-1">
-                        Vaka Örnekleri
+            <!-- 1. Seviye Açılır Menü (Vaka Örnekleri) -->
+            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100 opacity-0 invisible group-hover/main:opacity-100 group-hover/main:visible transition-all duration-300 transform translate-y-2 group-hover/main:translate-y-0 z-50 p-2">
+                
+                <!-- Vaka Örnekleri Öğesi (Üzerine gelince 2. Seviye açılır) -->
+                <div class="relative group/sub">
+                    <div class="w-full text-left px-4 py-3 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] rounded-xl transition-colors flex items-center justify-between cursor-pointer">
+                        <span>Vaka Örnekleri</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/sub:text-[#0d687a] transition-colors transform group-hover/sub:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
                     </div>
-                    <button onclick="openVakalarSection()" class="w-full text-left px-5 py-3 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] transition-colors flex items-center justify-between group/item">
-                        <span>Pnömotoraks Vakaları</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 group-hover/item:text-[#0d687a] transition-colors transform group-hover/item:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                    </button>
+
+                    <!-- 2. Seviye Açılır Alt Menü (Pnömotoraks Örnekleri) -->
+                    <div class="absolute left-full top-0 ml-2 w-56 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 transform translate-x-2 group-hover/sub:translate-x-0 z-50 p-2">
+                        <button onclick="openVakalarSection()" class="w-full text-left px-4 py-3 text-sm font-medium text-[#14262c] hover:bg-[#edf2f5] hover:text-[#0d687a] rounded-xl transition-colors flex items-center justify-between">
+                            <span>Pnömotoraks Örnekleri</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#0d687a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
                 </div>
+
             </div>
         </div>
         
@@ -79,11 +87,13 @@
         <div id="content-pno" class="block">
             <!-- Vaka Metinleri -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                
+                <!-- Güncellenmiş Vaka 01 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-50 hover:shadow-md transition-shadow">
                     <div class="text-[#0d687a] font-bold text-xs tracking-wider mb-3">VAKA 01</div>
-                    <h4 class="text-xl font-bold text-[#14262c] mb-3">Primer Spontan Pnömotoraks</h4>
+                    <h4 class="text-xl font-bold text-[#14262c] mb-3">Spontan Pnömotoraks</h4>
                     <p class="text-gray-600 leading-relaxed text-sm">
-                        Genç erişkin hastada gelişen nüks pnömotoraks vakası. Tek port (Uniportal) VATS yaklaşımı ile apikal bül rezeksiyonu ve mekanik plörodez uygulanarak opere edildi. Erken post-op dönemde tüp torakostomi sonlandırılarak şifa ile taburcu edildi.
+                        35 yaşında erkek hastada gelişen spontan pnömotoraks vakası. Tek port (Uniportal) VATS yaklaşımı ile apikal bül rezeksiyonu ve mekanik plörodez uygulanarak opere edildi. Erken post-op dönemde tüp torakostomi sonlandırılarak şifa ile taburcu edildi.
                     </p>
                 </div>
 
@@ -102,17 +112,17 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     
-                    <!-- Orijinal ve İşaretli Görsel Entegre Edilmiş Kart -->
-                    <div onclick="openModal('pnx 29102611.jpg', 'Spontan Pnömotoraks vakasına ait PA Akciğer Grafisi. Sağ hemitorakstaki apikal kollaps ve plevral hat incelenebilir.', 'pnx 2910261işaretli.jpg')" class="cursor-pointer group">
+                    <!-- Güncellenmiş Modal Açıklamalı Görsel Kartı -->
+                    <div onclick="openModal('pnx 29102611.jpg', '35 yaş erkek spontan pnömotoraks vakasına ait PA Akciğer Grafisi. Sağ hemitorakstaki apikal kollaps ve viseral plevral hat incelenebilir.', 'pnx 2910261işaretli.jpg')" class="cursor-pointer group">
                         <div class="overflow-hidden rounded-xl bg-gray-100 aspect-square relative border border-gray-200">
                             <img src="pnx 29102611.jpg" class="w-full h-full object-cover crisp-image group-hover:scale-110 transition-transform duration-500" alt="Spontan Pnömotoraks Grafi">
                             <div class="absolute inset-0 bg-[#094d61]/10 group-hover:bg-transparent transition-colors"></div>
                             <div class="absolute bottom-3 right-3 bg-white/90 p-2 rounded-full shadow flex items-center gap-1 text-[11px] font-bold text-[#14262c]">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#0d687a]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
-                                Incele
+                                İncele
                             </div>
                         </div>
-                        <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">Spontan Pnömotoraks - Grafi</p>
+                        <p class="mt-3 text-sm font-semibold text-center text-[#0d687a]">35Y Erkek Spontan PNX - Grafi</p>
                     </div>
 
                     <!-- Taslak Görsel 2 -->
@@ -144,40 +154,31 @@
         </div>
     </section>
 
-    <!-- GELİŞMİŞ LIGHTBOX (SÜRÜKLE-BIRAK PAN & HATTI GÖSTER ÖZELLİKLİ) -->
+    <!-- GELİŞMİŞ LIGHTBOX -->
     <div id="imageModal" class="fixed inset-0 bg-[#14262c]/95 backdrop-blur-md z-50 hidden flex items-center justify-center p-2 md:p-6 opacity-0 transition-opacity duration-300">
-        
-        <!-- Modal İçerik Kutusu -->
         <div class="relative w-full md:w-3/4 lg:w-1/2 max-w-3xl bg-[#14262c] border border-white/20 rounded-2xl shadow-2xl p-4 flex flex-col items-center justify-center max-h-[92vh]">
             
-            <!-- Üst Kontrol Barı -->
             <div class="w-full flex items-center justify-between mb-3 z-30">
-                
-                <!-- Hattı Göster Butonu -->
                 <button id="hatBtn" onclick="toggleHat()" class="hidden bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 shadow">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                     <span>Hattı Göster</span>
                 </button>
 
-                <!-- Zoom & Sıfırla Kontrolleri -->
                 <div class="flex items-center gap-1 bg-black/60 backdrop-blur-md p-1 rounded-lg border border-white/20 ml-auto">
                     <button onclick="zoomImage(0.25)" class="text-white hover:bg-white/20 w-8 h-8 rounded font-bold text-lg flex items-center justify-center" title="Yakınlaştır">+</button>
                     <button onclick="zoomImage(-0.25)" class="text-white hover:bg-white/20 w-8 h-8 rounded font-bold text-lg flex items-center justify-center" title="Uzaklaştır">-</button>
                     <button onclick="resetZoom()" class="text-xs text-white hover:bg-white/20 px-2 h-8 rounded font-medium flex items-center justify-center">Sıfırla</button>
                 </div>
 
-                <!-- Kapat Butonu -->
                 <button onclick="closeModal()" class="text-white/80 hover:text-white p-1.5 bg-white/10 hover:bg-white/20 rounded-full transition-colors ml-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </div>
 
-            <!-- Kaydırılabilir Görsel Alanı (Panning Canvas) -->
             <div id="imageCanvas" class="w-full h-[58vh] overflow-hidden rounded-xl bg-black/60 border border-white/10 flex items-center justify-center relative cursor-grab active:cursor-grabbing">
                 <img id="modalImage" src="" alt="Grafi Büyük Görünüm" class="max-w-full max-h-full object-contain crisp-image transform-gpu transition-transform duration-75 ease-out origin-center pointer-events-auto">
             </div>
 
-            <!-- Alt Açıklama Metni -->
             <p id="modalText" class="text-gray-200 mt-3 text-center text-xs md:text-sm font-sans w-full leading-relaxed bg-black/40 p-3 rounded-xl border border-white/10 max-h-[16vh] overflow-y-auto"></p>
         </div>
     </div>
@@ -190,7 +191,6 @@
             sec.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Modal, Sürükleme (Pan) ve Hat Değiştirme Mantığı
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const modalText = document.getElementById('modalText');
@@ -271,7 +271,6 @@
             updateTransform();
         }
 
-        // Fare ile Sürükle ve Kaydır (Pan/Drag Handling)
         imageCanvas.addEventListener('mousedown', function(e) {
             e.preventDefault();
             startX = e.clientX - pointX;
@@ -291,7 +290,6 @@
             isDragging = false;
         });
 
-        // Mouse Tekerleği İle Yakınlaştırma
         imageCanvas.addEventListener('wheel', function(e) {
             e.preventDefault();
             if (e.deltaY < 0) {
