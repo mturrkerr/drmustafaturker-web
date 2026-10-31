@@ -6,11 +6,12 @@
     <title>Dr. Mustafa Türker</title>
     <style>
         html, body { height: 100%; margin: 0; }
-        body { background: #edf2f5; display: flex; align-items: center; justify-content: center; }
+        body { background: #edf2f5; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
         .flag { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #fff; box-shadow: 0 6px 24px rgba(0,0,0,0.15); opacity: 0; animation: show 1s ease 0.2s forwards; }
         .flag svg { width: 100%; height: 100%; display: block; }
+        .number { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 32px; font-weight: 700; color: #E30A17; letter-spacing: 2px; opacity: 0; animation: show 1s ease 0.4s forwards; }
         @keyframes show { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        @media (prefers-reduced-motion: reduce) { .flag { opacity: 1; animation: none; } }
+        @media (prefers-reduced-motion: reduce) { .flag, .number { opacity: 1; animation: none; } }
     </style>
 </head>
 <body>
@@ -22,5 +23,6 @@
             <polygon fill="white" points="60,50 65.07,48.24 65.18,42.87 68.43,47.15 73.57,45.59 70.5,50 73.57,54.41 68.43,52.85 65.18,57.13 65.07,51.76"/>
         </svg>
     </div>
+    <div class="number">68</div>
 </body>
 </html>
