@@ -85,6 +85,7 @@
         toggles.forEach(function (b) {
             b.addEventListener('click', function (e) { e.stopPropagation(); showLine = !showLine; render(); });
         });
+        render();
 
         // Görüntüleyici: yakınlaştırma ve gezdirme
         var scale = 1, x = 0, y = 0, minScale = 1, maxScale = 8;
@@ -110,7 +111,7 @@
         function openViewer() {
             viewer.hidden = false;
             document.body.style.overflow = 'hidden';
-            if (viewerImage.complete) fit(); else viewerImage.onload = function () { viewerImage.onload = null; fit(); };
+            if (viewerImage.complete && viewerImage.naturalWidth) fit(); else viewerImage.onload = function () { viewerImage.onload = null; fit(); };
         }
         function closeViewer() { viewer.hidden = true; document.body.style.overflow = ''; }
 
