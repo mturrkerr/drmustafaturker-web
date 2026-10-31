@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akciğer Grafileri - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Akciğer Grafileri</h1>
+        <p class="lead">Akciğer grafisi; göğüs cerrahisinde tanı, takip ve ameliyat sonrası kontrolde en sık başvurulan, ucuz, hızlı ve düşük radyasyonlu görüntüleme yöntemidir. Bu sayfada grafi türlerini, hangi amaçla ve nasıl çekildiklerini ve birbirlerinden farklarını bulacaksınız.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#adlandirma">Grafiler nasıl adlandırılır?</a></li>
+                <li><a href="#pa">PA akciğer grafisi</a></li>
+                <li><a href="#ap">AP akciğer grafisi</a></li>
+                <li><a href="#pa-ap">PA ile AP arasındaki farklar</a></li>
+                <li><a href="#lateral">Lateral (yan) grafi</a></li>
+                <li><a href="#lordotik">Apikal lordotik grafi</a></li>
+                <li><a href="#dekubitus">Lateral dekübitus grafisi</a></li>
+                <li><a href="#ekspiryum">Ekspiryum grafisi</a></li>
+                <li><a href="#oblik">Oblik ve kot grafileri</a></li>
+                <li><a href="#kalite">Grafi kalitesinin değerlendirilmesi</a></li>
+                <li><a href="#kullanim">Göğüs cerrahisinde kullanım alanları</a></li>
+                <li><a href="#ozet">Özet tablo</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="adlandirma">1. Grafiler nasıl adlandırılır?</h2>
+            <p>Grafinin adı, <strong>X ışınının hastanın vücuduna girdiği yönden çıktığı yöne</strong> göre verilir. Işının girdiği taraf ilk, çıktığı taraf ikinci yazılır:</p>
+            <ul>
+                <li><strong>PA (posteroanterior):</strong> Işın sırttan (posterior) girer, göğüsten (anterior) çıkar. Hasta göğsünü dedektöre (kasete) yaslar.</li>
+                <li><strong>AP (anteroposterior):</strong> Işın göğüsten girer, sırttan çıkar. Hastanın sırtı dedektöre dayalıdır.</li>
+                <li><strong>Lateral:</strong> Işın bir yandan girer, diğer yandan çıkar. Adını dedektöre yakın olan taraf alır: "sol lateral" grafide hastanın sol yanı dedektöre dayalıdır.</li>
+            </ul>
+            <div class="note">
+                <p><strong>Temel kural:</strong> Dedektöre yakın olan yapı daha net ve gerçek boyutuna yakın, dedektörden uzak olan yapı ise daha büyük ve bulanık görünür. Kalp göğsün önünde yer aldığı için PA grafide dedektöre yakın, AP grafide ise uzaktır. PA ile AP arasındaki farkların çoğu bu kuraldan kaynaklanır.</p>
+            </div>
+            <div class="note">
+                <p><strong>Terim notu:</strong> "Apikoposterior" bir grafi adı değil, sol akciğer üst lobunun bir segmentinin (apikoposterior segment) adıdır. Grafiler için kullanılan terimler <strong>AP (anteroposterior)</strong> ve <strong>PA (posteroanterior)</strong>; akciğer tepelerini göstermek için çekilen grafi ise <strong>apikal lordotik</strong> grafidir.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 id="pa">2. PA (posteroanterior) akciğer grafisi</h2>
+            <span class="tag">Standart grafi</span>
+            <p>Akciğer grafisinin altın standardıdır; mümkün olan her hastada ilk tercih edilir.</p>
+            <h3>Nasıl çekilir?</h3>
+            <ul>
+                <li>Hasta <strong>ayakta</strong>, göğsü dedektöre dayalı durur.</li>
+                <li>Çene hafifçe kaldırılır, eller kalçalara konur ve <strong>omuzlar öne doğru yuvarlanır</strong>. Böylece skapulalar akciğer alanlarının dışına çekilir.</li>
+                <li>Röntgen tüpü hastanın arkasında, dedektöre yaklaşık <strong>180 cm</strong> uzaklıktadır. Uzak mesafe, ışınların paralele yakın gelmesini ve büyütmenin az olmasını sağlar.</li>
+                <li>Çekim <strong>derin inspiryumda</strong>, nefes tutularak yapılır.</li>
+            </ul>
+            <h3>Ne için çekilir?</h3>
+            <ul>
+                <li>Akciğer parankimi, plevra, mediasten, kalp gölgesi, diyafram ve kemik yapıların genel değerlendirmesi</li>
+                <li>Pnömotoraks, plevral efüzyon, pnömoni, kitle ve nodül şüphesi</li>
+                <li>Ameliyat öncesi değerlendirme ve ameliyat sonrası takip</li>
+            </ul>
+            <h3>Avantajları</h3>
+            <ul>
+                <li>Kalp dedektöre yakın olduğu için büyümez; <strong>kardiyotorasik oran</strong> güvenilir şekilde ölçülür (normalde &lt; 0,5).</li>
+                <li>Hasta ayakta olduğu için sıvı aşağıda, hava yukarıda toplanır; <strong>hava-sıvı seviyeleri</strong> ve apikal pnömotoraks iyi görülür.</li>
+                <li>Skapulalar akciğer alanlarının dışında kalır.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 200" role="img" aria-label="PA grafide ışının sırttan girip göğüsten çıkması ve kalbin dedektöre yakın olduğu kesit şeması">
+                    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+                    <rect x="14" y="85" width="34" height="30" rx="5" fill="#1f3a52"/><text x="31" y="132" font-size="11" text-anchor="middle" fill="#1f3a52">Tüp</text>
+                    <line x1="48" y1="100" x2="300" y2="68" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+                    <line x1="48" y1="100" x2="300" y2="132" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+                    <line x1="60" y1="100" x2="110" y2="100" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar)"/>
+                    <ellipse cx="205" cy="100" rx="80" ry="58" fill="#fff" stroke="#8a98a5" stroke-width="2"/>
+                    <circle cx="142" cy="100" r="11" fill="#d5dde4" stroke="#8a98a5"/><text x="142" y="104" font-size="9" text-anchor="middle" fill="#3a4a57">Omurga</text>
+                    <ellipse cx="250" cy="100" rx="24" ry="27" fill="#f2b8b5" stroke="#c0392b"/><text x="250" y="104" font-size="11" text-anchor="middle" fill="#7a1f1a">Kalp</text>
+                    <text x="128" y="36" font-size="11" fill="#6a7a87">Arka (sırt)</text><text x="238" y="36" font-size="11" fill="#6a7a87">Ön (göğüs)</text>
+                    <rect x="300" y="30" width="10" height="140" rx="2" fill="#3a4a57"/><text x="330" y="186" font-size="11" text-anchor="middle" fill="#3a4a57">Dedektör</text>
+                    <rect x="312" y="80" width="5" height="40" fill="#c0392b"/>
+                </svg>
+                <figcaption>PA grafi, yukarıdan bakılan kesit (şematik). Kalp dedektöre yakın olduğu için gölgesi (kırmızı çizgi) gerçek boyutuna yakındır.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="ap">3. AP (anteroposterior) akciğer grafisi</h2>
+            <span class="tag">Yatak başı / portabl grafi</span>
+            <p>Ayağa kalkamayan, röntgen ünitesine götürülemeyen hastalarda çekilir.</p>
+            <h3>Nasıl çekilir?</h3>
+            <ul>
+                <li>Hasta sırtüstü <strong>yatar (supin)</strong> veya yarı oturur pozisyondadır; dedektör sırtının altına yerleştirilir.</li>
+                <li>Portabl cihazla, hastanın önünden çekilir. Tüp-dedektör mesafesi daha kısadır (yaklaşık <strong>100 cm</strong>).</li>
+                <li>Hasta omuzlarını öne yuvarlayamadığı için skapulalar akciğer alanlarının üzerine düşer.</li>
+            </ul>
+            <h3>Ne için çekilir?</h3>
+            <ul>
+                <li>Yoğun bakım hastaları, travma hastaları, ameliyat sonrası erken dönem</li>
+                <li><strong>Tüp ve kateter yerinin kontrolü:</strong> göğüs tüpü, endotrakeal tüp, santral venöz kateter, nazogastrik sonda</li>
+                <li>Ayağa kalkamayan hastalarda pnömotoraks, efüzyon ve pnömoni takibi</li>
+            </ul>
+            <h3>Dikkat edilmesi gerekenler</h3>
+            <ul>
+                <li>Kalp dedektörden uzak olduğu için <strong>büyük görünür</strong>; kardiyotorasik oran ile kardiyomegali yorumlanmamalıdır. Mediasten de geniş görünebilir.</li>
+                <li><strong>Supin hastada sıvı arkaya yayılır:</strong> plevral efüzyon belirgin bir menisküs oluşturmaz, etkilenen hemitoraksta yaygın bir dansite artışı (buzlu cam benzeri silik görünüm) olarak görülür.</li>
+                <li><strong>Supin hastada hava öne ve aşağıya toplanır:</strong> pnömotoraks apekste değil, ön ve alt bölgelerde birikir. Kostofrenik sinüsün derin ve keskin görünmesi (<strong>derin sulkus belirtisi</strong>) pnömotoraksı düşündürmelidir.</li>
+                <li>Işın yere dik geldiği için supin grafide hava-sıvı seviyesi görülmez.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 200" role="img" aria-label="AP grafide ışının göğüsten girip sırttan çıkması ve kalbin dedektörden uzak olduğu kesit şeması">
+                    <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+                    <rect x="14" y="85" width="34" height="30" rx="5" fill="#1f3a52"/><text x="31" y="132" font-size="11" text-anchor="middle" fill="#1f3a52">Tüp</text>
+                    <line x1="48" y1="100" x2="300" y2="40" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+                    <line x1="48" y1="100" x2="300" y2="160" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+                    <line x1="60" y1="100" x2="110" y2="100" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar2)"/>
+                    <ellipse cx="205" cy="100" rx="80" ry="58" fill="#fff" stroke="#8a98a5" stroke-width="2"/>
+                    <circle cx="268" cy="100" r="11" fill="#d5dde4" stroke="#8a98a5"/><text x="268" y="104" font-size="9" text-anchor="middle" fill="#3a4a57">Omurga</text>
+                    <ellipse cx="160" cy="100" rx="24" ry="27" fill="#f2b8b5" stroke="#c0392b"/><text x="160" y="104" font-size="11" text-anchor="middle" fill="#7a1f1a">Kalp</text>
+                    <text x="128" y="36" font-size="11" fill="#6a7a87">Ön (göğüs)</text><text x="238" y="36" font-size="11" fill="#6a7a87">Arka (sırt)</text>
+                    <rect x="300" y="30" width="10" height="140" rx="2" fill="#3a4a57"/><text x="330" y="186" font-size="11" text-anchor="middle" fill="#3a4a57">Dedektör</text>
+                    <rect x="312" y="62" width="5" height="76" fill="#c0392b"/>
+                </svg>
+                <figcaption>AP grafi, yukarıdan bakılan kesit (şematik, oranlar abartılmıştır). Kalp tüpe yakın, dedektörden uzak olduğu için gölgesi büyür.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="pa-ap">4. PA ile AP arasındaki farklar</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Özellik</th><th>PA grafi</th><th>AP grafi</th></tr></thead>
+                    <tbody>
+                        <tr><td>Işının yönü</td><td>Sırttan göğse</td><td>Göğüsten sırta</td></tr>
+                        <tr><td>Hasta pozisyonu</td><td>Ayakta, göğüs dedektörde</td><td>Yatarak veya yarı oturur, sırt dedektörde</td></tr>
+                        <tr><td>Tüp-dedektör mesafesi</td><td>~180 cm</td><td>~100 cm</td></tr>
+                        <tr><td>Kalp gölgesi</td><td>Gerçek boyutuna yakın</td><td>Büyümüş; KTO yorumlanmaz</td></tr>
+                        <tr><td>Skapulalar</td><td>Akciğer alanlarının dışında</td><td>Akciğer alanlarının üzerinde</td></tr>
+                        <tr><td>Klavikulalar</td><td>Daha aşağıda, akciğer tepelerinin üzerinden geçer</td><td>Daha yukarıda ve yatay görünür</td></tr>
+                        <tr><td>İnspiryum</td><td>Genellikle iyi</td><td>Çoğu zaman yetersiz; bazaller kalabalık görünür</td></tr>
+                        <tr><td>Efüzyon / pnömotoraks</td><td>Menisküs, apikal hava ve hava-sıvı seviyesi net görülür</td><td>Sıvı arkaya yayılır, hava öne toplanır; tanı daha zordur</td></tr>
+                        <tr><td>Kullanım</td><td>Ayaktan hasta, poliklinik, rutin kontrol</td><td>Yoğun bakım, servis, travma, ameliyat sonrası erken dönem</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note"><p><strong>Pratik ipucu:</strong> Grafi üzerinde genellikle "AP", "supin" veya "portabl" yazar. Yazmıyorsa skapulaların konumuna ve klavikulaların yataylığına bakın.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="lateral">5. Lateral (yan) akciğer grafisi</h2>
+            <span class="tag">PA grafinin tamamlayıcısı</span>
+            <h3>Nasıl çekilir?</h3>
+            <ul>
+                <li>Hasta ayakta, yan durur. Standart olarak <strong>sol yanı dedektöre dayalı</strong> çekilir (sol lateral). Kalp solda olduğu için dedektöre yakın olur ve daha az büyür.</li>
+                <li>Kollar baş üzerine kaldırılır; böylece kol gölgeleri akciğer alanından çıkar.</li>
+                <li>Derin inspiryumda çekilir.</li>
+            </ul>
+            <h3>Ne için çekilir?</h3>
+            <ul>
+                <li><strong>Lezyonun yerini belirlemek:</strong> PA grafide görülen bir lezyonun önde mi arkada mı olduğu, hangi lobda yer aldığı</li>
+                <li><strong>Kör noktalar:</strong> PA grafide kalbin arkası (retrokardiyak alan), sternumun arkası (retrosternal alan) ve diyaframın arkasında kalan alanlar</li>
+                <li><strong>Az miktardaki efüzyon:</strong> Sıvı önce en derin nokta olan arka kostofrenik sinüste toplanır. Lateral grafide yaklaşık <strong>50 mL</strong> sıvı fark edilebilirken, PA grafide yan sinüsün kapanması için genellikle yaklaşık <strong>200 mL</strong> gerekir.</li>
+                <li>Mediasten kitlelerinin ön, orta veya arka mediasten kompartmanlarına yerleştirilmesi</li>
+                <li>Fissürlerin (major ve minör) ve lob kollapslarının değerlendirilmesi</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 210" role="img" aria-label="Sol lateral grafide ışının sağdan girip soldan çıkması ve kalbin dedektöre yakın olduğu kesit şeması">
+                    <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+                    <rect x="14" y="90" width="34" height="30" rx="5" fill="#1f3a52"/><text x="31" y="137" font-size="11" text-anchor="middle" fill="#1f3a52">Tüp</text>
+                    <line x1="60" y1="105" x2="95" y2="105" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar3)"/>
+                    <ellipse cx="195" cy="105" rx="95" ry="60" fill="#fff" stroke="#8a98a5" stroke-width="2"/>
+                    <ellipse cx="160" cy="105" rx="45" ry="40" fill="#eef3f7" stroke="#b5c2cc"/><text x="160" y="109" font-size="10" text-anchor="middle" fill="#6a7a87">Sağ akciğer</text>
+                    <ellipse cx="240" cy="110" rx="40" ry="38" fill="#eef3f7" stroke="#b5c2cc"/><text x="246" y="140" font-size="10" text-anchor="middle" fill="#6a7a87">Sol akciğer</text>
+                    <ellipse cx="225" cy="85" rx="26" ry="22" fill="#f2b8b5" stroke="#c0392b"/><text x="225" y="89" font-size="11" text-anchor="middle" fill="#7a1f1a">Kalp</text>
+                    <circle cx="195" cy="155" r="10" fill="#d5dde4" stroke="#8a98a5"/><text x="195" y="182" font-size="10" text-anchor="middle" fill="#6a7a87">Omurga (arka)</text>
+                    <text x="195" y="38" font-size="11" text-anchor="middle" fill="#6a7a87">Ön (sternum)</text>
+                    <text x="100" y="60" font-size="11" fill="#6a7a87">Sağ</text><text x="275" y="60" font-size="11" fill="#6a7a87">Sol</text>
+                    <rect x="300" y="35" width="10" height="140" rx="2" fill="#3a4a57"/><text x="330" y="196" font-size="11" text-anchor="middle" fill="#3a4a57">Dedektör</text>
+                </svg>
+                <figcaption>Sol lateral grafi, yukarıdan bakılan kesit (şematik). Işın sağdan girer, soldan çıkar; kalp dedektöre yakındır.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="lordotik">6. Apikal lordotik (apikolordotik) grafi</h2>
+            <span class="tag">Akciğer tepeleri için</span>
+            <p>Standart PA grafide <strong>klavikulalar ve birinci kotlar akciğer tepelerinin (apekslerin) üzerine düşer</strong> ve bu bölgedeki lezyonları gizleyebilir. Apikal lordotik grafide klavikulalar yukarı yansıtılarak apeksler açığa çıkarılır.</p>
+            <h3>Nasıl çekilir?</h3>
+            <ul>
+                <li>Hasta dedektörden yaklaşık 30 cm önde durur ve <strong>geriye doğru yaslanır</strong>; omuzları dedektöre değer, gövdesi yaklaşık <strong>35–45°</strong> eğimlenir (lordoz pozisyonu). Çekim AP yönde yapılır.</li>
+                <li>Geriye yaslanamayan hastalarda hasta dik durur ve tüp yaklaşık <strong>15–20° yukarı (kraniyale) açılandırılır</strong>; aynı etki elde edilir.</li>
+                <li>Sonuçta klavikulalar akciğer tepelerinin üstüne, boyun bölgesine yansır.</li>
+            </ul>
+            <h3>Ne için çekilir?</h3>
+            <ul>
+                <li>Apeksteki şüpheli lezyonlar: nodül, kitle, <strong>Pancoast (süperior sulkus) tümörü</strong> şüphesi</li>
+                <li>Apikal tüberküloz lezyonları ve kavitelerin değerlendirilmesi</li>
+                <li>PA grafide klavikula veya kot ile üst üste binen bir gölgenin gerçek bir lezyon olup olmadığının ayırt edilmesi</li>
+                <li>Klasik olarak sağ orta lob atelektazisi ve minör fissürdeki interlober sıvının gösterilmesi</li>
+            </ul>
+            <div class="note"><p>Günümüzde apeks lezyonlarının değerlendirmesinde çoğu zaman doğrudan <strong>toraks BT</strong> tercih edilmektedir. Lordotik grafi, BT'ye ulaşımın kısıtlı olduğu durumlarda veya basit bir ayırım için hâlâ yararlıdır.</p></div>
+            <div class="grid2">
+                <figure>
+                    <svg viewBox="0 0 200 170" role="img" aria-label="Standart PA grafide klavikulaların akciğer tepelerinin üzerine düşmesi">
+                        <path d="M95,150 C60,150 30,140 28,110 C26,70 45,30 75,28 C88,27 92,40 92,60 Z" fill="#eef3f7" stroke="#8a98a5" stroke-width="2"/>
+                        <path d="M105,150 C140,150 170,140 172,110 C174,70 155,30 125,28 C112,27 108,40 108,60 Z" fill="#eef3f7" stroke="#8a98a5" stroke-width="2"/>
+                        <circle cx="70" cy="45" r="7" fill="#c0392b" opacity="0.8"/>
+                        <path d="M98,48 C80,42 55,40 20,52" stroke="#1f3a52" stroke-width="7" fill="none" stroke-linecap="round"/>
+                        <path d="M102,48 C120,42 145,40 180,52" stroke="#1f3a52" stroke-width="7" fill="none" stroke-linecap="round"/>
+                        <text x="100" y="166" font-size="11" text-anchor="middle" fill="#3a4a57">PA: klavikula lezyonu örter</text>
+                    </svg>
+                </figure>
+                <figure>
+                    <svg viewBox="0 0 200 170" role="img" aria-label="Apikal lordotik grafide klavikulaların akciğer tepelerinin üzerine çıkması ve lezyonun görünmesi">
+                        <path d="M95,150 C60,150 30,140 28,110 C26,70 45,30 75,28 C88,27 92,40 92,60 Z" fill="#eef3f7" stroke="#8a98a5" stroke-width="2"/>
+                        <path d="M105,150 C140,150 170,140 172,110 C174,70 155,30 125,28 C112,27 108,40 108,60 Z" fill="#eef3f7" stroke="#8a98a5" stroke-width="2"/>
+                        <circle cx="70" cy="45" r="7" fill="#c0392b" opacity="0.8"/>
+                        <path d="M98,16 C80,12 55,12 20,18" stroke="#1f3a52" stroke-width="7" fill="none" stroke-linecap="round"/>
+                        <path d="M102,16 C120,12 145,12 180,18" stroke="#1f3a52" stroke-width="7" fill="none" stroke-linecap="round"/>
+                        <text x="100" y="166" font-size="11" text-anchor="middle" fill="#3a4a57">Lordotik: apeks açığa çıkar</text>
+                    </svg>
+                </figure>
+            </div>
+            <p style="font-size:13px;color:#6a7a87;text-align:center;margin-top:-4px;">Şematik çizim: koyu çizgiler klavikulalar, kırmızı nokta apikal lezyon.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="dekubitus">7. Lateral dekübitus grafisi</h2>
+            <span class="tag">Serbest sıvı ve küçük pnömotoraks için</span>
+            <h3>Nasıl çekilir?</h3>
+            <ul>
+                <li>Hasta <strong>yan yatar</strong>; ışın <strong>yere paralel (horizontal)</strong> gönderilir ve grafi önden-arkadan (AP veya PA) alınır.</li>
+                <li>Adını <strong>altta kalan taraf</strong> alır: "sağ lateral dekübitus" grafide hasta sağ yanına yatar.</li>
+                <li>Sıvı yerçekimiyle alttaki göğüs duvarı boyunca toplanır, hava ise üstteki tarafa çıkar.</li>
+            </ul>
+            <h3>Ne için çekilir?</h3>
+            <ul>
+                <li><strong>Az miktardaki efüzyonu göstermek:</strong> Çok az miktardaki sıvı (kaynaklarda 5–15 mL düzeyi bildirilir) bile alttaki göğüs duvarı boyunca ince bir şerit olarak görülebilir. <strong>Şüpheli taraf altta</strong> olacak şekilde yatırılır.</li>
+                <li><strong>Serbest mi, lokule mi?</strong> Serbest sıvı pozisyonla yer değiştirir ve tabaka oluşturur; lokule (yapışıklıklarla sınırlanmış) sıvı ise yerini değiştirmez. Bu ayrım torasentez ve tüp torakostomi kararında önemlidir.</li>
+                <li><strong>Altındaki akciğeri görmek:</strong> Sıvının altında kalan parankimde lezyon olup olmadığını değerlendirmek için sağlam taraf altta olacak şekilde de çekilebilir.</li>
+                <li><strong>Ayağa kalkamayan hastada küçük pnömotoraks:</strong> Şüpheli taraf <strong>üstte</strong> olacak şekilde çekilir; hava üstteki göğüs duvarı boyunca toplanır.</li>
+            </ul>
+            <div class="note"><p>Günümüzde plevral sıvının saptanması ve lokülasyonun gösterilmesinde <strong>toraks ultrasonografisi</strong> daha duyarlıdır ve yatak başında yapılabilir; dekübitus grafinin yerini büyük ölçüde almıştır.</p></div>
+            <figure>
+                <svg viewBox="0 0 360 190" role="img" aria-label="Sağ lateral dekübitus grafisinde hasta sağ yanına yatmış, sıvı alttaki göğüs duvarı boyunca toplanmış">
+                    <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+                    <rect x="30" y="160" width="300" height="10" rx="3" fill="#b5c2cc"/><text x="180" y="185" font-size="11" text-anchor="middle" fill="#6a7a87">Masa (yer)</text>
+                    <rect x="60" y="30" width="240" height="128" rx="40" fill="#fff" stroke="#8a98a5" stroke-width="2"/>
+                    <ellipse cx="180" cy="62" rx="100" ry="26" fill="#eef3f7" stroke="#b5c2cc"/><text x="180" y="66" font-size="11" text-anchor="middle" fill="#6a7a87">Sol akciğer (üstte)</text>
+                    <ellipse cx="180" cy="122" rx="100" ry="26" fill="#eef3f7" stroke="#b5c2cc"/><text x="180" y="122" font-size="11" text-anchor="middle" fill="#6a7a87">Sağ akciğer (altta)</text>
+                    <path d="M85,140 Q180,156 275,140 L275,146 Q180,150 85,146 Z" fill="#5b9bd5" opacity="0.85"/>
+                    <path d="M95,141 L265,141" stroke="#2e6da4" stroke-width="1.5"/>
+                    <text x="180" y="138" font-size="10" text-anchor="middle" fill="#1f4e79">sıvı</text>
+                    <text x="40" y="100" font-size="11" fill="#6a7a87" transform="rotate(-90 40 100)" text-anchor="middle">Baş</text>
+                    <text x="320" y="100" font-size="11" fill="#6a7a87" transform="rotate(90 320 100)" text-anchor="middle">Ayak</text>
+                </svg>
+                <figcaption>Sağ lateral dekübitus grafisi (şematik, grafinin görünümü). Işın yere paralel ve önden gönderilir; serbest sıvı alttaki (sağ) göğüs duvarı boyunca düz bir tabaka oluşturur.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="ekspiryum">8. Ekspiryum grafisi</h2>
+            <h3>Nasıl çekilir?</h3>
+            <p>Standart PA grafi, inspiryum yerine <strong>derin ekspiryum sonunda</strong> nefes tutularak çekilir. Genellikle aynı anda alınan inspiryum grafisiyle karşılaştırılır.</p>
+            <h3>Ne için çekilir?</h3>
+            <ul>
+                <li><strong>Hava hapsi (air trapping):</strong> Özellikle çocuklarda <strong>yabancı cisim aspirasyonu</strong> şüphesinde. Ekspiryumda sağlam akciğer küçülürken, tıkalı bronşun distalindeki akciğer havasını boşaltamaz; o taraf hiperlüsen kalır ve mediasten karşı tarafa kayar. Kooperasyon kuramayan küçük çocuklarda bunun yerine iki taraflı dekübitus grafisi kullanılabilir.</li>
+                <li><strong>Küçük pnömotoraks:</strong> Ekspiryumda akciğer hacmi küçülürken plevral boşluktaki hava sabit kaldığından pnömotoraks oransal olarak daha belirgin görünebilir. Ancak inspiryum grafisinin tanısal değerinin benzer olduğu gösterildiğinden, <strong>güncel kılavuzlar pnömotoraks için rutin ekspiryum grafisi önermez</strong>.</li>
+                <li>Diyafram hareketinin kabaca değerlendirilmesi (ayrıntılı değerlendirme için floroskopi veya ultrasonografi kullanılır)</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="oblik">9. Oblik ve kot grafileri</h2>
+            <ul>
+                <li><strong>Oblik grafiler</strong> (hasta dedektöre göre yaklaşık 45° döndürülerek): üst üste binen yapıları ayırmak, plevral plaklar ve göğüs duvarı lezyonlarını göstermek için kullanılır. Günümüzde büyük ölçüde BT ile yer değiştirmiştir.</li>
+                <li><strong>Kot grafileri:</strong> Kot kırığı şüphesinde, ağrılı bölgeye odaklanan ve kemik ayrıntısını gösterecek şekilde ayarlanmış özel çekimlerdir. Tek bir kot kırığının saptanmasından çok, travmada <strong>pnömotoraks, hemotoraks ve akciğer kontüzyonu</strong> gibi eşlik eden komplikasyonların dışlanması önemlidir; bunun için mutlaka akciğer grafisi de değerlendirilmelidir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="kalite">10. Grafi kalitesinin değerlendirilmesi</h2>
+            <p>Grafiyi yorumlamadan önce teknik olarak yeterli olup olmadığına bakılmalıdır. Kötü çekilmiş bir grafi patoloji varmış gibi (veya yokmuş gibi) görünebilir.</p>
+            <ul>
+                <li><strong>Rotasyon:</strong> Torakal vertebraların spinöz çıkıntıları, iki klavikulanın medial uçlarına eşit uzaklıkta olmalıdır. Rotasyon, mediastenin kaymış veya bir hemitoraksın daha koyu görünmesine yol açar.</li>
+                <li><strong>İnspiryum:</strong> Sağ hemidiyaframın üzerinde yaklaşık <strong>6 ön</strong> veya <strong>9–10 arka</strong> kot görülmelidir. Yetersiz inspiryumda bazaller kalabalık ve kalp büyük görünür.</li>
+                <li><strong>Penetrasyon (doz):</strong> Torakal vertebralar kalp gölgesinin arkasından silik olarak seçilebilmelidir. Az penetre grafi her yeri beyaz, fazla penetre grafi her yeri siyah gösterir.</li>
+                <li><strong>Kapsam:</strong> Akciğer tepeleri, her iki kostofrenik sinüs ve lateral göğüs duvarları grafiye dahil olmalıdır.</li>
+                <li><strong>Projeksiyon:</strong> Grafinin PA mı AP mi olduğu belirlenmelidir (bkz. bölüm 4).</li>
+            </ul>
+            <div class="note"><p><strong>Radyasyon dozu:</strong> Tek bir PA akciğer grafisinin efektif dozu yaklaşık <strong>0,02 mSv</strong>'dir; bu, doğal çevresel radyasyondan yaklaşık birkaç günde alınan doza denktir. Bir toraks BT'nin dozu ise bunun yüzlerce katı olabilir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="kullanim">11. Göğüs cerrahisinde kullanım alanları</h2>
+            <ul>
+                <li><strong>Pnömotoraks:</strong> Tanı, büyüklüğün değerlendirilmesi, tüp torakostomi sonrası akciğer ekspansiyonunun ve tüp yerinin kontrolü</li>
+                <li><strong>Plevral efüzyon ve ampiyem:</strong> Tanı, torasentez öncesi değerlendirme, drenaj sonrası takip</li>
+                <li><strong>Toraks travması:</strong> Kot kırıkları, hemotoraks, pnömotoraks, akciğer kontüzyonu, mediasten genişlemesi</li>
+                <li><strong>Akciğer kitleleri ve nodüller:</strong> İlk saptama (kesin değerlendirme için BT gerekir)</li>
+                <li><strong>Ameliyat öncesi:</strong> Bazal değerlendirme</li>
+                <li><strong>Ameliyat sonrası:</strong> Rezeksiyon sonrası kalan akciğerin ekspansiyonu, hava kaçağı, plevral sıvı, atelektazi ve göğüs tüplerinin konumu</li>
+                <li><strong>Tüp ve kateter kontrolü:</strong> Göğüs tüpü, santral venöz kateter, endotrakeal tüp</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="ozet">12. Özet tablo</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Grafi</th><th>Hasta pozisyonu</th><th>Başlıca kullanım</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>PA</strong></td><td>Ayakta, göğüs dedektörde</td><td>Standart değerlendirme; ilk tercih</td></tr>
+                        <tr><td><strong>AP</strong></td><td>Yatarak veya yarı oturur</td><td>Yoğun bakım, travma, yatak başı; tüp/kateter kontrolü</td></tr>
+                        <tr><td><strong>Lateral</strong></td><td>Ayakta, sol yan dedektörde, kollar yukarıda</td><td>Lezyon lokalizasyonu, retrokardiyak alan, az miktarda efüzyon</td></tr>
+                        <tr><td><strong>Apikal lordotik</strong></td><td>Geriye yaslanmış veya tüp kraniyale açılı</td><td>Akciğer tepeleri: Pancoast, tüberküloz, apikal nodül</td></tr>
+                        <tr><td><strong>Lateral dekübitus</strong></td><td>Yan yatar, ışın yere paralel</td><td>Az miktardaki/serbest efüzyon, ayağa kalkamayan hastada pnömotoraks</td></tr>
+                        <tr><td><strong>Ekspiryum</strong></td><td>Ayakta, ekspiryum sonunda</td><td>Hava hapsi, yabancı cisim aspirasyonu</td></tr>
+                        <tr><td><strong>Oblik / kot</strong></td><td>Döndürülmüş / bölgesel</td><td>Göğüs duvarı lezyonları, kot kırığı</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -52,6 +52,12 @@
             <ul class="submenu" id="casesMenu" hidden>
                 <li><a href="pnomotoraks.html">Pnömotoraks Vakaları</a></li>
             </ul>
+            <button class="menu-item" id="topicsButton" aria-expanded="false" aria-controls="topicsMenu">
+                Konular <span class="arrow">›</span>
+            </button>
+            <ul class="submenu" id="topicsMenu" hidden>
+                <li><a href="akciger-grafileri.html">Akciğer Grafileri</a></li>
+            </ul>
         </div>
     </nav>
     <script>
@@ -63,8 +69,9 @@
         var menuButton = document.getElementById('menuButton');
         var menuPanel = document.getElementById('menuPanel');
         menuButton.addEventListener('click', function () { toggle(menuButton, menuPanel); });
-        var casesButton = document.getElementById('casesButton');
-        casesButton.addEventListener('click', function () { toggle(casesButton, document.getElementById('casesMenu')); });
+        document.querySelectorAll('.menu-panel .menu-item[aria-controls]').forEach(function (b) {
+            b.addEventListener('click', function () { toggle(b, document.getElementById(b.getAttribute('aria-controls'))); });
+        });
         document.addEventListener('click', function (e) {
             if (!menuPanel.hidden && !e.target.closest('.menu')) toggle(menuButton, menuPanel);
         });
