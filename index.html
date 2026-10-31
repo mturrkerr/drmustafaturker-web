@@ -6,16 +6,32 @@
     <title>Dr. Mustafa Türker</title>
     <style>
         html, body { height: 100%; margin: 0; }
-        body { background: #edf2f5; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
-        .flag { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #fff; box-shadow: 0 6px 24px rgba(0,0,0,0.15); opacity: 0; animation: show 1s ease 0.2s forwards; }
+        body { background: #edf2f5; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; }
+        .step { opacity: 0; animation: show 0.8s ease forwards; }
+        .flag { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #fff; box-shadow: 0 6px 24px rgba(0,0,0,0.15); animation-delay: 0s; }
         .flag svg { width: 100%; height: 100%; display: block; }
-        .number { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 32px; font-weight: 700; color: #E30A17; letter-spacing: 2px; opacity: 0; animation: show 1s ease 0.4s forwards; }
-        @keyframes show { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        @media (prefers-reduced-motion: reduce) { .flag, .number { opacity: 1; animation: none; } }
+        .title { margin: 6px 0 0; font-size: 26px; font-weight: 700; color: #E30A17; letter-spacing: 0.5px; animation-delay: 0.5s; }
+        .name { margin: 0; font-size: 18px; font-weight: 500; color: #3a4a57; animation-delay: 1s; }
+        .menu { position: relative; margin-top: 10px; animation-delay: 1.5s; }
+        .menu-button { width: 48px; height: 48px; border: none; border-radius: 12px; background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.1); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; }
+        .menu-button span { display: block; width: 22px; height: 2.5px; border-radius: 2px; background: #1f2a33; transition: transform 0.25s ease, opacity 0.25s ease; }
+        .menu-button[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-button[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+        .menu-panel { position: absolute; top: 58px; left: 50%; transform: translateX(-50%); min-width: 230px; background: #fff; border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,0.14); padding: 8px; }
+        .menu-panel[hidden], .submenu[hidden] { display: none; }
+        .menu-item { width: 100%; display: flex; align-items: center; justify-content: space-between; border: none; background: none; padding: 12px 14px; border-radius: 8px; font: inherit; font-size: 16px; font-weight: 600; color: #1f2a33; cursor: pointer; text-align: left; }
+        .menu-item:hover, .submenu a:hover { background: #f1f4f7; }
+        .menu-item .arrow { transition: transform 0.2s ease; color: #8a98a5; }
+        .menu-item[aria-expanded="true"] .arrow { transform: rotate(90deg); }
+        .submenu { list-style: none; margin: 0; padding: 0 0 4px 14px; }
+        .submenu a { display: block; padding: 10px 14px; border-radius: 8px; color: #3a4a57; text-decoration: none; font-size: 15px; }
+        @keyframes show { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { .step { opacity: 1; animation: none; } }
     </style>
 </head>
 <body>
-    <div class="flag">
+    <div class="flag step">
         <svg viewBox="0 0 100 100" role="img" aria-label="Türk bayrağı">
             <circle cx="50" cy="50" r="50" fill="#E30A17"/>
             <circle cx="45.5" cy="50" r="21" fill="white"/>
@@ -23,6 +39,35 @@
             <polygon fill="white" points="60,50 65.07,48.24 65.18,42.87 68.43,47.15 73.57,45.59 70.5,50 73.57,54.41 68.43,52.85 65.18,57.13 65.07,51.76"/>
         </svg>
     </div>
-    <div class="number">68</div>
+    <h1 class="title step">Göğüs Cerrahisi</h1>
+    <p class="name step">Ass. Dr. Mustafa Türker</p>
+    <nav class="menu step">
+        <button class="menu-button" id="menuButton" aria-label="Menü" aria-expanded="false" aria-controls="menuPanel">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="menu-panel" id="menuPanel" hidden>
+            <button class="menu-item" id="casesButton" aria-expanded="false" aria-controls="casesMenu">
+                Vaka Örnekleri <span class="arrow">›</span>
+            </button>
+            <ul class="submenu" id="casesMenu" hidden>
+                <li><a href="pnomotoraks.html">Pnömotoraks Vakaları</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        function toggle(button, panel) {
+            var open = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', String(!open));
+            panel.hidden = open;
+        }
+        var menuButton = document.getElementById('menuButton');
+        var menuPanel = document.getElementById('menuPanel');
+        menuButton.addEventListener('click', function () { toggle(menuButton, menuPanel); });
+        var casesButton = document.getElementById('casesButton');
+        casesButton.addEventListener('click', function () { toggle(casesButton, document.getElementById('casesMenu')); });
+        document.addEventListener('click', function (e) {
+            if (!menuPanel.hidden && !e.target.closest('.menu')) toggle(menuButton, menuPanel);
+        });
+    </script>
 </body>
 </html>
