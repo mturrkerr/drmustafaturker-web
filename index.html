@@ -21,6 +21,7 @@
         .menu-panel { position: absolute; top: 42px; left: 50%; transform: translateX(-50%); min-width: 230px; background: #fff; border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,0.14); padding: 8px; }
         .menu-panel[hidden], .submenu[hidden] { display: none; }
         .menu-item { width: 100%; display: flex; align-items: center; justify-content: space-between; border: none; background: none; padding: 12px 14px; border-radius: 8px; font: inherit; font-size: 16px; font-weight: 600; color: #1f2a33; cursor: pointer; text-align: left; }
+        a.menu-item { text-decoration: none; box-sizing: border-box; }
         .menu-item:hover, .submenu a:hover { background: #f1f4f7; }
         .menu-item .arrow { transition: transform 0.2s ease; color: #8a98a5; }
         .menu-item[aria-expanded="true"] .arrow { transform: rotate(90deg); }
@@ -52,6 +53,7 @@
             <ul class="submenu" id="casesMenu" hidden>
                 <li><a href="pnomotoraks.html">Pnömotoraks Vakaları</a></li>
             </ul>
+            <a class="menu-item" href="ders-videolari.html">Ders Videoları</a>
         </div>
     </nav>
     <script>
