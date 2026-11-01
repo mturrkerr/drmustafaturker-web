@@ -9,9 +9,9 @@
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Pediatri Doz">
+    <meta name="apple-mobile-web-app-title" content="Pediatri">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Pediatri İlaç Dozları</title>
+    <title>Pediatri</title>
     <style>
         html, body { min-height: 100%; margin: 0; }
         body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 32px 16px 48px; box-sizing: border-box; }
@@ -21,10 +21,28 @@
         .sub { margin: 0 0 18px; color: #5a6a77; font-size: 15px; }
         .warn { background: #fff4e5; border: 1px solid #f0c27a; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; font-size: 14px; line-height: 1.55; color: #5b3d0a; }
         .warn strong { color: #5b3d0a; }
-        .weight { position: sticky; top: 0; z-index: 5; background: #1f3a52; color: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 6px 18px rgba(31,58,82,0.25); }
+        .weight { position: sticky; z-index: 6; top: 0; z-index: 5; background: #1f3a52; color: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 6px 18px rgba(31,58,82,0.25); }
         .weight label { font-weight: 700; font-size: 16px; }
         .weight input { width: 96px; font: inherit; font-size: 18px; font-weight: 700; padding: 6px 10px; border-radius: 8px; border: none; color: #1f2a33; }
-        .weight span { font-size: 13px; opacity: 0.85; }
+        .weight span { font-size: 13px; opacity: 0.85; flex-basis: 100%; }
+        .cat-button { margin-left: auto; width: 42px; height: 42px; border: none; border-radius: 10px; background: #fff; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; }
+        .cat-button i { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #1f3a52; transition: transform 0.25s ease, opacity 0.25s ease; }
+        .cat-button[aria-expanded="true"] i:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .cat-button[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+        .cat-button[aria-expanded="true"] i:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+        .cat-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 240px; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); padding: 8px; list-style: none; margin: 0; }
+        .cat-menu[hidden] { display: none; }
+        .cat-menu a { display: block; padding: 12px 14px; border-radius: 8px; color: #1f2a33; text-decoration: none; font-size: 16px; font-weight: 600; }
+        .cat-menu a:hover, .cat-menu a:focus { background: #f1f4f7; }
+        .splash { position: fixed; inset: 0; z-index: 50; background: #edf2f5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 16px; text-align: center; transition: opacity 0.45s ease; }
+        .splash.hide { opacity: 0; pointer-events: none; }
+        .splash .s-step { opacity: 0; animation: s-show 0.8s ease forwards; }
+        .splash .s-flag { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 3px solid #fff; box-shadow: 0 6px 24px rgba(0,0,0,0.15); }
+        .splash .s-flag svg { width: 100%; height: 100%; display: block; }
+        .splash .s-title { margin: 6px 0 0; font-size: min(39px, 10vw); font-weight: 700; color: #1f3a52; letter-spacing: 0.5px; animation-delay: 0.5s; }
+        .splash .s-name { margin: 0; font-size: min(27px, 7vw); font-weight: 500; color: #3a4a57; animation-delay: 1s; }
+        @keyframes s-show { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { .splash .s-step { opacity: 1; animation: none; } }
         h2 { margin: 26px 0 10px; font-size: 19px; color: #1f3a52; }
         .drug { background: #fff; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.07); padding: 16px; margin-bottom: 12px; }
         .drug-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -48,9 +66,7 @@
         .cat.gen { background: #dfe9f3; color: #1f3a52; }
         .cat.ast { background: #fff1c9; color: #7a5a00; }
         .cat.ino { background: #e7dcf7; color: #4b2a85; }
-        .jump { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
-        .jump a { font-size: 13px; font-weight: 600; color: #1f3a52; background: #fff; border-radius: 999px; padding: 5px 11px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        h2 { scroll-margin-top: 80px; }
+        h2 { scroll-margin-top: 130px; }
         .muted { color: #6a7a87; font-size: 13px; }
         footer { margin-top: 28px; font-size: 13px; color: #6a7a87; line-height: 1.6; }
             @media (display-mode: standalone) { .back { display: none; } body { padding-top: max(20px, env(safe-area-inset-top)); } }
@@ -62,11 +78,22 @@
     </style>
 </head>
 <body>
+    <div class="splash" id="splash" aria-hidden="true">
+        <div class="s-flag s-step">
+            <svg viewBox="0 0 100 100" role="img" aria-label="Türk bayrağı">
+                <circle cx="50" cy="50" r="50" fill="#E30A17"/>
+                <circle cx="45.5" cy="50" r="21" fill="white"/>
+                <circle cx="50.75" cy="50" r="16.8" fill="#E30A17"/>
+                <polygon fill="white" points="60,50 65.07,48.24 65.18,42.87 68.43,47.15 73.57,45.59 70.5,50 73.57,54.41 68.43,52.85 65.18,57.13 65.07,51.76"/>
+            </svg>
+        </div>
+        <h2 class="s-title s-step">Pediatri Günlüklerim</h2>
+        <p class="s-name s-step">Ass. Dr. Merve Türker</p>
+    </div>
     <main>
         <a class="back" href="../">← Ana sayfa</a>
         <h1>Pediatri İlaç Dozları</h1>
         <p class="sub">Hızlı başvuru ve kiloya göre hesaplama</p>
-        <nav class="jump"><a href="#sedasyon">Sedasyon</a><a href="#kas">Kas gevşeticiler</a><a href="#inotrop">İnotroplar</a><a href="#sik">Sık kullanılan ilaçlar</a><a href="#astim">Astım atağı</a></nav>
 
         <div class="install" id="install" hidden>
             <strong>Telefona uygulama olarak kurun.</strong>
@@ -82,7 +109,15 @@
         <div class="weight">
             <label for="kg">Hasta kilosu</label>
             <input id="kg" type="number" inputmode="decimal" min="0.5" max="100" step="0.1" placeholder="kg">
+            <button class="cat-button" id="catButton" type="button" aria-label="Kategoriler" aria-expanded="false" aria-controls="catMenu"><i></i><i></i><i></i></button>
             <span id="kgNote">Kilo girin, dozlar hesaplansın.</span>
+            <ul class="cat-menu" id="catMenu" hidden>
+                <li><a href="#sedasyon">Sedasyon ve analjezi</a></li>
+                <li><a href="#kas">Kas gevşeticiler</a></li>
+                <li><a href="#inotrop">İnotroplar</a></li>
+                <li><a href="#sik">Sık kullanılan ilaçlar</a></li>
+                <li><a href="#astim">Astım atağı tedavisi</a></li>
+            </ul>
         </div>
 
         <h2 id="sedasyon">Sedasyon ve analjezi <span class="cat sed">Sedatif / analjezik</span></h2>
@@ -302,6 +337,30 @@
     </script>
     <script>
         (function () {
+            var splash = document.getElementById('splash');
+            var hidden = false;
+            function hideSplash() {
+                if (hidden) return; hidden = true;
+                splash.classList.add('hide');
+                setTimeout(function () { splash.remove(); }, 500);
+                if (location.hash) { var t = document.querySelector(location.hash); if (t) t.scrollIntoView(); }
+            }
+            setTimeout(hideSplash, 2800);
+            splash.addEventListener('click', hideSplash);
+
+            var catButton = document.getElementById('catButton'), catMenu = document.getElementById('catMenu');
+            function setMenu(open) { catButton.setAttribute('aria-expanded', String(open)); catMenu.hidden = !open; }
+            catButton.addEventListener('click', function (e) { e.stopPropagation(); setMenu(catMenu.hidden); });
+            catMenu.addEventListener('click', function (e) {
+                var a = e.target.closest('a'); if (!a) return;
+                e.preventDefault(); setMenu(false);
+                var t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', a.getAttribute('href'));
+            });
+            document.addEventListener('click', function (e) { if (!catMenu.hidden && !e.target.closest('.weight')) setMenu(false); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
             var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
             var box = document.getElementById('install'), text = document.getElementById('installText'), btn = document.getElementById('installBtn');
             var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);

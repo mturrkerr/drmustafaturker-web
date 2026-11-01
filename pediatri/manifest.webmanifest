@@ -1,6 +1,6 @@
 {
-  "name": "Pediatri İlaç Dozları",
-  "short_name": "Pediatri Doz",
+  "name": "Pediatri",
+  "short_name": "Pediatri",
   "description": "Kiloya göre pediatrik sedasyon, inotrop, sık kullanılan ilaç ve astım atağı dozları",
   "lang": "tr",
   "id": "./",
