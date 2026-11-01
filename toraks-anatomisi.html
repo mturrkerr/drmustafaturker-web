@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Toraks Anatomisi - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Toraks Anatomisi</h1>
+        <p class="lead">Göğüs cerrahisinde her girişimin (torasentez, tüp torakostomi, torakotomi) ve her görüntülemenin doğru yorumlanmasının temeli toraks anatomisidir. Bu sayfada göğüs duvarından mediastene, hava yollarından diyaframa kadar klinikte en çok işinize yarayacak anatomik bilgileri bulacaksınız.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#kafes">Göğüs kafesi</a></li>
+                <li><a href="#interkostal">İnterkostal aralık</a></li>
+                <li><a href="#t4">T4 seviyesi: önemli referans</a></li>
+                <li><a href="#plevra">Plevra</a></li>
+                <li><a href="#akciger">Akciğerler, loblar ve segmentler</a></li>
+                <li><a href="#havayolu">Trakea ve bronş ağacı</a></li>
+                <li><a href="#alveol">Alveol ve gaz değişimi</a></li>
+                <li><a href="#hilus">Akciğer hilusu</a></li>
+                <li><a href="#mediasten">Mediasten</a></li>
+                <li><a href="#damarlar">Büyük damarlar</a></li>
+                <li><a href="#diyafram">Diyafram</a></li>
+                <li><a href="#klinik">Klinik uygulamada anatomi</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="kafes">1. Göğüs kafesi</h2>
+            <p>Göğüs kafesi; arkada <strong>12 torakal vertebra</strong>, yanlarda <strong>12 çift kot</strong> ve önde <strong>sternumdan</strong> oluşur. Akciğerleri, kalbi ve büyük damarları korur; solunum hareketlerinin iskeletini oluşturur.</p>
+            <h3>Kotlar</h3>
+            <ul>
+                <li><strong>Gerçek kotlar (1.–7.):</strong> Kendi kıkırdaklarıyla doğrudan sternuma bağlanır.</li>
+                <li><strong>Yalancı kotlar (8.–10.):</strong> Kıkırdakları bir üstteki kotun kıkırdağına katılarak sternuma dolaylı bağlanır; birlikte kot kavsini (arkus kostarum) oluştururlar.</li>
+                <li><strong>Yüzen kotlar (11.–12.):</strong> Ön uçları serbesttir, sternuma bağlanmaz.</li>
+                <li><strong>Birinci kot</strong> en kısa, en geniş ve en yassı kottur; klavikulanın altında yer alır ve üzerinden subklavyen arter ve ven geçer.</li>
+                <li>Kotların ön uçları kıkırdakla devam eder; kıkırdak grafide görünmez.</li>
+            </ul>
+            <h3>Sternum</h3>
+            <ul>
+                <li>Üç bölümden oluşur: <strong>manubrium</strong>, <strong>korpus</strong> ve <strong>ksifoid çıkıntı</strong>.</li>
+                <li>Manubrium ile korpusun birleştiği yer <strong>sternal açıdır (Louis açısı)</strong>; elle kolayca hissedilir ve buraya <strong>2. kot</strong> bağlanır. Kot sayımına buradan başlanır.</li>
+            </ul>
+            <h3>Toraks girişi ve çıkışı</h3>
+            <ul>
+                <li><strong>Toraks girişi (apertura thoracis superior):</strong> T1 vertebra, birinci kotlar ve manubrium ile sınırlıdır. Trakea, özofagus, büyük damarlar ve sinirler buradan geçer.</li>
+                <li><strong>Toraks çıkışı (apertura thoracis inferior):</strong> T12 vertebra, alt kotlar, kot kavsi ve ksifoid ile sınırlıdır; diyafram tarafından kapatılır.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="interkostal">2. İnterkostal aralık</h2>
+            <p>İki kot arasındaki aralıkta dıştan içe <strong>eksternal, internal ve en içte (innermost) interkostal kaslar</strong> bulunur. İnterkostal <strong>ven, arter ve sinir</strong> (yukarıdan aşağıya <strong>VAN</strong> sırasıyla), her kotun <strong>alt kenarındaki oluk (sulcus costae)</strong> içinde, internal ve innermost kaslar arasında seyreder.</p>
+            <div class="note"><p><strong>Klinik kural:</strong> Torasentez, tüp torakostomi ve interkostal blokta iğne veya tüp <strong>alttaki kotun üst kenarından</strong> girilir. Böylece üstteki kotun alt kenarında seyreden damar-sinir paketi korunur.</p></div>
+            <figure>
+                <svg viewBox="0 0 360 230" role="img" aria-label="İnterkostal aralık kesiti: damar sinir paketi üst kotun alt kenarında, iğne alt kotun üst kenarından giriyor">
+                    <rect x="0" y="0" width="360" height="230" fill="#f6f9fb"/>
+                    <rect x="20" y="20" width="60" height="190" fill="#fbe9d7"/><text x="50" y="16" font-size="10" text-anchor="middle" fill="#6a7a87">Cilt / ciltaltı</text>
+                    <rect x="80" y="20" width="110" height="190" fill="#f3c6c0" opacity="0.6"/><text x="135" y="16" font-size="10" text-anchor="middle" fill="#6a7a87">İnterkostal kaslar</text>
+                    <rect x="190" y="20" width="10" height="190" fill="#9fc3e0"/><text x="250" y="16" font-size="10" text-anchor="middle" fill="#6a7a87">Paryetal plevra</text>
+                    <rect x="200" y="20" width="140" height="190" fill="#eef3f7"/><text x="270" y="196" font-size="11" text-anchor="middle" fill="#6a7a87">Plevral boşluk / akciğer</text>
+                    <ellipse cx="135" cy="58" rx="48" ry="26" fill="#e9e3d6" stroke="#b8ab92" stroke-width="2"/><text x="135" y="62" font-size="11" text-anchor="middle" fill="#5a4e36">Üst kot</text>
+                    <ellipse cx="135" cy="176" rx="48" ry="26" fill="#e9e3d6" stroke="#b8ab92" stroke-width="2"/><text x="135" y="180" font-size="11" text-anchor="middle" fill="#5a4e36">Alt kot</text>
+                    <circle cx="168" cy="86" r="5" fill="#3b6fb6"/><circle cx="168" cy="97" r="5" fill="#c0392b"/><circle cx="168" cy="108" r="5" fill="#e5b100"/>
+                    <text x="214" y="82" font-size="10" fill="#3b6fb6">V (ven)</text><text x="214" y="98" font-size="10" fill="#c0392b">A (arter)</text><text x="214" y="114" font-size="10" fill="#9a7700">N (sinir)</text>
+                    <line x1="176" y1="88" x2="210" y2="80" stroke="#3b6fb6" stroke-width="0.8"/><line x1="176" y1="97" x2="210" y2="95" stroke="#c0392b" stroke-width="0.8"/><line x1="176" y1="108" x2="210" y2="111" stroke="#9a7700" stroke-width="0.8"/>
+                    <line x1="6" y1="146" x2="250" y2="146" stroke="#1f3a52" stroke-width="3"/><polygon points="250,141 262,146 250,151" fill="#1f3a52"/>
+                    <text x="62" y="140" font-size="11" fill="#1f3a52" font-weight="700">İğne / tüp</text>
+                </svg>
+                <figcaption>İnterkostal aralık kesiti (şematik). Damar-sinir paketi (V-A-N) üst kotun alt kenarında; güvenli giriş alt kotun üst kenarındadır.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="t4">3. T4 seviyesi: önemli bir referans noktası</h2>
+            <p>Sternal açıdan arkaya çizilen hayali yatay düzlem yaklaşık <strong>T4–T5 vertebra</strong> aralığına denk gelir. Toraksın birçok önemli yapısı bu düzlemde yer aldığı için hem anatomide hem de grafi ve BT yorumunda pratik bir referanstır:</p>
+            <ul>
+                <li>Sternal açı (Louis açısı) ve 2. kotun sternuma bağlandığı yer</li>
+                <li>Trakeanın sağ ve sol ana bronşlara ayrıldığı yer (<strong>karina</strong>)</li>
+                <li>Mediastenin <strong>üst ve alt mediasten</strong> olarak ayrıldığı düzlem</li>
+                <li>Arkus aortanın başlangıç ve bitiş seviyesi</li>
+                <li><strong>Azigos venin</strong> sağ ana bronşun üzerinden kavis yaparak vena kava superiora döküldüğü yer</li>
+                <li><strong>Duktus torasikusun</strong> özofagusun sağından soluna geçtiği bölge</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="plevra">4. Plevra</h2>
+            <ul>
+                <li>Her akciğeri saran iki yapraklı seröz zardır: akciğerin yüzeyini örten <strong>viseral plevra</strong> ve göğüs duvarını, diyaframı ve mediasteni döşeyen <strong>paryetal plevra</strong>.</li>
+                <li>İki yaprak arasındaki potansiyel boşluk <strong>plevral boşluktur</strong>; normalde birkaç mL kayganlaştırıcı sıvı içerir. Plevral boşluktaki basınç atmosfer basıncından düşüktür (<strong>negatif basınç</strong>); akciğerin açık kalmasını bu sağlar. Boşluğa hava girmesi pnömotoraks, sıvı toplanması efüzyon, kan toplanması hemotoraks olarak adlandırılır.</li>
+                <li><strong>Paryetal plevra ağrıya duyarlıdır</strong> (interkostal ve frenik sinirler); viseral plevrada ağrı duyusu yoktur. Bu nedenle girişimlerde lokal anestezi paryetal plevraya kadar uygulanır.</li>
+                <li><strong>Sinüsler (resesler):</strong> Paryetal plevranın kıvrım yaptığı, akciğerin tam dolduramadığı alanlardır. En önemlisi <strong>kostofrenik sinüstür</strong>; sıvı ilk burada toplanır. Ayrıca kardiyofrenik ve kostomediastinal sinüsler bulunur.</li>
+                <li>Plevra, apekste birinci kotun yaklaşık 2–3 cm üzerine (boyun tabanına) kadar uzanır; bu nedenle boyun tabanına yapılan girişimler (örneğin subklavyen kateter) pnömotoraksa yol açabilir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="akciger">5. Akciğerler, loblar ve segmentler</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Sağ akciğer</th><th>Sol akciğer</th></tr></thead>
+                    <tbody>
+                        <tr><td>Lob</td><td>3 (üst, orta, alt)</td><td>2 (üst, alt); üst lobun lingula bölümü sağ orta lobun karşılığıdır</td></tr>
+                        <tr><td>Fissür</td><td>Major (oblik) ve minör (horizontal)</td><td>Yalnızca major (oblik)</td></tr>
+                        <tr><td>Segment</td><td>10</td><td>8–10 (apikal ve posterior segment "apikoposterior", anterior ve medial bazal segment "anteromedial" olarak birleşik kabul edilir)</td></tr>
+                        <tr><td>Özellik</td><td>Daha büyük ve kısa; altında karaciğer olduğu için sağ diyafram daha yüksektir</td><td>Daha dar ve uzun; kalp nedeniyle önde kardiyak çentik (incisura cardiaca) bulunur</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Segmentler</h3>
+            <div class="grid2">
+                <div>
+                    <p><strong>Sağ akciğer</strong></p>
+                    <ul>
+                        <li>Üst lob: apikal, posterior, anterior</li>
+                        <li>Orta lob: lateral, medial</li>
+                        <li>Alt lob: süperior, medial bazal, anterior bazal, lateral bazal, posterior bazal</li>
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>Sol akciğer</strong></p>
+                    <ul>
+                        <li>Üst lob: apikoposterior, anterior, süperior lingular, inferior lingular</li>
+                        <li>Alt lob: süperior, anteromedial bazal, lateral bazal, posterior bazal</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="note"><p>Her segmentin kendi bronşu ve pulmoner arter dalı vardır; bu yüzden segment, cerrahi olarak ayrı çıkarılabilen en küçük anatomik birimdir (<strong>segmentektomi</strong>).</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="havayolu">6. Trakea ve bronş ağacı</h2>
+            <ul>
+                <li><strong>Trakea</strong> boyunda krikoid kıkırdağın altından (yaklaşık <strong>C6</strong>) başlar, yaklaşık <strong>10–12 cm</strong> uzunluğundadır ve <strong>T4–T5</strong> seviyesinde karinada ikiye ayrılır. Önde ve yanlarda <strong>C şeklinde kıkırdak halkalar</strong> (16–20 adet), arkada ise özofagusa komşu kas-zar yapı (membranöz bölüm) bulunur.</li>
+                <li><strong>Sağ ana bronş</strong> sola göre daha <strong>kısa, geniş ve dikeydir</strong>; bu nedenle aspire edilen yabancı cisimler daha sık sağ tarafa gider.</li>
+                <li><strong>Sol ana bronş</strong> daha uzun ve yataydır; arkus aortanın altından ve sol pulmoner arterin altından geçer.</li>
+                <li><strong>Karina açısı</strong> normalde yaklaşık 55–70°'dir; belirgin genişlemesi subkarinal lenfadenopati veya kitleyi düşündürür.</li>
+            </ul>
+            <h3>Hava yolu dallanması</h3>
+            <p>Trakeadan alveollere kadar hava yolu yaklaşık <strong>23 kez dallanır (jenerasyon)</strong>:</p>
+            <ul>
+                <li><strong>İletici bölge (yaklaşık ilk 16 dallanma):</strong> Trakea, ana bronşlar, lober ve segmenter bronşlar, bronşioller ve <strong>terminal bronşioller</strong>. Burada gaz değişimi olmaz; bu hacme <strong>anatomik ölü boşluk</strong> denir. Örneğin 500 mL'lik bir soluk hacminin yaklaşık <strong>150 mL'si</strong> ölü boşlukta kalır, gaz değişimine yaklaşık 350 mL katılır.</li>
+                <li><strong>Solunum bölgesi (yaklaşık 17.–23. dallanmalar):</strong> Respiratuvar bronşioller, alveoler kanallar ve alveol keseleri. Gaz değişimi burada gerçekleşir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="alveol">7. Alveol ve gaz değişimi</h2>
+            <ul>
+                <li>Alveol duvarında iki tip hücre bulunur: <strong>Tip 1 pnömositler</strong> ince yapılıdır ve gaz değişim yüzeyinin büyük bölümünü oluşturur; <strong>Tip 2 pnömositler</strong> <strong>sürfaktan</strong> üretir.</li>
+                <li><strong>Sürfaktan</strong> alveol içindeki yüzey gerilimini azaltarak alveolün ekspiryumda kapanmasını (kollabe olmasını) önler. Oksijenin alveolden kapillere, karbondioksitin kapillerden alveole geçebilmesi için alveolün açık kalması gerekir.</li>
+                <li>Alveolün içi hava dışında bir şeyle dolarsa gaz değişimi bozulur ve <strong>hipoksemi</strong> gelişir: sıvıyla dolması <strong>pulmoner ödem</strong>, kanla dolması <strong>pulmoner hemoraji</strong> (örneğin kontüzyon), iltihabi eksüdayla dolması <strong>pnömoni</strong>, tümör hücreleriyle dolması malignite (örneğin lepidik büyüyen adenokarsinom) anlamına gelir.</li>
+                <li>Sıvıyla dolan alveoller ekspiryumda kapanıp inspiryumda açılırken oluşan ses, oskültasyonda duyulan <strong>raldir</strong>.</li>
+                <li>Gaz değişimini bozan diğer nedenler: alveole hava ulaşamaması (atelektazi, yabancı cisim, pnömotoraks), interstisyumun kalınlaşması (interstisyel hastalıklar, fibrozis) ve kan akımının bozulması (pulmoner emboli).</li>
+            </ul>
+            <div class="note"><p><strong>Görüntülemedeki karşılığı:</strong> Alveollerde hava azalmış ama tamamen kaybolmamışsa ve damarlar ile bronş duvarları hâlâ seçilebiliyorsa <strong>buzlu cam</strong> görünümü; alveoller tamamen dolmuşsa ve bu yapılar seçilemiyorsa <strong>konsolidasyon</strong> görünümü oluşur.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="hilus">8. Akciğer hilusu</h2>
+            <p>Hilus, ana bronş, pulmoner arter, pulmoner venler, bronşiyal damarlar, lenf damarları, lenf nodları ve sinirlerin akciğere girip çıktığı bölgedir.</p>
+            <ul>
+                <li><strong>Sağ hilusta</strong> sağ ana bronş en üstte ve arkada (eparteriyel bronş: sağ üst lob bronşu pulmoner arterin üzerinden çıkar).</li>
+                <li><strong>Sol hilusta</strong> sol pulmoner arter en üsttedir ve sol ana bronşun üzerinden kavis yaparak geçer. Bu nedenle grafide <strong>sol hilus, sağ hilustan yaklaşık 0,5–2,5 cm daha yukarıda</strong> görülür.</li>
+                <li><strong>Pulmoner venler</strong> her iki tarafta da hilusun en önünde ve en altında yer alır.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="mediasten">9. Mediasten</h2>
+            <p>İki plevral boşluk arasında, sternumdan vertebralara, toraks girişinden diyaframa kadar uzanan bölgedir. Sternal açıdan T4–T5 aralığına çizilen düzlem mediasteni <strong>üst</strong> ve <strong>alt</strong> olarak ikiye ayırır; alt mediasten de perikarda göre <strong>ön, orta ve arka</strong> bölümlere ayrılır.</p>
+            <figure>
+                <svg viewBox="0 0 360 250" role="img" aria-label="Mediastenin bölümleri, yandan şematik görünüm">
+                    <rect x="0" y="0" width="360" height="250" fill="#f6f9fb"/>
+                    <path d="M70,30 L70,215 L300,215 L300,30" fill="none" stroke="#b5c2cc" stroke-width="2"/>
+                    <text x="58" y="165" font-size="10" fill="#6a7a87" transform="rotate(-90 58 165)" text-anchor="middle">Sternum (ön)</text>
+                    <text x="314" y="160" font-size="10" fill="#6a7a87" transform="rotate(90 314 160)" text-anchor="middle">Vertebralar (arka)</text>
+                    <rect x="72" y="32" width="226" height="58" fill="#dfe9f3"/><text x="185" y="66" font-size="13" text-anchor="middle" fill="#1f3a52" font-weight="700">Üst mediasten</text>
+                    <line x1="70" y1="90" x2="300" y2="90" stroke="#1f3a52" stroke-width="2" stroke-dasharray="5 4"/>
+                    <text x="66" y="86" font-size="9" fill="#1f3a52" text-anchor="end">Sternal açı</text><text x="304" y="86" font-size="9" fill="#1f3a52">T4–T5</text>
+                    <rect x="72" y="92" width="38" height="121" fill="#fde3d6"/><text x="91" y="150" font-size="11" text-anchor="middle" fill="#8a3a12" font-weight="700" transform="rotate(-90 91 150)">Ön</text>
+                    <ellipse cx="170" cy="152" rx="60" ry="56" fill="#f2b8b5" stroke="#c0392b"/><text x="170" y="148" font-size="12" text-anchor="middle" fill="#7a1f1a" font-weight="700">Orta</text><text x="170" y="164" font-size="10" text-anchor="middle" fill="#7a1f1a">(kalp, perikard)</text>
+                    <rect x="232" y="92" width="66" height="121" fill="#d6f0ea"/><text x="265" y="156" font-size="12" text-anchor="middle" fill="#12614e" font-weight="700">Arka</text>
+                    <line x1="70" y1="215" x2="300" y2="215" stroke="#8a98a5" stroke-width="3"/><text x="185" y="236" font-size="11" text-anchor="middle" fill="#6a7a87">Diyafram</text>
+                </svg>
+                <figcaption>Mediastenin bölümleri, yandan bakış (şematik).</figcaption>
+            </figure>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Bölüm</th><th>Başlıca içerik</th><th>Sık görülen kitleler</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Üst</strong></td><td>Timus, arkus aorta ve dalları, brakiyosefalik venler, VCS'nin üst bölümü, trakea, özofagus, duktus torasikus, frenik ve vagus sinirleri</td><td>Guatr uzanımı, timik kitleler</td></tr>
+                        <tr><td><strong>Ön</strong></td><td>Timus artığı, yağ dokusu, lenf nodları, internal torasik damarlar</td><td>Timoma, teratom/germ hücreli tümör, lenfoma, retrosternal guatr ("4T")</td></tr>
+                        <tr><td><strong>Orta</strong></td><td>Kalp ve perikard, asendan aorta, pulmoner trunkus, VCS, karina ve ana bronşlar, frenik sinirler, lenf nodları</td><td>Lenfadenopati, bronkojenik ve perikardiyal kistler</td></tr>
+                        <tr><td><strong>Arka</strong></td><td>İnen aorta, özofagus, azigos ve hemiazigos venler, duktus torasikus, vagus, sempatik zincir</td><td>Nörojenik tümörler, özofagus kaynaklı kitleler</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Klinik önemi olan sinirler</h3>
+            <ul>
+                <li><strong>Frenik sinir (C3–C5):</strong> Perikardın yanından inerek diyaframı innerve eder. Yaralanması aynı taraf diyaframında felç ve yükselmeye yol açar.</li>
+                <li><strong>Rekürren laringeal sinir:</strong> Solda arkus aortanın, sağda subklavyen arterin altından dolanarak yukarı döner. Sol taraf mediastinal cerrahide ve sol hiler tümörlerde etkilenebilir; ses kısıklığına yol açar.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="damarlar">10. Büyük damarlar</h2>
+            <ul>
+                <li><strong>Aorta:</strong> Sol ventrikülden asendan aorta olarak çıkar, arkus aorta olarak sola ve arkaya kavis yapar, vertebraların solunda inen (desendan) aorta olarak devam eder.</li>
+                <li><strong>Arkus aortanın üç dalı</strong> (sağdan sola): <strong>truncus brachiocephalicus</strong> (sağ subklavyen ve sağ ana karotis artere ayrılır), <strong>sol ana karotis arter</strong> ve <strong>sol subklavyen arter</strong>.</li>
+                <li><strong>Pulmoner arterler:</strong> Sağ ventrikülden çıkan pulmoner trunkus, sağ ve sol pulmoner arterlere ayrılır. BT anjiyografide bu arterler ve dalları pulmoner emboli açısından değerlendirilir.</li>
+                <li><strong>Venöz dönüş:</strong> Subklavyen ve internal juguler venler birleşerek her iki tarafta <strong>brakiyosefalik veni</strong> oluşturur. Sol brakiyosefalik ven arkus aortanın önünden sağa geçer; iki brakiyosefalik ven birleşerek <strong>vena kava superioru</strong> oluşturur ve sağ atriyuma dökülür.</li>
+                <li><strong>Azigos ven</strong> sağda vertebraların önünden yukarı çıkar, T4 seviyesinde sağ ana bronşun üzerinden kavis yaparak vena kava superiora dökülür.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="diyafram">11. Diyafram</h2>
+            <ul>
+                <li>Göğüs ve karın boşluğunu ayıran, kubbe şeklinde, solunumun <strong>temel kasıdır</strong> (musculus thoracoabdominalis). Kasıldığında kubbe aşağı iner, toraksın dikey çapı ve hacmi artar ve hava içeri girer. Kubbenin her 1 cm inişi, kaynaklara göre değişmekle birlikte yaklaşık birkaç yüz mL (anlatımlarda yaklaşık 200 mL) hava girişi sağlar.</li>
+                <li><strong>Sağ kubbe</strong>, altındaki karaciğer nedeniyle soldan genellikle 1–2 cm daha yüksektir.</li>
+                <li><strong>Sinir:</strong> Frenik sinir (C3–C5) ile motor innervasyon alır. Diyafram irritasyonu ağrısı omuza yansıyabilir.</li>
+            </ul>
+            <h3>Diyaframdaki açıklıklar</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Seviye</th><th>Açıklık</th><th>Geçen yapılar</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>T8</strong></td><td>Vena kava foramenı</td><td>Vena kava inferior, sağ frenik sinir dalları</td></tr>
+                        <tr><td><strong>T10</strong></td><td>Özofagus hiatusu</td><td>Özofagus, vagus sinirleri</td></tr>
+                        <tr><td><strong>T12</strong></td><td>Aort hiatusu</td><td>Aorta, duktus torasikus, azigos ven</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note"><p><strong>Diyafram rüptürü:</strong> Künt veya delici travmada diyafram yırtılabilir; karın içi organlar (mide, kolon, dalak, karaciğer) göğüs boşluğuna geçebilir. Sol tarafta daha sık görülür, çünkü sağ tarafı karaciğer korur. Tanıda BT'nin yanında, şüphe varsa cerrahi eksplorasyon önemlidir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="klinik">12. Klinik uygulamada anatomi</h2>
+            <h3>Tüp torakostomi: güvenli üçgen</h3>
+            <p>Göğüs tüpü genellikle <strong>güvenli üçgenden</strong> yerleştirilir:</p>
+            <ul>
+                <li><strong>Önde:</strong> pektoralis majör kasının lateral kenarı</li>
+                <li><strong>Arkada:</strong> latissimus dorsi kasının lateral kenarı</li>
+                <li><strong>Altta:</strong> 5. interkostal aralık (yaklaşık meme başı hizası)</li>
+                <li><strong>Tepede:</strong> aksilla</li>
+            </ul>
+            <p>Bu bölgede büyük kas ve damar bulunmaz; diyafram ve karın organlarının yaralanma riski düşüktür. Tüp, alttaki kotun üst kenarından geçirilir.</p>
+            <h3>Torasentez</h3>
+            <p>Serbest plevral sıvıda giriş genellikle arkada, <strong>skapula ucunun altında</strong>, orta ile arka aksiller hat arasından ve sıvı seviyesinin bir aralık altından (çoğunlukla <strong>7.–9. interkostal aralıklar</strong>), yine <strong>alttaki kotun üst kenarından</strong> yapılır. Diyafram ve karın organlarını yaralamamak için çok aşağıdan girilmemelidir; mümkünse ultrasonografi eşliğinde yapılması önerilir.</p>
+            <h3>Kot kırıkları ve eşlik eden yaralanmalar</h3>
+            <ul>
+                <li><strong>1.–2. kot kırıkları</strong> yüksek enerjili travmayı gösterir; subklavyen damarlar ve brakiyal pleksus yaralanması açısından dikkat edilmelidir.</li>
+                <li><strong>Alt kot (10.–12.) kırıkları</strong> karaciğer, dalak ve böbrek yaralanmaları açısından uyarıcıdır.</li>
+            </ul>
+        </section>
+
+        <p class="source">Kaynak: Bu sayfadaki T4 seviyesi, kotlar, hava yolu dallanması, alveol fizyolojisi, büyük damarlar ve diyafram bölümleri, <a href="https://www.youtube.com/@drhilmikeskin" target="_blank" rel="noopener">Dr. Hilmi Keskin'in YouTube kanalındaki</a> toraks tomografisi, maket üzerinde akciğer grafisi, diyafragma rüptürü, torasentez ve COVID-19 tomografisi anlatımlarından yararlanılarak ve standart anatomi bilgileriyle tamamlanarak hazırlanmıştır.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>

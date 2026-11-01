@@ -1,8 +1,8 @@
 // Göğüs Cerrahisi uygulaması: çevrimdışı çalışma.
 // Önce internetten güncel hali alınır; internet yoksa son kaydedilen sürüm gösterilir.
 // Pediatri bölümü (/pediatri/) kendi uygulaması ve önbelleğiyle ayrı çalışır.
-const CACHE = 'gogus-cerrahisi-v1';
-const FILES = ['/', '/pnomotoraks.html', '/akciger-grafileri.html', '/manifest.webmanifest',
+const CACHE = 'gogus-cerrahisi-v2';
+const FILES = ['/', '/pnomotoraks.html', '/akciger-grafileri.html', '/toraks-anatomisi.html', '/manifest.webmanifest',
   '/images/pnomotoraks-1.jpg', '/images/pnomotoraks-1-isaretli.jpg', '/icons/icon-192.png', '/icons/apple-touch-icon.png'];
 
 self.addEventListener('install', (e) => {
