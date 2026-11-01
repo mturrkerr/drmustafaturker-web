@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Pediatri Doz">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Pediatri İlaç Dozları</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 32px 16px 48px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 24px; }
+        h1 { margin: 0 0 6px; font-size: 26px; color: #1f3a52; }
+        .sub { margin: 0 0 18px; color: #5a6a77; font-size: 15px; }
+        .warn { background: #fff4e5; border: 1px solid #f0c27a; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; font-size: 14px; line-height: 1.55; color: #5b3d0a; }
+        .warn strong { color: #5b3d0a; }
+        .weight { position: sticky; top: 0; z-index: 5; background: #1f3a52; color: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 6px 18px rgba(31,58,82,0.25); }
+        .weight label { font-weight: 700; font-size: 16px; }
+        .weight input { width: 96px; font: inherit; font-size: 18px; font-weight: 700; padding: 6px 10px; border-radius: 8px; border: none; color: #1f2a33; }
+        .weight span { font-size: 13px; opacity: 0.85; }
+        h2 { margin: 26px 0 10px; font-size: 19px; color: #1f3a52; }
+        .drug { background: #fff; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.07); padding: 16px; margin-bottom: 12px; }
+        .drug-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+        .drug h3 { margin: 0; font-size: 18px; color: #1f2a33; }
+        .generic { font-size: 13px; color: #6a7a87; }
+        .rows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        @media (max-width: 520px) { .rows { grid-template-columns: 1fr; } }
+        .row { background: #f4f7fa; border-radius: 10px; padding: 10px 12px; }
+        .row .label { font-size: 12px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; }
+        .row .dose { font-size: 16px; font-weight: 700; color: #1f3a52; margin-top: 2px; }
+        .row .calc { font-size: 15px; color: #1f2a33; margin-top: 4px; }
+        .row .calc b { color: #b03a2e; }
+        .effects { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .chip { font-size: 13px; padding: 3px 9px; border-radius: 999px; background: #e3ebf2; color: #1f3a52; }
+        .chip.no { background: #eceff1; color: #6a7a87; text-decoration: line-through; }
+        .flag { margin-top: 10px; background: #fdecea; border-left: 4px solid #c0392b; border-radius: 8px; padding: 8px 12px; font-size: 14px; line-height: 1.5; color: #6d1f17; }
+        .info { margin-top: 10px; background: #eef4f9; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 8px 12px; font-size: 14px; line-height: 1.5; color: #2c3e50; }
+        .cat { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin-left: 6px; vertical-align: middle; }
+        .cat.sed { background: #fde3d6; color: #8a3a12; }
+        .cat.nmb { background: #d6f0ea; color: #12614e; }
+        .cat.gen { background: #dfe9f3; color: #1f3a52; }
+        .cat.ast { background: #fff1c9; color: #7a5a00; }
+        .cat.ino { background: #e7dcf7; color: #4b2a85; }
+        .jump { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+        .jump a { font-size: 13px; font-weight: 600; color: #1f3a52; background: #fff; border-radius: 999px; padding: 5px 11px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        h2 { scroll-margin-top: 80px; }
+        .muted { color: #6a7a87; font-size: 13px; }
+        footer { margin-top: 28px; font-size: 13px; color: #6a7a87; line-height: 1.6; }
+            @media (display-mode: standalone) { .back { display: none; } body { padding-top: max(20px, env(safe-area-inset-top)); } }
+        .install { background: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; font-size: 14px; line-height: 1.55; color: #3a4a57; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+        .install[hidden] { display: none; }
+        .install strong { color: #1f3a52; }
+        .install button { margin-top: 8px; border: none; border-radius: 8px; background: #1f3a52; color: #fff; font: inherit; font-weight: 700; padding: 8px 14px; cursor: pointer; }
+        .offline { font-size: 12px; color: #6a7a87; margin: -10px 0 16px; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="../">← Ana sayfa</a>
+        <h1>Pediatri İlaç Dozları</h1>
+        <p class="sub">Hızlı başvuru ve kiloya göre hesaplama</p>
+        <nav class="jump"><a href="#sedasyon">Sedasyon</a><a href="#kas">Kas gevşeticiler</a><a href="#inotrop">İnotroplar</a><a href="#sik">Sık kullanılan ilaçlar</a><a href="#astim">Astım atağı</a></nav>
+
+        <div class="install" id="install" hidden>
+            <strong>Telefona uygulama olarak kurun.</strong>
+            <span id="installText"></span>
+            <div><button type="button" id="installBtn" hidden>Uygulamayı yükle</button></div>
+        </div>
+        <p class="offline" id="offline" hidden>İnternet bağlantısı yok; kayıtlı sürüm gösteriliyor.</p>
+
+        <div class="warn">
+            <strong>Önemli:</strong> Bu sayfa kişisel ders notlarından hazırlanmış bir hatırlatma aracıdır; klinik karar yerine geçmez. Her uygulamadan önce dozu kurumunuzun protokolü, güncel ilaç prospektüsü ve hastanın klinik durumuna göre doğrulayın. Kırmızı kutulu notlar, el yazısı notla standart kaynaklar arasındaki farkları gösterir.
+        </div>
+
+        <div class="weight">
+            <label for="kg">Hasta kilosu</label>
+            <input id="kg" type="number" inputmode="decimal" min="0.5" max="100" step="0.1" placeholder="kg">
+            <span id="kgNote">Kilo girin, dozlar hesaplansın.</span>
+        </div>
+
+        <h2 id="sedasyon">Sedasyon ve analjezi <span class="cat sed">Sedatif / analjezik</span></h2>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Dormicum</h3><span class="generic">Midazolam</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Puşe</div><div class="dose">0,1 mg/kg</div><div class="calc" data-k="0.1" data-u="mg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">0,1 mg/kg/saat</div><div class="calc" data-k="0.1" data-u="mg/saat"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Sedasyon</span><span class="chip">Solunum depresyonu</span><span class="chip">Hipotansiyon</span><span class="chip no">Analjezi</span></div>
+            <div class="flag"><strong>Notta eksik:</strong> "24 cc SF ile sulandır, 1 cc/saat'ten gönder" yazıyor, ancak şırıngaya <strong>kaç mg midazolam</strong> konulacağı belirtilmemiş. 1 cc/saat'in 0,1 mg/kg/saat'e denk gelmesi için toplam 24 cc'de <strong>kilo × 2,4 mg</strong> midazolam bulunmalıdır (aşağıdaki hesap bu varsayımla yapılmıştır). Lütfen orijinal protokolden doğrulayın.<div class="calc" style="margin-top:6px" data-k="2.4" data-u="mg midazolam → SF ile 24 cc'ye tamamla"></div></div>
+            <div class="info">Notta etki listesinde "sekresyon (+)" okunuyor; midazolam sekresyonu artırmaz, bu yüzden "sedasyon" kastedildiği varsayıldı.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Fentanyl</h3><span class="generic">Fentanil</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Puşe</div><div class="dose">1 mcg/kg</div><div class="calc" data-k="1" data-u="mcg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">1 mcg/kg/saat</div><div class="calc" data-k="1" data-u="mcg/saat"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Analjezi</span><span class="chip">Solunum depresyonu</span><span class="chip">Rijid göğüs</span></div>
+            <div class="info">Rijid göğüs özellikle hızlı ve yüksek doz puşede görülür; puşe yavaş (1–2 dakikada) yapılmalıdır.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Ketamin</h3><span class="generic">Ketamin</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Puşe</div><div class="dose">1 mg/kg</div><div class="calc" data-k="1" data-u="mg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">1 mg/kg/saat</div><div class="calc" data-k="1" data-u="mg/saat"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Sedasyon</span><span class="chip">Analjezi</span><span class="chip">Bronkodilatasyon</span><span class="chip">Sekresyon ↑</span><span class="chip">Kafa içi basınç ↑</span><span class="chip">Taşikardi</span></div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Precedex</h3><span class="generic">Deksmedetomidin</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Yükleme</div><div class="dose">1 mcg/kg</div><div class="calc" data-k="1" data-u="mcg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">0,2–0,7 mcg/kg/saat</div><div class="calc" data-k="0.2" data-k2="0.7" data-u="mcg/saat"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Sedasyon</span><span class="chip">Analjezi</span><span class="chip">Bradikardi</span></div>
+            <div class="flag"><strong>Dikkat:</strong> Notta yükleme dozu "puşe" olarak yazılmış. Prospektüs ve standart kaynaklara göre deksmedetomidin yükleme dozu <strong>hızlı puşe yapılmaz, yaklaşık 10 dakikada infüzyonla</strong> verilir; hızlı verildiğinde ciddi bradikardi ve hipertansiyon/hipotansiyon görülebilir. Birçok merkez yükleme dozunu atlamaktadır.</div>
+            <div class="flag"><strong>Birim karışıklığı:</strong> İkinci notta kırmızı kalemle "Precedex 1 mg/kg" yazıyor. Doğrusu <strong>mcg/kg</strong>'dır; 1 mg/kg bin kat yüksek dozdur.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Propofol</h3><span class="generic">Propofol</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Puşe</div><div class="dose">1 mg/kg</div><div class="calc" data-k="1" data-u="mg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">Notta yok</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="effects"><span class="chip">Sedasyon</span><span class="chip">Hipotansiyon</span><span class="chip no">Analjezi</span></div>
+            <div class="info">Çocuklarda uzun süreli propofol infüzyonu, propofol infüzyon sendromu riski nedeniyle yoğun bakım sedasyonunda genellikle önerilmez.</div>
+        </article>
+
+        <h2 id="kas">Kas gevşeticiler <span class="cat nmb">Nöromüsküler bloker</span></h2>
+        <div class="info" style="margin:0 0 12px">Kas gevşeticilerin sedatif ve analjezik etkisi yoktur; mutlaka yeterli sedasyon/analjezi ile birlikte ve hava yolu güvence altındayken kullanılır.</div>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Norcuron</h3><span class="generic">Vekuronyum</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Puşe</div><div class="dose">0,1 mg/kg</div><div class="calc" data-k="0.1" data-u="mg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">0,1 mg/kg/saat</div><div class="calc" data-k="0.1" data-u="mg/saat"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Esmeron</h3><span class="generic">Rokuronyum</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Puşe</div><div class="dose">0,5 mg/kg</div><div class="calc" data-k="0.5" data-u="mg"></div></div>
+                <div class="row"><div class="label">İnfüzyon</div><div class="dose">10 mcg/kg/dk</div><div class="calc" data-k="0.6" data-u="mg/saat"></div></div>
+            </div>
+            <div class="flag"><strong>Notta tutarsızlık:</strong> İnfüzyon "10 mcg/kg/dk" ve altında "0,5 mg/kg/saat" olarak yazılmış. 10 mcg/kg/dk = <strong>0,6 mg/kg/saat</strong> eder (0,5 mg/kg/saat ≈ 8,3 mcg/kg/dk). Hesap 10 mcg/kg/dk üzerinden yapılmıştır; hangisinin kastedildiğini doğrulayın. Ayrıca entübasyon için rokuronyum dozu kaynaklarda genellikle 0,6 mg/kg (hızlı ardışık entübasyonda 1–1,2 mg/kg) olarak verilir.</div>
+        </article>
+
+        <h2 id="inotrop">İnotroplar <span class="cat ino">Hazırlama</span></h2>
+        <div class="info" style="margin:0 0 12px">Hazırlama: belirtilen miktarda ilaç alınır, <strong>SF ile 100 cc'ye tamamlanır</strong>. Bu hazırlamada <strong>1 cc/saat</strong> hız, parantez içindeki doza eşittir; doz artırmak için hız oranla artırılır.</div>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Adrenalin</h3><span class="generic">Epinefrin</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Hazırlama</div><div class="dose">kg × 0,6 mg → 100 cc SF</div><div class="calc" data-k="0.6" data-u="mg adrenalin"></div></div>
+                <div class="row"><div class="label">1 cc/saat =</div><div class="dose">0,1 mcg/kg/dk</div><div class="calc muted">2 cc/saat = 0,2 mcg/kg/dk</div></div>
+            </div>
+            <div class="effects"><span class="chip">Taşikardi</span></div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Noradrenalin</h3><span class="generic">Norepinefrin</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Hazırlama</div><div class="dose">kg × 0,6 mg → 100 cc SF</div><div class="calc" data-k="0.6" data-u="mg noradrenalin"></div></div>
+                <div class="row"><div class="label">1 cc/saat =</div><div class="dose">0,1 mcg/kg/dk</div><div class="calc muted">2 cc/saat = 0,2 mcg/kg/dk</div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Dopamin</h3><span class="generic">Dopamin</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Hazırlama</div><div class="dose">kg × 60 mg → 100 cc SF</div><div class="calc" data-k="60" data-u="mg dopamin"></div></div>
+                <div class="row"><div class="label">1 cc/saat =</div><div class="dose">10 mcg/kg/dk</div><div class="calc muted">0,5 cc/saat = 5 mcg/kg/dk</div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Dobutamin</h3><span class="generic">Dobutamin</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Hazırlama</div><div class="dose">kg × 60 mg → 100 cc SF</div><div class="calc" data-k="60" data-u="mg dobutamin"></div></div>
+                <div class="row"><div class="label">1 cc/saat =</div><div class="dose">10 mcg/kg/dk</div><div class="calc muted">0,5 cc/saat = 5 mcg/kg/dk</div></div>
+            </div>
+        </article>
+        <div class="info">Bu hazırlamalarda ilaç konsantrasyonu kiloyla birlikte artar; büyük çocuklarda konsantrasyon yükseleceğinden periferik yol kullanımı ve ilacın önerilen azami konsantrasyonu açısından dikkatli olun.</div>
+
+        <h2 id="sik">Sık kullanılan ilaçlar <span class="cat gen">Genel</span></h2>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Perfalgan</h3><span class="generic">Parasetamol IV, 10 mg/mL</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Tek doz</div><div class="dose">1 cc/kg (10 mg/kg)</div><div class="calc" data-k="1" data-max="100" data-u="cc"></div></div>
+                <div class="row"><div class="label">Üst sınır</div><div class="dose">Tek dozda en fazla 100 cc (1 g)</div><div class="calc muted">Notta ayrıca "4 × 60 cc max" yazıyor</div></div>
+            </div>
+            <div class="flag"><strong>Doğrulayın:</strong> Notta ilaç adı "Perdelgan" gibi okunuyor; 10 mg/mL IV parasetamol (Perfalgan) olduğu varsayıldı. "4 × 60 cc max" ifadesi net değil. Prospektüse göre 10 kg üzerindeki çocuklarda doz 15 mg/kg (1,5 cc/kg), günde en fazla 4 doz ve 60 mg/kg/gün; 10 kg ve altında 10 mg/kg (1 cc/kg) ve en fazla 30 mg/kg/gün'dür.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Emetril</h3><span class="generic">Antiemetik, 3 mg ampul</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">0,01 mg/kg</div><div class="calc" data-k="0.01" data-u="mg"></div></div>
+                <div class="row"><div class="label">Ampul</div><div class="dose">3 mg</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="flag"><strong>Doğrulayın:</strong> 0,01 mg/kg dozu ve 3 mg ampul <strong>granisetron</strong> ile uyumludur. İlaç ondansetron ise doz 0,1–0,15 mg/kg olmalıdır (10 kat fark). Etken maddeyi kutudan kontrol edin.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Nexium</h3><span class="generic">Esomeprazol</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">1 mg/kg</div><div class="calc" data-k="1" data-u="mg"></div></div>
+                <div class="row"><div class="label">Sıklık</div><div class="dose">Notta yok</div><div class="calc muted">Genellikle günde 1 kez</div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Gaviscon</h3><span class="generic">Aljinat / antiasit</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">30 kg üzerine 1 ölçek</div><div class="calc muted">—</div></div>
+                <div class="row"><div class="label">Yaş</div><div class="dose">6 yaş altına verilmez</div><div class="calc muted">Nottaki okuma; doğrulayın</div></div>
+            </div>
+        </article>
+
+        <h2 id="astim">Astım atağı tedavisi <span class="cat ast">Sırasıyla</span></h2>
+
+        <article class="drug">
+            <div class="drug-head"><h3>1. Ventolin nebül</h3><span class="generic">Salbutamol, 1 nebül = 2,5 mg</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">0,15 mg/kg</div><div class="calc" data-k="0.15" data-max="5" data-u="mg"></div></div>
+                <div class="row"><div class="label">Uygulama</div><div class="dose">+ 2 cc SF ile, 20 dk ara ile 3 kez</div><div class="calc muted">Örnek: 10 kg → 1,5 mg</div></div>
+            </div>
+            <div class="info">Birçok kılavuzda en düşük doz 2,5 mg, en yüksek doz 5 mg olarak verilir; hesaplama 5 mg ile sınırlandırılmıştır.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>2. Prednol</h3><span class="generic">Metilprednizolon, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">1 mg/kg IV</div><div class="calc" data-k="1" data-max="60" data-u="mg"></div></div>
+                <div class="row"><div class="label">Üst sınır</div><div class="dose">En fazla 60 mg</div><div class="calc muted">—</div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>3. Atrovent</h3><span class="generic">İpratropium bromür, nebül</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">Notta yazılmamış</div><div class="calc muted">—</div></div>
+                <div class="row"><div class="label">Uygulama</div><div class="dose">Salbutamol ile birlikte</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="info">Kaynaklarda genellikle 20 kg altında 250 mcg, üstünde 500 mcg; ilk saatte salbutamol ile birlikte 3 doza kadar verilir. Kurum protokolünüzle doğrulayın.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>4. Magnezyum sülfat</h3><span class="generic">IV, %15 ampul varsayımıyla</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">0,4 cc/kg IV</div><div class="calc" data-k="0.4" data-max="13" data-u="cc"></div></div>
+                <div class="row"><div class="label">Uygulama</div><div class="dose">En fazla 13 cc, 1 saatte IV infüzyon</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="info">%15'lik (150 mg/mL) magnezyum sülfatta 0,4 cc/kg = 60 mg/kg, 13 cc ≈ 2 g eder; bu, kaynaklardaki 25–75 mg/kg (en fazla 2 g) ile uyumludur. Farklı konsantrasyonda ampul kullanılıyorsa cc hesabı değişir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>5. High-flow</h3><span class="generic">Yüksek akışlı nazal oksijen</span></div>
+            <div class="info" style="margin-top:0">Yanıt yetersizse yüksek akışlı nazal oksijen tedavisi.</div>
+        </article>
+
+        <footer>Kaynak: kişisel el yazısı notlar. Kırmızı kutulu düzeltme notları standart pediatrik ilaç kaynakları esas alınarak eklenmiştir. Hesaplamalar yalnızca bu sayfadaki doz değerleriyle yapılan aritmetiktir; mL hacmi, ilacın ampul konsantrasyonuna göre ayrıca hesaplanmalıdır.</footer>
+    </main>
+    <script>
+        function fmt(n) {
+            var r = n >= 100 ? Math.round(n) : n >= 10 ? Math.round(n * 10) / 10 : Math.round(n * 100) / 100;
+            return r.toLocaleString('tr-TR');
+        }
+        var input = document.getElementById('kg');
+        var note = document.getElementById('kgNote');
+        function update() {
+            var kg = parseFloat(String(input.value).replace(',', '.'));
+            var ok = kg >= 0.5 && kg <= 100;
+            note.textContent = input.value === '' ? 'Kilo girin, dozlar hesaplansın.' : ok ? 'Dozlar ' + fmt(kg) + ' kg için hesaplandı.' : '0,5–100 kg arasında bir değer girin.';
+            document.querySelectorAll('.calc[data-k]').forEach(function (el) {
+                if (!ok) { el.textContent = ''; return; }
+                var v = kg * parseFloat(el.dataset.k);
+                var capped = el.dataset.max && v > parseFloat(el.dataset.max);
+                if (capped) v = parseFloat(el.dataset.max);
+                var b = el.dataset.k2 ? '–' + fmt(kg * parseFloat(el.dataset.k2)) : '';
+                el.innerHTML = '→ <b>' + fmt(v) + b + '</b> ' + el.dataset.u + (capped ? ' (üst sınır)' : '');
+            });
+            try { localStorage.setItem('pedKg', input.value); } catch (e) {}
+        }
+        input.addEventListener('input', update);
+        try { var saved = localStorage.getItem('pedKg'); if (saved) input.value = saved; } catch (e) {}
+        update();
+    </script>
+    <script>
+        (function () {
+            var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+            var box = document.getElementById('install'), text = document.getElementById('installText'), btn = document.getElementById('installBtn');
+            var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+            if (!standalone) {
+                if (ios) {
+                    text.textContent = ' Safari\'de alttaki Paylaş düğmesine (kare ve yukarı ok) dokunun, ardından "Ana Ekrana Ekle"yi seçin.';
+                    box.hidden = false;
+                } else {
+                    text.textContent = ' Chrome menüsünden (sağ üstteki üç nokta) "Uygulamayı yükle" veya "Ana ekrana ekle"yi seçin.';
+                    box.hidden = false;
+                }
+            }
+            var deferred;
+            window.addEventListener('beforeinstallprompt', function (e) {
+                e.preventDefault(); deferred = e;
+                text.textContent = ' Aşağıdaki düğmeye dokunun.';
+                btn.hidden = false; box.hidden = standalone;
+            });
+            btn.addEventListener('click', function () {
+                if (!deferred) return;
+                deferred.prompt();
+                deferred.userChoice.finally(function () { deferred = null; btn.hidden = true; });
+            });
+            window.addEventListener('appinstalled', function () { box.hidden = true; });
+            function net() { document.getElementById('offline').hidden = navigator.onLine; }
+            window.addEventListener('online', net); window.addEventListener('offline', net); net();
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+            }
+        })();
+    </script>
+</body>
+</html>
