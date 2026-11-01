@@ -23,4 +23,5 @@ Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz H
 - Anatomi için ikinci kaynak: `notlar/netter-toraks-ozet.md` (Netter Atlas 8. baskı toraks levhalarından Türkçe özet). Kitap telifli: PDF'i, ham metnini veya levhalarını depoya/siteye koyma; çizim gerekirse kendi SVG şemanı yap. Kitabın tamamı gerekirse sahibinden Drive bağlantısını iste.
 - Tıbbi görüntülerde hasta bilgisi (ad, tarih, protokol no) varsa yayınlamadan önce kapat. Hasta listesi içeren fotoğrafları depoya koyma.
 - İlaç dozlarında el yazısı nottaki tutarsızlıkları sayfada açıkça işaretle; dozları sessizce değiştirme.
+- **Görseller:** Her konu sayfasına anlaşılırlığı artıran kendi SVG şemalarını koy (sahibi özellikle istedi). Ek olarak serbest lisanslı görseller kullanılabilir: Servier Medical Art (CC BY 4.0, `images/servier/`), OpenStax (CC BY), telifi dolmuş Gray's Anatomy (1918). Her birinin altına lisansına uygun kaynak yaz. Netter vb. telifli atlas çizimlerini kaynak gösterilse bile kullanma. (Wikimedia API bu ortamda zaman zaman 429 veriyor.)
 - Video/görsel için telif: başkasının görüntülerini kopyalama; gerekiyorsa gömme ve kaynak gösterme.
