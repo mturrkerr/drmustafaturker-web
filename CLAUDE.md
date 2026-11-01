@@ -20,6 +20,7 @@ Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz H
 
 ## İçerik kuralları
 - Konu sayfaları için ana kaynak: `notlar/hilmi-keskin-video-notlari.md` (Dr. Hilmi Keskin YouTube kanalı notları/transkriptleri; sahibi bu bilgilerin kullanılmasını istedi). Kendi cümlelerinle yaz, otomatik altyazı hatalarını düzelt, sayfada kaynağı belirt; ham transkripti yayınlama. `notlar/` ve `CLAUDE.md` yayına dahil edilmez (`.vercelignore`, `.assetsignore`).
+- Anatomi için ikinci kaynak: `notlar/netter-toraks-ozet.md` (Netter Atlas 8. baskı toraks levhalarından Türkçe özet). Kitap telifli: PDF'i, ham metnini veya levhalarını depoya/siteye koyma; çizim gerekirse kendi SVG şemanı yap. Kitabın tamamı gerekirse sahibinden Drive bağlantısını iste.
 - Tıbbi görüntülerde hasta bilgisi (ad, tarih, protokol no) varsa yayınlamadan önce kapat. Hasta listesi içeren fotoğrafları depoya koyma.
 - İlaç dozlarında el yazısı nottaki tutarsızlıkları sayfada açıkça işaretle; dozları sessizce değiştirme.
 - Video/görsel için telif: başkasının görüntülerini kopyalama; gerekiyorsa gömme ve kaynak gösterme.
