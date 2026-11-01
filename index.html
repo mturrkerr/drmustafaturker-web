@@ -36,9 +36,20 @@
         @keyframes show { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         @media (prefers-reduced-motion: reduce) { .step { opacity: 1; animation: none; } }
         @media (display-mode: standalone) { #pediatricsButton, #pediatricsMenu { display: none !important; } }
+        .install-chip { position: fixed; top: max(14px, env(safe-area-inset-top)); right: 14px; z-index: 20; max-width: min(300px, calc(100vw - 28px)); background: #fff; border-radius: 12px; box-shadow: 0 8px 26px rgba(0,0,0,0.16); padding: 8px; opacity: 0; transform: translateY(-8px); transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none; }
+        .install-chip.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .install-chip button { display: flex; align-items: center; gap: 8px; border: none; border-radius: 9px; background: #1f3a52; color: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 9px 12px; cursor: pointer; }
+        .install-chip img { width: 22px; height: 22px; border-radius: 5px; }
+        .install-chip p { margin: 8px 4px 2px; font-size: 13px; line-height: 1.5; color: #3a4a57; }
+        .install-chip p[hidden] { display: none; }
+        @media (display-mode: standalone) { .install-chip { display: none; } }
     </style>
 </head>
 <body>
+    <div class="install-chip" id="installChip" role="region" aria-label="Uygulama">
+        <button type="button" id="installChipBtn"><img src="/icons/icon-192.png" alt="">Uygulamayı indir</button>
+        <p id="installChipHelp" hidden></p>
+    </div>
     <div class="flag step">
         <svg viewBox="0 0 100 100" role="img" aria-label="Türk bayrağı">
             <circle cx="50" cy="50" r="50" fill="#E30A17"/>
@@ -91,6 +102,35 @@
         document.addEventListener('click', function (e) {
             if (!menuPanel.hidden && !e.target.closest('.menu')) toggle(menuButton, menuPanel);
         });
+    </script>
+    <script>
+        (function () {
+            var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+            if (standalone) return;
+            var chip = document.getElementById('installChip'), btn = document.getElementById('installChipBtn'), help = document.getElementById('installChipHelp');
+            var deferred = null, hideTimer, pinned = false;
+            window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; });
+            function hide() { if (!pinned) chip.classList.remove('show'); }
+            setTimeout(function () {
+                chip.classList.add('show');
+                hideTimer = setTimeout(hide, 3000);
+            }, 400);
+            btn.addEventListener('click', function () {
+                if (deferred) {
+                    deferred.prompt();
+                    deferred.userChoice.finally(function () { deferred = null; chip.classList.remove('show'); });
+                    return;
+                }
+                pinned = true; clearTimeout(hideTimer);
+                var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                help.textContent = ios
+                    ? 'Safari\'de alttaki Paylaş düğmesine (kare ve yukarı ok) dokunun, ardından "Ana Ekrana Ekle"yi seçin.'
+                    : 'Tarayıcı menüsünden (sağ üstteki üç nokta) "Uygulamayı yükle" veya "Ana ekrana ekle"yi seçin.';
+                help.hidden = false;
+                setTimeout(function () { pinned = false; hide(); }, 10000);
+            });
+            window.addEventListener('appinstalled', function () { pinned = false; chip.classList.remove('show'); });
+        })();
     </script>
     <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
 </body>
