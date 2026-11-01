@@ -66,6 +66,13 @@
         .cat.gen { background: #dfe9f3; color: #1f3a52; }
         .cat.ast { background: #fff1c9; color: #7a5a00; }
         .cat.ino { background: #e7dcf7; color: #4b2a85; }
+        .cat.dm { background: #fbdce6; color: #8a1f45; }
+        .tests { list-style: none; margin: 0; padding: 0; counter-reset: t; }
+        .tests li { counter-increment: t; display: flex; align-items: baseline; gap: 10px; padding: 10px 0; border-bottom: 1px solid #edf1f4; }
+        .tests li:last-child { border-bottom: none; }
+        .tests li::before { content: counter(t); flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+        .tests .t-name { font-size: 16px; font-weight: 700; color: #1f2a33; }
+        .tests .t-note { display: block; font-size: 13px; color: #6a7a87; margin-top: 2px; }
         h2 { scroll-margin-top: 130px; }
         .muted { color: #6a7a87; font-size: 13px; }
         footer { margin-top: 28px; font-size: 13px; color: #6a7a87; line-height: 1.6; }
@@ -117,6 +124,7 @@
                 <li><a href="#inotrop">İnotroplar</a></li>
                 <li><a href="#sik">Sık kullanılan ilaçlar</a></li>
                 <li><a href="#astim">Astım atağı tedavisi</a></li>
+                <li><a href="#diyabet">Diyabet: etiyolojik tetkikler</a></li>
             </ul>
         </div>
 
@@ -306,6 +314,27 @@
         <article class="drug">
             <div class="drug-head"><h3>5. High-flow</h3><span class="generic">Yüksek akışlı nazal oksijen</span></div>
             <div class="info" style="margin-top:0">Yanıt yetersizse yüksek akışlı nazal oksijen tedavisi.</div>
+        </article>
+
+        <h2 id="diyabet">Diyabet hastalarında istenen etiyolojik tetkikler <span class="cat dm">Kan tetkikleri</span></h2>
+
+        <article class="drug">
+            <ol class="tests">
+                <li><div><span class="t-name">Doku transglutaminaz (tTG)</span><span class="t-note">Çölyak taraması</span></div></li>
+                <li><div><span class="t-name">Anti-insülin antikoru</span><span class="t-note">Diyabet otoantikoru</span></div></li>
+                <li><div><span class="t-name">Adacık hücre antikoru</span><span class="t-note">Diyabet otoantikoru</span></div></li>
+                <li><div><span class="t-name">Anti-GAD</span><span class="t-note">Diyabet otoantikoru</span></div></li>
+                <li><div><span class="t-name">İnsülin düzeyi</span><span class="t-note">Pankreas rezervi</span></div></li>
+                <li><div><span class="t-name">Anti-TPO</span><span class="t-note">Otoimmün tiroidit taraması</span></div></li>
+                <li><div><span class="t-name">Anti-tiroglobulin</span><span class="t-note">Otoimmün tiroidit taraması</span></div></li>
+                <li><div><span class="t-name">Serbest T3 – serbest T4</span><span class="t-note">Tiroid fonksiyonu</span></div></li>
+                <li><div><span class="t-name">TSH</span><span class="t-note">Tiroid fonksiyonu</span></div></li>
+                <li><div><span class="t-name">C-peptid</span><span class="t-note">Pankreas rezervi</span></div></li>
+                <li><div><span class="t-name">HbA1c</span><span class="t-note">Glisemik kontrol</span></div></li>
+                <li><div><span class="t-name">Endomisyum IgA (EMA)</span><span class="t-note">Çölyak taraması</span></div></li>
+            </ol>
+            <div class="info">Kaynaklarda doku transglutaminaz IgA ile birlikte <strong>total IgA düzeyi</strong> de istenmesi önerilir; IgA eksikliğinde çölyak testleri yanlış negatif çıkabilir.</div>
+            <div class="info">12. maddede notta "Endomisyum CDA" gibi okunuyor; "Endomisyum IgA" kastedildiği varsayıldı.</div>
         </article>
 
         <footer>Kaynak: kişisel el yazısı notlar. Kırmızı kutulu düzeltme notları standart pediatrik ilaç kaynakları esas alınarak eklenmiştir. Hesaplamalar yalnızca bu sayfadaki doz değerleriyle yapılan aritmetiktir; mL hacmi, ilacın ampul konsantrasyonuna göre ayrıca hesaplanmalıdır.</footer>
