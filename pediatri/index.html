@@ -66,6 +66,18 @@
         .cat.gen { background: #dfe9f3; color: #1f3a52; }
         .cat.ast { background: #fff1c9; color: #7a5a00; }
         .cat.ino { background: #e7dcf7; color: #4b2a85; }
+        .cat.abx { background: #d9efd9; color: #23612a; }
+        .cat.flu { background: #d6ecf7; color: #155a7d; }
+        .cat.liv { background: #f6e3cf; color: #7a4310; }
+        .cat.tpn { background: #ece4d8; color: #5a4a30; }
+        .note-src { margin: -4px 0 12px; font-size: 13px; color: #6a7a87; }
+        .table-wrap { overflow-x: auto; }
+        .tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .tbl th, .tbl td { padding: 8px 6px; border-bottom: 1px solid #edf1f4; text-align: left; vertical-align: top; }
+        .tbl thead th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: #6a7a87; }
+        .tbl tbody th { color: #1f2a33; font-weight: 700; }
+        .tbl .calc { font-size: 13px; margin-top: 2px; }
+        .cat-menu { max-height: 70vh; overflow-y: auto; }
         .cat.dm { background: #fbdce6; color: #8a1f45; }
         .tests { list-style: none; margin: 0; padding: 0; counter-reset: t; }
         .tests li { counter-increment: t; display: flex; align-items: baseline; gap: 10px; padding: 10px 0; border-bottom: 1px solid #edf1f4; }
@@ -124,6 +136,10 @@
                 <li><a href="#inotrop">İnotroplar</a></li>
                 <li><a href="#sik">Sık kullanılan ilaçlar</a></li>
                 <li><a href="#astim">Astım atağı tedavisi</a></li>
+                <li><a href="#antibiyotik">Antibiyotikler</a></li>
+                <li><a href="#sivi">Sıvı tedavisi</a></li>
+                <li><a href="#kcft">KCFT bozukluğu</a></li>
+                <li><a href="#tpn">Total parenteral beslenme</a></li>
                 <li><a href="#diyabet">Diyabet: etiyolojik tetkikler</a></li>
             </ul>
         </div>
@@ -316,6 +332,300 @@
             <div class="info" style="margin-top:0">Yanıt yetersizse yüksek akışlı nazal oksijen tedavisi.</div>
         </article>
 
+        <h2 id="antibiyotik">Antibiyotikler <span class="cat abx">Antibiyotik / antifungal</span></h2>
+        <p class="note-src">Servis listesi (kaynak: UpToDate), ek liste ve hematoloji servisi listesinden derlendi. Lütfen hocalarımıza danışarak kullanalım.</p>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Amikasin</h3><span class="generic">Aminoglikozit, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">15 mg/kg/gün tek dozda IV, en fazla 1 g/gün</div><div class="calc" data-k="15" data-max="1000" data-u="mg/gün"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi</div><div class="dose">15 mg/kg/gün 2 dozda, en fazla 1 g/gün</div><div class="calc" data-k="7.5" data-max="500" data-u="mg/doz"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Nefrotoksik</span><span class="chip">Ototoksik</span></div>
+            <div class="info">Kan düzeyi bakılabilir. Prospektüste günlük doz 15 mg/kg (1 veya 2 dozda), erişkinde en fazla 1,5 g/gün; listelerdeki 1 g sınırı daha temkinlidir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Amoksisilin-klavulanik asit</h3><span class="generic">Oral, amoksisilin bileşeni üzerinden</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">40–80 mg/kg/gün, 2 dozda</div><div class="calc" data-k="40" data-k2="80" data-u="mg/gün"></div></div>
+                <div class="row"><div class="label">Doz başına</div><div class="dose">20–40 mg/kg/doz</div><div class="calc" data-k="20" data-k2="40" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Duocid</h3><span class="generic">Ampisilin-sulbaktam, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">4 × 50 mg/kg/doz IV</div><div class="calc" data-k="50" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Günlük</div><div class="dose">200 mg/kg/gün</div><div class="calc" data-k="200" data-u="mg/gün"></div></div>
+            </div>
+            <div class="info">Doz ampisilin bileşenine göredir (flakonda ampisilin:sulbaktam = 2:1; 1,5 g flakon = 1 g ampisilin + 0,5 g sulbaktam). Kaynaklarda ampisilin olarak 100–200 mg/kg/gün verilir; 4 × 50 mg/kg bu aralığın üst ucudur.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Asiklovir</h3><span class="generic">IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">3 × 10 mg/kg/doz IV</div><div class="calc" data-k="10" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Günlük</div><div class="dose">30 mg/kg/gün</div><div class="calc" data-k="30" data-u="mg/gün"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Nefrotoksik</span></div>
+            <div class="info">Böbrek hasarını önlemek için iyi hidrasyon ve yavaş (1 saatte) infüzyon önerilir. Yenidoğan HSV enfeksiyonu ve HSV ensefalitinde kaynaklarda daha yüksek doz (20 mg/kg/doz) kullanılır.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Bactrim</h3><span class="generic">Trimetoprim-sulfametoksazol, trimetoprim dozu üzerinden</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">8–12 mg/kg/gün, 2 dozda, oral/IV</div><div class="calc" data-k="4" data-k2="6" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi – profilaksi</div><div class="dose">5 mg/kg/gün, 2 dozda, haftada 3 gün, oral</div><div class="calc" data-k="2.5" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi – tedavi</div><div class="dose">15–20 mg/kg/gün, 3 dozda IV (en fazla 3 × 160 mg)</div><div class="calc" data-k="5" data-k2="6.67" data-max="160" data-u="mg/doz"></div></div>
+            </div>
+            <div class="info">Hesaplanan değerler trimetoprim miktarıdır.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Flukonazol</h3><span class="generic">Triflukan, IV/oral</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">1 × 10 mg/kg IV/oral</div><div class="calc" data-k="10" data-u="mg/gün"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi – profilaksi</div><div class="dose">1 × 5–6 mg/kg</div><div class="calc" data-k="5" data-k2="6" data-u="mg/gün"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi – tedavi</div><div class="dose">10 mg/kg/gün (en fazla 2 × 200 mg), genellikle tek dozda başlanır</div><div class="calc" data-k="10" data-max="400" data-u="mg/gün"></div></div>
+            </div>
+            <div class="info">Prospektüste çocuklarda günlük doz 400 mg'ı aşmamalıdır.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Gansiklovir</h3><span class="generic">IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">2 × 5 mg/kg/doz</div><div class="calc" data-k="5" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Gentamisin</h3><span class="generic">Aminoglikozit, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">1 × 7 mg/kg/doz</div><div class="calc" data-k="7" data-u="mg/gün"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi</div><div class="dose">1 × 6 mg/kg/doz</div><div class="calc" data-k="6" data-u="mg/gün"></div></div>
+            </div>
+            <div class="effects"><span class="chip">Nefrotoksik</span><span class="chip">Ototoksik</span></div>
+            <div class="info">İki liste arasında doz farkı var (7 ve 6 mg/kg); kaynaklarda günde tek doz 5–7,5 mg/kg verilir, ikisi de bu aralıkta. Kan düzeyi izlenmelidir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Kaspofungin</h3><span class="generic">Cancidas, IV, vücut yüzey alanına göre</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Yükleme (1. gün)</div><div class="dose">1 × 70 mg/m², en fazla 70 mg</div><div class="calc" data-k="70" data-max="70" data-m2="1" data-u="mg"></div></div>
+                <div class="row"><div class="label">İdame (24 saat sonra)</div><div class="dose">1 × 50 mg/m²/gün</div><div class="calc" data-k="50" data-max="70" data-m2="1" data-u="mg/gün"></div></div>
+            </div>
+            <div class="flag"><strong>Listeler arasında fark:</strong> servis listesinde idame için "en fazla 50 mg", hematoloji listesinde "en fazla 70 mg" yazıyor. Prospektüse göre yükleme ve idame dozu, hesaplanan değerden bağımsız olarak günde <strong>70 mg'ı aşmamalıdır</strong>; bu yüzden hesaplama 70 mg ile sınırlandırıldı (hematoloji listesiyle uyumlu).</div>
+            <div class="info">Vücut yüzey alanı, Sıvı tedavisi bölümündeki formülle (kilo × 4 + 7) / (90 + kilo) hesaplanır.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Klaritromisin</h3><span class="generic">Macrol, oral</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">2 × 7,5 mg/kg/doz, doz başına en fazla 500 mg</div><div class="calc" data-k="7.5" data-max="500" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi</div><div class="dose">15 mg/kg/gün, 2 dozda</div><div class="calc" data-k="15" data-u="mg/gün"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Klindamisin</h3><span class="generic">Klindan, oral/IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi ve Hematoloji servisi</div><div class="dose">3 × 10 mg/kg/doz</div><div class="calc" data-k="10" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Metronidazol</h3><span class="generic">Flagyl, oral/IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi ve Hematoloji servisi</div><div class="dose">3 × 10 mg/kg/doz</div><div class="calc" data-k="10" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Meronem</h3><span class="generic">Meropenem, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Sepsis / menenjit</div><div class="dose">3 × 40 mg/kg/doz, en fazla 3 × 2 g</div><div class="calc" data-k="40" data-max="2000" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Pnömoni</div><div class="dose">3 × 20 mg/kg/doz, en fazla 3 × 1 g</div><div class="calc" data-k="20" data-max="1000" data-u="mg/doz"></div></div>
+            </div>
+            <div class="info">Hematoloji servisinde 3 × 40 mg/kg/doz (en fazla 3 × 2 g) kullanılır. Servis listesindeki "en fazla 3 × 1 g" pnömoni dozuna aittir; prospektüste de 40 mg/kg dozda en fazla 2 g, 10–20 mg/kg dozda en fazla 1 g verilir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Sefepim</h3><span class="generic">Ekipim, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi ve Hematoloji servisi</div><div class="dose">3 × 50 mg/kg/doz, en fazla 3 × 2 g</div><div class="calc" data-k="50" data-max="2000" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Sefotaksim</h3><span class="generic">Sefotak, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi ve Ek liste</div><div class="dose">3 × 50 mg/kg/doz</div><div class="calc" data-k="50" data-u="mg/doz"></div></div>
+            </div>
+            <div class="info">Listelerde üst sınır yazılmamış; kaynaklarda doz başına genellikle en fazla 2 g verilir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Seftazidim</h3><span class="generic">Fortum, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi ve Ek liste</div><div class="dose">3 × 50 mg/kg/doz, en fazla 3 × 2 g</div><div class="calc" data-k="50" data-max="2000" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Seftriakson</h3><span class="generic">IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">50–75 mg/kg/gün, 2 dozda</div><div class="calc" data-k="25" data-k2="37.5" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Menenjit</div><div class="dose">100 mg/kg/gün, en fazla 4 g/gün</div><div class="calc" data-k="100" data-max="4000" data-u="mg/gün"></div></div>
+            </div>
+            <div class="info">Yenidoğanlarda kalsiyum içeren IV sıvılarla birlikte verilmemelidir; hiperbilirubinemili yenidoğanda prospektüse göre kontrendikedir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Siprofloksasin</h3><span class="generic">Cipro, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi ve Ek liste</div><div class="dose">3 × 10 mg/kg/doz, doz başına en fazla 400 mg (günde en fazla 1,2 g)</div><div class="calc" data-k="10" data-max="400" data-u="mg/doz"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Oseltamivir</h3><span class="generic">Tamiflu, oral</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">1 yaş altı</div><div class="dose">2 × 3 mg/kg/doz</div><div class="calc" data-k="3" data-u="mg/doz, günde 2 kez"></div></div>
+                <div class="row"><div class="label">1 yaş üstü</div><div class="dose">≤15 kg: 2 × 30 mg · 15–23 kg: 2 × 45 mg · 23–40 kg: 2 × 60 mg · &gt;40 kg: 2 × 75 mg</div><div class="calc" data-bands="15:30,23:45,40:60,100000:75" data-u="mg/doz, günde 2 kez"></div></div>
+            </div>
+            <div class="flag"><strong>Listeler arasında fark:</strong> servis listesinde kilo aralıkları "15–20 kg: 2 × 45 mg, 20–40 kg: 2 × 60 mg" yazıyor. Prospektüsteki aralıklar <strong>15–23 kg ve 23–40 kg</strong>'dır (ek listeyle aynı); uygulamada prospektüsteki aralıklar kullanıldı.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Tazocin</h3><span class="generic">Piperasilin-tazobaktam, IV, piperasilin dozu üzerinden</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Servis listesi</div><div class="dose">4 × 80 mg/kg/doz, en fazla 4 × 4 g</div><div class="calc" data-k="80" data-max="4000" data-u="mg piperasilin/doz"></div></div>
+                <div class="row"><div class="label">Hematoloji servisi</div><div class="dose">4 × 90 mg/kg/doz, en fazla 4 × 4,5 g</div><div class="calc" data-k="90" data-max="4000" data-u="mg piperasilin/doz"></div></div>
+            </div>
+            <div class="info">4,5 g flakon = 4 g piperasilin + 0,5 g tazobaktam; yani iki listedeki üst sınır da doz başına 4 g piperasilin demektir. Prospektüste nötropenik çocuklarda doz 80 mg/kg piperasilin, 6 saatte bir (en fazla 4 g) olarak verilir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Targocid</h3><span class="generic">Teikoplanin, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Yükleme</div><div class="dose">İlk 3 doz, 12 saat arayla 10 mg/kg (en fazla 400 mg)</div><div class="calc" data-k="10" data-max="400" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">İdame</div><div class="dose">3. dozdan 24 saat sonra 1 × 10 mg/kg (en fazla 400 mg)</div><div class="calc" data-k="10" data-max="400" data-u="mg/gün"></div></div>
+            </div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Vankomisin</h3><span class="generic">IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">4 × 10–15 mg/kg/doz</div><div class="calc" data-k="10" data-k2="15" data-max="500" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Günlük</div><div class="dose">40–60 mg/kg/gün, en fazla 2 g/gün</div><div class="calc" data-k="40" data-k2="60" data-max="2000" data-u="mg/gün"></div></div>
+            </div>
+            <div class="info">Kan düzeyi bakılabilir.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Amfoterisin B</h3><span class="generic">IV, %5 dekstroz içinde</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Test dozu</div><div class="dose">1 mg, 50 cc %5 dekstroz içinde, 30 dakikada infüzyon</div><div class="calc muted">—</div></div>
+                <div class="row"><div class="label">Tedavi</div><div class="dose">2–5 mg/kg/gün, 100–150 cc %5 dekstroz içinde, 2 saatte infüzyon (ışıktan korunmalı)</div><div class="calc" data-k="2" data-k2="5" data-u="mg/gün"></div></div>
+            </div>
+            <div class="flag"><strong>Ürüne dikkat:</strong> 2–5 mg/kg/gün dozu <strong>lipozomal / lipid kompleks</strong> amfoterisin B (ör. AmBisome) dozudur. <strong>Konvansiyonel</strong> (deoksikolat) amfoterisin B'de doz genellikle 0,5–1 mg/kg/gündür ve prospektüse göre <strong>1,5 mg/kg/gün aşılmamalıdır</strong>; karıştırılması ölümcül kardiyak arreste yol açabilir. Uygulamadan önce ürün adını ve dozu mutlaka doğrulayın.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Varikonazol</h3><span class="generic">Vfend</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Yükleme</div><div class="dose">2 × 9 mg/kg/doz, en fazla 2 × 300 mg</div><div class="calc" data-k="9" data-max="300" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">İdame</div><div class="dose">2 × 8 mg/kg/doz, en fazla 2 × 200 mg</div><div class="calc" data-k="8" data-max="200" data-u="mg/doz"></div></div>
+            </div>
+            <div class="info">Prospektüste yükleme dozu ilk 24 saatte (2 doz) uygulanır, sonra idameye geçilir. Kan düzeyi izlenmesi önerilir.</div>
+        </article>
+
+        <h2 id="sivi">Sıvı tedavisi <span class="cat flu">Sıvı</span></h2>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Vücut yüzey alanı ve idame sıvısı</h3><span class="generic">20 kg üzeri</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Vücut yüzey alanı</div><div class="dose">(kilo × 4 + 7) / (90 + kilo)</div><div class="calc" data-k="1" data-m2="1" data-u="m²"></div></div>
+                <div class="row"><div class="label">İdame sıvısı (&gt;20 kg)</div><div class="dose">1500–1700 cc/m²/gün</div><div class="calc" data-k="1500" data-k2="1700" data-m2="1" data-u="cc/gün"></div></div>
+            </div>
+            <div class="info">Fotoğrafta idame sıvısı tablosunun üst kısmı (20 kg ve altı) kesik; o kısmın fotoğrafını gönderirseniz eklerim.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Dehidratasyon</h3><span class="generic">Defisit sıvısı</span></div>
+            <div class="table-wrap"><table class="tbl">
+                <thead><tr><th></th><th>Hafif</th><th>Orta</th><th>Ağır</th></tr></thead>
+                <tbody>
+                    <tr><th>Mayi, &gt;2 yaş</th><td>30 cc/kg<div class="calc" data-k="30" data-u="cc"></div></td><td>60 cc/kg<div class="calc" data-k="60" data-u="cc"></div></td><td>90 cc/kg<div class="calc" data-k="90" data-u="cc"></div></td></tr>
+                    <tr><th>Mayi, &lt;2 yaş</th><td>50 cc/kg<div class="calc" data-k="50" data-u="cc"></div></td><td>100 cc/kg<div class="calc" data-k="100" data-u="cc"></div></td><td>150 cc/kg<div class="calc" data-k="150" data-u="cc"></div></td></tr>
+                    <tr><th>Veriliş süresi (defisit)</th><td>12–24 saat</td><td>24–36 saat</td><td>36–48 saat</td></tr>
+                </tbody>
+            </table></div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Sıvıların içeriği</h3><span class="generic">Na, K, Cl: mEq/L · Dekstroz: g/L</span></div>
+            <div class="table-wrap"><table class="tbl">
+                <thead><tr><th>Sıvı</th><th>Na</th><th>K</th><th>Klor</th><th>Dekstroz</th></tr></thead>
+                <tbody>
+                    <tr><th>%5 Dekstroz</th><td>–</td><td>–</td><td>–</td><td>50</td></tr>
+                    <tr><th>%10 Dekstroz</th><td>–</td><td>–</td><td>–</td><td>100</td></tr>
+                    <tr><th>%30 Dekstroz</th><td>–</td><td>–</td><td>–</td><td>300</td></tr>
+                    <tr><th>SF (%0,9 NaCl)</th><td>154</td><td>–</td><td>154</td><td>–</td></tr>
+                    <tr><th>½ SF</th><td>77</td><td>–</td><td>77</td><td>25</td></tr>
+                    <tr><th>⅓ SF</th><td>51,2</td><td>–</td><td>51,2</td><td>33,3</td></tr>
+                    <tr><th>¼ SF</th><td>38,5</td><td>–</td><td>38,5</td><td>37,5</td></tr>
+                    <tr><th>⅕ SF</th><td>30,8</td><td>–</td><td>30,8</td><td>40</td></tr>
+                    <tr><th>%3 NaCl</th><td>513</td><td>–</td><td>513</td><td>–</td></tr>
+                </tbody>
+            </table></div>
+            <div class="info">½, ⅓, ¼ ve ⅕ SF satırlarındaki dekstroz değerleri, SF'nin %5 dekstrozla karıştırıldığı karışımlara aittir.</div>
+        </article>
+
+        <h2 id="kcft">KCFT bozukluğu olan hastalar <span class="cat liv">Karaciğer</span></h2>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Asist infüzyonu</h3><span class="generic">N-asetilsistein, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">4 × 10–40 mg/kg/doz, en fazla 2 g</div><div class="calc" data-k="10" data-k2="40" data-max="2000" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Hazırlama</div><div class="dose">250 cc %5 dekstroz-SF ile 6 saatte infüzyon</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="flag">Bu kullanım kurum protokolüdür. Prospektüsteki endikasyon <strong>parasetamol zehirlenmesidir</strong> (150 mg/kg 1 saatte, 50 mg/kg 4 saatte, 100 mg/kg 16 saatte). Parasetamol dışı karaciğer yetmezliğinde kaynaklarda genellikle 100–150 mg/kg/gün sürekli infüzyon kullanılır. Hocalarınızla doğrulayın.</div>
+            <div class="info">Fotoğrafta infüzyon süresinin yazdığı kısım ışık yansıması nedeniyle kısmen okunuyor; "6 saat infüzyon" olarak okundu.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Ulcuran</h3><span class="generic">Ranitidin, IV</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">3 × 1 mg/kg/doz</div><div class="calc" data-k="1" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Not</div><div class="dose">Asist infüzyonu ile mutlaka ranitidin verilir</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="flag"><strong>Ürün bulunabilirliği:</strong> Ranitidin içeren ilaçlar (Ulcuran dahil) Aralık 2020'de Sağlık Bakanlığı tarafından NDMA safsızlığı nedeniyle piyasadan toplatıldı. Hastanenizde bulunmuyorsa yerine kullanılacak mide koruyucu için hocalarınıza danışın.</div>
+        </article>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Ursofalk</h3><span class="generic">Ursodeoksikolik asit, oral</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Doz</div><div class="dose">3 × 10–15 mg/kg/doz</div><div class="calc" data-k="10" data-k2="15" data-u="mg/doz"></div></div>
+                <div class="row"><div class="label">Günlük</div><div class="dose">30–45 mg/kg/gün</div><div class="calc" data-k="30" data-k2="45" data-u="mg/gün"></div></div>
+            </div>
+            <div class="flag"><strong>Prospektüsle fark:</strong> Ursofalk prospektüsünde çocuklarda (kistik fibroz) doz <strong>20 mg/kg/gün</strong>, gerekirse 30 mg/kg/gün'dür. Listedeki "3 × 10–15 mg/kg/doz" günde 30–45 mg/kg eder; "günlük doz 10–15 mg/kg" kastedilmiş olabilir. Hocalarınızla doğrulayın.</div>
+        </article>
+
+        <h2 id="tpn">Total parenteral beslenme <span class="cat tpn">TPN</span></h2>
+
+        <article class="drug">
+            <div class="drug-head"><h3>Total parenteral beslenme</h3><span class="generic">Oliklinomel veya Numeta</span></div>
+            <div class="rows">
+                <div class="row"><div class="label">Hacim</div><div class="dose">30–40 cc/kg</div><div class="calc" data-k="30" data-k2="40" data-u="cc/gün"></div></div>
+                <div class="row"><div class="label">Eklenenler</div><div class="dose">Addamel, Cernevit, Dipeptiven</div><div class="calc muted">—</div></div>
+                <div class="row"><div class="label">Eklenecek miktar</div><div class="dose">&lt;10 yaş: ¼ · 10–30 kg: ½ · &gt;30 kg: 1</div><div class="calc muted">—</div></div>
+            </div>
+            <div class="flag"><strong>Notta belirsiz:</strong> ¼, ½ ve 1 değerlerinin neyin miktarı olduğu yazmıyor (büyük olasılıkla Addamel, Cernevit ve Dipeptiven'in flakon oranı). Ayrıca ilk satırda "yaş", diğerlerinde "kg" yazıyor; "&lt;10 kg" kastedilmiş olabilir. Lütfen doğrulayın.</div>
+            <div class="info">Dipeptiven prospektüsüne göre çocuklarda güvenlilik ve etkinlik verisi yetersizdir.</div>
+        </article>
+
         <h2 id="diyabet">Diyabet hastalarında istenen etiyolojik tetkikler <span class="cat dm">Kan tetkikleri</span></h2>
 
         <article class="drug">
@@ -337,7 +647,7 @@
             <div class="info">12. maddede notta "Endomisyum CDA" gibi okunuyor; "Endomisyum IgA" kastedildiği varsayıldı.</div>
         </article>
 
-        <footer>Kaynak: kişisel el yazısı notlar. Kırmızı kutulu düzeltme notları standart pediatrik ilaç kaynakları esas alınarak eklenmiştir. Hesaplamalar yalnızca bu sayfadaki doz değerleriyle yapılan aritmetiktir; mL hacmi, ilacın ampul konsantrasyonuna göre ayrıca hesaplanmalıdır.</footer>
+        <footer>Kaynak: kişisel el yazısı notlar. Kırmızı kutulu düzeltme notları standart pediatrik ilaç kaynakları esas alınarak eklenmiştir. Hesaplamalar yalnızca bu sayfadaki doz değerleriyle yapılan aritmetiktir; mL hacmi, ilacın ampul konsantrasyonuna göre ayrıca hesaplanmalıdır. Antibiyotik, sıvı, KCFT ve TPN bilgileri servis panolarındaki listelerden alınmış; belirsiz noktalar ilaç prospektüsleriyle karşılaştırılmıştır.</footer>
     </main>
     <script>
         function fmt(n) {
@@ -350,12 +660,25 @@
             var kg = parseFloat(String(input.value).replace(',', '.'));
             var ok = kg >= 0.5 && kg <= 100;
             note.textContent = input.value === '' ? 'Kilo girin, dozlar hesaplansın.' : ok ? 'Dozlar ' + fmt(kg) + ' kg için hesaplandı.' : '0,5–100 kg arasında bir değer girin.';
-            document.querySelectorAll('.calc[data-k]').forEach(function (el) {
+            var bsa = (kg * 4 + 7) / (90 + kg);
+            document.querySelectorAll('.calc[data-k], .calc[data-bands]').forEach(function (el) {
                 if (!ok) { el.textContent = ''; return; }
-                var v = kg * parseFloat(el.dataset.k);
-                var capped = el.dataset.max && v > parseFloat(el.dataset.max);
-                if (capped) v = parseFloat(el.dataset.max);
-                var b = el.dataset.k2 ? '–' + fmt(kg * parseFloat(el.dataset.k2)) : '';
+                if (el.dataset.bands) {
+                    var pick = el.dataset.bands.split(',').map(function (p) { return p.split(':').map(parseFloat); }).find(function (p) { return kg <= p[0]; });
+                    el.innerHTML = '→ <b>' + fmt(pick[1]) + '</b> ' + el.dataset.u;
+                    return;
+                }
+                var base = el.dataset.m2 ? bsa : kg;
+                var max = el.dataset.max ? parseFloat(el.dataset.max) : Infinity;
+                var v = base * parseFloat(el.dataset.k);
+                var capped = v > max;
+                if (capped) v = max;
+                var b = '';
+                if (el.dataset.k2) {
+                    var v2 = base * parseFloat(el.dataset.k2);
+                    if (v2 > max) { v2 = max; capped = true; }
+                    if (v2 !== v) b = '–' + fmt(v2);
+                }
                 el.innerHTML = '→ <b>' + fmt(v) + b + '</b> ' + el.dataset.u + (capped ? ' (üst sınır)' : '');
             });
             try { localStorage.setItem('pedKg', input.value); } catch (e) {}
