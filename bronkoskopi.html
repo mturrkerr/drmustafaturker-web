@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Bronkoskopi - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Bronkoskopi</h1>
+        <p class="lead">Bronkoskopi, trakea ve bronşların içinin bir endoskopla doğrudan görüntülendiği; gerektiğinde örnek alınan ve tedavi uygulanan işlemdir. Bu sayfada amacı, endikasyonları ve kontrendikasyonları, hazırlığı, işlemin nasıl ilerlediği, sonuçları ve bronş ağacının adlandırılması yer alıyor.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#amac">Amaç</a></li>
+                <li><a href="#turler">Bronkoskopi türleri</a></li>
+                <li><a href="#endikasyon">Endikasyonlar</a></li>
+                <li><a href="#kontrendikasyon">Kontrendikasyonlar</a></li>
+                <li><a href="#hazirlik">Hazırlık</a></li>
+                <li><a href="#surec">İşlem nasıl ilerler?</a></li>
+                <li><a href="#ornekleme">Örnekleme yöntemleri</a></li>
+                <li><a href="#sonuc">Sonuç ve rapor</a></li>
+                <li><a href="#komplikasyon">Komplikasyonlar</a></li>
+                <li><a href="#agac">Bronş ağacı</a></li>
+                <li><a href="#adlandirma">Bronşların adlandırılması</a></li>
+                <li><a href="#gorunum">Bronkoskopik görünüm</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="amac"><span class="num">1</span>Bronkoskopinin amacı</h2>
+            <ul>
+                <li><strong>Tanısal amaç:</strong> Hava yolunu doğrudan görmek (tümör, darlık, kanama odağı, yabancı cisim, fistül) ve tanı için örnek almak: sitoloji, histopatoloji, mikrobiyoloji.</li>
+                <li><strong>Evreleme amacı:</strong> Akciğer kanserinde tümörün hava yolundaki yayılımını görmek ve mediastinal lenf nodlarından örnek almak (EBUS-TBNA).</li>
+                <li><strong>Tedavi amacı:</strong> Yabancı cisim ve sekresyon tıkaçlarını çıkarmak, kanamayı kontrol etmek, daralmış hava yolunu açmak (dilatasyon, tümör çıkarma, stent).</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="turler"><span class="num">2</span>Bronkoskopi türleri</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Fleksibl (fiberoptik / video) bronkoskopi</th><th>Rijit bronkoskopi</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Alet</strong></td><td>İnce (yaklaşık 3–6 mm), bükülebilir, ucu yönlendirilebilir</td><td>Düz, metal, geniş çaplı tüp</td></tr>
+                        <tr><td><strong>Anestezi</strong></td><td>Lokal anestezi ve hafif–orta sedasyon; çoğunlukla ayaktan</td><td>Genel anestezi, ameliyathane</td></tr>
+                        <tr><td><strong>Ulaşılan yer</strong></td><td>Segmenter ve subsegmenter bronşlara kadar</td><td>Trakea ve ana/lober bronşlar</td></tr>
+                        <tr><td><strong>Ventilasyon</strong></td><td>Hasta kendisi solur</td><td>Tüp içinden ventilasyon yapılabilir; hava yolu güvencededir</td></tr>
+                        <tr><td><strong>Başlıca kullanım</strong></td><td>Tanısal işlemler, BAL, biyopsi, EBUS, sekresyon aspirasyonu, yoğun bakımda kullanım</td><td>Büyük yabancı cisimler (özellikle çocuklarda), masif hemoptizi, santral tümör çıkarma, dilatasyon, stent yerleştirme</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>EBUS (endobronşiyal ultrasonografi):</strong> Ucunda ultrason probu olan özel bir fleksibl bronkoskoptur. Hava yolu duvarının dışındaki lenf nodları ve kitleler görülür ve iğneyle örnek alınır (EBUS-TBNA). Akciğer kanseri evrelemesinde mediastinoskopiye minimal invaziv bir alternatiftir.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="endikasyon"><span class="num">3</span>Endikasyonlar</h2>
+            <h3>Tanısal</h3>
+            <ul>
+                <li><strong>Hemoptizi:</strong> Kanama kaynağını ve tarafını bulmak.</li>
+                <li><strong>Akciğer kanseri şüphesi:</strong> Grafide veya BT'de kitle, nodül, hiler veya mediastinal lenfadenopati; tanı ve evreleme.</li>
+                <li><strong>Açıklanamayan bulgular:</strong> Uzun süren öksürük, lokalize wheezing veya stridor, ses kısıklığı (rekürren sinir tutulumu şüphesi).</li>
+                <li><strong>Uzamış veya tekrarlayan atelektazi ve pnömoni:</strong> Tedaviye rağmen düzelmeyen ya da aynı yerde tekrarlayan tablolarda tıkayıcı lezyonu dışlamak.</li>
+                <li><strong>Enfeksiyon:</strong> Bağışıklığı baskılanmış hastada pnömoni, tüberküloz şüphesi ve balgam çıkaramayan hasta; BAL ile mikrobiyolojik örnek.</li>
+                <li><strong>İnterstisyel akciğer hastalıkları:</strong> BAL hücre analizi, transbronşiyal biyopsi veya kriyobiyopsi.</li>
+                <li><strong>Travma:</strong> Trakeobronşiyal yaralanma şüphesi (devam eden hava kaçağı, pnömomediastinum, ekspanse olmayan akciğer).</li>
+                <li><strong>Diğer:</strong> İnhalasyon yanığı, trakeoözofageal fistül şüphesi, endotrakeal tüp yerinin kontrolü.</li>
+            </ul>
+            <h3>Tedavi edici</h3>
+            <ul>
+                <li><strong>Yabancı cisim çıkarılması.</strong> Çocuklarda ve büyük cisimlerde genellikle rijit bronkoskopi tercih edilir.</li>
+                <li><strong>Sekresyon ve mukus tıkacı aspirasyonu:</strong> Özellikle ameliyat sonrası ve yoğun bakımda tıkaç kaynaklı atelektazide.</li>
+                <li><strong>Hemoptizi kontrolü:</strong> Soğuk serum veya adrenalinli serum uygulaması, balon tamponadı, kanayan tarafın izolasyonu.</li>
+                <li><strong>Santral hava yolu darlığı:</strong> Dilatasyon, tümör çıkarma (lazer, elektrokoter, argon plazma, kriyo), stent yerleştirme.</li>
+                <li><strong>Diğer:</strong> Zor entübasyonda bronkoskop eşliğinde entübasyon, bronkoplevral fistülde kapatma işlemleri, amfizemde endobronşiyal valv uygulaması.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="kontrendikasyon"><span class="num">4</span>Kontrendikasyonlar</h2>
+            <p>Bronkoskopinin kesin kontrendikasyonu azdır; karar her hastada beklenen yarar ile risk karşılaştırılarak verilir.</p>
+            <h3>Mutlak (işlem yapılmamalı)</h3>
+            <ul>
+                <li>Hastanın veya yasal temsilcisinin onam vermemesi</li>
+                <li>Deneyimli ekip, uygun ekipman ve acil müdahale imkânının olmaması</li>
+                <li>Oksijenle düzeltilemeyen ağır hipoksemi (hava yolu güvenceye alınmadan)</li>
+                <li>Hemodinamik instabilite, yakın zamanda geçirilmiş miyokard enfarktüsü veya kontrol altında olmayan ciddi aritmi</li>
+            </ul>
+            <h3>Rölatif (dikkatli değerlendirme gerekir)</h3>
+            <ul>
+                <li><strong>Kanama riski:</strong> Koagülopati, trombositopeni, antikoagülan veya antiagregan kullanımı. Özellikle biyopsi planlanıyorsa bu durumlar işlem öncesi düzeltilmeli veya ilaçlar uygun süre önce kesilmelidir.</li>
+                <li>Pulmoner hipertansiyon ve üremi (biyopsi sonrası kanama riski artar)</li>
+                <li>Kontrolsüz astım veya ağır KOAH, hiperkapni</li>
+                <li>Kafa içi basınç artışı (öksürük ve sedasyon basıncı artırabilir)</li>
+                <li>Kooperasyon sağlanamaması</li>
+                <li><strong>Rijit bronkoskopiye özgü:</strong> Servikal omurga instabilitesi, boyun ekstansiyonunu veya ağız açmayı kısıtlayan durumlar</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="hazirlik"><span class="num">5</span>Hazırlık</h2>
+            <ul>
+                <li><strong>Bilgilendirme ve onam:</strong> İşlemin amacı, alternatifleri ve olası komplikasyonları anlatılır.</li>
+                <li><strong>Açlık:</strong> Genellikle katı gıdalar için yaklaşık 6 saat, berrak sıvılar için yaklaşık 2 saat.</li>
+                <li><strong>Tetkikler:</strong> Akciğer grafisi ve varsa toraks BT incelenerek hedef bölge belirlenir. Biyopsi planlanan veya kanama riski olan hastada trombosit sayısı ve koagülasyon değerlerine bakılır.</li>
+                <li><strong>İlaçlar:</strong> Antikoagülan ve antiagregan ilaçlar (örneğin klopidogrel), biyopsi planına göre işlemden uygun süre önce hekim kararıyla kesilir veya köprüleme yapılır.</li>
+                <li><strong>Monitörizasyon:</strong> Damar yolu, nabız oksimetresi, EKG, tansiyon; ek oksijen hazır bulundurulur.</li>
+                <li><strong>Lokal anestezi:</strong> Burun, farenks, vokal kordlar ve hava yolu lidokainle uyuşturulur. Toplam lidokain dozu sınırlandırılmalı (kılavuzlarda yaklaşık 8 mg/kg) ve toksisite belirtileri (perioral uyuşma, konfüzyon, nöbet, aritmi) izlenmelidir.</li>
+                <li><strong>Sedasyon:</strong> Kontrendikasyon yoksa hasta konforu için önerilir; midazolam, opioid (fentanil, alfentanil) veya propofol kullanılabilir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="surec"><span class="num">6</span>İşlem nasıl ilerler?</h2>
+            <figure>
+                <svg viewBox="0 0 360 250" role="img" aria-label="Bronkoskopi işlem akışı: hazırlık, anestezi ve sedasyon, giriş, sistematik muayene, örnekleme, derlenme ve takip">
+                    <rect width="360" height="250" fill="#f6f9fb"/>
+                    <defs><marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a52"/></marker></defs>
+                    <g font-size="10.5" text-anchor="middle">
+                        <rect x="14" y="16" width="100" height="56" rx="10" fill="#dfe9f3"/><text x="64" y="40" font-weight="700" fill="#1f3a52">1. Hazırlık</text><text x="64" y="56" font-size="9" fill="#3a4a57">onam, açlık, tetkik</text>
+                        <rect x="130" y="16" width="100" height="56" rx="10" fill="#dfe9f3"/><text x="180" y="40" font-weight="700" fill="#1f3a52">2. Anestezi</text><text x="180" y="56" font-size="9" fill="#3a4a57">lidokain, sedasyon</text>
+                        <rect x="246" y="16" width="100" height="56" rx="10" fill="#dfe9f3"/><text x="296" y="40" font-weight="700" fill="#1f3a52">3. Giriş</text><text x="296" y="56" font-size="9" fill="#3a4a57">burun, ağız veya tüp</text>
+                        <rect x="240" y="104" width="112" height="56" rx="10" fill="#fde3d6"/><text x="296" y="128" font-weight="700" fill="#8a3a12">4. Muayene</text><text x="296" y="144" font-size="9" fill="#3a4a57">kordlar, karina, segmentler</text>
+                        <rect x="130" y="104" width="100" height="56" rx="10" fill="#fde3d6"/><text x="180" y="128" font-weight="700" fill="#8a3a12">5. Örnekleme</text><text x="180" y="144" font-size="9" fill="#3a4a57">BAL, fırça, biyopsi</text>
+                        <rect x="14" y="104" width="100" height="56" rx="10" fill="#d6f0ea"/><text x="64" y="128" font-weight="700" fill="#12614e">6. Derlenme</text><text x="64" y="144" font-size="9" fill="#3a4a57">gözlem, gerekirse grafi</text>
+                        <rect x="72" y="186" width="216" height="48" rx="10" fill="#fff" stroke="#1f3a52"/><text x="180" y="206" font-weight="700" fill="#1f3a52">7. Sonuç</text><text x="180" y="222" font-size="9" fill="#3a4a57">görsel bulgular + patoloji/mikrobiyoloji raporu</text>
+                    </g>
+                    <g stroke="#1f3a52" stroke-width="2" marker-end="url(#ok)"><line x1="114" y1="44" x2="128" y2="44"/><line x1="230" y1="44" x2="244" y2="44"/><line x1="296" y1="72" x2="296" y2="102"/><line x1="246" y1="132" x2="232" y2="132"/><line x1="130" y1="132" x2="116" y2="132"/><line x1="64" y1="160" x2="100" y2="184"/></g>
+                </svg>
+                <figcaption>Fleksibl bronkoskopinin adımları (şematik).</figcaption>
+            </figure>
+            <ol>
+                <li><strong>Pozisyon:</strong> Hasta sırtüstü veya yarı oturur pozisyondadır. Bronkoskopist hastanın baş ucunda ya da karşısında durur; ekrandaki görüntünün yönü buna göre değişir.</li>
+                <li><strong>Giriş:</strong> Bronkoskop burundan, ağızdan (ısırma koruyucu ile) ya da entübe hastada endotrakeal tüp veya laringeal maske içinden ilerletilir.</li>
+                <li><strong>Üst hava yolu ve larinks:</strong> Farenks, epiglot ve <strong>vokal kordlar</strong> değerlendirilir; kord hareketleri (paralizi) not edilir. Kordlara lidokain uygulanıp aralarından geçilir.</li>
+                <li><strong>Trakea ve karina:</strong> Trakea halkaları, arka membranöz duvar ve <strong>ana karina</strong> incelenir. Karinanın keskin olması normaldir; genişlemesi subkarinal lenfadenopatiyi düşündürür.</li>
+                <li><strong>Sistematik muayene:</strong> Genellikle önce sağlam (veya şüphesiz) taraf, sonra lezyonlu taraf incelenir; böylece kontaminasyon ve kanamanın görüşü bozması önlenir. Her lob ve segment bronşunun ağzı sırayla görülür: mukoza, lümen açıklığı, sekresyon, kanama, kitle, dıştan bası.</li>
+                <li><strong>Örnekleme:</strong> Bulguya göre uygun yöntemle örnek alınır (aşağıya bakınız).</li>
+                <li><strong>Sonlandırma:</strong> Kanama kontrol edilir, sekresyonlar aspire edilir ve bronkoskop çıkarılır. İşlem genellikle 15–30 dakika sürer; EBUS ve girişimsel işlemler daha uzun sürebilir.</li>
+                <li><strong>İşlem sonrası:</strong> Hasta sedasyondan uyanana kadar gözlenir. Lidokain etkisi geçene kadar (yaklaşık 1–2 saat) aspirasyon riski nedeniyle ağızdan bir şey verilmez. <strong>Transbronşiyal biyopsi sonrası</strong> pnömotoraks açısından belirti varsa veya rutin protokol gereği akciğer grafisi çekilir.</li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <h2 id="ornekleme"><span class="num">7</span>Örnekleme yöntemleri</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Yöntem</th><th>Nasıl yapılır?</th><th>Ne için?</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Bronş lavajı / aspirasyon</strong></td><td>Az miktarda serum verilip geri aspire edilir</td><td>Sitoloji, ARB ve kültür</td></tr>
+                        <tr><td><strong>BAL (bronkoalveoler lavaj)</strong></td><td>Bronkoskop bir segment bronşuna "kama" gibi yerleştirilir, bölümler halinde serum verilip geri çekilir</td><td>Alveol düzeyinden mikrobiyoloji (bakteri, mantar, PCP, tüberküloz), hücre sayımı (interstisyel hastalık), sitoloji</td></tr>
+                        <tr><td><strong>Fırçalama</strong></td><td>Lezyon yüzeyi küçük bir fırçayla taranır</td><td>Sitoloji, mikrobiyoloji (korumalı fırça)</td></tr>
+                        <tr><td><strong>Endobronşiyal biyopsi</strong></td><td>Görülen lezyondan forsepsle doku alınır</td><td>Histopatoloji; endobronşiyal tümörde en yüksek tanı değeri</td></tr>
+                        <tr><td><strong>Transbronşiyal biyopsi (TBB)</strong></td><td>Forseps periferdeki parankime ilerletilir, çoğunlukla floroskopi eşliğinde</td><td>Periferik lezyonlar, interstisyel hastalıklar, sarkoidoz</td></tr>
+                        <tr><td><strong>Kriyobiyopsi</strong></td><td>Dondurularak yapışan doku koparılır; daha büyük örnek sağlar</td><td>İnterstisyel hastalıklar, endobronşiyal tümör</td></tr>
+                        <tr><td><strong>EBUS-TBNA</strong></td><td>Ultrason eşliğinde iğneyle hava yolu dışındaki lenf nodundan aspirasyon</td><td>Mediastinal ve hiler lenf nodları; akciğer kanseri evrelemesi, sarkoidoz</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 id="sonuc"><span class="num">8</span>Sonuç ve rapor</h2>
+            <ul>
+                <li><strong>Görsel (makroskopik) bulgular:</strong> İşlem sırasında hemen değerlendirilir ve raporlanır: endobronşiyal kitle (yeri, karinadan uzaklığı, lümeni ne kadar tıkadığı), dıştan bası, mukoza ödemi veya infiltrasyonu, karina genişlemesi, sekresyonun niteliği, kanama kaynağı, yabancı cisim, vokal kord hareketleri.</li>
+                <li><strong>Laboratuvar sonuçları:</strong> Sitoloji ve histopatoloji genellikle birkaç gün ile bir hafta içinde çıkar. Bakteri kültürü birkaç gün, tüberküloz kültürü ise haftalar sürebilir. PCR gibi hızlı testler daha erken sonuç verir.</li>
+                <li><strong>Yorum:</strong> Bronkoskopi sonucu her zaman klinik ve radyolojik bulgularla birlikte değerlendirilir. Tanı konamayan bir bronkoskopi hastalığı dışlamaz; gerekirse tekrar bronkoskopi, BT eşliğinde transtorasik biyopsi veya cerrahi biyopsi planlanır.</li>
+                <li><strong>Cerrahi açıdan önemi:</strong> Tümörün karinaya ve lober bronş ağızlarına uzaklığı, yapılabilecek rezeksiyonun türünü (lobektomi, sleeve rezeksiyon, pnömonektomi) belirler. Bu nedenle göğüs cerrahisinde ameliyat öncesi bronkoskopi rutin olarak yapılır.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="komplikasyon"><span class="num">9</span>Komplikasyonlar</h2>
+            <p>Fleksibl bronkoskopi güvenli bir işlemdir; ciddi komplikasyon nadirdir ve işlem ilişkili ölüm çok düşüktür.</p>
+            <ul>
+                <li><strong>Hipoksemi:</strong> En sık görülen sorundur; ek oksijen verilir.</li>
+                <li><strong>Kanama:</strong> Çoğunlukla hafiftir; biyopsi sonrası, koagülopatide ve üremide risk artar.</li>
+                <li><strong>Pnömotoraks:</strong> Başlıca transbronşiyal biyopsi ve kriyobiyopsi sonrası görülür.</li>
+                <li><strong>Bronkospazm ve laringospazm:</strong> Özellikle astımlı hastalarda.</li>
+                <li><strong>Ateş:</strong> Özellikle BAL sonrası birkaç saat içinde geçici ateş olabilir; her zaman enfeksiyon anlamına gelmez.</li>
+                <li><strong>İlaçlara bağlı:</strong> Sedasyona bağlı solunum depresyonu ve hipotansiyon, lidokain toksisitesi.</li>
+                <li><strong>Kardiyak:</strong> Aritmiler, özellikle hipoksemi sırasında.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="agac"><span class="num">10</span>Bronş ağacı</h2>
+            <ul>
+                <li><strong>Trakea</strong> yaklaşık C6 seviyesinde başlar, yaklaşık 10–12 cm uzunluğundadır ve sternal açı hizasında (T4–T5) <strong>ana karinada</strong> ikiye ayrılır.</li>
+                <li><strong>Sağ ana bronş</strong> kısa (yaklaşık 2–2,5 cm), geniş ve dikeydir. Önce <strong>sağ üst lob bronşunu</strong> verir; devamı <strong>bronchus intermedius</strong> adını alır ve <strong>orta lob</strong> ile <strong>alt lob</strong> bronşlarına ayrılır.</li>
+                <li><strong>Sol ana bronş</strong> daha uzun (yaklaşık 4–5 cm), dar ve yataydır; arkus aortanın altından geçer ve <strong>sol üst lob</strong> ile <strong>sol alt lob</strong> bronşlarına ayrılır. Sol üst lob bronşu da üst bölüm (upper division) ve <strong>lingula</strong> bronşuna ayrılır.</li>
+                <li>Her lob bronşu <strong>segment bronşlarına</strong> ayrılır. Segment bronşları ve onlara eşlik eden pulmoner arter dalları bir <strong>bronkopulmoner segmenti</strong> besler; segment, cerrahi olarak ayrı çıkarılabilen en küçük birimdir.</li>
+                <li>Dallanma alveollere kadar yaklaşık 23 kez sürer. Kıkırdak segmentlerin içinde kaybolur ve bronşioller başlar. Fleksibl bronkoskopla genellikle segment ve subsegment bronşlarına kadar görülebilir.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 300" role="img" aria-label="Bronş ağacı ve segment bronşlarının numaraları: sağda B1-B10, solda B1+2, B3, B4, B5, B6, B7+8, B9, B10">
+                    <rect width="360" height="300" fill="#f6f9fb"/>
+                    <g fill="none" stroke-linecap="round">
+                        <path d="M180,14 L180,84" stroke="#b5c2cc" stroke-width="18"/>
+                        <path d="M180,84 L148,112" stroke="#b5c2cc" stroke-width="15"/>
+                        <path d="M180,84 L236,126" stroke="#b5c2cc" stroke-width="12"/>
+                        <path d="M150,108 L110,98" stroke="#7aa7d8" stroke-width="9"/>
+                        <path d="M110,98 L96,58 M110,98 L72,86 M110,98 L80,116" stroke="#7aa7d8" stroke-width="5"/>
+                        <path d="M148,112 L138,156" stroke="#b5c2cc" stroke-width="12"/>
+                        <path d="M138,154 L108,170" stroke="#7cc7a4" stroke-width="7"/>
+                        <path d="M108,170 L80,170 M108,170 L98,196" stroke="#7cc7a4" stroke-width="4.5"/>
+                        <path d="M140,150 L170,162" stroke="#f0a35e" stroke-width="5"/>
+                        <path d="M138,156 L134,206" stroke="#f0a35e" stroke-width="9"/>
+                        <path d="M134,206 L156,246 M134,206 L126,252 M134,206 L102,240 M134,206 L114,262" stroke="#f0a35e" stroke-width="4.5"/>
+                        <path d="M236,126 L256,108" stroke="#7aa7d8" stroke-width="8"/>
+                        <path d="M256,108 L262,62 M256,108 L292,94" stroke="#7aa7d8" stroke-width="5"/>
+                        <path d="M240,130 L264,140" stroke="#6cc0c4" stroke-width="6"/>
+                        <path d="M264,140 L296,140 M264,140 L284,170" stroke="#6cc0c4" stroke-width="4.5"/>
+                        <path d="M236,126 L244,168" stroke="#f0a35e" stroke-width="9"/>
+                        <path d="M242,160 L216,174" stroke="#f0a35e" stroke-width="5"/>
+                        <path d="M244,168 L248,206" stroke="#f0a35e" stroke-width="8"/>
+                        <path d="M248,206 L264,250 M248,206 L284,238 M248,206 L240,262" stroke="#f0a35e" stroke-width="4.5"/>
+                    </g>
+                    <g font-size="8.5" font-weight="700" text-anchor="middle">
+                        <g fill="#1f6fb2"><circle cx="96" cy="52" r="9" fill="#fff" stroke="#1f6fb2"/><text x="96" y="55">B1</text><circle cx="64" cy="84" r="9" fill="#fff" stroke="#1f6fb2"/><text x="64" y="87">B2</text><circle cx="74" cy="122" r="9" fill="#fff" stroke="#1f6fb2"/><text x="74" y="125">B3</text></g>
+                        <g fill="#12814e"><circle cx="72" cy="170" r="9" fill="#fff" stroke="#12814e"/><text x="72" y="173">B4</text><circle cx="96" cy="204" r="9" fill="#fff" stroke="#12814e"/><text x="96" y="207">B5</text></g>
+                        <g fill="#b35c00"><circle cx="178" cy="164" r="9" fill="#fff" stroke="#b35c00"/><text x="178" y="167">B6</text><circle cx="160" cy="254" r="9" fill="#fff" stroke="#b35c00"/><text x="160" y="257">B7</text><circle cx="126" cy="260" r="9" fill="#fff" stroke="#b35c00"/><text x="126" y="263">B8</text><circle cx="96" cy="246" r="9" fill="#fff" stroke="#b35c00"/><text x="96" y="249">B9</text><circle cx="112" cy="270" r="9" fill="#fff" stroke="#b35c00"/><text x="112" y="273">B10</text></g>
+                        <g fill="#1f6fb2"><circle cx="262" cy="54" r="11" fill="#fff" stroke="#1f6fb2"/><text x="262" y="57">B1+2</text><circle cx="300" cy="92" r="9" fill="#fff" stroke="#1f6fb2"/><text x="300" y="95">B3</text></g>
+                        <g fill="#167a7e"><circle cx="304" cy="140" r="9" fill="#fff" stroke="#167a7e"/><text x="304" y="143">B4</text><circle cx="288" cy="178" r="9" fill="#fff" stroke="#167a7e"/><text x="288" y="181">B5</text></g>
+                        <g fill="#b35c00"><circle cx="208" cy="176" r="9" fill="#fff" stroke="#b35c00"/><text x="208" y="179">B6</text><circle cx="266" cy="260" r="11" fill="#fff" stroke="#b35c00"/><text x="266" y="263">B7+8</text><circle cx="292" cy="240" r="9" fill="#fff" stroke="#b35c00"/><text x="292" y="243">B9</text><circle cx="238" cy="272" r="9" fill="#fff" stroke="#b35c00"/><text x="238" y="275">B10</text></g>
+                    </g>
+                    <g font-size="9" fill="#3a4a57">
+                        <text x="188" y="22">Trakea</text><text x="182" y="98">Karina</text>
+                        <text x="120" y="146" text-anchor="end">Bronchus intermedius</text>
+                        <text x="30" y="290">Hastanın sağı</text><text x="282" y="290">Hastanın solu</text>
+                    </g>
+                    <g font-size="8.5">
+                        <rect x="300" y="12" width="10" height="8" fill="#7aa7d8"/><text x="314" y="19" fill="#3a4a57">Üst lob</text>
+                        <rect x="300" y="24" width="10" height="8" fill="#7cc7a4"/><text x="314" y="31" fill="#3a4a57">Orta lob</text>
+                        <rect x="300" y="36" width="10" height="8" fill="#6cc0c4"/><text x="314" y="43" fill="#3a4a57">Lingula</text>
+                        <rect x="300" y="48" width="10" height="8" fill="#f0a35e"/><text x="314" y="55" fill="#3a4a57">Alt lob</text>
+                    </g>
+                </svg>
+                <figcaption>Bronş ağacı ve segment bronşlarının numaraları (şematik, önden bakış). B6 (süperior segment) ve B10 (posterior bazal) arkaya doğru uzanır.</figcaption>
+            </figure>
+            <figure class="lic narrow">
+                <img src="images/servier/brons-agaci.png" alt="Trakea, ana bronşlar ve bronş ağacının dallanması çizimi" loading="lazy">
+                <figcaption>Bronş ağacının genel görünümü. Görsel: <a href="https://smart.servier.com/" target="_blank" rel="noopener">Servier Medical Art</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> lisansı ile; boyutlandırılmış, Türkçe açıklama eklenmiştir.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="adlandirma"><span class="num">11</span>Bronşların adlandırılması: ne ve neden?</h2>
+            <h3>Hangi sistem kullanılır?</h3>
+            <p>Bugün kullanılan segment adları, 1940'larda Jackson ve Huber'in önerdiği ve uluslararası kabul gören adlandırmaya dayanır. Numaralar ise Boyden'in sistemine göre <strong>B1–B10</strong> şeklinde verilir ("B" bronş anlamındadır; aynı numaralar segmentler için "S1–S10" olarak kullanılır).</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Lob</th><th>Sağ akciğer</th><th>Sol akciğer</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Üst lob</strong></td><td>B1 apikal<br>B2 posterior<br>B3 anterior</td><td>B1+2 apikoposterior<br>B3 anterior</td></tr>
+                        <tr><td><strong>Orta lob / lingula</strong></td><td>B4 lateral<br>B5 medial</td><td>B4 süperior lingular<br>B5 inferior lingular</td></tr>
+                        <tr><td><strong>Alt lob</strong></td><td>B6 süperior<br>B7 medial bazal<br>B8 anterior bazal<br>B9 lateral bazal<br>B10 posterior bazal</td><td>B6 süperior<br>B7+8 anteromedial bazal<br>B9 lateral bazal<br>B10 posterior bazal</td></tr>
+                        <tr><td><strong>Toplam</strong></td><td>10 segment</td><td>8–10 segment</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Neden böyle adlandırılmıştır?</h3>
+            <ul>
+                <li><strong>Adlar, segmentin lob içindeki konumunu anlatır:</strong> Apikal (tepe), posterior (arka), anterior (ön), lateral (dış yan), medial (iç yan), süperior (üst). Ad, bronşun akciğerin hangi bölgesini havalandırdığını söyler; bu da grafide veya BT'de görülen bir lezyonu doğrudan bronkoskopide bulmayı kolaylaştırır.</li>
+                <li><strong>Numaralar yukarıdan aşağıya ve önden arkaya doğru verilir:</strong> 1–3 üst lob, 4–5 orta lob/lingula, 6–10 alt lob. Böylece iki taraf aynı numaralarla karşılaştırılabilir: sağ B6 ile sol B6 aynı konumdadır.</li>
+                <li><strong>"Bazal" segmentler:</strong> Alt lobun diyafram üzerine oturan tabanını (bazis) havalandırdıkları için bu adı alırlar (B7–B10).</li>
+                <li><strong>Lingula:</strong> Latince "küçük dil" anlamındadır; sol üst lobun kalbin önündeki dil biçimli çıkıntısını havalandırır. Sağ orta lobun soldaki karşılığıdır ve bu yüzden aynı numaraları (B4, B5) alır.</li>
+                <li><strong>Bronchus intermedius:</strong> Sağ üst lob bronşu ile orta ve alt lob bronşlarının "arasında kalan" (intermedius) bölümdür.</li>
+                <li><strong>Eparteriyel bronş:</strong> Sağ üst lob bronşu, sağ pulmoner arterin "üzerinden" (ep-arteriyel) çıkar; solda üst lob bronşu arterin altında kalır (hiparteriyel).</li>
+            </ul>
+            <h3>Solda neden bazı segmentler birleşiktir?</h3>
+            <ul>
+                <li><strong>B1+2 (apikoposterior):</strong> Solda apikal ve posterior segmentler çoğunlukla ortak bir bronştan çıktığı için tek segment kabul edilir.</li>
+                <li><strong>B7+8 (anteromedial bazal):</strong> Solda kalp, medial bazal bölgeyi işgal ettiği için ayrı ve büyük bir medial bazal segment gelişmez; anterior ile medial bazal segmentler ortak bir bronştan çıkar.</li>
+                <li>Bu birleşmelerin ayrı ya da ortak olması kişiden kişiye değiştiği için sol akciğerde segment sayısı <strong>8 ile 10</strong> arasında verilir.</li>
+            </ul>
+            <div class="pearl"><p><strong>Klinik ipucu:</strong> Sırtüstü yatan hastada aspirasyon en sık <strong>alt lobların süperior segmentlerine (B6)</strong> ve <strong>üst lobların posterior segmentlerine (B2)</strong>, ayakta duran hastada ise <strong>alt lobların bazal segmentlerine</strong> gider; sağ ana bronş dik olduğu için genellikle sağ taraf etkilenir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="gorunum"><span class="num">12</span>Bronkoskopik görünüm: önemli ayrım noktaları</h2>
+            <p>Bronkoskopide bronş ağzı ve aralarındaki keskin sırtlar (karinalar) birer nirengi noktasıdır. Bronkoskopist yolunu bu sırtlarla bulur.</p>
+            <figure>
+                <svg viewBox="0 0 360 380" role="img" aria-label="Bronkoskopik görünümler: ana karina, sağ üst lob ağzı, orta lob ile B6 ağzı, sol ikincil karina">
+                    <rect width="360" height="380" fill="#f6f9fb"/>
+                    <g>
+                        <circle cx="90" cy="96" r="72" fill="#f4c7c0"/>
+                        <circle cx="62" cy="100" r="26" fill="#3a2422"/><circle cx="120" cy="104" r="22" fill="#3a2422"/>
+                        <path d="M90,74 L90,128" stroke="#f9e0db" stroke-width="5"/>
+                        <text x="90" y="186" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">a) Ana karina</text>
+                        <text x="62" y="104" font-size="8" text-anchor="middle" fill="#fff">Sağ</text><text x="120" y="108" font-size="8" text-anchor="middle" fill="#fff">Sol</text>
+                        <text x="90" y="40" font-size="8" text-anchor="middle" fill="#7a1f1a">kıkırdak halkalar (ön)</text>
+                    </g>
+                    <g>
+                        <circle cx="270" cy="96" r="72" fill="#f4c7c0"/>
+                        <circle cx="244" cy="96" r="30" fill="#e8a99f"/>
+                        <circle cx="238" cy="80" r="10" fill="#3a2422"/><circle cx="230" cy="106" r="10" fill="#3a2422"/><circle cx="256" cy="108" r="10" fill="#3a2422"/>
+                        <circle cx="300" cy="104" r="26" fill="#3a2422"/>
+                        <g font-size="8" text-anchor="middle" fill="#fff"><text x="238" y="83">B1</text><text x="230" y="109">B2</text><text x="256" y="111">B3</text><text x="300" y="100">Intermedius</text></g>
+                        <text x="270" y="186" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">b) Sağ üst lob ağzı</text>
+                    </g>
+                    <g>
+                        <circle cx="90" cy="276" r="72" fill="#f4c7c0"/>
+                        <circle cx="74" cy="244" r="20" fill="#3a2422"/><circle cx="90" cy="300" r="26" fill="#3a2422"/><circle cx="116" cy="262" r="13" fill="#3a2422"/>
+                        <g font-size="8" text-anchor="middle" fill="#fff"><text x="74" y="247">Orta lob</text><text x="90" y="303">Bazal</text><text x="116" y="265">B6</text></g>
+                        <text x="90" y="366" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">c) Orta lob ve B6 ağzı</text>
+                    </g>
+                    <g>
+                        <circle cx="270" cy="276" r="72" fill="#f4c7c0"/>
+                        <circle cx="270" cy="246" r="26" fill="#e8a99f"/>
+                        <circle cx="262" cy="236" r="10" fill="#3a2422"/><circle cx="282" cy="256" r="10" fill="#3a2422"/>
+                        <circle cx="270" cy="308" r="24" fill="#3a2422"/>
+                        <path d="M240,280 L300,280" stroke="#f9e0db" stroke-width="5"/>
+                        <g font-size="8" text-anchor="middle" fill="#fff"><text x="262" y="239">Üst bölüm</text><text x="282" y="259">Lingula</text><text x="270" y="311">Sol alt lob</text></g>
+                        <text x="270" y="366" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">d) Sol ikincil karina</text>
+                    </g>
+                </svg>
+                <figcaption>Bronkoskopide görülen ayrım noktaları (şematik). Ekrandaki sağ-sol ve ön-arka yönü, bronkoskopistin hastanın baş ucunda mı karşısında mı durduğuna göre değişir.</figcaption>
+            </figure>
+            <ul>
+                <li><strong>a) Ana karina:</strong> Trakeanın iki ana bronşa ayrıldığı keskin sırt. Önde kıkırdak halkalar, arkada düz membranöz duvar görülür. Sağ ana bronş ağzı daha geniş ve trakeanın devamı gibi düzdür.</li>
+                <li><strong>b) Sağ üst lob ağzı:</strong> Karinanın hemen altında (yaklaşık 1–2,5 cm), sağ ana bronşun lateral duvarında açılır. İçinde genellikle B1, B2 ve B3'ün üçlü ayrımı (trifurkasyon) görülür. Devam eden lümen bronchus intermediustur.</li>
+                <li><strong>c) Orta lob ve B6 ağzı:</strong> Bronchus intermediusun sonunda <strong>orta lob ağzı önde</strong>, <strong>alt lob süperior segment (B6) ağzı arkada</strong> ve yaklaşık aynı hizada yer alır; aşağıda bazal segmentlere (B7–B10) devam edilir.</li>
+                <li><strong>d) Sol ikincil karina:</strong> Uzun sol ana bronşun sonunda sol üst lob ve sol alt lob bronşlarını ayıran sırttır. Üst lob bronşu üst bölüm (B1+2, B3) ve lingula (B4, B5) olarak ayrılır; alt lobda önce arkaya B6, sonra bazal segmentler açılır.</li>
+            </ul>
+        </section>
+
+        <p class="source">Bu sayfa standart göğüs hastalıkları ve göğüs cerrahisi kaynakları ile bronkoskopi kılavuzları esas alınarak hazırlanmıştır; bronş ağacı ve segment bilgileri <em>Netter Atlas of Human Anatomy</em> (8. baskı) ile karşılaştırılmıştır. İlaç dozları ve süreler kurumunuzun protokolüne göre doğrulanmalıdır. Çizimler şematiktir.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
