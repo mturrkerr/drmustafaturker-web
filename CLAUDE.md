@@ -13,7 +13,7 @@ Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz H
 
 ## Yapı
 - `index.html`: giriş (bayrak, "Göğüs Cerrahisi", "Ass. Dr. Mustafa Türker", hamburger menü: Vaka Örnekleri, Konular).
-- `pnomotoraks.html`, `akciger-grafileri.html`: vaka ve konu sayfaları. `images/`: anonimleştirilmiş görüntüler.
+- `pnomotoraks.html`, `akciger-grafileri.html`: vaka ve konu sayfaları. `toraks-anatomisi.html`: sekmeli tek sayfa (Genel anatomi `g-`, Seminer `s-`, Cerrahi korelasyonlar `c-` id önekleri); `toraks-anatomisi-semineri.html` ve `toraks-cerrahi-anatomi.html` yalnızca yönlendirme. `images/`: anonimleştirilmiş görüntüler.
 - Kök PWA "Göğüs Cerrahisi": `manifest.webmanifest`, `sw.js`, `icons/`.
 - `pediatri/`: sahibinin eşi (Ass. Dr. Merve Türker) için ayrı PWA "Pediatri" (ilaç dozları, kiloya göre hesaplama). Ana menüde **gösterilmiyor** ama silinmemeli; geliştirilmeye devam ediyor. `pediatri-ilac-dozlari.html` eski adres yönlendirmesi.
 - Görsel dil: arka plan #edf2f5, lacivert #1f3a52, bayrak kırmızısı #E30A17; kartlar beyaz, yuvarlak köşe.
