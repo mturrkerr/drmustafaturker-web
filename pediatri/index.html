@@ -78,6 +78,17 @@
         .tbl tbody th { color: #1f2a33; font-weight: 700; }
         .tbl .calc { font-size: 13px; margin-top: 2px; }
         .cat-menu { max-height: 70vh; overflow-y: auto; }
+        .cat.tube-tag { background: #fbe0ec; color: #8a1f5a; }
+        .tubes { list-style: none; margin: 0; padding: 0; }
+        .tube-row { display: grid; grid-template-columns: 78px 1fr 1.2fr; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #edf1f4; }
+        .tube-row:last-child { border-bottom: none; }
+        .tube { position: relative; display: flex; align-items: center; width: 78px; height: 24px; transform: rotate(-8deg); }
+        .tube .cap { display: block; width: 22px; height: 24px; border-radius: 5px 3px 3px 5px; background: var(--c); box-shadow: inset -3px 0 0 rgba(0,0,0,0.18), inset 0 3px 0 rgba(255,255,255,0.25); }
+        .tube .glass { display: block; flex: 1; height: 16px; border-radius: 0 9px 9px 0; border: 1.5px solid #b9c4cd; border-left: none; background: linear-gradient(90deg, #f7fafc 0 45%, #7a1420 45% 100%); }
+        .tube-color b { display: block; font-size: 17px; }
+        .tube-color span, .tube-test span { display: block; font-size: 13px; color: #6a7a87; line-height: 1.35; }
+        .tube-test b { display: block; font-size: 15px; color: #1f2a33; }
+        @media (max-width: 420px) { .tube-row { grid-template-columns: 64px 1fr; } .tube { width: 64px; } .tube-test { grid-column: 2; } }
         .cat.dm { background: #fbdce6; color: #8a1f45; }
         .tests { list-style: none; margin: 0; padding: 0; counter-reset: t; }
         .tests li { counter-increment: t; display: flex; align-items: baseline; gap: 10px; padding: 10px 0; border-bottom: 1px solid #edf1f4; }
@@ -140,6 +151,7 @@
                 <li><a href="#sivi">Sıvı tedavisi</a></li>
                 <li><a href="#kcft">KCFT bozukluğu</a></li>
                 <li><a href="#tpn">Total parenteral beslenme</a></li>
+                <li><a href="#tupler">Kan alma tüpleri</a></li>
                 <li><a href="#diyabet">Diyabet: etiyolojik tetkikler</a></li>
             </ul>
         </div>
@@ -624,6 +636,22 @@
             </div>
             <div class="flag"><strong>Notta belirsiz:</strong> ¼, ½ ve 1 değerlerinin neyin miktarı olduğu yazmıyor (büyük olasılıkla Addamel, Cernevit ve Dipeptiven'in flakon oranı). Ayrıca ilk satırda "yaş", diğerlerinde "kg" yazıyor; "&lt;10 kg" kastedilmiş olabilir. Lütfen doğrulayın.</div>
             <div class="info">Dipeptiven prospektüsüne göre çocuklarda güvenlilik ve etkinlik verisi yetersizdir.</div>
+        </article>
+
+        <h2 id="tupler">Kan alma tüpleri <span class="cat tube-tag">Hangi renk, hangi tetkik?</span></h2>
+
+        <article class="drug">
+            <ul class="tubes">
+                <li class="tube-row"><span class="tube" style="--c:#7b3fa0" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#7b3fa0">Mor</b><span>EDTA</span></div><div class="tube-test"><b>Hemogram</b><span>Hb, Hct, trombosit. HbA1c de mor tüpe alınır.</span></div></li>
+                <li class="tube-row"><span class="tube" style="--c:#2f7fd1" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#2f7fd1">Mavi</b><span>Sodyum sitrat %3,2</span></div><div class="tube-test"><b>Pıhtılaşma testleri</b><span>PT, aPTT, INR, D-dimer</span></div></li>
+                <li class="tube-row"><span class="tube" style="--c:#d23a32" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#d23a32">Kırmızı</b><span>Düz tüp, pıhtı aktivatörlü</span></div><div class="tube-test"><b>Biyokimya</b><span>Serum testleri</span></div></li>
+                <li class="tube-row"><span class="tube" style="--c:#f2b632" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#f2b632">Sarı</b><span>Jelli tüp, pıhtı aktivatörlü</span></div><div class="tube-test"><b>Biyokimya</b><span>Serum testleri</span></div></li>
+                <li class="tube-row"><span class="tube" style="--c:#2f9a45" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#2f9a45">Yeşil</b><span>Lityum heparin</span></div><div class="tube-test"><b>Biyokimya</b><span>Acil biyokimya testleri</span></div></li>
+                <li class="tube-row"><span class="tube" style="--c:#8c949b" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#8c949b">Gri</b><span>Sodyum florür / potasyum oksalat</span></div><div class="tube-test"><b>Glukoz, laktat</b><span>Şeker testleri</span></div></li>
+                <li class="tube-row"><span class="tube" style="--c:#2b2f33" aria-hidden="true"><i class="cap"></i><i class="glass"></i></span><div class="tube-color"><b style="color:#1f2a33">Siyah</b><span>Sodyum sitrat %3,8</span></div><div class="tube-test"><b>Sedimantasyon (ESR)</b><span>ESR testi</span></div></li>
+            </ul>
+            <div class="info"><strong>Doldurma sırası:</strong> tüpleri uygun sırayla doldurun, yoksa katkı maddeleri tüpler arasında geçip sonucu bozabilir. Standart sıra (CLSI): kan kültürü şişesi → mavi → kırmızı → sarı → yeşil → mor → gri. Siyah (ESR) tüpün sırası kuruma göre değişir.</div>
+            <div class="info">Mavi ve siyah tüplerde kan/sitrat oranı önemlidir; tüpü çizgisine kadar doldurun.</div>
         </article>
 
         <h2 id="diyabet">Diyabet hastalarında istenen etiyolojik tetkikler <span class="cat dm">Kan tetkikleri</span></h2>
