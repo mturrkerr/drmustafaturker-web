@@ -1,7 +1,7 @@
 // Pediatri uygulaması: çevrimdışı çalışma.
 // Sayfa her açılışta önce internetten güncel hali alınır (doz değişiklikleri hemen gelsin);
 // internet yoksa son kaydedilen sürüm gösterilir.
-const CACHE = 'pediatri-v5';
+const CACHE = 'pediatri-v6';
 const FILES = ['./', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', (e) => {

@@ -89,6 +89,19 @@
         .tube-color span, .tube-test span { display: block; font-size: 13px; color: #6a7a87; line-height: 1.35; }
         .tube-test b { display: block; font-size: 15px; color: #1f2a33; }
         @media (max-width: 420px) { .tube-row { grid-template-columns: 64px 1fr; } .tube { width: 64px; } .tube-test { grid-column: 2; } }
+        .cat.lym-tag { background: #e2e6fb; color: #2d3a8a; }
+        .lym { min-width: 640px; font-size: 12.5px; }
+        .lym th, .lym td { padding: 6px 4px; text-align: center; white-space: nowrap; border: 1px solid #e3e9ee; }
+        .lym thead th { text-transform: none; letter-spacing: 0; font-size: 12px; color: #1f3a52; }
+        .lym thead small { display: block; font-weight: 600; color: #5a6a77; }
+        .lym .g1 { background: #e6f4e4; }
+        .lym .g2 { background: #fbe3ee; }
+        .lym tbody th { position: sticky; left: 0; background: #fff; text-align: left; z-index: 1; }
+        .lym thead tr:first-child th:first-child { position: sticky; left: 0; background: #f4f7fa; z-index: 2; }
+        .lym tbody tr:nth-child(even) td, .lym tbody tr:nth-child(even) th { background: #f7f9fb; }
+        .lym td.unclear, .unclear-key { text-decoration: underline dashed #c0392b; text-underline-offset: 3px; }
+        .lym-hint { margin: 6px 0 0; }
+        @media (min-width: 700px) { .lym-hint { display: none; } }
         .cat.dm { background: #fbdce6; color: #8a1f45; }
         .tests { list-style: none; margin: 0; padding: 0; counter-reset: t; }
         .tests li { counter-increment: t; display: flex; align-items: baseline; gap: 10px; padding: 10px 0; border-bottom: 1px solid #edf1f4; }
@@ -152,6 +165,7 @@
                 <li><a href="#kcft">KCFT bozukluğu</a></li>
                 <li><a href="#tpn">Total parenteral beslenme</a></li>
                 <li><a href="#tupler">Kan alma tüpleri</a></li>
+                <li><a href="#lenfosit">Lenfosit alt grupları (CD)</a></li>
                 <li><a href="#diyabet">Diyabet: etiyolojik tetkikler</a></li>
             </ul>
         </div>
@@ -652,6 +666,30 @@
             </ul>
             <div class="info"><strong>Doldurma sırası:</strong> tüpleri uygun sırayla doldurun, yoksa katkı maddeleri tüpler arasında geçip sonucu bozabilir. Standart sıra (CLSI): kan kültürü şişesi → mavi → kırmızı → sarı → yeşil → mor → gri. Siyah (ESR) tüpün sırası kuruma göre değişir.</div>
             <div class="info">Mavi ve siyah tüplerde kan/sitrat oranı önemlidir; tüpü çizgisine kadar doldurun.</div>
+        </article>
+
+        <h2 id="lenfosit">Lenfosit alt grupları (CD paneli) <span class="cat lym-tag">Referans değerler</span></h2>
+
+        <article class="drug">
+            <div class="table-wrap lym-wrap"><table class="tbl lym">
+                <thead>
+                    <tr><th rowspan="2">Yaş</th><th colspan="2" class="g1">Total T hücre<small>CD3</small></th><th colspan="2" class="g2">T helper<small>CD4</small></th><th colspan="2" class="g1">Sitotoksik T<small>CD8</small></th><th colspan="2" class="g2">B hücre<small>CD19</small></th><th colspan="2" class="g1">Natural killer<small>CD16 + CD56</small></th></tr>
+                    <tr><th class="g1">Total</th><th class="g1">%</th><th class="g2">Total</th><th class="g2">%</th><th class="g1">Total</th><th class="g1">%</th><th class="g2">Total</th><th class="g2">%</th><th class="g1">Total</th><th class="g1">%</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th>0–2 ay</th><td>2500–5500</td><td class="unclear">58–84</td><td>1600–4000</td><td>35–64</td><td>560–1700</td><td>12–28</td><td>300–2000</td><td>6–32</td><td>170–1100</td><td>4–18</td></tr>
+                    <tr><th>3–5 ay</th><td>2500–5600</td><td class="unclear">51–74</td><td>1800–4000</td><td>35–56</td><td>590–1600</td><td>12–23</td><td>430–3000</td><td>11–41</td><td>170–830</td><td>3–14</td></tr>
+                    <tr><th>6–11 ay</th><td>1900–5900</td><td>49–76</td><td>1400–4300</td><td>31–56</td><td>500–1700</td><td>12–24</td><td>610–2600</td><td>14–37</td><td>160–950</td><td>3–15</td></tr>
+                    <tr><th>12–23 ay</th><td>2100–6200</td><td>53–75</td><td>1300–3400</td><td>32–51</td><td>620–2000</td><td>14–30</td><td>720–2600</td><td>16–35</td><td>180–920</td><td>3–15</td></tr>
+                    <tr><th>2–5 yaş</th><td>1400–3700</td><td>56–75</td><td>700–2200</td><td>28–47</td><td>490–1300</td><td>16–30</td><td>370–1400</td><td>14–33</td><td>130–720</td><td>4–17</td></tr>
+                    <tr><th>6–11 yaş</th><td>1200–2600</td><td>60–76</td><td>650–1500</td><td>31–47</td><td>370–1100</td><td>18–35</td><td>270–860</td><td>13–27</td><td>100–480</td><td>4–17</td></tr>
+                    <tr><th>12–17 yaş</th><td>1000–2200</td><td>56–84</td><td>530–1300</td><td>31–52</td><td>330–920</td><td>18–35</td><td>110–570</td><td>6–23</td><td>70–480</td><td>3–22</td></tr>
+                    <tr><th>Erişkin</th><td>527–2846</td><td>49–81</td><td>332–1642</td><td class="unclear">25–51</td><td>170–811</td><td>12–38</td><td>78–899</td><td>7–23</td><td>67–1134</td><td>6–29</td></tr>
+                </tbody>
+            </table></div>
+            <p class="muted lym-hint">Tablo telefonda sağa kaydırılabilir.</p>
+            <div class="info">Notta birim yazmıyor; "Total" sütunları genellikle hücre/µL (mm³) olarak verilir, "%" sütunları toplam lenfosit içindeki yüzdedir.</div>
+            <div class="info"><span class="unclear-key">Altı kesik çizgili</span> hücrelerde el yazısı üzerine yazılmış ya da net okunmuyor: 0–2 ay CD3 % (58 veya 53), 3–5 ay CD3 % (74 veya 77), erişkin CD4 % (51 veya 57). Lütfen orijinal notla doğrulayın.</div>
         </article>
 
         <h2 id="diyabet">Diyabet hastalarında istenen etiyolojik tetkikler <span class="cat dm">Kan tetkikleri</span></h2>
