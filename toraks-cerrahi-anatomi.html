@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Toraks Anatomisi ve Cerrahi Klinik Korelasyonları - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <p class="kicker">Cerrahi klinik semineri</p>
+        <h1>Toraks Anatomisi ve Cerrahi Klinik Korelasyonları</h1>
+        <p class="lead">Cerrahi yaklaşımlar, nörovasküler düzlemler ve komplikasyon yönetimi.</p>
+        <div class="meta">
+            <div><span>Hazırlayan</span>Ass. Dr. Mustafa Türker</div>
+            <div><span>Klinik</span>Göğüs Cerrahisi</div>
+            <div><span>Hedef kitle</span>Göğüs cerrahisi ve genel cerrahi asistanları, klinik stajyer tıp öğrencileri</div>
+        </div>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#insizyon">Toraks duvarı ve insizyon hatları</a></li>
+                <li><a href="#van">İnterkostal demet ve tüp torakostomi</a></li>
+                <li><a href="#plevra">Plevra ve drenaj</a></li>
+                <li><a href="#bronş">Trakeobronşiyal ağaç ve aspirasyon</a></li>
+                <li><a href="#rezeksiyon">Lob, fissür, segment ve hilus</a></li>
+                <li><a href="#mediasten">Mediasten ve kitleler</a></li>
+                <li><a href="#sinirler">Korunması gereken sinirler</a></li>
+                <li><a href="#duktus">Duktus torasikus ve azigos</a></li>
+                <li><a href="#vats">VATS port yerleşimi</a></li>
+                <li><a href="#ozet">Altın kurallar</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="insizyon"><span class="num">1</span>Toraks duvarı ve cerrahi insizyon hatları</h2>
+            <ul>
+                <li><strong>Posterolateral torakotomi:</strong> Klasik akciğer rezeksiyonlarında altın standarttır. Latissimus dorsi ve serratus anterior kesilerek veya ekarte edilerek <strong>4. veya 5. interkostal aralıktan</strong> girilir.</li>
+                <li><strong>Anterolateral torakotomi:</strong> Travma ve acil torakotomi vakalarında hızlı erişim sağlar.</li>
+                <li><strong>Aksiller (subaksiller) torakotomi:</strong> Kas koruyucu insizyondur. Lenf nodu biyopsileri ve sınırlı plevral işlemler için idealdir.</li>
+                <li><strong>Median sternotomi:</strong> Ön mediasten kitleleri, bilateral akciğer lezyonları ve kardiyak girişimlerde tercih edilir.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 230" role="img" aria-label="Torakotomi insizyon hatları: median sternotomi, anterolateral, aksiller ve posterolateral torakotomi">
+                    <rect width="360" height="230" fill="#f6f9fb"/>
+                    <g>
+                        <path d="M40,40 C30,80 32,150 48,200 L132,200 C148,150 150,80 140,40 Q90,22 40,40 Z" fill="#fbe9d7" stroke="#b8ab92" stroke-width="2"/>
+                        <text x="90" y="218" font-size="11" text-anchor="middle" fill="#5a4e36">Önden</text>
+                        <line x1="90" y1="42" x2="90" y2="160" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M84,138 Q110,130 136,112" fill="none" stroke="#1f6fb2" stroke-width="4" stroke-linecap="round"/>
+                    </g>
+                    <g>
+                        <path d="M220,40 C206,80 206,150 222,200 L306,200 C322,150 326,80 312,40 Q266,22 220,40 Z" fill="#fbe9d7" stroke="#b8ab92" stroke-width="2"/>
+                        <text x="266" y="218" font-size="11" text-anchor="middle" fill="#5a4e36">Yandan (sağ kol yukarıda)</text>
+                        <path d="M222,82 C200,40 228,30 236,50" fill="none" stroke="#b8ab92" stroke-width="2"/>
+                        <line x1="246" y1="70" x2="246" y2="122" stroke="#12814e" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M228,138 Q262,150 300,128 Q312,110 304,78" fill="none" stroke="#7a3fb0" stroke-width="4" stroke-linecap="round"/>
+                    </g>
+                    <g font-size="11" font-weight="700">
+                        <text x="150" y="60" fill="#c0392b">Median sternotomi</text>
+                        <text x="150" y="128" fill="#1f6fb2">Anterolateral</text>
+                        <text x="252" y="64" fill="#12814e">Aksiller</text>
+                        <text x="232" y="174" fill="#7a3fb0">Posterolateral</text>
+                    </g>
+                </svg>
+                <figcaption>İnsizyon hatlarının şematik gösterimi.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="van"><span class="num">2</span>İnterkostal nörovasküler demet ve tüp torakostomi</h2>
+            <p>İnterkostal nörovasküler demet, kotun alt kenarındaki <strong>sulcus costae</strong> içinde yukarıdan aşağıya <strong>VAN</strong> sırasıyla seyreder: <strong>V</strong>ena, <strong>A</strong>rteria ve <strong>N</strong>ervus intercostalis. Ayrıntılı kesit çizimi için <a href="toraks-anatomisi.html#interkostal">Toraks Anatomisi</a> sayfasına bakabilirsiniz.</p>
+            <div class="pearl"><p><strong>Cerrahi inci:</strong> Tüp torakostomi veya torasentez yapılırken kanamayı ve nevraljik ağrıyı önlemek için <strong>her zaman alttaki kotun üst kenarından</strong> girilmelidir. Kotun alt kenarına yakın çalışmak interkostal arter yaralanmasına ve masif hemotoraksa yol açabilir.</p></div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>İşlem / insizyon</th><th>Anatomik nirengi noktası</th><th>Kritik anatomik risk</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Tüp torakostomi</strong></td><td>5. interkostal aralık, midaksiller hat ("güvenli üçgen")</td><td>İnterkostal arter yaralanması; diyafram ve karaciğer delinmesi</td></tr>
+                        <tr><td><strong>Torasentez</strong></td><td>Skapula alt ucu hizası (7.–8. interkostal aralık), kotun üst kenarı</td><td>Pnömotoraks, akciğer laserasyonu, interkostal nörovasküler hasar</td></tr>
+                        <tr><td><strong>Sternotomi</strong></td><td>İncisura jugularis ile ksifoid çıkıntı arası orta hat</td><td>Brakiyosefalik arter ve sol brakiyosefalik (innominat) ven yaralanması</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 id="plevra"><span class="num">3</span>Plevra, plevral resesler ve cerrahi drenaj</h2>
+            <ul>
+                <li><strong>Paryetal plevra:</strong> Somatik innervasyonludur (frenik ve interkostal sinirler); ağrıya oldukça duyarlıdır.</li>
+                <li><strong>Viseral plevra:</strong> Otonom innervasyonludur, ağrı duyusu yoktur. Akciğer parankimini örter ve fissürlerin içine kadar uzanır.</li>
+                <li><strong>Kostodiyafragmatik resesus:</strong> Plevral sıvının (efüzyon, hemotoraks, ampiyem) yerçekimiyle en çok biriktiği bağımlı alandır. Rezeksiyon veya drenaj sonrası göğüs tüpünün ucu buraya yönlendirilir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="bronş"><span class="num">4</span>Trakeobronşiyal ağaç ve yabancı cisim / aspirasyon anatomisi</h2>
+            <ul>
+                <li><strong>Trakea</strong>, <strong>T4–T5</strong> seviyesinde, sternal açı (angulus sterni) hizasında karinada iki ana bronşa ayrılır.</li>
+                <li><strong>Sağ ana bronş</strong> sola göre daha kısa, daha geniş ve daha diktir; dikeyle yaklaşık <strong>25°</strong> açı yapar.</li>
+                <li><strong>Sol ana bronş</strong> arkus aortanın altından geçer; daha uzun ve daha dardır, dikeyle yaklaşık <strong>45°</strong> açı yapar.</li>
+            </ul>
+            <div class="pearl"><p><strong>Klinik sonuç:</strong> Yabancı cisim aspirasyonu, mide içeriği aspirasyonu ve endotrakeal tüpün derine ilerlemesi sıklıkla <strong>sağ taraf</strong> ve özellikle <strong>sağ alt lob</strong> ile sonuçlanır.</p></div>
+            <figure class="narrow-fig">
+                <svg viewBox="0 0 300 200" role="img" aria-label="Karina ve ana bronş açıları: sağ ana bronş dikeyle yaklaşık 25 derece, sol ana bronş yaklaşık 45 derece">
+                    <rect width="300" height="200" fill="#f6f9fb"/>
+                    <rect x="138" y="14" width="24" height="70" rx="10" fill="#d9e4ee" stroke="#8a98a5" stroke-width="2"/>
+                    <path d="M140,80 L112,146" stroke="#d9e4ee" stroke-width="26" stroke-linecap="round"/>
+                    <path d="M160,80 L238,158" stroke="#d9e4ee" stroke-width="18" stroke-linecap="round"/>
+                    <line x1="150" y1="84" x2="150" y2="180" stroke="#6a7a87" stroke-dasharray="4 4"/>
+                    <path d="M150,130 A46,46 0 0 1 131,126" fill="none" stroke="#c0392b" stroke-width="2"/>
+                    <path d="M150,130 A46,46 0 0 0 183,117" fill="none" stroke="#1f6fb2" stroke-width="2"/>
+                    <text x="96" y="122" font-size="12" font-weight="700" fill="#c0392b">~25°</text>
+                    <text x="186" y="112" font-size="12" font-weight="700" fill="#1f6fb2">~45°</text>
+                    <text x="40" y="180" font-size="11" fill="#3a4a57">Sağ: kısa, geniş, dik</text>
+                    <text x="196" y="190" font-size="11" fill="#3a4a57">Sol: uzun, dar</text>
+                    <text x="150" y="10" font-size="11" text-anchor="middle" fill="#3a4a57">Trakea</text>
+                    <circle cx="150" cy="84" r="3" fill="#1f3a52"/><text x="158" y="92" font-size="10" fill="#1f3a52">Karina</text>
+                </svg>
+                <figcaption>Ana bronşların dikeyle yaptığı açılar (şematik, önden bakış; hastanın sağı solda).</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="rezeksiyon"><span class="num">5</span>Akciğer lob, fissür ve segment anatomisi (rezeksiyon cerrahisi)</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Akciğer</th><th>Loblar ve fissürler</th><th>Segment</th><th>Cerrahi / anatomik özellik</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Sağ</strong></td><td>3 lob (üst, orta, alt); 2 fissür (oblik, horizontal)</td><td>10</td><td>Azigos ven kavsi sağ ana bronşun üstünden geçer. Fissürler parsiyel (tamamlanmamış) olabilir.</td></tr>
+                        <tr><td><strong>Sol</strong></td><td>2 lob (üst, alt); 1 fissür (oblik)</td><td>8–10</td><td>Sol üst lobda lingula bulunur (sağ orta lobun karşılığı). Linguler rezeksiyon ayrı dikkat gerektirir.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Hilus (akciğer kökü) dizilimi</h3>
+            <ul>
+                <li><strong>Önden arkaya (her iki taraf):</strong> pulmoner ven → pulmoner arter → bronş.</li>
+                <li><strong>Yukarıdan aşağıya, sağda:</strong> bronş → arter → ven (sağ üst lob bronşu arterin üstündedir: eparteriyel bronş).</li>
+                <li><strong>Yukarıdan aşağıya, solda:</strong> arter → bronş → ven.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 200" role="img" aria-label="Hilus dizilimi: sağda yukarıdan aşağıya bronş, arter, ven; solda arter, bronş, ven">
+                    <rect width="360" height="200" fill="#f6f9fb"/>
+                    <g>
+                        <ellipse cx="90" cy="100" rx="70" ry="80" fill="#fff" stroke="#b5c2cc" stroke-width="2"/>
+                        <text x="90" y="16" font-size="12" font-weight="700" text-anchor="middle" fill="#1f3a52">Sağ hilus</text>
+                        <circle cx="90" cy="58" r="16" fill="#d9e4ee" stroke="#8a98a5" stroke-width="2"/><text x="90" y="62" font-size="11" text-anchor="middle" fill="#1f3a52" font-weight="700">B</text>
+                        <circle cx="90" cy="100" r="16" fill="#7aa7d8"/><text x="90" y="104" font-size="11" text-anchor="middle" fill="#fff" font-weight="700">A</text>
+                        <circle cx="90" cy="142" r="16" fill="#e57368"/><text x="90" y="146" font-size="11" text-anchor="middle" fill="#fff" font-weight="700">V</text>
+                    </g>
+                    <g>
+                        <ellipse cx="270" cy="100" rx="70" ry="80" fill="#fff" stroke="#b5c2cc" stroke-width="2"/>
+                        <text x="270" y="16" font-size="12" font-weight="700" text-anchor="middle" fill="#1f3a52">Sol hilus</text>
+                        <circle cx="270" cy="58" r="16" fill="#7aa7d8"/><text x="270" y="62" font-size="11" text-anchor="middle" fill="#fff" font-weight="700">A</text>
+                        <circle cx="270" cy="100" r="16" fill="#d9e4ee" stroke="#8a98a5" stroke-width="2"/><text x="270" y="104" font-size="11" text-anchor="middle" fill="#1f3a52" font-weight="700">B</text>
+                        <circle cx="270" cy="142" r="16" fill="#e57368"/><text x="270" y="146" font-size="11" text-anchor="middle" fill="#fff" font-weight="700">V</text>
+                    </g>
+                    <g font-size="10" fill="#3a4a57" text-anchor="middle"><text x="180" y="62">B: bronş</text><text x="180" y="104">A: pulmoner arter</text><text x="180" y="146">V: pulmoner ven</text></g>
+                </svg>
+                <figcaption>Hilusta yukarıdan aşağıya dizilim (şematik). Pulmoner arter mavi (oksijenden fakir kan), pulmoner ven kırmızı (oksijenden zengin kan) gösterilmiştir.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="mediasten"><span class="num">6</span>Mediasten anatomisi ve kitlelerin bölgesel dağılımı</h2>
+            <p>Sınıflandırma, sternal açı ile T4–T5 disk aralığını birleştiren düzleme (Louis/Ludwig düzlemi) dayanır.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Bölüm</th><th>İçerik</th><th>Kitleler</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Üst</strong></td><td>Sternal açı ile T4–T5 düzleminin üstü: arkus aorta, vena kava superior, trakea, özofagus, timus</td><td></td></tr>
+                        <tr><td><strong>Ön</strong></td><td>Timus, lenf nodları</td><td>"4T": <strong>t</strong>imoma, <strong>t</strong>eratom, <strong>t</strong>iroid (retrosternal guatr), "<strong>t</strong>errible" lenfoma</td></tr>
+                        <tr><td><strong>Orta</strong></td><td>Perikard, kalp, asendan aorta, ana bronşlar</td><td>Perikardiyal kistler, bronkojenik kistler, metastatik lenfadenopatiler</td></tr>
+                        <tr><td><strong>Arka</strong></td><td>İnen aorta, özofagus, azigos ven, duktus torasikus, sempatik zincir</td><td>Nörojenik tümörler (schwannom, nörofibrom), özofagus kistleri</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="see">Mediastenin bölümlerini gösteren çizim için: <a href="toraks-anatomisi.html#mediasten">Toraks Anatomisi → Mediasten</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="sinirler"><span class="num">7</span>Cerrahi sırasında korunması gereken majör sinirler</h2>
+            <h3>Frenik sinir (C3–C5)</h3>
+            <ul>
+                <li>Perikardın lateralinden geçerek diyaframa ulaşır.</li>
+                <li><strong>Hasar:</strong> Diyafram paralizisi (elevasyon) ve ciddi postoperatif restriktif solunum yetmezliği. Perikard rezeksiyonlarında ve mediastinal diseksiyonda mutlaka korunmalıdır.</li>
+            </ul>
+            <h3>Vagus ve rekürren laringeal sinir</h3>
+            <ul>
+                <li>Sol rekürren laringeal sinir, arkus aortanın altından, ligamentum arteriozumun çevresinden dönerek yukarı çıkar.</li>
+                <li><strong>Hasar:</strong> Aortopulmoner pencere (istasyon 5) lenf nodu diseksiyonunda yaralanırsa vokal kord paralizisi ve ses kısıklığı gelişir.</li>
+            </ul>
+            <h3>Torakal sempatik zincir</h3>
+            <ul>
+                <li>Kot başları hizasında, vertebra cisimlerinin yanında seyreder.</li>
+                <li>Hiperhidroz tedavisinde VATS sempatikotomide genellikle <strong>T2–T4</strong> seviyelerinde koterize edilir veya kliplenir.</li>
+                <li><strong>Horner sendromundan</strong> kaçınmak için <strong>stellat gangliona</strong> (alt servikal ve T1 gangliyonlarının birleşimi) dokunulmamalıdır.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="duktus"><span class="num">8</span>Vasküler yaralanmalar ve duktus torasikus</h2>
+            <h3>Duktus torasikus</h3>
+            <ul>
+                <li>Aort hiatusundan (<strong>T12</strong>) toraksa girer, yaklaşık <strong>T5</strong> seviyesine kadar sağda seyreder, T5 hizasında sola geçer ve sol internal juguler ven ile sol subklavyen venin birleşim yerine (<strong>angulus venosus</strong>) dökülür.</li>
+                <li><strong>Klinik önemi:</strong> Arka mediasten diseksiyonlarında veya özofajektomide hasar görürse <strong>şilotoraks</strong> gelişir; drenden süt görünümünde, trigliseridden zengin sıvı gelir.</li>
+            </ul>
+            <figure class="narrow-fig">
+                <svg viewBox="0 0 300 260" role="img" aria-label="Duktus torasikusun seyri: T12'de aort hiatusundan girer, T5'e kadar sağda, T5'te sola geçer, sol venöz açıya dökülür">
+                    <rect width="300" height="260" fill="#f6f9fb"/>
+                    <rect x="138" y="20" width="24" height="220" rx="6" fill="#e9e3d6" stroke="#b8ab92"/>
+                    <g font-size="10" fill="#5a4e36" text-anchor="middle"><text x="150" y="116">T5</text><text x="150" y="228">T12</text></g>
+                    <path d="M176,236 C176,180 178,140 174,118 C168,96 128,92 124,72 C120,50 130,36 112,26" fill="none" stroke="#e5b100" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M40,40 L120,24 L190,24" fill="none" stroke="#7aa7d8" stroke-width="8" stroke-linecap="round"/>
+                    <text x="20" y="58" font-size="10" fill="#2c5a8c">Sol subklavyen ven</text>
+                    <text x="72" y="14" font-size="10" fill="#9a7700" font-weight="700">Angulus venosus (sol)</text>
+                    <text x="188" y="180" font-size="10" fill="#9a7700">Sağda yükselir</text>
+                    <text x="182" y="108" font-size="10" fill="#9a7700">T5: sola geçer</text>
+                    <text x="34" y="200" font-size="11" fill="#3a4a57">Hastanın solu</text><text x="206" y="250" font-size="11" fill="#3a4a57">Hastanın sağı</text>
+                </svg>
+                <figcaption>Duktus torasikusun seyri (şematik, arkadan bakış: hastanın sağı sağda).</figcaption>
+            </figure>
+            <h3>Azigos ve hemiazigos venler</h3>
+            <p>Arka göğüs duvarı kanamalarında ve vena kava superior obstrüksiyonunda (VKS sendromu) önemli kollateral yoldur.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="vats"><span class="num">9</span>VATS ve RATS: anatomik port yerleşimi</h2>
+            <p>Minimal invaziv toraks cerrahisinde portlar:</p>
+            <ul>
+                <li><strong>Kamera portu:</strong> Genellikle <strong>7. veya 8. interkostal aralık, midaksiller hat</strong>; optik görüş için diyafram seviyesinin üstünde açılandırılır.</li>
+                <li><strong>Çalışma portları:</strong> <strong>4. veya 5. aralık ön aksiller hat</strong> (utility port) ve <strong>6. aralık arka aksiller hat</strong>.</li>
+                <li><strong>Uniportal VATS:</strong> Tek bir 3–4 cm'lik insizyondan (genellikle 4. veya 5. aralık ön aksiller hat) kamera ve aletler paralel yerleştirilir. Nörovasküler zedelenmeyi azaltmak için kotun üst kenarına göre yönlenme esastır.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 240" role="img" aria-label="VATS port yerleri: kamera portu 7-8. aralık midaksiller hat, çalışma portu 4-5. aralık ön aksiller hat, 6. aralık arka aksiller hat">
+                    <rect width="360" height="240" fill="#f6f9fb"/>
+                    <path d="M60,30 C40,90 44,170 70,220 L290,220 C316,170 320,90 300,30 Z" fill="#fbe9d7" stroke="#b8ab92" stroke-width="2"/>
+                    <g stroke="#d6c7a8" stroke-width="5" fill="none" stroke-linecap="round">
+                        <path d="M66,52 Q180,70 296,52"/><path d="M60,78 Q180,96 302,78"/><path d="M57,104 Q180,122 305,104"/><path d="M56,130 Q180,148 306,130"/><path d="M57,156 Q180,174 305,156"/><path d="M60,182 Q180,200 302,182"/>
+                    </g>
+                    <g stroke="#8a98a5" stroke-dasharray="4 4"><line x1="110" y1="30" x2="110" y2="220"/><line x1="180" y1="30" x2="180" y2="220"/><line x1="250" y1="30" x2="250" y2="220"/></g>
+                    <g font-size="10" fill="#3a4a57" text-anchor="middle"><text x="110" y="234">Ön aksiller</text><text x="180" y="234">Midaksiller</text><text x="250" y="234">Arka aksiller</text></g>
+                    <circle cx="110" cy="99" r="9" fill="#1f6fb2"/><circle cx="250" cy="148" r="9" fill="#1f6fb2"/>
+                    <circle cx="180" cy="186" r="10" fill="#c0392b"/>
+                    <g font-size="10" font-weight="700"><text x="122" y="94" fill="#1f6fb2">Çalışma (4.–5. aralık)</text><text x="196" y="140" fill="#1f6fb2">Çalışma (6. aralık)</text><text x="194" y="182" fill="#c0392b">Kamera (7.–8. aralık)</text></g>
+                    <text x="24" y="20" font-size="10" fill="#6a7a87">Ön</text><text x="316" y="20" font-size="10" fill="#6a7a87">Arka</text>
+                </svg>
+                <figcaption>Hasta lateral dekübitusta, göğüs duvarının yandan görünümü (şematik): mavi çalışma portları, kırmızı kamera portu.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="ozet"><span class="num">10</span>Özet: cerrahi asistanı için altın kurallar</h2>
+            <ol class="rules">
+                <li>İnterkostal girişimlerde daima <strong>kotun üst kenarı</strong> takip edilmelidir.</li>
+                <li>Sağ ve sol hilus anatomisi arasındaki farklar, lobektomide <strong>damar bağlama sırasını</strong> belirler.</li>
+                <li>Ön mediasten ameliyatlarında <strong>frenik sinir</strong>, aortopulmoner pencere diseksiyonlarında <strong>sol rekürren laringeal sinir</strong> doğrudan görülerek korunmalıdır.</li>
+                <li>Postoperatif şilotoraks şüphesinde <strong>duktus torasikusun T5 seviyesinde sağdan sola geçişi</strong> hatırlanmalıdır.</li>
+            </ol>
+        </section>
+
+        <p class="source">Bu seminer Ass. Dr. Mustafa Türker tarafından hazırlanmıştır. Çizimler şematiktir.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
