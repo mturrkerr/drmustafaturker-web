@@ -569,12 +569,14 @@
         <h2 id="sivi">Sıvı tedavisi <span class="cat flu">Sıvı</span></h2>
 
         <article class="drug">
-            <div class="drug-head"><h3>Vücut yüzey alanı ve idame sıvısı</h3><span class="generic">20 kg üzeri</span></div>
+            <div class="drug-head"><h3>İdame sıvısı ve vücut yüzey alanı</h3><span class="generic">Günlük idame</span></div>
             <div class="rows">
+                <div class="row"><div class="label">İdame sıvısı (kiloya göre)</div><div class="dose">İlk 10 kg: 100 cc/kg · 10–20 kg arası: 50 cc/kg · 20 kg üzeri her kg: 20 cc</div><div class="calc" data-hs="1" data-u="cc/gün"></div></div>
+                <div class="row"><div class="label">Saatlik hız</div><div class="dose">Günlük idame ÷ 24</div><div class="calc" data-hs="24" data-u="cc/saat"></div></div>
                 <div class="row"><div class="label">Vücut yüzey alanı</div><div class="dose">(kilo × 4 + 7) / (90 + kilo)</div><div class="calc" data-k="1" data-m2="1" data-u="m²"></div></div>
                 <div class="row"><div class="label">İdame sıvısı (&gt;20 kg)</div><div class="dose">1500–1700 cc/m²/gün</div><div class="calc" data-k="1500" data-k2="1700" data-m2="1" data-u="cc/gün"></div></div>
             </div>
-            <div class="info">Fotoğrafta idame sıvısı tablosunun üst kısmı (20 kg ve altı) kesik; o kısmın fotoğrafını gönderirseniz eklerim.</div>
+            <div class="info">Örnek: 25 kg → 10 × 100 + 10 × 50 + 5 × 20 = <strong>1600 cc/gün</strong>. 20 kg üzerinde yüzey alanına göre hesap (1500–1700 cc/m²) de kullanılabilir.</div>
         </article>
 
         <article class="drug">
@@ -725,8 +727,13 @@
             var ok = kg >= 0.5 && kg <= 100;
             note.textContent = input.value === '' ? 'Kilo girin, dozlar hesaplansın.' : ok ? 'Dozlar ' + fmt(kg) + ' kg için hesaplandı.' : '0,5–100 kg arasında bir değer girin.';
             var bsa = (kg * 4 + 7) / (90 + kg);
-            document.querySelectorAll('.calc[data-k], .calc[data-bands]').forEach(function (el) {
+            document.querySelectorAll('.calc[data-k], .calc[data-bands], .calc[data-hs]').forEach(function (el) {
                 if (!ok) { el.textContent = ''; return; }
+                if (el.dataset.hs) {
+                    var hs = Math.min(kg, 10) * 100 + Math.max(Math.min(kg, 20) - 10, 0) * 50 + Math.max(kg - 20, 0) * 20;
+                    el.innerHTML = '→ <b>' + fmt(hs / parseFloat(el.dataset.hs)) + '</b> ' + el.dataset.u;
+                    return;
+                }
                 if (el.dataset.bands) {
                     var pick = el.dataset.bands.split(',').map(function (p) { return p.split(':').map(parseFloat); }).find(function (p) { return kg <= p[0]; });
                     el.innerHTML = '→ <b>' + fmt(pick[1]) + '</b> ' + el.dataset.u;
