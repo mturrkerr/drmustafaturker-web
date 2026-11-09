@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Plevral Efüzyon - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Plevral Efüzyon</h1>
+        <p class="lead">Plevral efüzyon, plevral boşlukta normalden fazla sıvı birikmesidir. Bir hastalık değil, altta yatan bir hastalığın bulgusudur; bu yüzden tedavinin temeli nedeni bulmaktır. Bu sayfada tanı süreci, sıvı analizi, benign ve malign efüzyonların ayrımı ve tedavi yaklaşımları yer alıyor.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#tanim">Tanım ve fizyoloji</a></li>
+                <li><a href="#neden">Nedenler: transüda ve eksüda</a></li>
+                <li><a href="#klinik">Klinik bulgular</a></li>
+                <li><a href="#goruntuleme">Görüntüleme</a></li>
+                <li><a href="#torasentez">Tanısal torasentez</a></li>
+                <li><a href="#analiz">Sıvı analizi ve Light kriterleri</a></li>
+                <li><a href="#surec">Tanı süreci (algoritma)</a></li>
+                <li><a href="#benign">Benign efüzyonlar</a></li>
+                <li><a href="#parapnomonik">Parapnömonik efüzyon ve ampiyem</a></li>
+                <li><a href="#malign">Malign plevral efüzyon</a></li>
+                <li><a href="#ayrim">Benign mi, malign mi?</a></li>
+                <li><a href="#tedavi">Tedavi seçenekleri</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="tanim"><span class="num">1</span>Tanım ve fizyoloji</h2>
+            <ul>
+                <li>Normalde plevral boşlukta, iki plevra yaprağının kaymasını sağlayan çok az miktarda sıvı bulunur (yaklaşık 0,1–0,3 mL/kg).</li>
+                <li>Sıvı esas olarak paryetal plevranın kapillerlerinden süzülür ve <strong>paryetal plevradaki lenfatik ağızlar (stomalar)</strong> yoluyla geri emilir. Lenfatik sistem, sıvı yapımı arttığında emilimi birkaç kat artırabilir.</li>
+                <li>Efüzyon, sıvı yapımı emilim kapasitesini aştığında oluşur. Başlıca mekanizmalar:
+                    <ul>
+                        <li><strong>Hidrostatik basınç artışı:</strong> kalp yetmezliği</li>
+                        <li><strong>Onkotik basınç azalması:</strong> hipoalbüminemi, nefrotik sendrom, siroz</li>
+                        <li><strong>Kapiller geçirgenlik artışı:</strong> enfeksiyon, inflamasyon, tümör</li>
+                        <li><strong>Lenfatik drenajın bozulması:</strong> tümör infiltrasyonu, duktus torasikus yaralanması</li>
+                        <li><strong>Karından geçiş:</strong> asit sıvısının diyafram açıklıklarından geçmesi (hepatik hidrotoraks)</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="neden"><span class="num">2</span>Nedenler: transüda ve eksüda</h2>
+            <p>Efüzyonlar sıvının oluşum mekanizmasına göre ikiye ayrılır. Bu ayrım, tanı sürecindeki ilk ve en önemli adımdır.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Transüda</th><th>Eksüda</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Mekanizma</strong></td><td>Sistemik basınç dengesinin bozulması; plevra sağlamdır</td><td>Plevranın veya lenfatiklerin kendisinin hastalığı (geçirgenlik artışı, drenaj bozukluğu)</td></tr>
+                        <tr><td><strong>Protein ve LDH</strong></td><td>Düşük</td><td>Yüksek</td></tr>
+                        <tr><td><strong>Sık nedenler</strong></td><td>Kalp yetmezliği (en sık), siroz (hepatik hidrotoraks), nefrotik sendrom, hipoalbüminemi, periton diyalizi, hipotiroidi</td><td>Parapnömonik efüzyon ve ampiyem, malignite, tüberküloz, pulmoner emboli, pankreatit, otoimmün hastalıklar (romatoid artrit, lupus), hemotoraks, şilotoraks, ilaçlar, kardiyak cerrahi sonrası</td></tr>
+                        <tr><td><strong>Yaklaşım</strong></td><td>Altta yatan hastalığın tedavisi; ileri plevral tetkik genellikle gerekmez</td><td>Nedeni bulmak için ileri tetkik gerekir</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note"><p>Kalp yetmezliğine bağlı efüzyon tipik olarak <strong>iki taraflıdır</strong> ve sağda daha fazladır. Tek taraflı, ateşli, plöretik ağrılı veya diüretik tedavisine rağmen gerilemeyen bir efüzyonda başka neden aranmalıdır.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="klinik"><span class="num">3</span>Klinik bulgular</h2>
+            <ul>
+                <li><strong>Belirtiler:</strong> Nefes darlığı (sıvı miktarı ve altta yatan akciğerin durumuyla ilişkili), plöretik göğüs ağrısı (paryetal plevra tutulumunda), kuru öksürük. Az miktardaki efüzyon belirti vermeyebilir.</li>
+                <li><strong>Altta yatan hastalığa ait belirtiler:</strong> Ateş ve balgam (pnömoni), kilo kaybı ve iştahsızlık (malignite, tüberküloz), ödem ve ortopne (kalp yetmezliği), asit (siroz).</li>
+                <li><strong>Fizik muayene:</strong> Etkilenen tarafta solunum hareketlerinde azalma, perküsyonda <strong>matite</strong>, vokal fremitusta ve solunum seslerinde <strong>azalma</strong>; sıvının üst sınırında bronşiyal solunum sesi ve egofoni duyulabilir. Masif efüzyonda trakea karşı tarafa itilebilir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="goruntuleme"><span class="num">4</span>Görüntüleme</h2>
+            <ul>
+                <li><strong>PA akciğer grafisi:</strong> Lateral kostofrenik sinüsün kapanması (künt görünüm) için en az yaklaşık <strong>175–200 mL</strong> sıvı gerekir; 500 mL'ye kadar sıvı küntleşme yapmayabilir. Tipik bulgu, göğüs duvarı boyunca yukarı doğru kıvrılan <strong>menisküs işaretidir</strong>.</li>
+                <li><strong>Lateral grafi:</strong> Sıvı önce en derin nokta olan arka kostofrenik sinüste toplandığı için yaklaşık <strong>50–75 mL</strong> sıvı fark edilebilir.</li>
+                <li><strong>Sırtüstü (supin) grafi:</strong> Sıvı arkaya yayılır, menisküs görülmez; etkilenen hemitoraksta yaygın dansite artışı olur.</li>
+                <li><strong>Lateral dekübitus grafisi:</strong> Grafiler içinde en duyarlısıdır; yaklaşık <strong>10 mL</strong> kadar az sıvı bile görülebilir. Serbest sıvı alttaki göğüs duvarı boyunca tabaka oluşturur; serbest ve lokule sıvıyı ayırmaya yardımcı olur.</li>
+                <li><strong>Toraks ultrasonografisi:</strong> Az miktardaki sıvıyı saptamada grafiden çok daha duyarlıdır. Sıvının miktarını, septasyon ve lokülasyonları, plevral kalınlaşma ve nodülleri gösterir. <strong>Torasentez ve göğüs tüpü işlemleri mümkünse ultrason eşliğinde yapılmalıdır.</strong></li>
+                <li><strong>Kontrastlı toraks BT:</strong> Eksüdanın nedeni belirsizse kullanılır. Plevral kalınlaşma ve nodülleri, altta yatan akciğer lezyonunu, lenf nodlarını ve ampiyemdeki "ayrık plevra" işaretini gösterir. Mümkünse sıvı tamamen boşaltılmadan önce çekilmesi değerlendirmeyi kolaylaştırır.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 230" role="img" aria-label="Akciğer grafisinde normal kostofrenik sinüs ile sağ plevral efüzyonda menisküs görünümünün karşılaştırılması">
+                    <rect width="360" height="230" fill="#f6f9fb"/>
+                    <g>
+                        <rect x="14" y="14" width="160" height="186" rx="10" fill="#1d2329"/>
+                        <path d="M86,40 C58,40 32,70 30,120 C29,150 34,172 42,182 L84,170 Z" fill="#4a5560"/>
+                        <path d="M104,40 C132,40 158,70 160,120 C161,150 156,172 148,182 L106,170 Z" fill="#4a5560"/>
+                        <path d="M84,40 L106,40 L112,178 L78,178 Z" fill="#c8ced4" opacity="0.85"/>
+                        <path d="M28,186 Q60,168 84,174" fill="none" stroke="#c8ced4" stroke-width="3"/>
+                        <path d="M106,174 Q130,168 162,186" fill="none" stroke="#c8ced4" stroke-width="3"/>
+                        <circle cx="38" cy="182" r="9" fill="none" stroke="#7cc7a4" stroke-width="2"/>
+                        <text x="94" y="216" font-size="11" text-anchor="middle" fill="#1f3a52" font-weight="700">Normal</text>
+                        <text x="44" y="200" font-size="8.5" fill="#7cc7a4">keskin sinüs</text>
+                    </g>
+                    <g>
+                        <rect x="186" y="14" width="160" height="186" rx="10" fill="#1d2329"/>
+                        <path d="M258,40 C230,40 204,70 202,120 C201,150 206,172 214,182 L256,170 Z" fill="#4a5560"/>
+                        <path d="M276,40 C304,40 330,70 332,120 C333,150 328,172 320,182 L278,170 Z" fill="#4a5560"/>
+                        <path d="M256,40 L278,40 L284,178 L250,178 Z" fill="#c8ced4" opacity="0.85"/>
+                        <path d="M200,186 C200,150 204,124 208,112 C222,126 240,138 256,142 L256,186 Z" fill="#d9dee3"/>
+                        <path d="M208,112 C222,126 240,138 256,142" fill="none" stroke="#e57368" stroke-width="2.5"/>
+                        <path d="M278,174 Q302,168 334,186" fill="none" stroke="#c8ced4" stroke-width="3"/>
+                        <text x="266" y="216" font-size="11" text-anchor="middle" fill="#1f3a52" font-weight="700">Sağ plevral efüzyon</text>
+                        <text x="208" y="100" font-size="8.5" fill="#f2b8b5">menisküs</text>
+                    </g>
+                </svg>
+                <figcaption>PA akciğer grafisinde normal görünüm ile sağ plevral efüzyonun karşılaştırılması (şematik; grafide hastanın sağı solda). Efüzyonda kostofrenik sinüs kapanır ve sıvının üst sınırı göğüs duvarına doğru yükselen bir menisküs oluşturur.</figcaption>
+            </figure>
+            <p class="see">Grafi türlerinin ayrıntıları için: <a href="akciger-grafileri.html#lateral">Akciğer Grafileri</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="torasentez"><span class="num">5</span>Tanısal torasentez</h2>
+            <p>Nedeni bilinmeyen ve ultrasonda yeterli kalınlıkta (genellikle 1 cm'den fazla) olan her efüzyonda tanısal torasentez yapılmalıdır. Klinik olarak açıkça kalp yetmezliğine bağlı olduğu düşünülen, iki taraflı ve tedaviyle gerileyen efüzyonlarda torasentez ertelenebilir.</p>
+            <ul>
+                <li><strong>Giriş yeri:</strong> Hasta oturur ve öne eğilir. Ultrasonla en uygun nokta işaretlenir. Kör girişimde genellikle arkada, skapula ucunun altında, sıvı seviyesinin bir aralık altından (çoğunlukla 7.–9. interkostal aralık), orta ile arka aksiller hat arasından girilir. Diyafram ve karın organlarının yaralanmaması için çok aşağıdan girilmemelidir.</li>
+                <li><strong>Teknik:</strong> İğne her zaman <strong>alttaki kotun üst kenarından</strong> ilerletilir; interkostal ven, arter ve sinir üstteki kotun alt kenarında seyreder. Cilt ve paryetal plevra lokal anestezi ile uyuşturulur; sıvı gelince örnekler alınır.</li>
+                <li><strong>Örnekler:</strong> Biyokimya, hücre sayımı, sitoloji, mikrobiyoloji (Gram boyama, kültür; kan kültürü şişesine de örnek konması verimi artırır) ve gerekirse ARB ile tüberküloz kültürü.</li>
+                <li><strong>Terapötik torasentez:</strong> Nefes darlığını gidermek için sıvı boşaltılır. <strong>Reekspansiyon ödemi</strong> riski nedeniyle sıvı yavaş ve kontrollü boşaltılır; tek seferde <strong>en fazla 1500 mL</strong> boşaltılması önerilir; hastada göğüs ağrısı, öksürük veya göğüste sıkışma hissi olursa işlem durdurulur. Reekspansiyon ödemi özellikle uzun süre kollabe kalmış akciğerde, ilk 72 saat içinde gelişebilir.</li>
+                <li><strong>Komplikasyonlar:</strong> En sık pnömotoraks ve kanama (hemotoraks); ayrıca vazovagal reaksiyon, reekspansiyon ödemi, enfeksiyon, nadiren karaciğer veya dalak yaralanması.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 360 240" role="img" aria-label="Torasentez pozisyonu: hasta oturur ve öne eğilir, iğne arkadan, skapula ucunun altından, sıvı seviyesinin bir aralık altından girer">
+                    <rect width="360" height="240" fill="#f6f9fb"/>
+                    <rect x="210" y="150" width="130" height="14" rx="4" fill="#b5c2cc"/><text x="275" y="182" font-size="9" text-anchor="middle" fill="#6a7a87">Masa</text>
+                    <path d="M120,214 L120,170 C116,140 120,90 150,70 C168,58 196,62 214,80 C236,104 238,140 226,160 L226,214" fill="#fbe9d7" stroke="#b8ab92" stroke-width="2"/>
+                    <circle cx="214" cy="56" r="20" fill="#fbe9d7" stroke="#b8ab92" stroke-width="2"/>
+                    <path d="M210,96 C240,110 260,130 270,148" fill="none" stroke="#b8ab92" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M126,160 C124,140 126,128 132,118 L150,120 C152,140 150,160 146,180 L128,186 Z" fill="#7aa7d8" opacity="0.55"/>
+                    <path d="M132,118 L150,120" stroke="#2c5a8c" stroke-width="1.5"/>
+                    <text x="96" y="120" font-size="9" text-anchor="end" fill="#2c5a8c">Sıvı seviyesi</text><line x1="98" y1="117" x2="130" y2="118" stroke="#2c5a8c" stroke-width="0.8"/>
+                    <path d="M140,92 L160,96 L152,110 Z" fill="#e9e3d6" stroke="#b8ab92"/><text x="96" y="96" font-size="9" text-anchor="end" fill="#5a4e36">Skapula ucu</text><line x1="98" y1="93" x2="148" y2="104" stroke="#5a4e36" stroke-width="0.8"/>
+                    <line x1="60" y1="140" x2="124" y2="140" stroke="#1f3a52" stroke-width="3"/><polygon points="124,135 134,140 124,145" fill="#1f3a52"/>
+                    <rect x="40" y="134" width="22" height="12" rx="2" fill="#dfe9f3" stroke="#1f3a52"/>
+                    <text x="20" y="162" font-size="9.5" font-weight="700" fill="#1f3a52">Giriş: sıvı seviyesinin</text><text x="20" y="174" font-size="9.5" font-weight="700" fill="#1f3a52">bir aralık altı (7.–9.)</text>
+                    <text x="20" y="196" font-size="9" fill="#3a4a57">alttaki kotun üst kenarından</text>
+                    <text x="214" y="22" font-size="9" text-anchor="middle" fill="#6a7a87">öne eğilmiş, oturur pozisyon</text>
+                </svg>
+                <figcaption>Torasentez pozisyonu (şematik, yandan görünüm). Mümkünse giriş noktası ultrasonla belirlenir.</figcaption>
+            </figure>
+            <p class="see">İnterkostal aralığın kesit çizimi için: <a href="toraks-anatomisi.html#g-interkostal">Toraks Anatomisi → İnterkostal aralık</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="analiz"><span class="num">6</span>Sıvı analizi ve Light kriterleri</h2>
+            <h3>Görünüm</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Görünüm</th><th>Düşündürdüğü</th></tr></thead>
+                    <tbody>
+                        <tr><td>Açık sarı, berrak</td><td>Transüda veya birçok eksüda</td></tr>
+                        <tr><td>Kanlı (hemorajik)</td><td>Malignite, pulmoner emboli, travma; sıvı hematokriti serumun yarısından fazlaysa <strong>hemotoraks</strong></td></tr>
+                        <tr><td>Bulanık, pürülan</td><td><strong>Ampiyem</strong></td></tr>
+                        <tr><td>Süt görünümünde</td><td><strong>Şilotoraks</strong> (trigliserid > 110 mg/dL) veya psödoşilotoraks (kolesterol yüksek)</td></tr>
+                        <tr><td>Kötü (çürük) kokulu</td><td>Anaerobik ampiyem</td></tr>
+                        <tr><td>Kahverengi</td><td>Uzun süre beklemiş kanlı efüzyon, amipli karaciğer absesinin rüptürü</td></tr>
+                        <tr><td>Sarı-yeşil, döküntülü</td><td>Romatoid plörezi</td></tr>
+                        <tr><td>Koyu yeşil</td><td>Biliotoraks</td></tr>
+                        <tr><td>Siyah</td><td>Mantar enfeksiyonu (ör. Aspergillus)</td></tr>
+                        <tr><td>Amonyak kokulu</td><td>Ürinotoraks</td></tr>
+                        <tr><td>Viskoz (yapışkan)</td><td>Malign efüzyon (metastaz veya mezotelyoma)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Light kriterleri</h3>
+            <p>Transüda ile eksüda ayrımında hâlâ altın standarttır. Aşağıdakilerden <strong>en az biri</strong> varsa sıvı <strong>eksüdadır</strong>. Sıvıyla aynı anda kan biyokimyası (protein, LDH) da çalışılmalıdır.</p>
+            <ol>
+                <li>Plevral sıvı protein / serum protein oranı <strong>&gt; 0,5</strong></li>
+                <li>Plevral sıvı LDH / serum LDH oranı <strong>&gt; 0,6</strong></li>
+                <li>Plevral sıvı LDH'si, serum LDH üst normal sınırının <strong>üçte ikisinden fazla</strong></li>
+            </ol>
+            <div class="note"><p><strong>Dikkat:</strong> Light kriterleri eksüdayı çok iyi yakalar, ancak diüretik alan kalp yetmezliği hastalarında transüdayı yanlışlıkla eksüda olarak sınıflayabilir. Bu durumda <strong>serum-sıvı albümin farkı &gt; 1,2 g/dL</strong> (veya protein farkı &gt; 3,1 g/dL) ya da yüksek NT-proBNP, sıvının aslında transüda olduğunu düşündürür.</p></div>
+            <h3>Eksüdada ek tetkikler</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Tetkik</th><th>Yorum</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>pH</strong></td><td>Transüdada genellikle 7,45–7,55, eksüdada 7,30–7,45. <strong>&lt; 7,2:</strong> komplike parapnömonik efüzyon veya ampiyem (drenaj gerekir). pH'sı düşük eksüdanın başlıca nedenleri: komplike parapnömonik efüzyon/ampiyem (en sık), malignite, özofagus rüptürü, romatoid plörezi, lupus, tüberküloz. pH'sı düşük tek transüda ürinotorakstır. Malign efüzyonda düşük pH kötü prognoz ve plörodez başarısızlığıyla ilişkilidir. Kan gazı cihazında, havasız örnekle ölçülmelidir.</td></tr>
+                        <tr><td><strong>LDH</strong></td><td>1000 IU/L'nin üzerinde olması ampiyem lehinedir.</td></tr>
+                        <tr><td><strong>Glukoz</strong></td><td>Düşük glukoz (komplike parapnömonik efüzyonda &lt; 40 mg/dL): ampiyem, romatoid plörezi (çok düşük), malignite, tüberküloz</td></tr>
+                        <tr><td><strong>Hücre sayımı</strong></td><td>Nötrofil baskın: akut süreçler (pnömoni, pulmoner emboli, pankreatit). Lenfosit baskın: tüberküloz, malignite, lenfoma, kronik süreçler; <strong>lenfositler %80'in üzerindeyse</strong> en olası tanı tüberkülozdur (TB-PCR istenmeli). Eozinofili: sıklıkla plevral boşlukta kan veya hava (hemotoraks, pnömotoraks)</td></tr>
+                        <tr><td><strong>Sitoloji</strong></td><td>Malign hücreler. Duyarlılık tümör tipine göre %40–90 arasında değişir (ortalama yaklaşık %50–60); ikinci örnekle artar. Tek başına negatif sitoloji maligniteyi dışlamaz.</td></tr>
+                        <tr><td><strong>Gram boyama ve kültür</strong></td><td>Pozitifliği komplike parapnömonik efüzyon / ampiyem anlamına gelir</td></tr>
+                        <tr><td><strong>ADA (adenozin deaminaz)</strong></td><td><strong>&gt; 40 U/L</strong> değeri, özellikle lenfositik eksüdada, tüberküloz plöreziyi kuvvetle düşündürür (tüberkülozun sık görüldüğü ülkemizde önemlidir)</td></tr>
+                        <tr><td><strong>Kreatinin</strong></td><td>Sıvı/serum oranı &gt; 1: ürinotoraks</td></tr>
+                        <tr><td><strong>ANA</strong></td><td>Sıvı/serum oranı &gt; 1 veya lupus hücreleri: lupus plöriti</td></tr>
+                        <tr><td><strong>Trigliserid / kolesterol</strong></td><td>Şilotoraks / psödoşilotoraks ayrımı</td></tr>
+                        <tr><td><strong>Amilaz</strong></td><td>Pankreatit, özofagus rüptürü</td></tr>
+                        <tr><td><strong>Hematokrit</strong></td><td>Serum hematokritinin yarısından fazlası hemotoraks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 id="surec"><span class="num">7</span>Tanı süreci (algoritma)</h2>
+            <figure>
+                <svg viewBox="0 0 360 430" role="img" aria-label="Plevral efüzyon tanı algoritması">
+                    <rect width="360" height="430" fill="#f6f9fb"/>
+                    <defs><marker id="ef-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a52"/></marker></defs>
+                    <g font-size="10" text-anchor="middle">
+                        <rect x="80" y="10" width="200" height="40" rx="10" fill="#dfe9f3"/><text x="180" y="28" font-weight="700" fill="#1f3a52">Öykü, muayene, grafi</text><text x="180" y="42" font-size="9" fill="#3a4a57">+ ultrasonografi</text>
+                        <rect x="60" y="72" width="240" height="40" rx="10" fill="#fff4e5" stroke="#e08a00"/><text x="180" y="90" font-weight="700" fill="#5b3d0a">Klinik olarak kalp yetmezliği gibi açık</text><text x="180" y="104" font-weight="700" fill="#5b3d0a">transüda nedeni var mı?</text>
+                        <rect x="230" y="134" width="120" height="40" rx="10" fill="#d6f0ea"/><text x="290" y="152" font-weight="700" fill="#12614e">Evet: nedeni tedavi et</text><text x="290" y="166" font-size="9" fill="#3a4a57">gerilemezse torasentez</text>
+                        <rect x="10" y="134" width="200" height="40" rx="10" fill="#dfe9f3"/><text x="110" y="152" font-weight="700" fill="#1f3a52">Hayır: tanısal torasentez</text><text x="110" y="166" font-size="9" fill="#3a4a57">(ultrason eşliğinde)</text>
+                        <rect x="10" y="196" width="200" height="40" rx="10" fill="#fff4e5" stroke="#e08a00"/><text x="110" y="214" font-weight="700" fill="#5b3d0a">Light kriterleri:</text><text x="110" y="228" font-weight="700" fill="#5b3d0a">transüda mı, eksüda mı?</text>
+                        <rect x="10" y="258" width="90" height="44" rx="10" fill="#d6f0ea"/><text x="55" y="276" font-weight="700" fill="#12614e">Transüda</text><text x="55" y="290" font-size="9" fill="#3a4a57">nedeni tedavi et</text>
+                        <rect x="112" y="258" width="238" height="44" rx="10" fill="#fde3d6"/><text x="231" y="276" font-weight="700" fill="#8a3a12">Eksüda: pH, glukoz, hücre, sitoloji,</text><text x="231" y="290" font-size="9" fill="#3a4a57">Gram/kültür, ADA, trigliserid, amilaz</text>
+                        <rect x="112" y="324" width="238" height="40" rx="10" fill="#fff4e5" stroke="#e08a00"/><text x="231" y="342" font-weight="700" fill="#5b3d0a">Tanı konamadı mı?</text><text x="231" y="356" font-size="9" fill="#5b3d0a">kontrastlı toraks BT, tekrar sitoloji</text>
+                        <rect x="112" y="386" width="238" height="40" rx="10" fill="#1f3a52"/><text x="231" y="404" font-weight="700" fill="#fff">Plevral biyopsi</text><text x="231" y="418" font-size="9" fill="#dfe9f3">US/BT eşliğinde veya torakoskopik (VATS)</text>
+                    </g>
+                    <g stroke="#1f3a52" stroke-width="1.8" fill="none" marker-end="url(#ef-ok)">
+                        <line x1="180" y1="50" x2="180" y2="70"/>
+                        <path d="M240,112 L290,132"/><path d="M120,112 L110,132"/>
+                        <line x1="110" y1="174" x2="110" y2="194"/>
+                        <path d="M70,236 L55,256"/><path d="M150,236 L210,256"/>
+                        <line x1="231" y1="302" x2="231" y2="322"/>
+                        <line x1="231" y1="364" x2="231" y2="384"/>
+                    </g>
+                </svg>
+                <figcaption>Plevral efüzyonda tanı algoritması (sadeleştirilmiş şema).</figcaption>
+            </figure>
+            <p>Yaklaşık dörtte bir hastada ilk torasentezle tanı konamaz. Bu hastalarda pulmoner emboli ve tüberküloz gibi tedavi edilebilir nedenler mutlaka düşünülmelidir. Malignite şüphesi sürüyorsa tanı için en değerli yöntem <strong>torakoskopik plevral biyopsidir</strong>; tanı oranı %90'ın üzerindedir ve aynı seansta plörodez yapılabilir.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="benign"><span class="num">8</span>Benign efüzyonlar</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Neden</th><th>Özellikler</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Kalp yetmezliği</strong></td><td>En sık neden. Transüda; %60'tan fazlası iki taraflıdır, sağda daha fazladır. Diüretikle genellikle 48 saat içinde geriler. Uzun süre diüretik alan hastada Light kriterlerine göre eksüda gibi çıkabilir; protein/albümin farkı ve NT-proBNP yardımcı olur.</td></tr>
+                        <tr><td><strong>Hepatik hidrotoraks</strong></td><td>Portal hipertansiyonlu hastaların yaklaşık %6'sında görülür; asit sıvısı diyaframdaki küçük açıklıklardan geçer. Transüdadır, yaklaşık %80'i sağdadır. Torasentezle boşaltılsa da hızla tekrar birikir.</td></tr>
+                        <tr><td><strong>Parapnömonik efüzyon / ampiyem</strong></td><td>Eksüdanın en sık nedeni. Toplum kökenli pnömonilerin yaklaşık yarısında efüzyon gelişir, bunların bir bölümü ampiyeme döner. Ayrıntılar aşağıda.</td></tr>
+                        <tr><td><strong>Tüberküloz plörezi</strong></td><td>Genç hastada tek taraflı lenfositik eksüda; ADA yüksek. Sıvıda basil nadiren gösterilir; plevral biyopside granülom tanı koydurur.</td></tr>
+                        <tr><td><strong>Pulmoner emboli</strong></td><td>Genellikle küçük ve yaklaşık %85'i tek taraflı; transüda veya eksüda olabilir, kanlı olabilir. Açıklanamayan efüzyonda akılda tutulmalı; şüphede D-dimer ve BT anjiyografi.</td></tr>
+                        <tr><td><strong>Hemotoraks</strong></td><td>Çoğunlukla travma (kot kırığı), iyatrojenik girişimler veya antikoagülan kullanımı. Sıvı hematokriti serumun yarısından fazladır; göğüs tüpüyle drene edilir.</td></tr>
+                        <tr><td><strong>Şilotoraks</strong></td><td>Duktus torasikus hasarı (cerrahi, travma) veya lenfoma; süt görünümlü, trigliserid yüksek.</td></tr>
+                        <tr><td><strong>Diğer</strong></td><td>Pankreatit (amilaz yüksek, sıklıkla sol), otoimmün hastalıklar (romatoid artritte çok düşük glukoz), kardiyak cerrahi sonrası, asbest ilişkili benign efüzyon, ilaçlar.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 id="parapnomonik"><span class="num">9</span>Parapnömonik efüzyon ve ampiyem</h2>
+            <p>Pnömoniye eşlik eden efüzyonun üç evresi vardır:</p>
+            <figure>
+                <svg viewBox="0 0 360 200" role="img" aria-label="Parapnömonik efüzyonun üç evresi: eksüdatif, fibrinopürülan ve organizasyon">
+                    <rect width="360" height="200" fill="#f6f9fb"/>
+                    <g>
+                        <rect x="12" y="20" width="104" height="130" rx="40" fill="#fff" stroke="#b5c2cc" stroke-width="2"/>
+                        <path d="M16,110 Q64,104 112,110 L112,128 Q112,146 90,146 L38,146 Q16,146 16,128 Z" fill="#cfe3f3"/>
+                        <text x="64" y="172" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">1. Eksüdatif</text>
+                        <text x="64" y="186" font-size="8.5" text-anchor="middle" fill="#3a4a57">serbest, berrak sıvı</text>
+                    </g>
+                    <g>
+                        <rect x="128" y="20" width="104" height="130" rx="40" fill="#fff" stroke="#b5c2cc" stroke-width="2"/>
+                        <path d="M132,90 Q180,84 228,90 L228,128 Q228,146 206,146 L154,146 Q132,146 132,128 Z" fill="#e9d79b"/>
+                        <g stroke="#a08530" stroke-width="1.5"><line x1="150" y1="92" x2="160" y2="144"/><line x1="176" y1="88" x2="170" y2="146"/><line x1="200" y1="90" x2="212" y2="144"/><line x1="134" y1="118" x2="226" y2="114"/></g>
+                        <text x="180" y="172" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">2. Fibrinopürülan</text>
+                        <text x="180" y="186" font-size="8.5" text-anchor="middle" fill="#3a4a57">septasyon, lokülasyon</text>
+                    </g>
+                    <g>
+                        <rect x="244" y="20" width="104" height="130" rx="40" fill="#fff" stroke="#b5c2cc" stroke-width="2"/>
+                        <path d="M248,84 Q296,78 344,84 L344,128 Q344,146 322,146 L270,146 Q248,146 248,128 Z" fill="#e2c26a"/>
+                        <path d="M248,80 Q296,72 344,80 L344,132 Q344,152 322,152 L270,152 Q248,152 248,132 Z" fill="none" stroke="#8a6d3b" stroke-width="5"/>
+                        <path d="M262,70 Q296,58 330,70" fill="none" stroke="#8a6d3b" stroke-width="3"/>
+                        <text x="296" y="172" font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52">3. Organizasyon</text>
+                        <text x="296" y="186" font-size="8.5" text-anchor="middle" fill="#3a4a57">kalın kabuk (peel)</text>
+                    </g>
+                </svg>
+                <figcaption>Parapnömonik efüzyonun evreleri (şematik). Geç evrede akciğeri saran kalın fibröz kabuk, akciğerin açılmasını engeller.</figcaption>
+            </figure>
+            <ol>
+                <li><strong>Eksüdatif evre (basit parapnömonik efüzyon):</strong> Serbest, berrak sıvı; pH ve glukoz normal, kültür negatif. Genellikle yalnız antibiyotikle düzelir.</li>
+                <li><strong>Fibrinopürülan evre (komplike parapnömonik efüzyon):</strong> Bakteriler plevral boşluğa geçer; fibrin birikir ve septasyon ve lokülasyonlar oluşur. pH &lt; 7,2, glukoz düşük, LDH yüksek, Gram boyama veya kültür pozitif olabilir.</li>
+                <li><strong>Organizasyon evresi:</strong> Fibroblastlar akciğeri saran kalın ve esnek olmayan bir kabuk (peel) oluşturur; akciğer hapsolur (trapped lung).</li>
+            </ol>
+            <h3>Drenaj gerektiren durumlar</h3>
+            <ul>
+                <li>Plevral sıvının açık pü olması (<strong>ampiyem</strong>)</li>
+                <li>Gram boyama veya kültür pozitifliği</li>
+                <li><strong>pH &lt; 7,2</strong>, glukoz &lt; 40 mg/dL veya LDH &gt; 1000 IU/L</li>
+                <li>Lokülasyon veya büyük efüzyon</li>
+            </ul>
+            <h3>Tedavi</h3>
+            <ul>
+                <li>Uygun antibiyotik (anaerop kapsamı dahil) ve <strong>göğüs tüpüyle drenaj</strong></li>
+                <li>Lokülasyonlu efüzyonlarda intraplevral fibrinolitik ve DNaz tedavisi (örneğin tPA + DNaz) drenajı iyileştirebilir.</li>
+                <li>Bu tedavilerle düzelmeyen hastada veya organizasyon evresinde <strong>VATS ile debridman veya dekortikasyon</strong> (gerekirse açık torakotomi).</li>
+            </ul>
+            <p class="see">Göğüs tüpünün yerleştirilmesi için: <a href="toraks-anatomisi.html#interkostal">Toraks Anatomisi → İnterkostal aralık ve tüp torakostomi</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="malign"><span class="num">10</span>Malign plevral efüzyon</h2>
+            <ul>
+                <li><strong>Nedenler:</strong> Her tür kanser neden olabilir; en sık <strong>akciğer kanseri</strong> ve <strong>meme kanseridir</strong>. Bir çalışmada dağılım: akciğer %37,8, meme %15,2, hematolojik %11,2, gastrointestinal %11,0, jinekolojik %9. Erkeklerde en sık akciğer kanseri ve lenfoma/lösemi, kadınlarda meme ve jinekolojik kanserler. Hastaların %5–10'unda birincil tümör bulunamaz. Plevranın birincil tümörü olan <strong>malign mezotelyoma</strong> asbest maruziyetiyle ilişkilidir (ülkemizde çevresel asbest ve erionit maruziyeti de önemlidir).</li>
+                <li><strong>Mekanizma:</strong> Plevranın tümörle tutulması (geçirgenlik artışı) ve mediastinal lenf nodu tutulumuna bağlı lenfatik drenaj bozukluğu. Plevra tutulmadan, yalnızca lenfatik tıkanma veya atelektazi ile oluşan efüzyonlara <strong>paramalign efüzyon</strong> denir.</li>
+                <li><strong>Önemi:</strong> Malign plevral efüzyon ileri evre hastalığı gösterir; akciğer kanserinde evreyi M1a yapar ve hastaların çoğu küratif cerrahi adayı değildir. Yaşam beklentisi tümörün tipine ve evresine göre değişmekle birlikte ortalama 3–12 ay olarak bildirilmektedir. Bu nedenle tedavinin amacı genellikle <strong>semptomların giderilmesi</strong>, yani nefes darlığının azaltılması ve tekrar sıvı birikmesinin önlenmesidir.</li>
+                <li><strong>Tanı:</strong> Sitolojide malign hücre görülmesi (tek örnekte yaklaşık %60, tekrar örnekle daha yüksek). Sitoloji negatif ve şüphe sürüyorsa görüntüleme eşliğinde veya torakoskopik <strong>plevral biyopsi</strong> yapılır. Mezotelyomada sitoloji genellikle yetersizdir; biyopsi gerekir.</li>
+            </ul>
+            <h3>Tedavi seçenekleri</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Seçenek</th><th>Ne zaman?</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Terapötik torasentez</strong></td><td>İlk adım: nefes darlığını giderir ve akciğerin açılıp açılmadığını gösterir. Sıvı kısa sürede tekrar birikiyorsa kalıcı çözüm gerekir.</td></tr>
+                        <tr><td><strong>Plörodez (talk ile)</strong></td><td>Akciğer tamamen açılabiliyorsa: plevra yaprakları talk ile yapıştırılır. Göğüs tüpünden talk süspansiyonu (slurry) veya torakoskopi sırasında talk püskürtme (poudrage) şeklinde uygulanır.</td></tr>
+                        <tr><td><strong>Tünelli kalıcı plevral kateter</strong></td><td>Akciğer açılamıyorsa (hapsolmuş akciğer) veya hasta hastanede kalış istemiyorsa: hasta evde aralıklı olarak sıvı boşaltır. Zamanla kendiliğinden plörodez de gelişebilir.</td></tr>
+                        <tr><td><strong>Sistemik tedavi</strong></td><td>Kemoterapiye duyarlı tümörlerde (örneğin lenfoma, küçük hücreli akciğer kanseri, meme kanseri) efüzyon tedaviyle gerileyebilir.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Plörodez: pratik kurallar</h3>
+            <ul>
+                <li><strong>Kimyasal plörodez:</strong> Plevrada inflamasyon oluşturularak iki plevra yaprağının yapıştırılmasıdır. En etkili ajan <strong>talktır</strong>; tetrasiklin, bleomisin ve povidon-iyot da kullanılabilir.</li>
+                <li><strong>Talk pudraj veya bulamaç:</strong> Torakoskopi sırasında malignite görülürse talk püskürtülür (pudraj). Genel anestezi alamayan, genel durumu kötü (Karnofsky skoru düşük) ve tanı sorunu olmayan hastada drenajdan sonra tüpten talk bulamacı verilir. İki yöntemin sıvı kontrolü açısından başarısı benzerdir.</li>
+                <li><strong>Zamanlama:</strong> Sıvı tamamen drene olmalı, akciğer tam olarak açılmış olmalı ve tüpten gelen günlük drenaj azalmış olmalıdır. Masif efüzyonda drenaj bir kerede en fazla 1500 mL olacak şekilde kontrollü ve yavaş yapılmalıdır.</li>
+                <li><strong>Yan etkileri azaltmak için:</strong> <strong>5 gramdan fazla talk kullanılmamalı</strong>, iki taraflı plörodez aynı anda yapılmamalı, geniş biyopsi veya abrazyondan hemen sonra plörodezden kaçınılmalıdır. Tüpten talk vermeden önce ağrı için tüp içinden lokal anestezik uygulanmalıdır. Kortikosteroid ve NSAİİ tedavisi plörodez öncesi azaltılmalı veya kesilmelidir.</li>
+                <li><strong>Sık yan etkiler:</strong> ağrı, ateş ve gastrointestinal belirtiler. Daha nadir: solunum yetmezliği, kardiyovasküler komplikasyonlar, sistemik inflamatuvar yanıt ve ampiyem.</li>
+                <li><strong>Kontrendikasyonlar:</strong> hapsolmuş akciğer ve beklenen yaşam süresinin 3 aydan kısa olması. Nefes darlığı olmayan hastada erken plörodez önerilmez.</li>
+                <li><strong>Başarı ölçütü:</strong> İşlemden sonraki 30 gün içinde anlamlı sıvı birikmemesi.</li>
+                <li><strong>Diğer seçenekler:</strong> Kimyasal plörodeze yanıt vermeyen, genel durumu iyi ve uzun yaşam beklenen hastada VATS ile plevral abrazyon veya plörektomi; nadiren plöroperitoneal şant.</li>
+            </ul>
+            <div class="pearl"><p><strong>Hapsolmuş akciğer (trapped lung):</strong> Torasentez sonrası akciğer açılmıyor ve grafide plevral boşlukta hava/sıvı kalıyorsa (veya boşaltma sırasında göğüs ağrısı başlıyorsa) plörodez başarılı olmaz, çünkü iki plevra yaprağı birbirine değmez. Bu hastalarda kalıcı plevral kateter tercih edilir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="ayrim"><span class="num">11</span>Benign mi, malign mi?</h2>
+            <p>Kesin ayrım ancak sitoloji veya biyopsi ile yapılır; ancak aşağıdaki özellikler yol gösterir:</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Özellik</th><th>Benign lehine</th><th>Malign lehine</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Öykü</strong></td><td>Ateş, öksürük, balgam (pnömoni); kalp yetmezliği, siroz; travma</td><td>Kilo kaybı, iştahsızlık, sigara, bilinen kanser, asbest maruziyeti; yavaş ve sinsi başlangıç</td></tr>
+                        <tr><td><strong>Taraf ve miktar</strong></td><td>Kalp yetmezliğinde iki taraflı</td><td>Tek taraflı, büyük veya masif; boşaltıldıktan sonra hızla tekrar birikme</td></tr>
+                        <tr><td><strong>Mediasten</strong></td><td>Büyük efüzyonda karşı tarafa itilme</td><td>Masif efüzyona rağmen mediastenin itilmemesi: ana bronş tıkanması, hapsolmuş akciğer veya mediastenin tümörle sabitlenmesini düşündürür</td></tr>
+                        <tr><td><strong>Görünüm</strong></td><td>Berrak sarı veya pürülan</td><td>Sıklıkla kanlı (hemorajik)</td></tr>
+                        <tr><td><strong>Hücre tipi</strong></td><td>Nötrofil baskın (akut enfeksiyon)</td><td>Lenfosit baskın eksüda (tüberküloz da benzer olabilir)</td></tr>
+                        <tr><td><strong>BT bulguları</strong></td><td>Düzgün, ince plevral kalınlaşma; ampiyemde "ayrık plevra" işareti</td><td>Nodüler plevral kalınlaşma, 1 cm'den kalın paryetal plevra, mediastinal plevra tutulumu, akciğeri çepeçevre saran kalınlaşma; altta akciğer kitlesi veya lenfadenopati</td></tr>
+                        <tr><td><strong>Seyir</strong></td><td>Altta yatan hastalığın tedavisiyle gerileme</td><td>Tedaviye rağmen tekrarlama</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pearl"><p><strong>Hemotoraks mı, malign efüzyon mu?</strong> Travma sonrası gelen hastada kanlı efüzyon her zaman hemotoraks değildir. Kot kırığı gibi travma bulgusu yoksa, özellikle sigara içen ve kilo kaybı olan hastada, sıvının <strong>malign efüzyon</strong> olabileceği düşünülmelidir. (Dr. Hilmi Keskin'in akciğer kanseri vaka anlatımından.)</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="tedavi"><span class="num">12</span>Tedavi seçeneklerine genel bakış</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Durum</th><th>Yaklaşım</th></tr></thead>
+                    <tbody>
+                        <tr><td>Transüda (kalp yetmezliği, siroz, nefrotik sendrom)</td><td>Altta yatan hastalığın tedavisi; nefes darlığında terapötik torasentez</td></tr>
+                        <tr><td>Basit parapnömonik efüzyon</td><td>Antibiyotik, yakın takip</td></tr>
+                        <tr><td>Komplike parapnömonik efüzyon / ampiyem</td><td>Antibiyotik + göğüs tüpü; gerekirse intraplevral fibrinolitik; yanıtsızsa VATS debridman veya dekortikasyon</td></tr>
+                        <tr><td>Hemotoraks</td><td>Göğüs tüpü; devam eden kanama veya pıhtılaşmış hemotoraksta cerrahi</td></tr>
+                        <tr><td>Şilotoraks</td><td>Drenaj, yağsız veya orta zincirli yağ asidi diyeti; yanıtsızsa duktus torasikus bağlanması veya embolizasyonu</td></tr>
+                        <tr><td>Tüberküloz plörezi</td><td>Antitüberküloz tedavi; büyük efüzyonda semptomatik torasentez</td></tr>
+                        <tr><td>Malign plevral efüzyon</td><td>Terapötik torasentez; tekrarlıyorsa talk plörodez veya kalıcı plevral kateter</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <p class="source">Bu sayfa standart göğüs hastalıkları ve göğüs cerrahisi kaynakları, plevral hastalık kılavuzları ve Türk Göğüs Cerrahisi Derneği'nin e-kitapları (<a href="https://tgcd.org.tr/e-kitaplar/" target="_blank" rel="noopener"><em>Her Yönüyle Plevra ve Hastalıkları</em>, ed. E. Şahin, 2018 ve <em>Plevranın Malign Hastalıkları</em></a>) esas alınarak hazırlanmıştır; torasentez ve malign efüzyon-hemotoraks ayrımına ilişkin bilgilerde <a href="https://www.youtube.com/@drhilmikeskin" target="_blank" rel="noopener">Dr. Hilmi Keskin'in YouTube kanalındaki</a> anlatımlardan yararlanılmıştır. Sayısal değerler ve tedavi kararları kurumunuzun protokolüne göre doğrulanmalıdır. Çizimler şematiktir.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
