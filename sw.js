@@ -1,7 +1,7 @@
 // Göğüs Cerrahisi uygulaması: çevrimdışı çalışma.
 // Önce internetten güncel hali alınır; internet yoksa son kaydedilen sürüm gösterilir.
 // Pediatri bölümü (/pediatri/) kendi uygulaması ve önbelleğiyle ayrı çalışır.
-const CACHE = 'gogus-cerrahisi-v13';
+const CACHE = 'gogus-cerrahisi-v14';
 const FILES = ['/', '/pnomotoraks.html', '/akciger-grafileri.html', '/toraks-anatomisi.html', '/bronkoskopi.html', '/plevral-efuzyon.html', '/atelektazi.html', '/toraks-bt.html', '/vaka-ekle.html', '/vakalar/pnomotoraks.json', '/images/servier/plevra-normal.png', '/images/servier/pnomotoraks.png', '/images/servier/brons-agaci.png', '/images/servier/alveoller.png', '/manifest.webmanifest',
   '/images/pnomotoraks-1.jpg', '/images/pnomotoraks-1-isaretli.jpg', '/images/pnomotoraks-2.jpg', '/images/pnomotoraks-2-isaretli.jpg', '/icons/icon-192.png', '/icons/apple-touch-icon.png'];
 

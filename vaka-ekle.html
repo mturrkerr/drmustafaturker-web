@@ -52,6 +52,7 @@
         .badge { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 1px 6px; margin-top: 3px; }
         .badge.ok { background: #d6f0ea; color: #12614e; }
         .badge.wait { background: #fff1c9; color: #7a5a00; }
+        .flash { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(31,58,82,0.92); color: #fff; font-weight: 700; font-size: 14px; padding: 7px 14px; border-radius: 20px; pointer-events: none; }
         .blocked { text-align: center; padding: 40px 16px; }
         details summary { cursor: pointer; font-weight: 700; color: #1f3a52; }
     </style>
@@ -89,7 +90,7 @@
                 <button type="button" data-mode="crop" aria-pressed="false">✂️ Kırp</button>
                 <button type="button" data-mode="redact" aria-pressed="false">⬛ Gizle</button>
             </div>
-            <p class="hint" id="modeHint"><strong>Ok çizmek için:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> nereye gelecekse o yöne doğru çekin. Ok her yöne çizilebilir (sağdan sola, soldan sağa, yukarıdan aşağı, aşağıdan yukarı, çapraz). Yalnızca dokunursanız aşağıdaki varsayılan yön kullanılır.</p>
+            <p class="hint" id="modeHint"><strong>Yeni ok:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> hangi yöne gelecekse o yöne çekin (her yöne olur). Sadece dokunursanız aşağıdaki varsayılan yön kullanılır.<br><strong>Oku taşımak:</strong> okun ucunu veya gövdesini tutup sürükleyin. <strong>Döndürmek:</strong> kuyruğunun ucundan tutup çevirin.<br><strong>Geri al:</strong> iki parmakla ekrana dokunun · <strong>Yeniden yap:</strong> üç parmakla dokunun.</p>
             <div class="row" id="markOpts">
                 <label for="dir" style="font-size:13px;font-weight:700;color:#3a4a57">Dokununca ok yönü</label>
                 <select id="dir" style="width:auto">
@@ -104,9 +105,10 @@
                 </select>
                 <button type="button" class="btn" id="joinLine" aria-pressed="false">┄ Okları kesikli hatla birleştir</button>
             </div>
-            <div class="stage" id="stage" style="margin-top:10px"><div class="empty" id="empty">Önce bir vaka seçin.</div><canvas id="view" hidden></canvas></div>
+            <div class="stage" id="stage" style="margin-top:10px"><div class="empty" id="empty">Önce bir vaka seçin.</div><canvas id="view" hidden></canvas><div class="flash" id="flash" hidden></div></div>
             <div class="row">
                 <button type="button" class="btn" id="undo" disabled>↶ Geri al</button>
+                <button type="button" class="btn" id="redo" disabled>↷ Yeniden yap</button>
                 <button type="button" class="btn" id="applyCrop" hidden>Kırpmayı uygula</button>
                 <button type="button" class="btn danger" id="clearMarks" disabled>Okları sil</button>
                 <button type="button" class="btn" id="preview" disabled>İşaretli / işaretsiz</button>
@@ -281,32 +283,73 @@
         }
 
         // ---------- Düzenleyici ----------
-        var base = null, baseChanged = false, history = [], marks = [], joined = false, mode = 'mark', showMarks = true, drag = null, cropRect = null, pen = null;
+        var base = null, baseChanged = false, history = [], future = [], marks = [], joined = false, mode = 'mark', showMarks = true, drag = null, cropRect = null, pen = null, grab = null;
         var view = $('view'), vctx = view.getContext('2d');
         var DIRS = { left: [1, 0.18], right: [-1, 0.18], up: [0, 1], down: [0, -1], upleft: [0.7, 0.7], upright: [-0.7, 0.7], downleft: [0.7, -0.7], downright: [-0.7, -0.7] };
 
         function setBase(c, changed) {
-            base = c; baseChanged = changed; history = []; cropRect = null;
+            base = c; baseChanged = changed; history = []; future = []; cropRect = null;
             $('empty').hidden = true; view.hidden = false;
-            ['undo', 'clearMarks', 'preview', 'save', 'share'].forEach(function (id) { $(id).disabled = false; });
+            ['undo', 'redo', 'clearMarks', 'preview', 'save', 'share'].forEach(function (id) { $(id).disabled = false; });
         }
+        function copyMarks(l) { return l.map(function (m) { return { x: m.x, y: m.y, ux: m.ux, uy: m.uy }; }); }
+        function state() { return { base: base, marks: copyMarks(marks), changed: baseChanged }; }
+        function restore(s) { base = s.base; marks = s.marks; baseChanged = s.changed; cropRect = null; $('applyCrop').hidden = true; }
+        function remember(s) { history.push(s || state()); future = []; }
+        function undo() { if (!history.length) return; future.push(state()); restore(history.pop()); render(); flash('↶ Geri alındı'); }
+        function redo() { if (!future.length) return; history.push(state()); restore(future.pop()); render(); flash('↷ Yeniden yapıldı'); }
+        var flashT = null;
+        function flash(t) { var el = $('flash'); el.textContent = t; el.hidden = false; clearTimeout(flashT); flashT = setTimeout(function () { el.hidden = true; }, 900); }
+
         function setJoin() { $('joinLine').classList.toggle('on', joined); $('joinLine').setAttribute('aria-pressed', String(joined)); }
         function arrowSize() { return Math.max(18, base.width * 0.045); }
+
+        // Okları ekleme sırasına göre değil, birbirine yakınlığına göre sırala:
+        // en uzak iki noktadan birinden başlayıp hep en yakın komşuya git, sonra çaprazlamaları düzelt (2-opt).
+        function proximityOrder(list) {
+            var n = list.length; if (n < 3) return list.slice();
+            function d(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+            var s = 0, best = -1;
+            for (var i = 0; i < n; i++) for (var j = i + 1; j < n; j++) if (d(list[i], list[j]) > best) { best = d(list[i], list[j]); s = i; }
+            var left = list.slice(), path = [left.splice(s, 1)[0]];
+            while (left.length) {
+                var last = path[path.length - 1], k = 0;
+                for (var q = 1; q < left.length; q++) if (d(last, left[q]) < d(last, left[k])) k = q;
+                path.push(left.splice(k, 1)[0]);
+            }
+            for (var it = 0, improved = true; improved && it < 50; it++) {
+                improved = false;
+                for (var a = 0; a < n - 2; a++) for (var b = a + 2; b < n - 1; b++) {
+                    if (d(path[a], path[b]) + d(path[a + 1], path[b + 1]) < d(path[a], path[a + 1]) + d(path[b], path[b + 1]) - 1e-6) {
+                        var seg = path.slice(a + 1, b + 1).reverse(); Array.prototype.splice.apply(path, [a + 1, seg.length].concat(seg)); improved = true;
+                    }
+                }
+                // açık uçları da dene: bir ucu ters çevirmek yolu kısaltıyorsa çevir
+                for (var e = 1; e < n - 1; e++) {
+                    if (d(path[0], path[e + 1]) < d(path[e], path[e + 1]) - 1e-6) { path = path.slice(0, e + 1).reverse().concat(path.slice(e + 1)); improved = true; }
+                    if (d(path[n - 1], path[e - 1]) < d(path[e], path[e - 1]) - 1e-6) { path = path.slice(0, e).concat(path.slice(e).reverse()); improved = true; }
+                }
+            }
+            return path;
+        }
         function drawArrow(ctx, tx, ty, ux, uy, s) {
             var lw = Math.max(2, s * 0.09), hx = s * 0.32, px = -uy, py = ux;
             ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(tx + ux * hx * 0.8, ty + uy * hx * 0.8); ctx.lineTo(tx + ux * s, ty + uy * s); ctx.stroke();
             ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx + ux * hx + px * hx * 0.55, ty + uy * hx + py * hx * 0.55); ctx.lineTo(tx + ux * hx - px * hx * 0.55, ty + uy * hx - py * hx * 0.55); ctx.closePath(); ctx.fill();
         }
-        function drawMarks(ctx, scale, list) {
+        function drawMarks(ctx, scale, list, active) {
             if (!list.length) return;
             var s = arrowSize() * scale, lw = Math.max(2, s * 0.09);
             ctx.save(); ctx.strokeStyle = '#ff4632'; ctx.fillStyle = '#ff4632'; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
             if (joined && list.length > 1) {
                 ctx.setLineDash([lw * 2.2, lw * 2.2]); ctx.lineWidth = lw * 0.8; ctx.beginPath();
-                list.forEach(function (m, i) { if (i) ctx.lineTo(m.x * scale, m.y * scale); else ctx.moveTo(m.x * scale, m.y * scale); });
+                proximityOrder(list).forEach(function (m, i) { if (i) ctx.lineTo(m.x * scale, m.y * scale); else ctx.moveTo(m.x * scale, m.y * scale); });
                 ctx.stroke(); ctx.setLineDash([]);
             }
-            list.forEach(function (m) { drawArrow(ctx, m.x * scale, m.y * scale, m.ux, m.uy, s); });
+            list.forEach(function (m) {
+                if (m === active) { ctx.save(); ctx.fillStyle = 'rgba(255,204,0,0.35)'; ctx.beginPath(); ctx.arc(m.x * scale, m.y * scale, s * 0.45, 0, 7); ctx.fill(); ctx.restore(); }
+                drawArrow(ctx, m.x * scale, m.y * scale, m.ux, m.uy, s);
+            });
             ctx.restore();
         }
         function render() {
@@ -315,7 +358,7 @@
             view.width = w; view.height = Math.round(base.height * sc);
             vctx.drawImage(base, 0, 0, view.width, view.height);
             var list = marks.slice(); if (pen && pen.moved) list.push(pen.mark);
-            if (showMarks) drawMarks(vctx, sc, list);
+            if (showMarks) drawMarks(vctx, sc, list, grab && grab.m);
             if (drag && (mode === 'crop' || mode === 'redact')) {
                 var r = rectFrom(drag); vctx.save(); vctx.strokeStyle = mode === 'crop' ? '#7cc7a4' : '#ffcc00'; vctx.lineWidth = 3; vctx.setLineDash([8, 6]);
                 vctx.strokeRect(r.x * sc, r.y * sc, r.w * sc, r.h * sc);
@@ -328,35 +371,92 @@
         }
         function toImg(e) { var r = view.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width * base.width, y: (e.clientY - r.top) / r.height * base.height, sx: e.clientX, sy: e.clientY }; }
         function rectFrom(d) { return { x: Math.min(d.x0, d.x1), y: Math.min(d.y0, d.y1), w: Math.abs(d.x1 - d.x0), h: Math.abs(d.y1 - d.y0) }; }
-        function snapBase() { var s = document.createElement('canvas'); s.width = base.width; s.height = base.height; s.getContext('2d').drawImage(base, 0, 0); return s; }
+        function copyBase() { var s = document.createElement('canvas'); s.width = base.width; s.height = base.height; s.getContext('2d').drawImage(base, 0, 0); return s; }
 
+        // Dokunulan yerde ok var mı? Ucu/gövdesi → taşı, kuyruk ucu → döndür.
+        function hitArrow(p) {
+            if (!showMarks || !marks.length) return null;
+            var s = arrowSize(), r = view.getBoundingClientRect(), tol = Math.max(s * 0.35, 22 * base.width / r.width), bestD = Infinity, hit = null;
+            marks.forEach(function (m) {
+                var ex = m.x + m.ux * s, ey = m.y + m.uy * s, vx = ex - m.x, vy = ey - m.y;
+                var t = Math.max(0, Math.min(1, ((p.x - m.x) * vx + (p.y - m.y) * vy) / (vx * vx + vy * vy)));
+                var dd = Math.hypot(p.x - (m.x + vx * t), p.y - (m.y + vy * t));
+                if (dd < tol && dd < bestD) { bestD = dd; hit = { m: m, rotate: t > 0.7 }; }
+            });
+            return hit;
+        }
+
+        // Dokunmatik hareketler: iki parmakla dokun = geri al, üç parmakla dokun = yeniden yap.
+        // Kalem bir kez kullanıldıktan sonra parmak/avuç dokunuşları çizim yapmaz (avuç içi koruması).
+        var touches = {}, gesture = null, penSeen = false;
+        function cancelAction() {
+            if (grab) { grab.m.x = grab.orig.x; grab.m.y = grab.orig.y; grab.m.ux = grab.orig.ux; grab.m.uy = grab.orig.uy; grab = null; }
+            pen = null; drag = null; render();
+        }
         view.addEventListener('pointerdown', function (e) {
-            if (!base) return; e.preventDefault(); view.setPointerCapture(e.pointerId);
+            if (!base) return; e.preventDefault();
+            if (e.pointerType === 'pen') penSeen = true;
+            if (e.pointerType === 'touch') {
+                touches[e.pointerId] = { x: e.clientX, y: e.clientY };
+                var n = Object.keys(touches).length;
+                if (n === 1) gesture = { t: Date.now(), max: 1, moved: false, start: {} };
+                else { gesture.max = Math.max(gesture.max, n); cancelAction(); }
+                gesture.start[e.pointerId] = { x: e.clientX, y: e.clientY };
+                if (n > 1 || penSeen) return;
+            }
+            view.setPointerCapture(e.pointerId);
             var p = toImg(e);
-            if (mode === 'mark') { var d = DIRS[$('dir').value]; var L = Math.hypot(d[0], d[1]); pen = { p: p, moved: false, mark: { x: p.x, y: p.y, ux: d[0] / L, uy: d[1] / L } }; return; }
-            drag = { x0: p.x, y0: p.y, x1: p.x, y1: p.y }; render();
+            if (mode === 'mark') {
+                var h = hitArrow(p);
+                if (h) { grab = { m: h.m, rotate: h.rotate, p: p, orig: { x: h.m.x, y: h.m.y, ux: h.m.ux, uy: h.m.uy }, before: state(), moved: false, id: e.pointerId }; render(); return; }
+                var d = DIRS[$('dir').value], L = Math.hypot(d[0], d[1]);
+                pen = { p: p, moved: false, id: e.pointerId, mark: { x: p.x, y: p.y, ux: d[0] / L, uy: d[1] / L } }; return;
+            }
+            drag = { x0: p.x, y0: p.y, x1: p.x, y1: p.y, id: e.pointerId }; render();
         });
         view.addEventListener('pointermove', function (e) {
-            if (pen) {
+            if (e.pointerType === 'touch' && touches[e.pointerId] && gesture) {
+                var st = gesture.start[e.pointerId];
+                if (st && Math.hypot(e.clientX - st.x, e.clientY - st.y) > 25) gesture.moved = true;
+            }
+            if (grab && grab.id === e.pointerId) {
+                var g = toImg(e);
+                if (Math.hypot(g.sx - grab.p.sx, g.sy - grab.p.sy) > 4) grab.moved = true;
+                if (!grab.moved) return;
+                if (grab.rotate) { var rx = g.x - grab.m.x, ry = g.y - grab.m.y, RL = Math.hypot(rx, ry); if (RL > 1) { grab.m.ux = rx / RL; grab.m.uy = ry / RL; } }
+                else { grab.m.x = grab.orig.x + (g.x - grab.p.x); grab.m.y = grab.orig.y + (g.y - grab.p.y); }
+                render(); return;
+            }
+            if (pen && pen.id === e.pointerId) {
                 var q = toImg(e), dx = q.x - pen.p.x, dy = q.y - pen.p.y, dist = Math.hypot(q.sx - pen.p.sx, q.sy - pen.p.sy);
                 if (dist > 12) { pen.moved = true; var L = Math.hypot(dx, dy); pen.mark.ux = dx / L; pen.mark.uy = dy / L; render(); }
                 return;
             }
-            if (!drag) return; var p = toImg(e); drag.x1 = p.x; drag.y1 = p.y; render();
+            if (!drag || drag.id !== e.pointerId) return; var p = toImg(e); drag.x1 = p.x; drag.y1 = p.y; render();
         });
-        view.addEventListener('pointerup', function () {
-            if (pen) { history.push({ t: 'mark' }); marks.push(pen.mark); pen = null; showMarks = true; render(); return; }
-            if (!drag) return; var r = rectFrom(drag); drag = null;
+        function endPointer(e) {
+            if (e.pointerType === 'touch' && touches[e.pointerId]) {
+                delete touches[e.pointerId];
+                if (!Object.keys(touches).length && gesture) {
+                    var g = gesture; gesture = null;
+                    if (g.max >= 2 && !g.moved && Date.now() - g.t < 450) { if (g.max === 2) undo(); else redo(); return; }
+                    if (g.max >= 2) return;
+                }
+            }
+            if (grab && grab.id === e.pointerId) { if (grab.moved) remember(grab.before); grab = null; render(); return; }
+            if (pen && pen.id === e.pointerId) { remember(); marks.push(pen.mark); pen = null; showMarks = true; render(); return; }
+            if (!drag || drag.id !== e.pointerId) return; var r = rectFrom(drag); drag = null;
             if (r.w < 8 || r.h < 8) { render(); return; }
-            if (mode === 'redact') { history.push({ t: 'base', c: snapBase(), marks: marks.slice(), changed: baseChanged }); var cx = base.getContext('2d'); cx.fillStyle = '#000'; cx.fillRect(r.x, r.y, r.w, r.h); baseChanged = true; }
+            if (mode === 'redact') { remember(); base = copyBase(); var cx = base.getContext('2d'); cx.fillStyle = '#000'; cx.fillRect(r.x, r.y, r.w, r.h); baseChanged = true; }
             else if (mode === 'crop') { cropRect = r; $('applyCrop').hidden = false; }
             render();
-        });
-        view.addEventListener('pointercancel', function () { pen = null; drag = null; render(); });
+        }
+        view.addEventListener('pointerup', endPointer);
+        view.addEventListener('pointercancel', function (e) { delete touches[e.pointerId]; if (!Object.keys(touches).length) gesture = null; cancelAction(); });
 
         $('applyCrop').addEventListener('click', function () {
             if (!cropRect) return; var r = cropRect;
-            history.push({ t: 'base', c: snapBase(), marks: marks.slice(), changed: baseChanged });
+            remember();
             var c = document.createElement('canvas'); c.width = Math.round(r.w); c.height = Math.round(r.h);
             c.getContext('2d').drawImage(base, r.x, r.y, r.w, r.h, 0, 0, c.width, c.height);
             marks = marks.map(function (m) { return { x: m.x - r.x, y: m.y - r.y, ux: m.ux, uy: m.uy }; }).filter(function (m) { return m.x >= 0 && m.y >= 0 && m.x <= c.width && m.y <= c.height; });
@@ -370,13 +470,19 @@
                 $('applyCrop').hidden = !(mode === 'crop' && cropRect);
                 $('modeHint').innerHTML = mode === 'crop' ? 'Saklamak istediğiniz alanı çerçeveleyin, sonra "Kırpmayı uygula"ya dokunun.'
                     : mode === 'redact' ? 'Ad, TC no, tarih gibi yazıların üzerini çerçeveleyin; alan siyahla kalıcı olarak kapatılır.'
-                    : '<strong>Ok çizmek için:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> nereye gelecekse o yöne doğru çekin. Ok her yöne çizilebilir. Yalnızca dokunursanız varsayılan yön kullanılır.';
+                    : MARK_HINT;
                 render();
             });
         });
+        var MARK_HINT = $('modeHint').innerHTML;
         $('joinLine').addEventListener('click', function () { joined = !joined; setJoin(); render(); });
-        $('undo').addEventListener('click', function () { var h = history.pop(); if (!h) { if (marks.length) marks.pop(); render(); return; } if (h.t === 'mark') marks.pop(); else { base = h.c; marks = h.marks; baseChanged = h.changed; } render(); });
-        $('clearMarks').addEventListener('click', function () { if (!marks.length || !confirm('Tüm oklar silinsin mi?')) return; marks = []; history = history.filter(function (h) { return h.t !== 'mark'; }); render(); });
+        $('undo').addEventListener('click', undo);
+        $('redo').addEventListener('click', redo);
+        document.addEventListener('keydown', function (e) {
+            if (!(e.metaKey || e.ctrlKey) || e.key.toLowerCase() !== 'z' || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+            e.preventDefault(); if (e.shiftKey) redo(); else undo();
+        });
+        $('clearMarks').addEventListener('click', function () { if (!marks.length || !confirm('Tüm oklar silinsin mi?')) return; remember(); marks = []; render(); });
         $('preview').addEventListener('click', function () { showMarks = !showMarks; render(); });
 
         // ---------- Kaydet ----------
