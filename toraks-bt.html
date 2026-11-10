@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Toraks BT - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+        figure.ct { margin: 18px 0 22px; }
+        figure.ct img { width: 100%; height: auto; display: block; border-radius: 10px; background: #000; cursor: zoom-in; }
+        figure.ct svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figure.ct figcaption { text-align: left; font-size: 14px; line-height: 1.55; color: #3a4a57; margin-top: 8px; }
+        .step { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; border-radius: 12px; background: #c0392b; color: #fff; font-size: 12px; font-weight: 700; margin-right: 6px; padding: 0 6px; }
+        .muted-note { font-size: 13px; color: #6a7a87; }
+        .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(8,12,16,0.96); display: flex; align-items: center; justify-content: center; overflow: auto; }
+        .lightbox[hidden] { display: none; }
+        .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .lb-close { position: fixed; top: 12px; right: 12px; border: none; border-radius: 8px; background: rgba(255,255,255,0.92); font: inherit; font-size: 16px; font-weight: 700; width: 40px; height: 40px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Toraks BT</h1>
+        <p class="lead">Toraks bilgisayarlı tomografisi (BT), göğüs cerrahisinde tanı, evreleme, ameliyat planlaması ve travmada en çok kullanılan görüntüleme yöntemidir. Bu sayfada BT'nin temel kavramları, pencereler, kontrastlı BT'de damarların ve mediasten yapılarının seviye seviye tanınması, parankim ve nodül değerlendirmesi yer alıyor.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#temel">Temel kavramlar: Hounsfield ve pencereler</a></li>
+                <li><a href="#yon">Görüntüye nasıl bakılır?</a></li>
+                <li><a href="#kontrast">Kontrastlı ve kontrastsız BT</a></li>
+                <li><a href="#seviye">Kontrastlı BT'de yapılar: seviye seviye</a></li>
+                <li><a href="#sistematik">Sistematik okuma sırası</a></li>
+                <li><a href="#parankim">Parankim: buzlu cam ve konsolidasyon</a></li>
+                <li><a href="#nodul">Nodüller ve mediasten penceresi</a></li>
+                <li><a href="#kemik">Kemik penceresi ve travma BT'si</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="temel"><span class="num">1</span>Temel kavramlar: Hounsfield ve pencereler</h2>
+            <p>BT'de her dokunun X ışınını ne kadar zayıflattığı <strong>Hounsfield birimi (HU)</strong> ile ölçülür. Su 0, hava −1000 HU'dur; yoğunluk arttıkça değer yükselir ve doku görüntüde daha beyaz görünür.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Doku</th><th>Yaklaşık HU</th><th>Görünüm</th></tr></thead>
+                    <tbody>
+                        <tr><td>Hava</td><td>−1000</td><td>Siyah</td></tr>
+                        <tr><td>Akciğer parankimi</td><td>−900 ile −700</td><td>Koyu gri</td></tr>
+                        <tr><td>Yağ</td><td>−100 ile −50</td><td>Koyu gri</td></tr>
+                        <tr><td>Su, berrak sıvı (efüzyon, kist)</td><td>0 ile 20</td><td>Gri</td></tr>
+                        <tr><td>Yumuşak doku, kas, kan (kontrastsız)</td><td>30 ile 60</td><td>Açık gri</td></tr>
+                        <tr><td>Taze kan (hematom)</td><td>50 ile 80</td><td>Açık gri</td></tr>
+                        <tr><td>Kontrastlı damar</td><td>150 ile 400+</td><td>Beyaz</td></tr>
+                        <tr><td>Kemik, kalsifikasyon</td><td>400 ile 1000+</td><td>Beyaz</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Pencereler</h3>
+            <p>Göz yalnızca sınırlı sayıda gri tonunu ayırt edebildiği için aynı kesit farklı "pencerelerde" incelenir. Pencere genişliği (WW) gösterilen HU aralığını, pencere seviyesi (WL) bu aralığın merkezini belirler.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Pencere</th><th>Yaklaşık ayar</th><th>Ne için?</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Akciğer (parankim)</strong></td><td>WL −600, WW 1500</td><td>Parankim, bronşlar, nodül, buzlu cam, amfizem, pnömotoraks</td></tr>
+                        <tr><td><strong>Mediasten (yumuşak doku)</strong></td><td>WL 40, WW 400</td><td>Damarlar, kalp, lenf nodları, kitleler, plevral sıvı, nodülün solid bileşeni, kalsifikasyon</td></tr>
+                        <tr><td><strong>Kemik</strong></td><td>WL 500, WW 2000</td><td>Kot, sternum, vertebra kırıkları; kemik lezyonları</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <figure>
+                <svg viewBox="0 0 360 190" role="img" aria-label="Hounsfield skalası ve akciğer, mediasten ve kemik pencerelerinin kapsadığı aralıklar">
+                    <rect width="360" height="190" fill="#f6f9fb"/>
+                    <defs><linearGradient id="hu" x1="0" x2="1"><stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
+                    <rect x="30" y="30" width="300" height="22" fill="url(#hu)" stroke="#8a98a5"/>
+                    <g font-size="9" fill="#1f2a33" text-anchor="middle"><text x="30" y="68">−1000</text><text x="105" y="68">−500</text><text x="180" y="68">0</text><text x="255" y="68">+500</text><text x="330" y="68">+1000</text></g>
+                    <g font-size="8.5" fill="#3a4a57" text-anchor="middle"><text x="30" y="22">hava</text><text x="165" y="22">yağ</text><text x="186" y="22">su</text><text x="198" y="14">doku</text><text x="300" y="22">kemik</text></g>
+                    <line x1="165" y1="24" x2="165" y2="30" stroke="#3a4a57"/><line x1="180" y1="24" x2="180" y2="30" stroke="#3a4a57"/><line x1="187" y1="16" x2="187" y2="30" stroke="#3a4a57"/>
+                    <rect x="22.5" y="86" width="225" height="18" rx="4" fill="#7aa7d8"/><text x="135" y="99" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">Akciğer penceresi (−1350 / +150)</text>
+                    <rect x="156" y="116" width="60" height="18" rx="4" fill="#e08a00"/><text x="186" y="152" font-size="10" font-weight="700" text-anchor="middle" fill="#8a5a00">Mediasten penceresi (−160 / +240)</text>
+                    <rect x="180" y="160" width="150" height="18" rx="4" fill="#8a98a5"/><text x="255" y="173" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">Kemik penceresi</text>
+                </svg>
+                <figcaption>Hounsfield skalası ve pencerelerin kapsadığı yoğunluk aralıkları (şematik). Pencerenin altındaki değerler siyah, üstündekiler beyaz görünür.</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="yon"><span class="num">2</span>Görüntüye nasıl bakılır?</h2>
+            <ul>
+                <li>Aksiyel kesitlere <strong>hastanın ayak ucundan bakılıyormuş gibi</strong> bakılır: <strong>hastanın sağı ekranın solunda</strong>, ön (sternum) üstte, vertebra altta.</li>
+                <li>Kesitler yukarıdan aşağıya (toraks girişinden diyaframa) ardışık olarak gezilir; tek bir kesite bakarak karar verilmez. Bir yapının damar mı nodül mü olduğu, ardışık kesitlerde devam edip etmediğine bakılarak anlaşılır.</li>
+                <li>Görüntüleme sistemlerinde "A" ön (anterior), "R" sağ (right) tarafı gösterir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="kontrast"><span class="num">3</span>Kontrastlı ve kontrastsız BT</h2>
+            <ul>
+                <li><strong>Kontrastsız BT:</strong> Parankim, nodül takibi, pnömotoraks, kemik yapılar ve kalsifikasyon için yeterlidir. Damarlar ile lenf nodları ve kitleler benzer yoğunlukta olduğu için mediasten değerlendirmesi sınırlıdır.</li>
+                <li><strong>Kontrastlı BT:</strong> İyotlu kontrast madde damar yolundan verilir. Damarlar beyazlaşır ve lenf nodlarından, kitlelerden ayrılır. Akciğer kanseri evrelemesi, mediasten kitleleri, ampiyem ("ayrık plevra" işareti), vasküler yaralanma ve travmada tercih edilir.</li>
+                <li><strong>BT pulmoner anjiyografi:</strong> Görüntüler kontrastın pulmoner arterlerde en yoğun olduğu anda alınır; pulmoner emboli, pulmoner arterlerde dolum defekti olarak görülür.</li>
+                <li><strong>Kontrast öncesi dikkat:</strong> Böbrek işlevleri (kreatinin, eGFR), iyotlu kontrast alerjisi öyküsü, metformin kullanımı ve hipertiroidi sorgulanır.</li>
+            </ul>
+            <div class="note"><p><strong>Kontrastın verildiği taraf:</strong> Kontrast genellikle bir kol veninden verilir. Enjeksiyon tarafındaki aksiller, subklavyen ve brakiyosefalik vende çok yoğun kontrast ve ondan yayılan çizgisel artefaktlar görülür. Bu, görüntüye bakarken kontrastın hangi koldan verildiğini ve venöz yolu takip etmeyi sağlar (aşağıdaki görüntüler).</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="seviye"><span class="num">4</span>Kontrastlı BT'de yapılar: seviye seviye</h2>
+            <p>Aşağıdaki kesitler kontrastlı toraks BT'den alınmıştır ve kontrast maddenin <strong>koldan kalbe izlediği venöz yolu</strong>, ardından <strong>arteriyel yapıları</strong> sırasıyla gösterir. Görüntülere dokunarak büyütebilirsiniz. Tüm kesitlerde hastanın sağı ekranın solundadır.</p>
+
+            <h3>A. Venöz yol: kontrastın koldan kalbe yolculuğu</h3>
+
+            <figure class="ct">
+                <img src="images/bt/01-subklavyen-ven.jpg" alt="Toraks girişi seviyesinde kontrastlı BT: sol subklavyen vende yoğun kontrast" loading="lazy">
+                <figcaption><span class="step">1</span><strong>Sol subklavyen ven.</strong> Kontrast madde sol koldan verilmiştir; görüntünün sağında (hastanın solunda) sol subklavyen ven içinde yoğun beyaz kontrast ve çevresinde çizgisel artefaktlar görülür. Bu seviyede trakea, ilk kotlar, klavikulalar ve apeksler izlenir.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/02-brakiyosefalik-ven.jpg" alt="Kontrastlı BT: subklavyen venden gelen kontrastın sol brakiyosefalik vene dökülmesi" loading="lazy">
+                <figcaption><span class="step">2</span><strong>Sol brakiyosefalik ven.</strong> Subklavyen venden gelen kontrast, internal juguler venle birleşerek oluşan <strong>sol brakiyosefalik vene</strong> dökülür. Sol brakiyosefalik ven, sternumun hemen arkasında, büyük arterlerin önünden sağa doğru yatay olarak geçer (sağdakinden daha uzun ve yataydır).</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <svg viewBox="0 0 360 260" role="img" aria-label="Üst ekstremite ve boyun venlerinin vena kava superiora drenajı şeması">
+                    <rect width="360" height="260" fill="#f6f9fb"/>
+                    <g fill="none" stroke="#3b6fb6" stroke-linecap="round">
+                        <path d="M30,210 C50,150 80,110 128,100" stroke-width="9"/>
+                        <path d="M330,210 C310,150 280,110 232,100" stroke-width="9"/>
+                        <path d="M140,20 L140,96" stroke-width="7"/>
+                        <path d="M220,20 L220,96" stroke-width="7"/>
+                        <path d="M128,100 C140,100 150,104 156,112" stroke-width="11"/>
+                        <path d="M232,100 C210,100 176,104 160,114" stroke-width="11"/>
+                        <path d="M158,112 L158,176" stroke-width="15"/>
+                        <path d="M210,214 C210,180 196,160 166,148" stroke-width="5" stroke-dasharray="1 0"/>
+                    </g>
+                    <path d="M140,176 C130,196 140,230 170,236 C206,240 222,212 214,190 C206,170 180,168 158,176 Z" fill="#e57368" opacity="0.85"/>
+                    <text x="176" y="214" font-size="10" font-weight="700" text-anchor="middle" fill="#fff">Sağ atriyum</text>
+                    <g font-size="9.5" fill="#1f2a33">
+                        <text x="16" y="230">Aksiller v.</text><text x="300" y="230">Aksiller v.</text>
+                        <text x="76" y="146">Subklavyen v.</text><text x="284" y="146" text-anchor="end">Subklavyen v.</text>
+                        <text x="96" y="16">İnternal juguler v.</text><text x="210" y="16">İnternal juguler v.</text>
+                        <text x="8" y="76">Sağ brakiyosefalik v.</text><line x1="70" y1="80" x2="146" y2="104" stroke="#6a7a87" stroke-width="0.8"/>
+                        <text x="352" y="76" text-anchor="end">Sol brakiyosefalik v.</text><line x1="290" y1="80" x2="200" y2="104" stroke="#6a7a87" stroke-width="0.8"/>
+                        <text x="166" y="150" font-weight="700">VCS</text>
+                        <text x="214" y="200">Azigos v.</text>
+                    </g>
+                </svg>
+                <figcaption><span class="step">3</span><strong>Venöz drenaj şeması.</strong> Aksiller ven birinci kotun dış kenarında subklavyen ven adını alır. Subklavyen ven ile internal juguler ven sternoklavikular eklemin arkasında birleşerek brakiyosefalik veni oluşturur (venöz açı). Sağ ve sol brakiyosefalik venler birleşerek vena kava süperioru (VCS) oluşturur; azigos ven de VCS'ye dökülür ve VCS sağ atriyuma açılır (şematik, önden bakış; hastanın sağı solda).</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <svg viewBox="0 0 360 120" role="img" aria-label="Kol veninden verilen kontrastın kalbe ve aortaya kadar izlediği yol">
+                    <rect width="360" height="120" fill="#f6f9fb"/>
+                    <defs><marker id="bt-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a52"/></marker></defs>
+                    <g font-size="8.5" text-anchor="middle" font-weight="700">
+                        <rect x="6" y="12" width="64" height="30" rx="6" fill="#dceaf8"/><text x="38" y="31" fill="#2c5a8c">Kol veni</text>
+                        <rect x="78" y="12" width="64" height="30" rx="6" fill="#dceaf8"/><text x="110" y="26" fill="#2c5a8c">Aksiller →</text><text x="110" y="37" fill="#2c5a8c">subklavyen</text>
+                        <rect x="150" y="12" width="64" height="30" rx="6" fill="#dceaf8"/><text x="182" y="26" fill="#2c5a8c">Brakiyo-</text><text x="182" y="37" fill="#2c5a8c">sefalik v.</text>
+                        <rect x="222" y="12" width="56" height="30" rx="6" fill="#dceaf8"/><text x="250" y="31" fill="#2c5a8c">VCS</text>
+                        <rect x="286" y="12" width="68" height="30" rx="6" fill="#dceaf8"/><text x="320" y="31" fill="#2c5a8c">Sağ atriyum</text>
+                        <rect x="286" y="76" width="68" height="30" rx="6" fill="#dceaf8"/><text x="320" y="90" fill="#2c5a8c">Sağ ventrikül</text><text x="320" y="100" fill="#2c5a8c">→ pulmoner a.</text>
+                        <rect x="190" y="76" width="88" height="30" rx="6" fill="#fde3d6"/><text x="234" y="90" fill="#8a3a12">Akciğer →</text><text x="234" y="100" fill="#8a3a12">pulmoner venler</text>
+                        <rect x="96" y="76" width="86" height="30" rx="6" fill="#fde3d6"/><text x="139" y="90" fill="#8a3a12">Sol atriyum →</text><text x="139" y="100" fill="#8a3a12">sol ventrikül</text>
+                        <rect x="6" y="76" width="82" height="30" rx="6" fill="#f6c7c1"/><text x="47" y="95" fill="#7a1f1a">Aorta ve dalları</text>
+                    </g>
+                    <g stroke="#1f3a52" stroke-width="1.5" marker-end="url(#bt-ok)"><line x1="70" y1="27" x2="77" y2="27"/><line x1="142" y1="27" x2="149" y2="27"/><line x1="214" y1="27" x2="221" y2="27"/><line x1="278" y1="27" x2="285" y2="27"/><line x1="320" y1="42" x2="320" y2="74"/><line x1="286" y1="91" x2="279" y2="91"/><line x1="190" y1="91" x2="183" y2="91"/><line x1="96" y1="91" x2="89" y2="91"/></g>
+                </svg>
+                <figcaption><span class="step">4</span><strong>Kontrastın izlediği yol.</strong> Kol veninden verilen kontrast önce venöz sistemi ve sağ kalbi, ardından pulmoner arterleri, akciğerleri ve sol kalbi geçerek aortaya ulaşır. Görüntünün alındığı zamana (faz) göre hangi damarların en parlak göründüğü değişir; pulmoner anjiyografide görüntü pulmoner arterler en parlakken alınır.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/05-vena-kava-superior.jpg" alt="Kontrastlı BT: brakiyosefalik venden gelen kontrastın vena kava süperiora dökülmesi" loading="lazy">
+                <figcaption><span class="step">5</span><strong>Vena kava süperior.</strong> Brakiyosefalik venlerden gelen kontrast, trakeanın sağ önünde yer alan <strong>vena kava süperiora (VCS)</strong> dökülür. VCS içinde kontrastlı ve kontrastsız kanın karışmasına bağlı heterojen görünüm normaldir ve trombüs ile karıştırılmamalıdır. Aynı kesitte VCS'nin solunda arkus aorta izlenir.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/06-sag-atriyum.jpg" alt="Kontrastlı BT: vena kava süperiorun sağ atriyuma dökülmesi" loading="lazy">
+                <figcaption><span class="step">6</span><strong>Sağ atriyum.</strong> VCS aşağıda <strong>sağ atriyuma</strong> açılır. Bu seviyede kalbin sağ kenarını sağ atriyum oluşturur; kalp boşlukları ve aort kökü, arkada omurganın önünde inen aorta izlenir.</figcaption>
+            </figure>
+
+            <h3>B. Arteriyel yapılar</h3>
+
+            <figure class="ct">
+                <img src="images/bt/07-arkus-aorta.jpg" alt="Kontrastlı BT: arkus aorta" loading="lazy">
+                <figcaption><span class="step">7</span><strong>Arkus aorta.</strong> Trakeanın solunda, önden arkaya ve sola doğru uzanan, aksiyel kesitte "muz" biçiminde görülen yapıdır. Yaklaşık sternal açı (T4) seviyesindedir. Sağ önünde kontrastlı VCS görülür.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/08-cikan-inen-aorta.jpg" alt="Kontrastlı BT: çıkan (asendan) ve inen (desendan) aorta" loading="lazy">
+                <figcaption><span class="step">8</span><strong>Çıkan ve inen aorta.</strong> Arkusun hemen altında aorta iki ayrı daire olarak görülür: önde <strong>çıkan (asendan) aorta</strong>, arkada omurganın solunda <strong>inen (desendan) aorta</strong>. Bu seviyede trakea ikiye ayrılmıştır; ortada sağ ve sol ana bronşlar, asendan aortanın sağında VCS görülür.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/09-arkus-dallari.jpg" alt="Kontrastlı BT: arkus aortanın üç dalı numaralandırılmış" loading="lazy">
+                <figcaption><span class="step">9</span><strong>Arkus aortanın dalları.</strong> Arkusun hemen üstündeki kesitte trakeanın önünde ve solunda üç arter sağdan sola sıralanır: <strong>1) truncus brachiocephalicus</strong>, <strong>2) sol ana karotis arter</strong>, <strong>3) sol subklavyen arter</strong>. Önlerinde sol brakiyosefalik ven yatay olarak geçer.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/10-trunkus-brakiyosefalikus.jpg" alt="Kontrastlı BT: trunkus brakiyosefalikus, dallarına ayrılmadan hemen önce" loading="lazy">
+                <figcaption><span class="step">10</span><strong>Trunkus brakiyosefalikus.</strong> Trakeanın sağ önünde, sağ ana karotis ve sağ subklavyen artere ayrılmadan hemen önceki tek gövde. Sağ sternoklavikular eklemin arkasında dallarına ayrılır.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/11-karotis-subklavyen.jpg" alt="Kontrastlı BT: sağ karotis arter, sağ subklavyen arter, sol subklavyen arter ve sol subklavyen ven" loading="lazy">
+                <figcaption><span class="step">11</span><strong>Toraks girişinde damarlar.</strong> Trakeanın sağında <strong>1) sağ ana karotis arter</strong> ve <strong>2) sağ subklavyen arter</strong>, solunda <strong>sol subklavyen arter</strong> görülür. Görüntünün sağında kontrastın verildiği <strong>sol subklavyen ven</strong> ve ondan yayılan artefaktlar izlenir.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <svg viewBox="0 0 360 300" role="img" aria-label="Arkus aorta ve dalları şeması: brakiyosefalik trunkus, sol ana karotis, sol subklavyen arter, çıkan ve inen aorta, koroner arterler">
+                    <rect width="360" height="300" fill="#f6f9fb"/>
+                    <g fill="none" stroke="#d9473b" stroke-linecap="round">
+                        <path d="M150,270 L150,190 C150,120 200,100 236,112 C262,122 272,150 272,190 L272,286" stroke-width="30"/>
+                        <path d="M168,112 L130,40" stroke-width="13"/>
+                        <path d="M140,62 L100,62 L76,50" stroke-width="10"/>
+                        <path d="M136,52 L118,14" stroke-width="9"/>
+                        <path d="M208,104 L212,24" stroke-width="10"/>
+                        <path d="M240,110 C244,80 262,62 290,60" stroke-width="10"/>
+                        <path d="M146,262 L126,268" stroke-width="5"/><path d="M160,262 L174,272" stroke-width="5"/>
+                    </g>
+                    <g font-size="9.5" fill="#1f2a33">
+                        <text x="40" y="40">Sağ subklavyen a.</text>
+                        <text x="96" y="12">Sağ ana karotis a.</text>
+                        <text x="50" y="100">Truncus</text><text x="50" y="111">brachiocephalicus</text>
+                        <text x="218" y="22">Sol ana karotis a.</text>
+                        <text x="276" y="52">Sol subklavyen a.</text>
+                        <text x="211" y="222" font-weight="700" text-anchor="middle" fill="#7a1f1a">Arkus aorta ↑</text>
+                        <text x="70" y="200">Çıkan aorta</text>
+                        <text x="292" y="220">İnen aorta</text>
+                        <text x="60" y="282">Sağ koroner a.</text><text x="180" y="290">Sol koroner a.</text>
+                    </g>
+                    <g stroke="#6a7a87" stroke-width="0.8"><line x1="120" y1="104" x2="150" y2="96"/><line x1="125" y1="197" x2="135" y2="197"/><line x1="290" y1="217" x2="287" y2="217"/></g>
+                </svg>
+                <figcaption><span class="step">12</span><strong>Arkus aorta ve dalları (şema).</strong> Çıkan aortanın kökünden koroner arterler çıkar. Arkustan sağdan sola üç dal ayrılır: truncus brachiocephalicus (sağ subklavyen ve sağ ana karotis artere ayrılır), sol ana karotis arter ve sol subklavyen arter. Arkus, inen aorta olarak devam eder (önden bakış; hastanın sağı solda).</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/13-subklavyen-arter-aksilla.jpg" alt="Kontrastlı BT: sağ karotis arter, sağ subklavyen arter ve sağ subklavyen arterin aksillaya seyri" loading="lazy">
+                <figcaption><span class="step">13</span><strong>Sağ subklavyen arterin seyri.</strong> Trakeanın sağında sağ ana karotis ve sağ subklavyen arter; subklavyen arter birinci kotun üzerinden laterale, aksillaya doğru uzanır ve birinci kotun dış kenarından sonra aksiller arter adını alır.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/14-pulmoner-arter-karina.jpg" alt="Kontrastlı BT: çıkan aorta, pulmoner arter ve dalları, karina, sağ ve sol ana bronş, inen aorta" loading="lazy">
+                <figcaption><span class="step">14</span><strong>Pulmoner arter ve karina seviyesi.</strong> Önde <strong>çıkan aorta</strong>, onun solunda <strong>pulmoner trunkus</strong> ve trunkustan ayrılan <strong>sağ ve sol pulmoner arterler</strong>; sağ pulmoner arter çıkan aortanın arkasından sağa geçer. Arkada <strong>karina</strong> ile <strong>sağ ve sol ana bronşlar</strong>, omurganın solunda <strong>inen aorta</strong> görülür. Pulmoner embolide bu seviyedeki arterlerde dolum defekti aranır.</figcaption>
+            </figure>
+
+            <figure class="ct">
+                <img src="images/bt/15-azigos-ven.jpg" alt="Kontrastlı BT: arka mediastenden gelen azigos venin vena kava süperiora dökülmesi" loading="lazy">
+                <figcaption><span class="step">15</span><strong>Azigos ven.</strong> Arka mediastende omurganın sağ önünde yukarı çıkan <strong>azigos ven</strong>, sağ ana bronşun üzerinden öne doğru kavis yaparak (azigos arkı) <strong>VCS'nin</strong> arkasına dökülür. Azigos arkı, sağ torakotomi ve VATS'ta önemli bir nirengi noktası ve 4R lenf nodu istasyonunun alt sınırıdır.</figcaption>
+            </figure>
+            <p class="see">Bu yapıların anatomisi için: <a href="toraks-anatomisi.html#damarlar">Toraks Anatomisi → Büyük damarlar</a> ve <a href="toraks-anatomisi.html#t4">T4–T5 düzlemi</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="sistematik"><span class="num">5</span>Sistematik okuma sırası</h2>
+            <p>Dr. Hilmi Keskin'in vurguladığı gibi yapılar <strong>teker teker</strong> ve her seferinde aynı sırayla değerlendirilmelidir:</p>
+            <ol>
+                <li><strong>Hasta ve tetkik bilgileri:</strong> kimlik, tarih, kontrastlı mı, eski tetkiklerle karşılaştırma.</li>
+                <li><strong>Mediasten penceresi:</strong> büyük damarlar (yukarıdaki sırayla), kalp ve perikard, trakea ve özofagus, lenf nodları, plevral sıvı, göğüs duvarı yumuşak dokuları.</li>
+                <li><strong>Akciğer penceresi:</strong> Önce sağ akciğer yukarıdan aşağıya, sonra sol akciğer; ardından ikisi birlikte karşılaştırılır. Havalanma farkı, bronşlar, damarlar, nodül, buzlu cam, konsolidasyon, amfizem ve pnömotoraks aranır.</li>
+                <li><strong>Kemik penceresi:</strong> kotlar tek tek sayılır; sternum, klavikula, skapula ve vertebralar.</li>
+                <li><strong>Üst karın:</strong> görüntüye giren karaciğer, dalak, böbreküstü bezleri (metastaz açısından).</li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <h2 id="parankim"><span class="num">6</span>Parankim: buzlu cam ve konsolidasyon</h2>
+            <ul>
+                <li><strong>Buzlu cam:</strong> Parankim yoğunluğu artmıştır, ancak içinden geçen <strong>damarlar ve bronş duvarları hâlâ seçilebilir</strong>; buzlu camın arkasından bakılıyormuş gibi bir görünüm oluşur. Alveollerin kısmen dolması veya interstisyumun kalınlaşmasını gösterir: ödem, interstisyel ve viral pnömoniler, kanama, erken fibrozis, adenokarsinom yelpazesi.</li>
+                <li><strong>Konsolidasyon:</strong> Yoğunluk artışı daha fazladır ve <strong>damarlar ile bronş duvarları seçilemez</strong>; içinde hava bronkogramı görülebilir. Alveoller sıvı, eksüda, kan veya hücreyle tamamen dolmuştur (pnömoni, kontüzyon, tümör).</li>
+                <li><strong>Halo ve ters halo işaretleri:</strong> Ortada solid, çevrede buzlu cam ise halo; çevrede solid halka, ortada buzlu cam ise ters halo işaretidir (ör. organize pnömoni, COVID-19 iyileşme dönemi).</li>
+                <li><strong>COVID-19 pnömonisinde tipik dağılım:</strong> iki taraflı, periferik ve arka bölgelerde, birden fazla lobu tutan buzlu cam ve konsolidasyonlar; iyileşme döneminde fibrotik bantlar (Dr. Hilmi Keskin).</li>
+            </ul>
+            <p class="see">Alveol düzeyindeki karşılığı için: <a href="toraks-anatomisi.html#alveol">Toraks Anatomisi → Alveol</a>.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="nodul"><span class="num">7</span>Nodüller ve mediasten penceresi</h2>
+            <p>Akciğer nodülü, 3 cm'den küçük, yuvarlak ve parankimle çevrili opasitedir (3 cm'den büyükse kitle denir). Nodülün tipi, akciğer ve mediasten pencerelerinin birlikte değerlendirilmesiyle belirlenir.</p>
+            <figure>
+                <svg viewBox="0 0 360 230" role="img" aria-label="Solid, kısmi solid ve buzlu cam nodüllerin akciğer ve mediasten pencerelerindeki görünümü">
+                    <rect width="360" height="230" fill="#f6f9fb"/>
+                    <g font-size="10" font-weight="700" text-anchor="middle" fill="#1f3a52"><text x="70" y="18">Solid</text><text x="180" y="18">Kısmi solid</text><text x="290" y="18">Buzlu cam</text></g>
+                    <g font-size="9" fill="#3a4a57"><text x="4" y="68" transform="rotate(-90 10 68)">Akciğer p.</text><text x="4" y="168" transform="rotate(-90 10 168)">Mediasten p.</text></g>
+                    <g>
+                        <rect x="24" y="26" width="92" height="84" rx="8" fill="#22292f"/><rect x="134" y="26" width="92" height="84" rx="8" fill="#22292f"/><rect x="244" y="26" width="92" height="84" rx="8" fill="#22292f"/>
+                        <circle cx="70" cy="68" r="18" fill="#d9dee3"/>
+                        <circle cx="180" cy="68" r="22" fill="#7d868f"/><circle cx="182" cy="66" r="9" fill="#d9dee3"/>
+                        <circle cx="290" cy="68" r="22" fill="#6b747d"/>
+                        <g stroke="#9aa4ad" stroke-width="1.5"><line x1="246" y1="50" x2="334" y2="86"/><line x1="136" y1="94" x2="224" y2="40"/></g>
+                    </g>
+                    <g>
+                        <rect x="24" y="126" width="92" height="84" rx="8" fill="#4e555c"/><rect x="134" y="126" width="92" height="84" rx="8" fill="#4e555c"/><rect x="244" y="126" width="92" height="84" rx="8" fill="#4e555c"/>
+                        <circle cx="70" cy="168" r="17" fill="#c7ccd1"/>
+                        <circle cx="182" cy="166" r="8" fill="#c7ccd1"/>
+                        <text x="290" y="172" font-size="9" text-anchor="middle" fill="#dfe3e7">görünmez</text>
+                    </g>
+                    <g font-size="8.5" text-anchor="middle" fill="#3a4a57"><text x="70" y="224">her iki pencerede aynı</text><text x="180" y="224">yalnız solid kısım kalır</text><text x="290" y="224">mediastende kaybolur</text></g>
+                </svg>
+                <figcaption>Nodül tipleri: akciğer ve mediasten pencerelerinde görünüm (şematik).</figcaption>
+            </figure>
+            <ul>
+                <li><strong>Solid nodül:</strong> Her iki pencerede yaklaşık aynı büyüklükte görülür.</li>
+                <li><strong>Kısmi solid (part-solid) nodül:</strong> Akciğer penceresinde buzlu cam ve solid bileşen birlikte; mediasten penceresinde yalnız <strong>solid bileşen</strong> kalır. Malignite açısından en riskli gruptur; solid bileşenin büyüklüğü invazyonla ilişkilidir.</li>
+                <li><strong>Saf buzlu cam nodülü:</strong> Akciğer penceresinde görülür, <strong>mediasten penceresinde tamamen kaybolur</strong>, çünkü yumuşak doku yoğunluğunda bileşeni yoktur. Geçici nedenler (enfeksiyon, kanama) olabileceği gibi, kalıcıysa adenokarsinom yelpazesinin erken formları olabilir.</li>
+                <li><strong>Kalsifikasyon:</strong> Mediasten penceresinde değerlendirilir. Santral, difüz, laminer veya patlamış mısır biçimindeki kalsifikasyon benignliği düşündürür (granülom, hamartom).</li>
+                <li><strong>Damarla karışma:</strong> Nodül sanılan yapı ardışık kesitlerde dallanarak devam ediyorsa damardır; kontrastlı BT'de damarla aynı yoğunlukta kontrastlanır.</li>
+            </ul>
+            <h3>İnsidental nodüllerde takip (Fleischner önerileri, erişkin, özet)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Nodül</th><th>Öneri</th></tr></thead>
+                    <tbody>
+                        <tr><td>Saf buzlu cam &lt; 6 mm</td><td>Rutin takip gerekmez</td></tr>
+                        <tr><td>Saf buzlu cam ≥ 6 mm</td><td>6–12 ayda BT; kalıcıysa 5 yıla kadar 2 yılda bir</td></tr>
+                        <tr><td>Kısmi solid ≥ 6 mm</td><td>3–6 ayda BT; değişmiyor ve solid bileşen &lt; 6 mm ise yıllık takip; solid bileşen ≥ 6 mm ise yüksek şüpheli (PET/BT, biyopsi veya rezeksiyon)</td></tr>
+                        <tr><td>Solid nodül</td><td>Boyuta ve hastanın risk durumuna göre takip; büyüyen veya şüpheli morfolojideki nodül ileri değerlendirilir</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="muted-note">Buzlu cam nodüllerin bir kısmı kontrol BT'de kaybolur; bu nedenle ilk kontrol erken yapılır. Takip kararları hastanın risk faktörleri ve güncel kılavuzlarla birlikte verilmelidir.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="kemik"><span class="num">8</span>Kemik penceresi ve travma BT'si</h2>
+            <ul>
+                <li>Travmada önce <strong>kemik penceresine</strong> bakılır ve kotlar tek tek sayılır; kırık hatları, kortikal devamsızlık ve deplasman aranır. Sternum, klavikula, skapula ve vertebralar da değerlendirilir (Dr. Hilmi Keskin).</li>
+                <li>Ardından <strong>parankim penceresinde</strong> akciğer kontüzyonu, subplevral kanama, laserasyon, pnömotoraks ve hemotoraks aranır.</li>
+                <li>Sırtüstü yatan ve obez hastalarda akciğerlerin alt-arka bölgelerinde görülen bağımlı bölge atelektazisi kontüzyonla karışabilir. Bkz. <a href="atelektazi.html#turler">Atelektazi</a>.</li>
+                <li>Mediasten penceresinde mediasten hematomu, büyük damar yaralanması, perikard sıvısı ve diyafram bütünlüğü değerlendirilir.</li>
+            </ul>
+            <p class="see">Kot sayma ve kot kırıkları için: <a href="akciger-grafileri.html#kot">Akciğer Grafileri → Kot sayma ve kot kırıkları</a>.</p>
+        </section>
+
+        <p class="source">BT kesitleri Ass. Dr. Mustafa Türker'in arşivinden alınmış, anonimleştirilmiş ve kırpılmıştır; üzerlerindeki kırmızı işaretlemeler kendisine aittir. Metin, <a href="https://www.youtube.com/@drhilmikeskin" target="_blank" rel="noopener">Dr. Hilmi Keskin'in YouTube kanalındaki</a> toraks tomografisi, travma ve COVID-19 tomografisi anlatımları, <em>Netter Atlas of Human Anatomy</em> (8. baskı) kesit anatomisi notları ve standart radyoloji kaynakları esas alınarak hazırlanmıştır. Şemalar şematiktir.</p>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden>
+        <button type="button" class="lb-close" aria-label="Kapat">✕</button>
+        <img id="lbImg" alt="">
+    </div>
+    <script>
+        (function () {
+            var lb = document.getElementById('lightbox'), img = document.getElementById('lbImg');
+            document.querySelectorAll('figure.ct img').forEach(function (i) {
+                i.addEventListener('click', function () { img.src = i.src; img.alt = i.alt; lb.hidden = false; document.body.style.overflow = 'hidden'; });
+            });
+            function close() { lb.hidden = true; img.removeAttribute('src'); document.body.style.overflow = ''; }
+            lb.addEventListener('click', function (e) { if (e.target !== img) close(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+        })();
+    </script>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
