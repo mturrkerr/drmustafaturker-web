@@ -56,6 +56,8 @@
         .badge.ok { background: #d6f0ea; color: #12614e; }
         .badge.wait { background: #fff1c9; color: #7a5a00; }
         .flash { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(31,58,82,0.92); color: #fff; font-weight: 700; font-size: 14px; padding: 7px 14px; border-radius: 20px; pointer-events: none; }
+        .adj label { display: flex; align-items: center; gap: 6px; flex: 1 1 180px; font-size: 13px; font-weight: 700; color: #3a4a57; }
+        .adj input[type=range] { flex: 1; accent-color: #1f3a52; }
         .blocked { text-align: center; padding: 40px 16px; }
         details summary { cursor: pointer; font-weight: 700; color: #1f3a52; }
     </style>
@@ -116,6 +118,12 @@
                 <button type="button" class="btn danger" id="clearMarks" disabled>Okları sil</button>
                 <button type="button" class="btn" id="preview" disabled>İşaretli / işaretsiz</button>
             </div>
+            <div class="row adj">
+                <label>Kontrast <input type="range" id="adjC" min="50" max="300" step="5" value="100"></label>
+                <label>Parlaklık <input type="range" id="adjB" min="40" max="200" step="5" value="100"></label>
+                <button type="button" class="btn" id="adjR">Sıfırla</button>
+            </div>
+            <p class="hint">Kontrast ve parlaklık yalnızca işaretlerken görmenizi kolaylaştırır; kaydedilen grafiyi değiştirmez.</p>
         </section>
 
         <section class="card">
@@ -514,6 +522,9 @@
             e.preventDefault(); if (e.shiftKey) redo(); else undo();
         });
         $('clearMarks').addEventListener('click', function () { if (!marks.length || !confirm('Tüm oklar silinsin mi?')) return; remember(); marks = []; render(); });
+        function applyAdj() { var c = $('adjC').value, b = $('adjB').value; view.style.filter = (c == 100 && b == 100) ? '' : 'contrast(' + c + '%) brightness(' + b + '%)'; }
+        $('adjC').addEventListener('input', applyAdj); $('adjB').addEventListener('input', applyAdj);
+        $('adjR').addEventListener('click', function () { $('adjC').value = 100; $('adjB').value = 100; applyAdj(); });
         $('preview').addEventListener('click', function () { showMarks = !showMarks; render(); });
 
         // ---------- Kaydet ----------

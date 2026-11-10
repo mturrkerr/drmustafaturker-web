@@ -24,7 +24,7 @@
         .xray img { width: 100%; height: auto; display: block; cursor: zoom-in; }
         .toggle-line { border: none; border-radius: 8px; background: rgba(255,255,255,0.92); color: #1f3a52; font: inherit; font-size: 14px; font-weight: 600; padding: 8px 12px; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.25); }
         .toggle-line[aria-pressed="true"] { background: #1f3a52; color: #fff; }
-        .xray .toggle-line { position: absolute; top: 10px; right: 10px; }
+        .xray .toggle-line { position: absolute; bottom: 10px; right: 10px; }
         figcaption { margin-top: 12px; font-size: 15px; line-height: 1.5; color: #3a4a57; }
         figcaption .hint { display: block; margin-top: 4px; font-size: 13px; color: #7a8a97; }
 
@@ -34,8 +34,13 @@
         .viewer.dragging img { cursor: grabbing; }
         .viewer-bar { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; z-index: 1; }
         .viewer-bar button { border: none; border-radius: 8px; background: rgba(255,255,255,0.92); color: #1f2a33; font: inherit; font-size: 15px; font-weight: 600; min-width: 40px; height: 40px; padding: 0 12px; cursor: pointer; }
-        .viewer-bar .toggle-line { height: 40px; margin-right: auto; }
-        .viewer-help { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,0.7); font-size: 13px; padding: 0 16px; pointer-events: none; }
+        .viewer-bar .toggle-line { position: fixed; right: 12px; bottom: 14px; height: 44px; font-size: 15px; }
+        .adjust { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin-top: 10px; font-size: 13px; color: #3a4a57; }
+        .adjust label { display: flex; align-items: center; gap: 6px; flex: 1 1 150px; font-weight: 600; }
+        .adjust input[type=range] { flex: 1; min-width: 80px; accent-color: #1f3a52; }
+        .adjust button { border: none; border-radius: 8px; background: #e3ebf2; color: #1f3a52; font: inherit; font-size: 13px; font-weight: 700; padding: 6px 10px; cursor: pointer; }
+        .viewer .adjust { position: fixed; left: 12px; bottom: 14px; right: 150px; max-width: 460px; margin: 0; background: rgba(255,255,255,0.92); border-radius: 10px; padding: 8px 12px; z-index: 1; }
+        .viewer-help { position: absolute; top: 62px; left: 0; right: 0; text-align: center; color: rgba(255,255,255,0.7); font-size: 13px; padding: 0 16px; pointer-events: none; }
     </style>
 </head>
 <body>
@@ -81,6 +86,7 @@
             <button type="button" id="viewerClose" aria-label="Kapat">✕</button>
         </div>
         <img id="viewerImage" alt="Akciğer grafisi (büyük görünüm)" draggable="false">
+        <div class="adjust" id="viewerAdjust"></div>
         <div class="viewer-help">Fare tekerleği ile yakınlaştırın, sürükleyerek gezdirin. Telefonda iki parmakla yakınlaştırın.</div>
     </div>
 
@@ -90,6 +96,24 @@
         var viewerToggle = viewer.querySelector('.toggle-line');
         var current = null;
 
+        var ADJ = '<label>Kontrast <input type="range" class="adj-c" min="50" max="300" step="5" value="100"></label>' +
+            '<label>Parlaklık <input type="range" class="adj-b" min="40" max="200" step="5" value="100"></label>' +
+            '<button type="button" class="adj-r">Sıfırla</button>';
+        function applyAdj(c) {
+            var f = (c.contrast === 100 && c.bright === 100) ? '' : 'contrast(' + c.contrast + '%) brightness(' + c.bright + '%)';
+            c.querySelector('.case-image').style.filter = f;
+            c.querySelector('.adj-c').value = c.contrast; c.querySelector('.adj-b').value = c.bright;
+            if (c === current) { viewerImage.style.filter = f; viewerAdjust.querySelector('.adj-c').value = c.contrast; viewerAdjust.querySelector('.adj-b').value = c.bright; }
+        }
+        function bindAdj(box, get) {
+            box.innerHTML = ADJ;
+            box.querySelector('.adj-c').addEventListener('input', function () { var c = get(); if (c) { c.contrast = +this.value; applyAdj(c); } });
+            box.querySelector('.adj-b').addEventListener('input', function () { var c = get(); if (c) { c.bright = +this.value; applyAdj(c); } });
+            box.querySelector('.adj-r').addEventListener('click', function (e) { e.stopPropagation(); var c = get(); if (c) { c.contrast = 100; c.bright = 100; applyAdj(c); } });
+        }
+        var viewerAdjust = document.getElementById('viewerAdjust');
+        bindAdj(viewerAdjust, function () { return current; });
+        viewerAdjust.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
         function setButton(b, on) { b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Hattı gizle' : 'Hattı göster'; }
         function render(c) {
             var src = c.showLine ? c.dataset.marked : c.dataset.plain;
@@ -99,10 +123,12 @@
         }
         function initCases() {
             Array.prototype.slice.call(document.querySelectorAll('.case[data-plain]')).forEach(function (c) {
-                c.showLine = false;
+                c.showLine = false; c.contrast = 100; c.bright = 100;
+                var box = document.createElement('div'); box.className = 'adjust'; bindAdj(box, function () { return c; });
+                c.querySelector('figure').insertBefore(box, c.querySelector('figcaption'));
                 new Image().src = c.dataset.marked;
                 c.querySelector('.toggle-line').addEventListener('click', function (e) { e.stopPropagation(); c.showLine = !c.showLine; render(c); });
-                c.querySelector('.case-image').addEventListener('click', function () { current = c; render(c); openViewer(); });
+                c.querySelector('.case-image').addEventListener('click', function () { current = c; render(c); applyAdj(c); openViewer(); });
                 render(c);
             });
         }
