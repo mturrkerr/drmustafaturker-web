@@ -1,6 +1,6 @@
 # drmustafaturker-web: çalışma notları
 
-Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz HTML, derleme adımı yok; Vercel'den yayınlanıyor.
+Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz HTML, derleme adımı yok. Asıl adres **drmustafaturker.com**: Cloudflare (alan adı/DNS Cloudflare'de; Workers statik dosya yayını, `.assetsignore`, `x.html` → `/x` 307 yönlendirmesi). Aynı `main` ayrıca Vercel'de `drmustafaturker-web.vercel.app` olarak da yayınlanıyor (ikincil kopya). İkisi de `main`'e push'ta kendiliğinden güncellenir.
 
 ## Yayınlama
 - Site sahibi değişikliklerin **onay beklemeden doğrudan canlıya** (main dalına) gönderilmesini istedi. Değişikliği test et, commit'le, `main`'e gönder; sonra sahibine Türkçe ve sade bir dille ne yaptığını anlat.
@@ -8,6 +8,7 @@ Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz H
 - Geri alınması zor işlemlerden (dosya silme, geçmişi değiştirme) önce sor.
 
 ## Şifre koruması (bekliyor)
+- DİKKAT: Aşağıdaki Vercel middleware'i yalnızca vercel.app kopyasını korur, **drmustafaturker.com'u (Cloudflare) korumaz**. Asıl adres için Cloudflare Access (Zero Trust, e-posta ile giriş) veya Worker tabanlı koruma gerekir; sahibine bu anlatıldı.
 - `middleware.js` + `package.json` ile Vercel tabanlı şifre koruması hazırlandı (commit 553bec3), sonra ana yayından geri alındı (revert).
 - Sahibi Vercel'de `SITE_USER` ve `SITE_PASSWORD` ortam değişkenlerini tanımladığını söylemeden **yayınlama**; yoksa site 503 verir. Yeniden eklemek için revert'ü geri al.
 
