@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Vaka Ekle - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 24px 14px 60px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 9px 16px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 18px; }
+        h1 { margin: 0 0 6px; font-size: 24px; color: #1f3a52; }
+        .lead { margin: 0 0 16px; color: #3a4a57; font-size: 15px; line-height: 1.5; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 16px; margin-bottom: 16px; }
+        .card h2 { margin: 0 0 10px; font-size: 17px; color: #1f3a52; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 13px; margin-right: 8px; }
+        .hint { font-size: 13px; color: #6a7a87; line-height: 1.5; margin: 6px 0 0; }
+        .file { display: block; width: 100%; box-sizing: border-box; padding: 14px; border: 2px dashed #b5c2cc; border-radius: 12px; text-align: center; font-weight: 700; color: #1f3a52; background: #f6f9fb; cursor: pointer; }
+        .file input { display: none; }
+        .modes { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+        .modes button, .btn { border: none; border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 14px; font-weight: 700; background: #e3ebf2; color: #1f3a52; cursor: pointer; }
+        .modes button[aria-pressed="true"] { background: #1f3a52; color: #fff; }
+        .btn.primary { background: #1f3a52; color: #fff; }
+        .btn.danger { background: #fdecea; color: #a0281e; }
+        .btn:disabled { opacity: 0.45; cursor: default; }
+        .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+        .stage { position: relative; width: 100%; background: #0b1015; border-radius: 10px; overflow: hidden; touch-action: none; }
+        .stage canvas { display: block; width: 100%; height: auto; }
+        .empty { color: #8a98a5; text-align: center; padding: 60px 10px; font-size: 14px; }
+        label.f { display: block; font-size: 13px; font-weight: 700; color: #3a4a57; margin: 10px 0 4px; }
+        input[type=text], input[type=number], select, textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 15px; padding: 9px 10px; border: 1px solid #c9d3dc; border-radius: 9px; background: #fff; color: #1f2a33; }
+        textarea { min-height: 70px; resize: vertical; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+        .check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; margin-top: 10px; }
+        .check input { margin-top: 3px; width: 20px; height: 20px; flex: none; }
+        .warn { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 12px; font-size: 13.5px; line-height: 1.5; color: #5b3d0a; margin-bottom: 16px; }
+        .out { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+        .out img { width: 100%; border-radius: 8px; background: #000; }
+        .out a { display: block; text-align: center; font-size: 13px; font-weight: 700; color: #1f3a52; margin-top: 4px; }
+        .status { font-size: 13px; color: #12614e; margin-top: 8px; min-height: 18px; }
+        .status.err { color: #a0281e; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Vaka Ekle</h1>
+        <p class="lead">Grafiyi seçin, hasta bilgilerini gizleyin, pnömotoraks hattını birkaç dokunuşla işaretleyin ve hazırlanan dosyaları Claude'a gönderin. Claude vakayı Pnömotoraks Vakaları sayfasına ekler.</p>
+        <div class="warn"><strong>Gizlilik:</strong> Görüntü yalnızca bu telefonda işlenir, hiçbir yere yüklenmez. Hazırlanan dosyada yalnızca sizin seçtiğiniz görüntü ve yazdığınız açıklama bulunur; DICOM dosyasındaki hasta bilgileri ve fotoğraf bilgileri (EXIF) otomatik olarak çıkarılır. Görüntünün üzerinde yazan ad, TC kimlik no, tarih ve protokol numarasını "Gizle" ile kapatmayı unutmayın.</div>
+
+        <section class="card">
+            <h2><span class="num">1</span>Grafiyi seçin</h2>
+            <label class="file">📷 Fotoğraf, galeri veya DICOM dosyası seç
+                <input type="file" id="file" accept="image/*,.dcm,application/dicom">
+            </label>
+            <p class="hint">Görüntüleme sisteminden anonim DICOM, JPEG/PNG ya da ekranın fotoğrafı olabilir. Sıkıştırılmış (JPEG 2000 vb.) DICOM açılamazsa ekran görüntüsü veya fotoğraf kullanın.</p>
+            <div class="status" id="loadStatus"></div>
+        </section>
+
+        <section class="card">
+            <h2><span class="num">2</span>Düzenleyin ve işaretleyin</h2>
+            <div class="modes" role="group" aria-label="Araç">
+                <button type="button" data-mode="crop" aria-pressed="false">✂️ Kırp</button>
+                <button type="button" data-mode="redact" aria-pressed="false">⬛ Gizle</button>
+                <button type="button" data-mode="mark" aria-pressed="true">➜ Hat işaretle</button>
+            </div>
+            <div class="row" id="markOpts">
+                <label for="dir" style="font-size:13px;font-weight:700;color:#3a4a57">Ok yönü</label>
+                <select id="dir" style="width:auto">
+                    <option value="left">← sola (uç solda)</option>
+                    <option value="right">→ sağa (uç sağda)</option>
+                    <option value="up">↑ yukarı</option>
+                    <option value="down">↓ aşağı</option>
+                    <option value="upleft">↖ sol üst</option>
+                    <option value="upright">↗ sağ üst</option>
+                    <option value="downleft">↙ sol alt</option>
+                    <option value="downright">↘ sağ alt</option>
+                </select>
+                <label style="font-size:13px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="joinLine"> Noktaları kesikli hatla birleştir</label>
+            </div>
+            <p class="hint" id="modeHint">Hattın üzerine dokunun: okun ucu dokunduğunuz noktaya gelir. 3–4 ok genellikle yeterlidir.</p>
+            <div class="stage" id="stage"><div class="empty" id="empty">Önce bir grafi seçin.</div><canvas id="view" hidden></canvas></div>
+            <div class="row">
+                <button type="button" class="btn" id="undo" disabled>↶ Geri al</button>
+                <button type="button" class="btn" id="applyCrop" hidden>Kırpmayı uygula</button>
+                <button type="button" class="btn danger" id="reset" disabled>Baştan başla</button>
+                <button type="button" class="btn" id="preview" disabled>İşaretli/işaretsiz</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="num">3</span>Vaka bilgileri</h2>
+            <div class="grid2">
+                <div><label class="f" for="age">Yaş</label><input type="number" id="age" min="0" max="120" inputmode="numeric"></div>
+                <div><label class="f" for="sex">Cinsiyet</label><select id="sex"><option value="">Seçin</option><option>Erkek</option><option>Kadın</option></select></div>
+                <div><label class="f" for="side">Taraf</label><select id="side"><option value="">Seçin</option><option>Sağ</option><option>Sol</option><option>Bilateral</option></select></div>
+                <div><label class="f" for="type">Tür</label><select id="type"><option value="">Seçin</option><option>Primer spontan</option><option>Sekonder spontan</option><option>Travmatik</option><option>İyatrojenik</option><option>Tansiyon</option></select></div>
+            </div>
+            <label class="f" for="desc">Açıklama (atak, öykü, tedavi vb.)</label>
+            <textarea id="desc" placeholder="Ör. 2. atak, AP grafi, tüp torakostomi uygulandı"></textarea>
+            <label class="f" for="other">Konu (pnömotoraks dışında bir vaka ise)</label>
+            <input type="text" id="other" placeholder="Boş bırakılırsa Pnömotoraks Vakaları'na eklenir">
+        </section>
+
+        <section class="card">
+            <h2><span class="num">4</span>Hazırla ve gönder</h2>
+            <label class="check"><input type="checkbox" id="privacy"> Görüntüde hastanın adı, TC kimlik numarası, protokol numarası, doğum tarihi veya çekim tarihi <strong>görünmüyor</strong>; görünenleri "Gizle" ile kapattım.</label>
+            <div class="row"><button type="button" class="btn primary" id="build" disabled>Hazırla</button><button type="button" class="btn primary" id="share" hidden>Paylaş / Gönder</button></div>
+            <div class="status" id="buildStatus"></div>
+            <div class="out" id="out" hidden>
+                <div><img id="outPlain" alt="İşaretsiz"><a id="dlPlain" download>İşaretsiz görüntüyü indir</a></div>
+                <div><img id="outMarked" alt="İşaretli"><a id="dlMarked" download>İşaretli görüntüyü indir</a></div>
+            </div>
+            <p class="hint">"Paylaş" ile iki görüntüyü ve açıklamayı doğrudan WhatsApp, e-posta veya Claude uygulamasına gönderebilirsiniz. Telefon paylaşmayı desteklemiyorsa görüntüleri indirip sohbete ekleyin ve açıklamayı kopyalayın.</p>
+        </section>
+    </main>
+
+    <script>
+    (function () {
+        var MAXW = 1600;
+        var base = null;         // düzenlenmiş (kırpılmış + gizlenmiş) tam çözünürlüklü canvas
+        var history = [];        // geri alma için
+        var marks = [];          // {x,y,dir}
+        var mode = 'mark';
+        var showMarks = true;
+        var drag = null;
+        var cropRect = null;
+
+        var view = document.getElementById('view'), vctx = view.getContext('2d');
+        var stage = document.getElementById('stage');
+        var $ = function (id) { return document.getElementById(id); };
+
+        function setStatus(id, msg, err) { var el = $(id); el.textContent = msg || ''; el.className = 'status' + (err ? ' err' : ''); }
+
+        // ---------- Yükleme ----------
+        $('file').addEventListener('change', function () {
+            var f = this.files && this.files[0]; if (!f) return;
+            setStatus('loadStatus', 'Açılıyor…');
+            var rd = new FileReader();
+            rd.onload = function () {
+                var buf = rd.result, u8 = new Uint8Array(buf);
+                var isDicom = /\.dcm$/i.test(f.name) || (u8.length > 132 && String.fromCharCode(u8[128], u8[129], u8[130], u8[131]) === 'DICM');
+                if (isDicom) {
+                    try { setBase(dicomToCanvas(buf)); setStatus('loadStatus', 'DICOM açıldı. Dosyadaki hasta bilgileri çıktıya eklenmez.'); }
+                    catch (e) { setStatus('loadStatus', e.message, true); }
+                } else {
+                    var url = URL.createObjectURL(new Blob([buf], { type: f.type || 'image/jpeg' }));
+                    var img = new Image();
+                    img.onload = function () {
+                        var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
+                        c.getContext('2d').drawImage(img, 0, 0); URL.revokeObjectURL(url); setBase(c);
+                        setStatus('loadStatus', 'Görüntü açıldı (' + c.width + ' × ' + c.height + ').');
+                    };
+                    img.onerror = function () { setStatus('loadStatus', 'Görüntü açılamadı.', true); };
+                    img.src = url;
+                }
+            };
+            rd.readAsArrayBuffer(f);
+        });
+
+        function setBase(c) {
+            base = c; history = []; marks = []; cropRect = null;
+            $('empty').hidden = true; view.hidden = false;
+            ['undo', 'reset', 'preview', 'build'].forEach(function (id) { $(id).disabled = false; });
+            $('out').hidden = true; $('share').hidden = true;
+            render();
+        }
+
+        // ---------- Basit DICOM okuyucu (sıkıştırılmamış) ----------
+        function dicomToCanvas(buf) {
+            var dv = new DataView(buf), p = 132, explicit = true, ts = '';
+            var tags = {}, pix = null;
+            var longVR = { OB: 1, OW: 1, OF: 1, SQ: 1, UT: 1, UN: 1, OD: 1, OL: 1, UC: 1, UR: 1, OV: 1, SV: 1, UV: 1 };
+            function str(o, n) { var s = ''; for (var i = 0; i < n; i++) { var c = dv.getUint8(o + i); if (c) s += String.fromCharCode(c); } return s.trim(); }
+            function skipUndefined(o) { // FFFE,E0DD sekans sonu aranır
+                while (o < dv.byteLength - 8) { if (dv.getUint16(o, true) === 0xFFFE && dv.getUint16(o + 2, true) === 0xE0DD) return o + 8; o += 2; }
+                return dv.byteLength;
+            }
+            while (p < dv.byteLength - 8) {
+                var g = dv.getUint16(p, true), e = dv.getUint16(p + 2, true), vr = '', len, hdr;
+                var isMeta = g === 0x0002;
+                var exp = isMeta || explicit;
+                if (exp) {
+                    vr = String.fromCharCode(dv.getUint8(p + 4), dv.getUint8(p + 5));
+                    if (/^[A-Z]{2}$/.test(vr)) {
+                        if (longVR[vr]) { len = dv.getUint32(p + 8, true); hdr = 12; } else { len = dv.getUint16(p + 6, true); hdr = 8; }
+                    } else { vr = ''; len = dv.getUint32(p + 4, true); hdr = 8; }
+                } else { len = dv.getUint32(p + 4, true); hdr = 8; }
+                var vo = p + hdr;
+                if (g === 0x7FE0 && e === 0x0010) {
+                    if (len === 0xFFFFFFFF) throw new Error('Bu DICOM dosyası sıkıştırılmış; açılamadı. Lütfen ekran görüntüsü veya JPEG kullanın.');
+                    pix = { off: vo, len: len }; break;
+                }
+                if (len === 0xFFFFFFFF) { p = skipUndefined(vo); continue; }
+                var key = ('0000' + g.toString(16)).slice(-4) + ('0000' + e.toString(16)).slice(-4);
+                if (key === '00020010') { ts = str(vo, len); explicit = ts !== '1.2.840.10008.1.2'; if (/1\.2\.840\.10008\.1\.2\.4|1\.2\.840\.10008\.1\.2\.5/.test(ts)) throw new Error('Bu DICOM dosyası sıkıştırılmış (JPEG/JPEG 2000/RLE); açılamadı. Lütfen ekran görüntüsü veya JPEG kullanın.'); }
+                if (g === 0x0028) {
+                    if (e === 0x0010 || e === 0x0011 || e === 0x0100 || e === 0x0103) tags[key] = dv.getUint16(vo, true);
+                    else tags[key] = str(vo, len);
+                }
+                p = vo + len;
+            }
+            if (!pix) throw new Error('DICOM içinde görüntü verisi bulunamadı.');
+            var rows = tags['00280010'], cols = tags['00280011'], bits = tags['00280100'] || 16, signed = tags['00280103'] === 1;
+            var photo = tags['00280004'] || 'MONOCHROME2';
+            if (!rows || !cols) throw new Error('DICOM boyutları okunamadı.');
+            if (/RGB/.test(photo)) throw new Error('Renkli DICOM desteklenmiyor; ekran görüntüsü kullanın.');
+            var n = rows * cols, vals = new Float32Array(n);
+            for (var i = 0; i < n; i++) {
+                var o = pix.off + i * (bits / 8);
+                vals[i] = bits === 8 ? dv.getUint8(o) : (signed ? dv.getInt16(o, true) : dv.getUint16(o, true));
+            }
+            var sorted = Array.prototype.slice.call(vals.filter(function (v, i) { return i % 37 === 0; })).sort(function (a, b) { return a - b; });
+            var lo = sorted[Math.floor(sorted.length * 0.005)], hi = sorted[Math.floor(sorted.length * 0.995)] || lo + 1;
+            var c = document.createElement('canvas'); c.width = cols; c.height = rows;
+            var cx = c.getContext('2d'), id = cx.createImageData(cols, rows), d = id.data, inv = /MONOCHROME1/.test(photo);
+            for (var j = 0; j < n; j++) {
+                var t = Math.max(0, Math.min(1, (vals[j] - lo) / (hi - lo))); if (inv) t = 1 - t;
+                var v = Math.round(t * 255); d[j * 4] = d[j * 4 + 1] = d[j * 4 + 2] = v; d[j * 4 + 3] = 255;
+            }
+            cx.putImageData(id, 0, 0);
+            return c;
+        }
+
+        // ---------- Çizim ----------
+        function arrowSize() { return Math.max(18, base.width * 0.045); }
+        var DIRS = { left: [1, 0.18], right: [-1, 0.18], up: [0, 1], down: [0, -1], upleft: [0.7, 0.7], upright: [-0.7, 0.7], downleft: [0.7, -0.7], downright: [-0.7, -0.7] };
+        function drawMarks(ctx, scale) {
+            if (!marks.length) return;
+            var s = arrowSize() * scale, lw = Math.max(2, s * 0.09);
+            ctx.save(); ctx.strokeStyle = '#ff4632'; ctx.fillStyle = '#ff4632'; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+            if ($('joinLine').checked && marks.length > 1) {
+                ctx.setLineDash([lw * 2.2, lw * 2.2]); ctx.lineWidth = lw * 0.8; ctx.beginPath();
+                marks.forEach(function (m, i) { var x = m.x * scale, y = m.y * scale; if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); });
+                ctx.stroke(); ctx.setLineDash([]);
+            }
+            marks.forEach(function (m) {
+                var v = DIRS[m.dir] || DIRS.left, L = Math.hypot(v[0], v[1]), ux = v[0] / L, uy = v[1] / L;
+                var tx = m.x * scale, ty = m.y * scale, hx = s * 0.32;
+                var bx = tx + ux * s, by = ty + uy * s;
+                ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(tx + ux * hx * 0.8, ty + uy * hx * 0.8); ctx.lineTo(bx, by); ctx.stroke();
+                var px = -uy, py = ux;
+                ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx + ux * hx + px * hx * 0.55, ty + uy * hx + py * hx * 0.55); ctx.lineTo(tx + ux * hx - px * hx * 0.55, ty + uy * hx - py * hx * 0.55); ctx.closePath(); ctx.fill();
+            });
+            ctx.restore();
+        }
+        function render() {
+            if (!base) return;
+            var w = Math.min(base.width, 1400), sc = w / base.width;
+            view.width = w; view.height = Math.round(base.height * sc);
+            vctx.drawImage(base, 0, 0, view.width, view.height);
+            if (showMarks) drawMarks(vctx, sc);
+            if (drag && (mode === 'crop' || mode === 'redact')) {
+                var r = rectFrom(drag); vctx.save();
+                vctx.strokeStyle = mode === 'crop' ? '#7cc7a4' : '#ffcc00'; vctx.lineWidth = 3; vctx.setLineDash([8, 6]);
+                vctx.strokeRect(r.x * sc, r.y * sc, r.w * sc, r.h * sc);
+                if (mode === 'redact') { vctx.fillStyle = 'rgba(0,0,0,0.6)'; vctx.fillRect(r.x * sc, r.y * sc, r.w * sc, r.h * sc); }
+                vctx.restore();
+            } else if (cropRect && mode === 'crop') {
+                vctx.save(); vctx.fillStyle = 'rgba(0,0,0,0.55)';
+                var c = cropRect; vctx.beginPath(); vctx.rect(0, 0, view.width, view.height); vctx.rect(c.x * sc, c.y * sc, c.w * sc, c.h * sc); vctx.fill('evenodd');
+                vctx.strokeStyle = '#7cc7a4'; vctx.lineWidth = 3; vctx.strokeRect(c.x * sc, c.y * sc, c.w * sc, c.h * sc); vctx.restore();
+            }
+        }
+        function toImg(e) {
+            var r = view.getBoundingClientRect();
+            return { x: (e.clientX - r.left) / r.width * base.width, y: (e.clientY - r.top) / r.height * base.height };
+        }
+        function rectFrom(d) { return { x: Math.min(d.x0, d.x1), y: Math.min(d.y0, d.y1), w: Math.abs(d.x1 - d.x0), h: Math.abs(d.y1 - d.y0) }; }
+
+        view.addEventListener('pointerdown', function (e) {
+            if (!base) return; e.preventDefault(); view.setPointerCapture(e.pointerId);
+            var p = toImg(e);
+            if (mode === 'mark') { history.push({ t: 'mark' }); marks.push({ x: p.x, y: p.y, dir: $('dir').value }); showMarks = true; render(); return; }
+            drag = { x0: p.x, y0: p.y, x1: p.x, y1: p.y }; render();
+        });
+        view.addEventListener('pointermove', function (e) { if (!drag) return; var p = toImg(e); drag.x1 = p.x; drag.y1 = p.y; render(); });
+        view.addEventListener('pointerup', function () {
+            if (!drag) return; var r = rectFrom(drag); drag = null;
+            if (r.w < 8 || r.h < 8) { render(); return; }
+            if (mode === 'redact') {
+                var snap = document.createElement('canvas'); snap.width = base.width; snap.height = base.height; snap.getContext('2d').drawImage(base, 0, 0);
+                history.push({ t: 'base', c: snap, marks: marks.slice() });
+                base.getContext('2d').fillStyle = '#000'; base.getContext('2d').fillRect(r.x, r.y, r.w, r.h);
+            } else if (mode === 'crop') { cropRect = r; $('applyCrop').hidden = false; }
+            render();
+        });
+
+        $('applyCrop').addEventListener('click', function () {
+            if (!cropRect) return; var r = cropRect;
+            var snap = document.createElement('canvas'); snap.width = base.width; snap.height = base.height; snap.getContext('2d').drawImage(base, 0, 0);
+            history.push({ t: 'base', c: snap, marks: marks.slice() });
+            var c = document.createElement('canvas'); c.width = Math.round(r.w); c.height = Math.round(r.h);
+            c.getContext('2d').drawImage(base, r.x, r.y, r.w, r.h, 0, 0, c.width, c.height);
+            marks = marks.map(function (m) { return { x: m.x - r.x, y: m.y - r.y, dir: m.dir }; }).filter(function (m) { return m.x >= 0 && m.y >= 0 && m.x <= c.width && m.y <= c.height; });
+            base = c; cropRect = null; $('applyCrop').hidden = true; render();
+        });
+
+        document.querySelectorAll('.modes button').forEach(function (b) {
+            b.addEventListener('click', function () {
+                mode = b.dataset.mode;
+                document.querySelectorAll('.modes button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+                $('markOpts').style.display = mode === 'mark' ? '' : 'none';
+                $('applyCrop').hidden = !(mode === 'crop' && cropRect);
+                $('modeHint').textContent = mode === 'crop' ? 'Saklamak istediğiniz alanı parmağınızla çerçeveleyin, sonra "Kırpmayı uygula"ya dokunun. Araç çubuklarını ve ekran kenarlarını kırpın.'
+                    : mode === 'redact' ? 'Ad, TC no, tarih gibi yazıların üzerini parmağınızla çerçeveleyin; alan siyahla kalıcı olarak kapatılır.'
+                    : 'Hattın üzerine dokunun: okun ucu dokunduğunuz noktaya gelir. 3–4 ok genellikle yeterlidir.';
+                render();
+            });
+        });
+        $('joinLine').addEventListener('change', render);
+        $('undo').addEventListener('click', function () {
+            var h = history.pop(); if (!h) return;
+            if (h.t === 'mark') marks.pop(); else { base = h.c; marks = h.marks; }
+            render();
+        });
+        $('reset').addEventListener('click', function () {
+            if (!confirm('Tüm düzenlemeler silinsin mi?')) return;
+            if (history.length) { var first = history.filter(function (h) { return h.t === 'base'; })[0]; if (first) base = first.c; }
+            history = []; marks = []; cropRect = null; render();
+        });
+        $('preview').addEventListener('click', function () { showMarks = !showMarks; render(); });
+
+        // ---------- Çıktı ----------
+        function exportCanvas(withMarks) {
+            var sc = Math.min(1, MAXW / base.width), c = document.createElement('canvas');
+            c.width = Math.round(base.width * sc); c.height = Math.round(base.height * sc);
+            var cx = c.getContext('2d'); cx.drawImage(base, 0, 0, c.width, c.height);
+            if (withMarks) drawMarks(cx, sc);
+            return c;
+        }
+        function toBlob(c) { return new Promise(function (res) { c.toBlob(res, 'image/jpeg', 0.9); }); }
+        function summary() {
+            var parts = [];
+            var age = $('age').value, sex = $('sex').value, side = $('side').value, type = $('type').value, desc = $('desc').value.trim(), other = $('other').value.trim();
+            parts.push('Yeni vaka (' + (other || 'Pnömotoraks Vakaları') + ')');
+            var line = [age ? age + ' yaş' : '', sex, side ? side.toLowerCase() + ' taraf' : '', type ? type.toLowerCase() + ' pnömotoraks' : ''].filter(Boolean).join(', ');
+            if (line) parts.push(line);
+            if (desc) parts.push(desc);
+            parts.push('İşaretli görüntüde ' + marks.length + ' ok var.');
+            return parts.join('\n');
+        }
+        var files = null;
+        $('build').addEventListener('click', function () {
+            if (!base) return;
+            if (!$('privacy').checked) { setStatus('buildStatus', 'Lütfen önce hasta bilgilerinin görünmediğini onaylayın.', true); return; }
+            if (!marks.length && !confirm('Hiç ok eklemediniz. Yine de devam edilsin mi?')) return;
+            setStatus('buildStatus', 'Hazırlanıyor…');
+            var stamp = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
+            Promise.all([toBlob(exportCanvas(false)), toBlob(exportCanvas(true))]).then(function (bl) {
+                files = [new File([bl[0]], 'vaka-' + stamp + '.jpg', { type: 'image/jpeg' }), new File([bl[1]], 'vaka-' + stamp + '-isaretli.jpg', { type: 'image/jpeg' })];
+                $('outPlain').src = URL.createObjectURL(bl[0]); $('outMarked').src = URL.createObjectURL(bl[1]);
+                $('dlPlain').href = $('outPlain').src; $('dlPlain').download = files[0].name;
+                $('dlMarked').href = $('outMarked').src; $('dlMarked').download = files[1].name;
+                $('out').hidden = false; $('share').hidden = false;
+                setStatus('buildStatus', 'Hazır. "Paylaş / Gönder" ile Claude\'a gönderin. Açıklama: ' + summary().replace(/\n/g, ' · '));
+            });
+        });
+        $('share').addEventListener('click', function () {
+            if (!files) return;
+            var data = { files: files, text: summary(), title: 'Yeni vaka' };
+            if (navigator.canShare && navigator.canShare({ files: files })) {
+                navigator.share(data).catch(function () {});
+            } else {
+                if (navigator.clipboard) navigator.clipboard.writeText(summary()).catch(function () {});
+                setStatus('buildStatus', 'Bu tarayıcı dosya paylaşmayı desteklemiyor. Görüntüleri indirip sohbete ekleyin; açıklama panoya kopyalandı.');
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
