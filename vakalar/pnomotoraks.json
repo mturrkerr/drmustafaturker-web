@@ -6,7 +6,28 @@
       "aciklama": "35 yaş, erkek. Spontan pnömotoraks vaka örneği.",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
       "isaretsiz": "images/pnomotoraks-1.jpg",
-      "isaretli": "images/pnomotoraks-1-isaretli.jpg"
+      "isaretli": "images/vakalar/vaka-1-isaretli.jpg?v=1794333382422",
+      "oklar": [
+        {
+          "x": 0.898,
+          "y": 0.7103,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.8756,
+          "y": 0.7776,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.8543,
+          "y": 0.8456,
+          "ux": 0.984,
+          "uy": 0.177
+        }
+      ],
+      "birlestir": true
     },
     {
       "id": "vaka-2",
@@ -14,28 +35,151 @@
       "aciklama": "51 yaş. Sağ spontan pnömotoraks, 2. atak.",
       "ipucu": "Grafi yatak başı (AP) çekilmiştir; skapula akciğer alanının üzerine biner ve ince pnömotoraks hattı kolayca gözden kaçabilir. Önce kendiniz arayın, ardından \"Hattı göster\" ile kontrol edin. Büyütmek için grafiye tıklayın.",
       "isaretsiz": "images/pnomotoraks-2.jpg",
-      "isaretli": "images/pnomotoraks-2-isaretli.jpg"
+      "isaretli": "images/vakalar/vaka-2-isaretli.jpg?v=1794333426669",
+      "oklar": [
+        {
+          "x": 0.4251,
+          "y": 0.3034,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.3704,
+          "y": 0.3535,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.3214,
+          "y": 0.4129,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2926,
+          "y": 0.4587,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2598,
+          "y": 0.5381,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2506,
+          "y": 0.624,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2494,
+          "y": 0.6834,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2437,
+          "y": 0.7492,
+          "ux": 0.984,
+          "uy": 0.177
+        }
+      ],
+      "birlestir": true
     },
     {
       "id": "vaka-3",
       "baslik": "Vaka 3",
-      "aciklama": "Pnömotoraks vaka örneği.",
+      "aciklama": "La \nPnömotoraks vaka örneği.",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
-      "isaretsiz": "images/vakalar/vaka-3.jpg"
+      "isaretsiz": "images/vakalar/vaka-3.jpg",
+      "isaretli": "images/vakalar/vaka-3-isaretli.jpg?v=1794333556177",
+      "oklar": [
+        {
+          "x": 0.3877,
+          "y": 0.1946,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.3468,
+          "y": 0.1882,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.3099,
+          "y": 0.2075,
+          "ux": 0,
+          "uy": 1
+        }
+      ],
+      "birlestir": true
     },
     {
       "id": "vaka-4",
       "baslik": "Vaka 4",
-      "aciklama": "Pnömotoraks vaka örneği.",
+      "aciklama": "Pnomotoraks hattı Kostaların arkasına saklanmış",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
-      "isaretsiz": "images/vakalar/vaka-4.jpg"
+      "isaretsiz": "images/vakalar/vaka-4.jpg",
+      "isaretli": "images/vakalar/vaka-4-isaretli.jpg?v=1794333665768",
+      "oklar": [
+        {
+          "x": 0.2921,
+          "y": 0.2215,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.3376,
+          "y": 0.1984,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.4303,
+          "y": 0.1818,
+          "ux": 0,
+          "uy": 1
+        }
+      ],
+      "birlestir": false
     },
     {
       "id": "vaka-5",
       "baslik": "Vaka 5",
       "aciklama": "Pnömotoraks vaka örneği.",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
-      "isaretsiz": "images/vakalar/vaka-5.jpg"
+      "isaretsiz": "images/vakalar/vaka-5.jpg",
+      "isaretli": "images/vakalar/vaka-5-isaretli.jpg?v=1794333698000",
+      "oklar": [
+        {
+          "x": 0.3975,
+          "y": 0.0822,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.3364,
+          "y": 0.096,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.2765,
+          "y": 0.1104,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.231,
+          "y": 0.134,
+          "ux": 0,
+          "uy": 1
+        }
+      ],
+      "birlestir": false
     },
     {
       "id": "vaka-6",
