@@ -15,6 +15,41 @@
       "ipucu": "Grafi yatak başı (AP) çekilmiştir; skapula akciğer alanının üzerine biner ve ince pnömotoraks hattı kolayca gözden kaçabilir. Önce kendiniz arayın, ardından \"Hattı göster\" ile kontrol edin. Büyütmek için grafiye tıklayın.",
       "isaretsiz": "images/pnomotoraks-2.jpg",
       "isaretli": "images/pnomotoraks-2-isaretli.jpg"
+    },
+    {
+      "id": "vaka-3",
+      "baslik": "Vaka 3",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-3.jpg"
+    },
+    {
+      "id": "vaka-4",
+      "baslik": "Vaka 4",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-4.jpg"
+    },
+    {
+      "id": "vaka-5",
+      "baslik": "Vaka 5",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-5.jpg"
+    },
+    {
+      "id": "vaka-6",
+      "baslik": "Vaka 6",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-6.jpg"
+    },
+    {
+      "id": "vaka-7",
+      "baslik": "Vaka 7",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-7.jpg"
     }
   ]
 }
