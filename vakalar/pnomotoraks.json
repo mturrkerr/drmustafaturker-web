@@ -1,0 +1,20 @@
+{
+  "vakalar": [
+    {
+      "id": "vaka-1",
+      "baslik": "Vaka 1",
+      "aciklama": "35 yaş, erkek. Spontan pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/pnomotoraks-1.jpg",
+      "isaretli": "images/pnomotoraks-1-isaretli.jpg"
+    },
+    {
+      "id": "vaka-2",
+      "baslik": "Vaka 2",
+      "aciklama": "51 yaş. Sağ spontan pnömotoraks, 2. atak.",
+      "ipucu": "Grafi yatak başı (AP) çekilmiştir; skapula akciğer alanının üzerine biner ve ince pnömotoraks hattı kolayca gözden kaçabilir. Önce kendiniz arayın, ardından \"Hattı göster\" ile kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/pnomotoraks-2.jpg",
+      "isaretli": "images/pnomotoraks-2-isaretli.jpg"
+    }
+  ]
+}

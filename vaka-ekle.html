@@ -11,11 +11,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
-    <title>Vaka Ekle - Dr. Mustafa Türker</title>
+    <title>Vaka Düzenle - Dr. Mustafa Türker</title>
     <style>
         html, body { min-height: 100%; margin: 0; }
         body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 24px 14px 60px; box-sizing: border-box; }
-        main { max-width: 760px; margin: 0 auto; }
+        main { max-width: 900px; margin: 0 auto; }
         .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 9px 16px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 18px; }
         h1 { margin: 0 0 6px; font-size: 24px; color: #1f3a52; }
         .lead { margin: 0 0 16px; color: #3a4a57; font-size: 15px; line-height: 1.5; }
@@ -23,11 +23,11 @@
         .card h2 { margin: 0 0 10px; font-size: 17px; color: #1f3a52; }
         .num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 13px; margin-right: 8px; }
         .hint { font-size: 13px; color: #6a7a87; line-height: 1.5; margin: 6px 0 0; }
-        .file { display: block; width: 100%; box-sizing: border-box; padding: 14px; border: 2px dashed #b5c2cc; border-radius: 12px; text-align: center; font-weight: 700; color: #1f3a52; background: #f6f9fb; cursor: pointer; }
+        .file { display: inline-block; padding: 10px 12px; border: 2px dashed #b5c2cc; border-radius: 10px; font-weight: 700; color: #1f3a52; background: #f6f9fb; cursor: pointer; font-size: 14px; }
         .file input { display: none; }
         .modes { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
         .modes button, .btn { border: none; border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 14px; font-weight: 700; background: #e3ebf2; color: #1f3a52; cursor: pointer; }
-        .modes button[aria-pressed="true"] { background: #1f3a52; color: #fff; }
+        .modes button[aria-pressed="true"], .btn.on { background: #1f3a52; color: #fff; }
         .btn.primary { background: #1f3a52; color: #fff; }
         .btn.danger { background: #fdecea; color: #a0281e; }
         .btn:disabled { opacity: 0.45; cursor: default; }
@@ -36,343 +36,402 @@
         .stage canvas { display: block; width: 100%; height: auto; }
         .empty { color: #8a98a5; text-align: center; padding: 60px 10px; font-size: 14px; }
         label.f { display: block; font-size: 13px; font-weight: 700; color: #3a4a57; margin: 10px 0 4px; }
-        input[type=text], input[type=number], select, textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 15px; padding: 9px 10px; border: 1px solid #c9d3dc; border-radius: 9px; background: #fff; color: #1f2a33; }
+        input[type=text], input[type=password], input[type=number], select, textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 15px; padding: 9px 10px; border: 1px solid #c9d3dc; border-radius: 9px; background: #fff; color: #1f2a33; }
         textarea { min-height: 70px; resize: vertical; }
         .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
         .check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; margin-top: 10px; }
         .check input { margin-top: 3px; width: 20px; height: 20px; flex: none; }
         .warn { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 12px; font-size: 13.5px; line-height: 1.5; color: #5b3d0a; margin-bottom: 16px; }
-        .out { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
-        .out img { width: 100%; border-radius: 8px; background: #000; }
-        .out a { display: block; text-align: center; font-size: 13px; font-weight: 700; color: #1f3a52; margin-top: 4px; }
-        .status { font-size: 13px; color: #12614e; margin-top: 8px; min-height: 18px; }
+        .status { font-size: 13px; color: #12614e; margin-top: 8px; min-height: 18px; white-space: pre-line; }
         .status.err { color: #a0281e; }
+        .cases { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+        .case-btn { border: 2px solid transparent; border-radius: 10px; background: #f4f7fa; padding: 6px; cursor: pointer; text-align: left; font: inherit; }
+        .case-btn.sel { border-color: #1f3a52; }
+        .case-btn img { width: 100%; height: 90px; object-fit: cover; border-radius: 6px; background: #000; display: block; }
+        .case-btn b { display: block; font-size: 13px; margin-top: 4px; color: #1f2a33; }
+        .badge { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 1px 6px; margin-top: 3px; }
+        .badge.ok { background: #d6f0ea; color: #12614e; }
+        .badge.wait { background: #fff1c9; color: #7a5a00; }
+        .blocked { text-align: center; padding: 40px 16px; }
+        details summary { cursor: pointer; font-weight: 700; color: #1f3a52; }
     </style>
 </head>
 <body>
-    <main>
+    <main id="app">
         <a class="back" href="./">← Ana sayfa</a>
-        <h1>Vaka Ekle</h1>
-        <p class="lead">Grafiyi seçin, hasta bilgilerini gizleyin, pnömotoraks hattını birkaç dokunuşla işaretleyin ve hazırlanan dosyaları Claude'a gönderin. Claude vakayı Pnömotoraks Vakaları sayfasına ekler.</p>
-        <div class="warn"><strong>Gizlilik:</strong> Görüntü yalnızca bu telefonda işlenir, hiçbir yere yüklenmez. Hazırlanan dosyada yalnızca sizin seçtiğiniz görüntü ve yazdığınız açıklama bulunur; DICOM dosyasındaki hasta bilgileri ve fotoğraf bilgileri (EXIF) otomatik olarak çıkarılır. Görüntünün üzerinde yazan ad, TC kimlik no, tarih ve protokol numarasını "Gizle" ile kapatmayı unutmayın.</div>
+        <h1>Vaka Düzenle</h1>
+        <p class="lead">Claude'un eklediği vakaları seçin, pnömotoraks hattını kalemle işaretleyin ve kaydedin. Kaydettiğiniz işaretleme yaklaşık bir dakika içinde Pnömotoraks Vakaları sayfasında yayına girer.</p>
+
+        <section class="card" id="setup">
+            <h2><span class="num">0</span>Kaydetme anahtarı</h2>
+            <div class="status" id="tokenState"></div>
+            <details id="tokenBox">
+                <summary>Anahtarı gir / değiştir</summary>
+                <p class="hint">Kaydetme, sitenin GitHub deposuna yalnızca bu depo için ve yalnızca dosya yazma yetkisi olan bir anahtarla yapılır. Anahtar yalnızca bu cihazda saklanır, kimseyle paylaşılmaz. Nasıl oluşturulacağı Claude'un mesajında anlatıldı.</p>
+                <label class="f" for="token">GitHub anahtarı (github_pat_…)</label>
+                <input type="password" id="token" autocomplete="off" placeholder="github_pat_...">
+                <div class="row"><button type="button" class="btn primary" id="saveToken">Kaydet ve dene</button><button type="button" class="btn danger" id="clearToken">Anahtarı sil</button></div>
+            </details>
+        </section>
 
         <section class="card">
-            <h2><span class="num">1</span>Grafiyi seçin</h2>
-            <label class="file">📷 Fotoğraf, galeri veya DICOM dosyası seç
-                <input type="file" id="file" accept="image/*,.dcm,application/dicom">
-            </label>
-            <p class="hint">Görüntüleme sisteminden anonim DICOM, JPEG/PNG ya da ekranın fotoğrafı olabilir. Sıkıştırılmış (JPEG 2000 vb.) DICOM açılamazsa ekran görüntüsü veya fotoğraf kullanın.</p>
+            <h2><span class="num">1</span>Vaka seçin</h2>
+            <div class="cases" id="cases"><div class="hint">Vakalar yükleniyor…</div></div>
+            <div class="row"><label class="file">＋ Bu cihazdan yeni vaka ekle<input type="file" id="file" accept="image/*,.dcm,application/dicom"></label></div>
+            <p class="hint">Normalde yeni vakaları grafileri gönderdiğinizde Claude ekler; buradan da ekleyebilirsiniz. Görüntü bu cihazda işlenir.</p>
             <div class="status" id="loadStatus"></div>
         </section>
 
         <section class="card">
-            <h2><span class="num">2</span>Düzenleyin ve işaretleyin</h2>
+            <h2><span class="num">2</span>İşaretleyin</h2>
             <div class="modes" role="group" aria-label="Araç">
+                <button type="button" data-mode="mark" aria-pressed="true">➜ Ok çiz</button>
                 <button type="button" data-mode="crop" aria-pressed="false">✂️ Kırp</button>
                 <button type="button" data-mode="redact" aria-pressed="false">⬛ Gizle</button>
-                <button type="button" data-mode="mark" aria-pressed="true">➜ Hat işaretle</button>
             </div>
+            <p class="hint" id="modeHint"><strong>Ok çizmek için:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> nereye gelecekse o yöne doğru çekin. Ok her yöne çizilebilir (sağdan sola, soldan sağa, yukarıdan aşağı, aşağıdan yukarı, çapraz). Yalnızca dokunursanız aşağıdaki varsayılan yön kullanılır.</p>
             <div class="row" id="markOpts">
-                <label for="dir" style="font-size:13px;font-weight:700;color:#3a4a57">Ok yönü</label>
+                <label for="dir" style="font-size:13px;font-weight:700;color:#3a4a57">Dokununca ok yönü</label>
                 <select id="dir" style="width:auto">
-                    <option value="left">← sola (uç solda)</option>
-                    <option value="right">→ sağa (uç sağda)</option>
-                    <option value="up">↑ yukarı</option>
-                    <option value="down">↓ aşağı</option>
-                    <option value="upleft">↖ sol üst</option>
-                    <option value="upright">↗ sağ üst</option>
-                    <option value="downleft">↙ sol alt</option>
-                    <option value="downright">↘ sağ alt</option>
+                    <option value="left">← sola gösteren</option>
+                    <option value="right">→ sağa gösteren</option>
+                    <option value="up">↑ yukarı gösteren</option>
+                    <option value="down">↓ aşağı gösteren</option>
+                    <option value="upleft">↖ sol üste</option>
+                    <option value="upright">↗ sağ üste</option>
+                    <option value="downleft">↙ sol alta</option>
+                    <option value="downright">↘ sağ alta</option>
                 </select>
-                <label style="font-size:13px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="joinLine"> Noktaları kesikli hatla birleştir</label>
+                <button type="button" class="btn" id="joinLine" aria-pressed="false">┄ Okları kesikli hatla birleştir</button>
             </div>
-            <p class="hint" id="modeHint">Hattın üzerine dokunun: okun ucu dokunduğunuz noktaya gelir. 3–4 ok genellikle yeterlidir.</p>
-            <div class="stage" id="stage"><div class="empty" id="empty">Önce bir grafi seçin.</div><canvas id="view" hidden></canvas></div>
+            <div class="stage" id="stage" style="margin-top:10px"><div class="empty" id="empty">Önce bir vaka seçin.</div><canvas id="view" hidden></canvas></div>
             <div class="row">
                 <button type="button" class="btn" id="undo" disabled>↶ Geri al</button>
                 <button type="button" class="btn" id="applyCrop" hidden>Kırpmayı uygula</button>
-                <button type="button" class="btn danger" id="reset" disabled>Baştan başla</button>
-                <button type="button" class="btn" id="preview" disabled>İşaretli/işaretsiz</button>
+                <button type="button" class="btn danger" id="clearMarks" disabled>Okları sil</button>
+                <button type="button" class="btn" id="preview" disabled>İşaretli / işaretsiz</button>
             </div>
         </section>
 
         <section class="card">
             <h2><span class="num">3</span>Vaka bilgileri</h2>
-            <div class="grid2">
-                <div><label class="f" for="age">Yaş</label><input type="number" id="age" min="0" max="120" inputmode="numeric"></div>
-                <div><label class="f" for="sex">Cinsiyet</label><select id="sex"><option value="">Seçin</option><option>Erkek</option><option>Kadın</option></select></div>
-                <div><label class="f" for="side">Taraf</label><select id="side"><option value="">Seçin</option><option>Sağ</option><option>Sol</option><option>Bilateral</option></select></div>
-                <div><label class="f" for="type">Tür</label><select id="type"><option value="">Seçin</option><option>Primer spontan</option><option>Sekonder spontan</option><option>Travmatik</option><option>İyatrojenik</option><option>Tansiyon</option></select></div>
-            </div>
-            <label class="f" for="desc">Açıklama (atak, öykü, tedavi vb.)</label>
-            <textarea id="desc" placeholder="Ör. 2. atak, AP grafi, tüp torakostomi uygulandı"></textarea>
-            <label class="f" for="other">Konu (pnömotoraks dışında bir vaka ise)</label>
-            <input type="text" id="other" placeholder="Boş bırakılırsa Pnömotoraks Vakaları'na eklenir">
+            <label class="f" for="title">Başlık</label>
+            <input type="text" id="title" placeholder="Vaka 3">
+            <label class="f" for="desc">Açıklama (sitede grafinin altında görünür)</label>
+            <textarea id="desc" placeholder="Ör. 51 yaş, erkek. Sağ primer spontan pnömotoraks, 2. atak."></textarea>
+            <label class="f" for="tip">Öğrenciye not (isteğe bağlı)</label>
+            <input type="text" id="tip" placeholder="Ör. Önce kendiniz arayın, ardından &quot;Hattı göster&quot; ile kontrol edin.">
         </section>
 
         <section class="card">
-            <h2><span class="num">4</span>Hazırla ve gönder</h2>
-            <label class="check"><input type="checkbox" id="privacy"> Görüntüde hastanın adı, TC kimlik numarası, protokol numarası, doğum tarihi veya çekim tarihi <strong>görünmüyor</strong>; görünenleri "Gizle" ile kapattım.</label>
-            <div class="row"><button type="button" class="btn primary" id="build" disabled>Hazırla</button><button type="button" class="btn primary" id="share" hidden>Paylaş / Gönder</button></div>
-            <div class="status" id="buildStatus"></div>
-            <div class="out" id="out" hidden>
-                <div><img id="outPlain" alt="İşaretsiz"><a id="dlPlain" download>İşaretsiz görüntüyü indir</a></div>
-                <div><img id="outMarked" alt="İşaretli"><a id="dlMarked" download>İşaretli görüntüyü indir</a></div>
-            </div>
-            <p class="hint">"Paylaş" ile iki görüntüyü ve açıklamayı doğrudan WhatsApp, e-posta veya Claude uygulamasına gönderebilirsiniz. Telefon paylaşmayı desteklemiyorsa görüntüleri indirip sohbete ekleyin ve açıklamayı kopyalayın.</p>
+            <h2><span class="num">4</span>Kaydet</h2>
+            <label class="check"><input type="checkbox" id="privacy"> Görüntüde hastanın adı, TC kimlik numarası, protokol numarası veya tarih <strong>görünmüyor</strong>.</label>
+            <div class="row"><button type="button" class="btn primary" id="save" disabled>Siteye kaydet</button><button type="button" class="btn" id="share" disabled>Kaydetmeden paylaş</button></div>
+            <div class="status" id="saveStatus"></div>
         </section>
+    </main>
+
+    <main id="blocked" class="blocked" hidden>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Bu sayfa yalnızca uygulamada çalışır</h1>
+        <p class="lead">Vaka düzenleme, Göğüs Cerrahisi uygulaması ana ekrandan açıldığında kullanılabilir.</p>
     </main>
 
     <script>
     (function () {
+        var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        if (!standalone && !/[?&]test=1/.test(location.search)) { document.getElementById('app').hidden = true; document.getElementById('blocked').hidden = false; return; }
+
+        var OWNER = 'mturrkerr', REPO = 'drmustafaturker-web', BRANCH = 'main', JSON_PATH = 'vakalar/pnomotoraks.json';
         var MAXW = 1600;
-        var base = null;         // düzenlenmiş (kırpılmış + gizlenmiş) tam çözünürlüklü canvas
-        var history = [];        // geri alma için
-        var marks = [];          // {x,y,dir}
-        var mode = 'mark';
-        var showMarks = true;
-        var drag = null;
-        var cropRect = null;
-
-        var view = document.getElementById('view'), vctx = view.getContext('2d');
-        var stage = document.getElementById('stage');
         var $ = function (id) { return document.getElementById(id); };
-
         function setStatus(id, msg, err) { var el = $(id); el.textContent = msg || ''; el.className = 'status' + (err ? ' err' : ''); }
 
-        // ---------- Yükleme ----------
+        // ---------- Anahtar ----------
+        function getToken() { try { return localStorage.getItem('ghToken') || ''; } catch (e) { return ''; } }
+        function showTokenState() {
+            var t = getToken();
+            setStatus('tokenState', t ? 'Kaydetme anahtarı bu cihazda kayıtlı.' : 'Henüz anahtar girilmedi; işaretleme yapabilirsiniz ama siteye kaydetmek için anahtar gerekir.', !t);
+            $('tokenBox').open = !t;
+        }
+        $('saveToken').addEventListener('click', function () {
+            var t = $('token').value.trim(); if (!t) return;
+            try { localStorage.setItem('ghToken', t); } catch (e) {}
+            $('token').value = '';
+            gh('GET', 'repos/' + OWNER + '/' + REPO).then(function (r) {
+                if (r.permissions && r.permissions.push === false) throw new Error('Anahtarın yazma yetkisi yok.');
+                setStatus('tokenState', 'Anahtar çalışıyor. Kaydetmeye hazırsınız.'); $('tokenBox').open = false;
+            }).catch(function (e) { setStatus('tokenState', 'Anahtar denenemedi: ' + e.message, true); });
+        });
+        $('clearToken').addEventListener('click', function () { try { localStorage.removeItem('ghToken'); } catch (e) {} showTokenState(); });
+        showTokenState();
+
+        function gh(method, path, body) {
+            return fetch('https://api.github.com/' + path, {
+                method: method, cache: 'no-store',
+                headers: { 'Authorization': 'Bearer ' + getToken(), 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+                body: body ? JSON.stringify(body) : undefined
+            }).then(function (r) {
+                return r.json().catch(function () { return {}; }).then(function (j) {
+                    if (!r.ok) { var e = new Error((j && j.message) || ('HTTP ' + r.status)); e.status = r.status; throw e; }
+                    return j;
+                });
+            });
+        }
+        function b64utf8(s) { return btoa(unescape(encodeURIComponent(s))); }
+        function utf8b64(b) { return decodeURIComponent(escape(atob(b.replace(/\n/g, '')))); }
+        function getFile(path) {
+            return gh('GET', 'repos/' + OWNER + '/' + REPO + '/contents/' + path + '?ref=' + BRANCH).catch(function (e) { if (e.status === 404) return null; throw e; });
+        }
+        function putFile(path, b64, message, sha) {
+            var body = { message: message, content: b64, branch: BRANCH }; if (sha) body.sha = sha;
+            return gh('PUT', 'repos/' + OWNER + '/' + REPO + '/contents/' + path, body);
+        }
+        function blobB64(blob) { return new Promise(function (res) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.readAsDataURL(blob); }); }
+
+        // ---------- Vaka listesi ----------
+        var data = { vakalar: [] }, sel = null;
+        function loadList() {
+            fetch(JSON_PATH + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) { data = d; drawList(); })
+                .catch(function () { $('cases').innerHTML = '<div class="hint">Vaka listesi alınamadı. İnternet bağlantısını kontrol edin.</div>'; });
+        }
+        function drawList() {
+            $('cases').innerHTML = '';
+            data.vakalar.forEach(function (v) {
+                var b = document.createElement('button'); b.type = 'button'; b.className = 'case-btn' + (sel && sel.id === v.id ? ' sel' : '');
+                var img = document.createElement('img'); img.src = v.isaretli || v.isaretsiz; img.alt = '';
+                var t = document.createElement('b'); t.textContent = v.baslik;
+                var bd = document.createElement('span'); bd.className = 'badge ' + (v.isaretli ? 'ok' : 'wait'); bd.textContent = v.isaretli ? 'Yayında' : 'İşaretleme bekliyor';
+                b.appendChild(img); b.appendChild(t); b.appendChild(bd);
+                b.addEventListener('click', function () { openCase(v); });
+                $('cases').appendChild(b);
+            });
+        }
+        function openCase(v) {
+            sel = v; drawList(); setStatus('loadStatus', 'Açılıyor…');
+            var img = new Image();
+            img.onload = function () {
+                var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight; c.getContext('2d').drawImage(img, 0, 0);
+                setBase(c, false);
+                $('title').value = v.baslik || ''; $('desc').value = v.aciklama || ''; $('tip').value = v.ipucu || '';
+                marks = (v.oklar || []).map(function (m) { return { x: m.x * c.width, y: m.y * c.height, ux: m.ux, uy: m.uy }; });
+                joined = !!v.birlestir; setJoin(); render();
+                setStatus('loadStatus', v.baslik + ' açıldı.' + (v.oklar && v.oklar.length ? ' Önceki oklar yüklendi; değiştirebilirsiniz.' : ''));
+            };
+            img.onerror = function () { setStatus('loadStatus', 'Görüntü yüklenemedi (vaka yeni eklendiyse bir dakika sonra tekrar deneyin).', true); };
+            img.src = v.isaretsiz + '?t=' + Date.now();
+        }
+        loadList();
+
+        // ---------- Yeni vaka (cihazdan) ----------
         $('file').addEventListener('change', function () {
-            var f = this.files && this.files[0]; if (!f) return;
+            var f = this.files && this.files[0]; if (!f) return; this.value = '';
             setStatus('loadStatus', 'Açılıyor…');
             var rd = new FileReader();
             rd.onload = function () {
                 var buf = rd.result, u8 = new Uint8Array(buf);
                 var isDicom = /\.dcm$/i.test(f.name) || (u8.length > 132 && String.fromCharCode(u8[128], u8[129], u8[130], u8[131]) === 'DICM');
-                if (isDicom) {
-                    try { setBase(dicomToCanvas(buf)); setStatus('loadStatus', 'DICOM açıldı. Dosyadaki hasta bilgileri çıktıya eklenmez.'); }
-                    catch (e) { setStatus('loadStatus', e.message, true); }
-                } else {
-                    var url = URL.createObjectURL(new Blob([buf], { type: f.type || 'image/jpeg' }));
-                    var img = new Image();
-                    img.onload = function () {
-                        var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
-                        c.getContext('2d').drawImage(img, 0, 0); URL.revokeObjectURL(url); setBase(c);
-                        setStatus('loadStatus', 'Görüntü açıldı (' + c.width + ' × ' + c.height + ').');
-                    };
-                    img.onerror = function () { setStatus('loadStatus', 'Görüntü açılamadı.', true); };
-                    img.src = url;
-                }
+                var done = function (c) {
+                    var n = data.vakalar.length + 1, id = 'vaka-' + n; while (data.vakalar.some(function (v) { return v.id === id; })) { n++; id = 'vaka-' + n; }
+                    sel = { id: id, baslik: 'Vaka ' + n, yeni: true }; drawList();
+                    setBase(c, true); marks = []; joined = false; setJoin();
+                    $('title').value = sel.baslik; $('desc').value = ''; $('tip').value = ''; render();
+                    setStatus('loadStatus', 'Yeni vaka (' + sel.baslik + ') açıldı. Hasta bilgilerini Gizle ile kapatmayı unutmayın.');
+                };
+                if (isDicom) { try { done(dicomToCanvas(buf)); } catch (e) { setStatus('loadStatus', e.message, true); } return; }
+                var url = URL.createObjectURL(new Blob([buf], { type: f.type || 'image/jpeg' })), img = new Image();
+                img.onload = function () { var c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight; c.getContext('2d').drawImage(img, 0, 0); URL.revokeObjectURL(url); done(c); };
+                img.onerror = function () { setStatus('loadStatus', 'Görüntü açılamadı.', true); };
+                img.src = url;
             };
             rd.readAsArrayBuffer(f);
         });
 
-        function setBase(c) {
-            base = c; history = []; marks = []; cropRect = null;
-            $('empty').hidden = true; view.hidden = false;
-            ['undo', 'reset', 'preview', 'build'].forEach(function (id) { $(id).disabled = false; });
-            $('out').hidden = true; $('share').hidden = true;
-            render();
-        }
-
-        // ---------- Basit DICOM okuyucu (sıkıştırılmamış) ----------
         function dicomToCanvas(buf) {
-            var dv = new DataView(buf), p = 132, explicit = true, ts = '';
-            var tags = {}, pix = null;
+            var dv = new DataView(buf), p = 132, explicit = true, tags = {}, pix = null;
             var longVR = { OB: 1, OW: 1, OF: 1, SQ: 1, UT: 1, UN: 1, OD: 1, OL: 1, UC: 1, UR: 1, OV: 1, SV: 1, UV: 1 };
             function str(o, n) { var s = ''; for (var i = 0; i < n; i++) { var c = dv.getUint8(o + i); if (c) s += String.fromCharCode(c); } return s.trim(); }
-            function skipUndefined(o) { // FFFE,E0DD sekans sonu aranır
-                while (o < dv.byteLength - 8) { if (dv.getUint16(o, true) === 0xFFFE && dv.getUint16(o + 2, true) === 0xE0DD) return o + 8; o += 2; }
-                return dv.byteLength;
-            }
+            function skipUndefined(o) { while (o < dv.byteLength - 8) { if (dv.getUint16(o, true) === 0xFFFE && dv.getUint16(o + 2, true) === 0xE0DD) return o + 8; o += 2; } return dv.byteLength; }
             while (p < dv.byteLength - 8) {
-                var g = dv.getUint16(p, true), e = dv.getUint16(p + 2, true), vr = '', len, hdr;
-                var isMeta = g === 0x0002;
-                var exp = isMeta || explicit;
-                if (exp) {
+                var g = dv.getUint16(p, true), e = dv.getUint16(p + 2, true), vr, len, hdr;
+                if (g === 0x0002 || explicit) {
                     vr = String.fromCharCode(dv.getUint8(p + 4), dv.getUint8(p + 5));
-                    if (/^[A-Z]{2}$/.test(vr)) {
-                        if (longVR[vr]) { len = dv.getUint32(p + 8, true); hdr = 12; } else { len = dv.getUint16(p + 6, true); hdr = 8; }
-                    } else { vr = ''; len = dv.getUint32(p + 4, true); hdr = 8; }
+                    if (/^[A-Z]{2}$/.test(vr)) { if (longVR[vr]) { len = dv.getUint32(p + 8, true); hdr = 12; } else { len = dv.getUint16(p + 6, true); hdr = 8; } }
+                    else { len = dv.getUint32(p + 4, true); hdr = 8; }
                 } else { len = dv.getUint32(p + 4, true); hdr = 8; }
                 var vo = p + hdr;
-                if (g === 0x7FE0 && e === 0x0010) {
-                    if (len === 0xFFFFFFFF) throw new Error('Bu DICOM dosyası sıkıştırılmış; açılamadı. Lütfen ekran görüntüsü veya JPEG kullanın.');
-                    pix = { off: vo, len: len }; break;
-                }
+                if (g === 0x7FE0 && e === 0x0010) { if (len === 0xFFFFFFFF) throw new Error('Bu DICOM dosyası sıkıştırılmış; açılamadı. Ekran görüntüsü veya JPEG kullanın.'); pix = { off: vo }; break; }
                 if (len === 0xFFFFFFFF) { p = skipUndefined(vo); continue; }
-                var key = ('0000' + g.toString(16)).slice(-4) + ('0000' + e.toString(16)).slice(-4);
-                if (key === '00020010') { ts = str(vo, len); explicit = ts !== '1.2.840.10008.1.2'; if (/1\.2\.840\.10008\.1\.2\.4|1\.2\.840\.10008\.1\.2\.5/.test(ts)) throw new Error('Bu DICOM dosyası sıkıştırılmış (JPEG/JPEG 2000/RLE); açılamadı. Lütfen ekran görüntüsü veya JPEG kullanın.'); }
-                if (g === 0x0028) {
-                    if (e === 0x0010 || e === 0x0011 || e === 0x0100 || e === 0x0103) tags[key] = dv.getUint16(vo, true);
-                    else tags[key] = str(vo, len);
-                }
+                if (g === 0x0002 && e === 0x0010) { var ts = str(vo, len); explicit = ts !== '1.2.840.10008.1.2'; if (/1\.2\.840\.10008\.1\.2\.(4|5)/.test(ts)) throw new Error('Bu DICOM dosyası sıkıştırılmış; açılamadı. Ekran görüntüsü veya JPEG kullanın.'); }
+                if (g === 0x0028) tags[e] = (e === 0x10 || e === 0x11 || e === 0x100 || e === 0x103) ? dv.getUint16(vo, true) : str(vo, len);
                 p = vo + len;
             }
             if (!pix) throw new Error('DICOM içinde görüntü verisi bulunamadı.');
-            var rows = tags['00280010'], cols = tags['00280011'], bits = tags['00280100'] || 16, signed = tags['00280103'] === 1;
-            var photo = tags['00280004'] || 'MONOCHROME2';
+            var rows = tags[0x10], cols = tags[0x11], bits = tags[0x100] || 16, signed = tags[0x103] === 1, photo = tags[0x4] || 'MONOCHROME2';
             if (!rows || !cols) throw new Error('DICOM boyutları okunamadı.');
             if (/RGB/.test(photo)) throw new Error('Renkli DICOM desteklenmiyor; ekran görüntüsü kullanın.');
             var n = rows * cols, vals = new Float32Array(n);
-            for (var i = 0; i < n; i++) {
-                var o = pix.off + i * (bits / 8);
-                vals[i] = bits === 8 ? dv.getUint8(o) : (signed ? dv.getInt16(o, true) : dv.getUint16(o, true));
-            }
-            var sorted = Array.prototype.slice.call(vals.filter(function (v, i) { return i % 37 === 0; })).sort(function (a, b) { return a - b; });
-            var lo = sorted[Math.floor(sorted.length * 0.005)], hi = sorted[Math.floor(sorted.length * 0.995)] || lo + 1;
+            for (var i = 0; i < n; i++) { var o = pix.off + i * (bits / 8); vals[i] = bits === 8 ? dv.getUint8(o) : (signed ? dv.getInt16(o, true) : dv.getUint16(o, true)); }
+            var smp = []; for (var k = 0; k < n; k += 37) smp.push(vals[k]); smp.sort(function (a, b) { return a - b; });
+            var lo = smp[Math.floor(smp.length * 0.005)], hi = smp[Math.floor(smp.length * 0.995)]; if (hi <= lo) hi = lo + 1;
             var c = document.createElement('canvas'); c.width = cols; c.height = rows;
             var cx = c.getContext('2d'), id = cx.createImageData(cols, rows), d = id.data, inv = /MONOCHROME1/.test(photo);
-            for (var j = 0; j < n; j++) {
-                var t = Math.max(0, Math.min(1, (vals[j] - lo) / (hi - lo))); if (inv) t = 1 - t;
-                var v = Math.round(t * 255); d[j * 4] = d[j * 4 + 1] = d[j * 4 + 2] = v; d[j * 4 + 3] = 255;
-            }
-            cx.putImageData(id, 0, 0);
-            return c;
+            for (var j = 0; j < n; j++) { var t = Math.max(0, Math.min(1, (vals[j] - lo) / (hi - lo))); if (inv) t = 1 - t; var v = Math.round(t * 255); d[j * 4] = d[j * 4 + 1] = d[j * 4 + 2] = v; d[j * 4 + 3] = 255; }
+            cx.putImageData(id, 0, 0); return c;
         }
 
-        // ---------- Çizim ----------
-        function arrowSize() { return Math.max(18, base.width * 0.045); }
+        // ---------- Düzenleyici ----------
+        var base = null, baseChanged = false, history = [], marks = [], joined = false, mode = 'mark', showMarks = true, drag = null, cropRect = null, pen = null;
+        var view = $('view'), vctx = view.getContext('2d');
         var DIRS = { left: [1, 0.18], right: [-1, 0.18], up: [0, 1], down: [0, -1], upleft: [0.7, 0.7], upright: [-0.7, 0.7], downleft: [0.7, -0.7], downright: [-0.7, -0.7] };
-        function drawMarks(ctx, scale) {
-            if (!marks.length) return;
+
+        function setBase(c, changed) {
+            base = c; baseChanged = changed; history = []; cropRect = null;
+            $('empty').hidden = true; view.hidden = false;
+            ['undo', 'clearMarks', 'preview', 'save', 'share'].forEach(function (id) { $(id).disabled = false; });
+        }
+        function setJoin() { $('joinLine').classList.toggle('on', joined); $('joinLine').setAttribute('aria-pressed', String(joined)); }
+        function arrowSize() { return Math.max(18, base.width * 0.045); }
+        function drawArrow(ctx, tx, ty, ux, uy, s) {
+            var lw = Math.max(2, s * 0.09), hx = s * 0.32, px = -uy, py = ux;
+            ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(tx + ux * hx * 0.8, ty + uy * hx * 0.8); ctx.lineTo(tx + ux * s, ty + uy * s); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx + ux * hx + px * hx * 0.55, ty + uy * hx + py * hx * 0.55); ctx.lineTo(tx + ux * hx - px * hx * 0.55, ty + uy * hx - py * hx * 0.55); ctx.closePath(); ctx.fill();
+        }
+        function drawMarks(ctx, scale, list) {
+            if (!list.length) return;
             var s = arrowSize() * scale, lw = Math.max(2, s * 0.09);
             ctx.save(); ctx.strokeStyle = '#ff4632'; ctx.fillStyle = '#ff4632'; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-            if ($('joinLine').checked && marks.length > 1) {
+            if (joined && list.length > 1) {
                 ctx.setLineDash([lw * 2.2, lw * 2.2]); ctx.lineWidth = lw * 0.8; ctx.beginPath();
-                marks.forEach(function (m, i) { var x = m.x * scale, y = m.y * scale; if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); });
+                list.forEach(function (m, i) { if (i) ctx.lineTo(m.x * scale, m.y * scale); else ctx.moveTo(m.x * scale, m.y * scale); });
                 ctx.stroke(); ctx.setLineDash([]);
             }
-            marks.forEach(function (m) {
-                var v = DIRS[m.dir] || DIRS.left, L = Math.hypot(v[0], v[1]), ux = v[0] / L, uy = v[1] / L;
-                var tx = m.x * scale, ty = m.y * scale, hx = s * 0.32;
-                var bx = tx + ux * s, by = ty + uy * s;
-                ctx.lineWidth = lw; ctx.beginPath(); ctx.moveTo(tx + ux * hx * 0.8, ty + uy * hx * 0.8); ctx.lineTo(bx, by); ctx.stroke();
-                var px = -uy, py = ux;
-                ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx + ux * hx + px * hx * 0.55, ty + uy * hx + py * hx * 0.55); ctx.lineTo(tx + ux * hx - px * hx * 0.55, ty + uy * hx - py * hx * 0.55); ctx.closePath(); ctx.fill();
-            });
+            list.forEach(function (m) { drawArrow(ctx, m.x * scale, m.y * scale, m.ux, m.uy, s); });
             ctx.restore();
         }
         function render() {
             if (!base) return;
-            var w = Math.min(base.width, 1400), sc = w / base.width;
+            var w = Math.min(base.width, 1600), sc = w / base.width;
             view.width = w; view.height = Math.round(base.height * sc);
             vctx.drawImage(base, 0, 0, view.width, view.height);
-            if (showMarks) drawMarks(vctx, sc);
+            var list = marks.slice(); if (pen && pen.moved) list.push(pen.mark);
+            if (showMarks) drawMarks(vctx, sc, list);
             if (drag && (mode === 'crop' || mode === 'redact')) {
-                var r = rectFrom(drag); vctx.save();
-                vctx.strokeStyle = mode === 'crop' ? '#7cc7a4' : '#ffcc00'; vctx.lineWidth = 3; vctx.setLineDash([8, 6]);
+                var r = rectFrom(drag); vctx.save(); vctx.strokeStyle = mode === 'crop' ? '#7cc7a4' : '#ffcc00'; vctx.lineWidth = 3; vctx.setLineDash([8, 6]);
                 vctx.strokeRect(r.x * sc, r.y * sc, r.w * sc, r.h * sc);
                 if (mode === 'redact') { vctx.fillStyle = 'rgba(0,0,0,0.6)'; vctx.fillRect(r.x * sc, r.y * sc, r.w * sc, r.h * sc); }
                 vctx.restore();
             } else if (cropRect && mode === 'crop') {
-                vctx.save(); vctx.fillStyle = 'rgba(0,0,0,0.55)';
-                var c = cropRect; vctx.beginPath(); vctx.rect(0, 0, view.width, view.height); vctx.rect(c.x * sc, c.y * sc, c.w * sc, c.h * sc); vctx.fill('evenodd');
+                var c = cropRect; vctx.save(); vctx.fillStyle = 'rgba(0,0,0,0.55)'; vctx.beginPath(); vctx.rect(0, 0, view.width, view.height); vctx.rect(c.x * sc, c.y * sc, c.w * sc, c.h * sc); vctx.fill('evenodd');
                 vctx.strokeStyle = '#7cc7a4'; vctx.lineWidth = 3; vctx.strokeRect(c.x * sc, c.y * sc, c.w * sc, c.h * sc); vctx.restore();
             }
         }
-        function toImg(e) {
-            var r = view.getBoundingClientRect();
-            return { x: (e.clientX - r.left) / r.width * base.width, y: (e.clientY - r.top) / r.height * base.height };
-        }
+        function toImg(e) { var r = view.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width * base.width, y: (e.clientY - r.top) / r.height * base.height, sx: e.clientX, sy: e.clientY }; }
         function rectFrom(d) { return { x: Math.min(d.x0, d.x1), y: Math.min(d.y0, d.y1), w: Math.abs(d.x1 - d.x0), h: Math.abs(d.y1 - d.y0) }; }
+        function snapBase() { var s = document.createElement('canvas'); s.width = base.width; s.height = base.height; s.getContext('2d').drawImage(base, 0, 0); return s; }
 
         view.addEventListener('pointerdown', function (e) {
             if (!base) return; e.preventDefault(); view.setPointerCapture(e.pointerId);
             var p = toImg(e);
-            if (mode === 'mark') { history.push({ t: 'mark' }); marks.push({ x: p.x, y: p.y, dir: $('dir').value }); showMarks = true; render(); return; }
+            if (mode === 'mark') { var d = DIRS[$('dir').value]; var L = Math.hypot(d[0], d[1]); pen = { p: p, moved: false, mark: { x: p.x, y: p.y, ux: d[0] / L, uy: d[1] / L } }; return; }
             drag = { x0: p.x, y0: p.y, x1: p.x, y1: p.y }; render();
         });
-        view.addEventListener('pointermove', function (e) { if (!drag) return; var p = toImg(e); drag.x1 = p.x; drag.y1 = p.y; render(); });
+        view.addEventListener('pointermove', function (e) {
+            if (pen) {
+                var q = toImg(e), dx = q.x - pen.p.x, dy = q.y - pen.p.y, dist = Math.hypot(q.sx - pen.p.sx, q.sy - pen.p.sy);
+                if (dist > 12) { pen.moved = true; var L = Math.hypot(dx, dy); pen.mark.ux = dx / L; pen.mark.uy = dy / L; render(); }
+                return;
+            }
+            if (!drag) return; var p = toImg(e); drag.x1 = p.x; drag.y1 = p.y; render();
+        });
         view.addEventListener('pointerup', function () {
+            if (pen) { history.push({ t: 'mark' }); marks.push(pen.mark); pen = null; showMarks = true; render(); return; }
             if (!drag) return; var r = rectFrom(drag); drag = null;
             if (r.w < 8 || r.h < 8) { render(); return; }
-            if (mode === 'redact') {
-                var snap = document.createElement('canvas'); snap.width = base.width; snap.height = base.height; snap.getContext('2d').drawImage(base, 0, 0);
-                history.push({ t: 'base', c: snap, marks: marks.slice() });
-                base.getContext('2d').fillStyle = '#000'; base.getContext('2d').fillRect(r.x, r.y, r.w, r.h);
-            } else if (mode === 'crop') { cropRect = r; $('applyCrop').hidden = false; }
+            if (mode === 'redact') { history.push({ t: 'base', c: snapBase(), marks: marks.slice(), changed: baseChanged }); var cx = base.getContext('2d'); cx.fillStyle = '#000'; cx.fillRect(r.x, r.y, r.w, r.h); baseChanged = true; }
+            else if (mode === 'crop') { cropRect = r; $('applyCrop').hidden = false; }
             render();
         });
+        view.addEventListener('pointercancel', function () { pen = null; drag = null; render(); });
 
         $('applyCrop').addEventListener('click', function () {
             if (!cropRect) return; var r = cropRect;
-            var snap = document.createElement('canvas'); snap.width = base.width; snap.height = base.height; snap.getContext('2d').drawImage(base, 0, 0);
-            history.push({ t: 'base', c: snap, marks: marks.slice() });
+            history.push({ t: 'base', c: snapBase(), marks: marks.slice(), changed: baseChanged });
             var c = document.createElement('canvas'); c.width = Math.round(r.w); c.height = Math.round(r.h);
             c.getContext('2d').drawImage(base, r.x, r.y, r.w, r.h, 0, 0, c.width, c.height);
-            marks = marks.map(function (m) { return { x: m.x - r.x, y: m.y - r.y, dir: m.dir }; }).filter(function (m) { return m.x >= 0 && m.y >= 0 && m.x <= c.width && m.y <= c.height; });
-            base = c; cropRect = null; $('applyCrop').hidden = true; render();
+            marks = marks.map(function (m) { return { x: m.x - r.x, y: m.y - r.y, ux: m.ux, uy: m.uy }; }).filter(function (m) { return m.x >= 0 && m.y >= 0 && m.x <= c.width && m.y <= c.height; });
+            base = c; baseChanged = true; cropRect = null; $('applyCrop').hidden = true; render();
         });
-
         document.querySelectorAll('.modes button').forEach(function (b) {
             b.addEventListener('click', function () {
                 mode = b.dataset.mode;
                 document.querySelectorAll('.modes button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
                 $('markOpts').style.display = mode === 'mark' ? '' : 'none';
                 $('applyCrop').hidden = !(mode === 'crop' && cropRect);
-                $('modeHint').textContent = mode === 'crop' ? 'Saklamak istediğiniz alanı parmağınızla çerçeveleyin, sonra "Kırpmayı uygula"ya dokunun. Araç çubuklarını ve ekran kenarlarını kırpın.'
-                    : mode === 'redact' ? 'Ad, TC no, tarih gibi yazıların üzerini parmağınızla çerçeveleyin; alan siyahla kalıcı olarak kapatılır.'
-                    : 'Hattın üzerine dokunun: okun ucu dokunduğunuz noktaya gelir. 3–4 ok genellikle yeterlidir.';
+                $('modeHint').innerHTML = mode === 'crop' ? 'Saklamak istediğiniz alanı çerçeveleyin, sonra "Kırpmayı uygula"ya dokunun.'
+                    : mode === 'redact' ? 'Ad, TC no, tarih gibi yazıların üzerini çerçeveleyin; alan siyahla kalıcı olarak kapatılır.'
+                    : '<strong>Ok çizmek için:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> nereye gelecekse o yöne doğru çekin. Ok her yöne çizilebilir. Yalnızca dokunursanız varsayılan yön kullanılır.';
                 render();
             });
         });
-        $('joinLine').addEventListener('change', render);
-        $('undo').addEventListener('click', function () {
-            var h = history.pop(); if (!h) return;
-            if (h.t === 'mark') marks.pop(); else { base = h.c; marks = h.marks; }
-            render();
-        });
-        $('reset').addEventListener('click', function () {
-            if (!confirm('Tüm düzenlemeler silinsin mi?')) return;
-            if (history.length) { var first = history.filter(function (h) { return h.t === 'base'; })[0]; if (first) base = first.c; }
-            history = []; marks = []; cropRect = null; render();
-        });
+        $('joinLine').addEventListener('click', function () { joined = !joined; setJoin(); render(); });
+        $('undo').addEventListener('click', function () { var h = history.pop(); if (!h) { if (marks.length) marks.pop(); render(); return; } if (h.t === 'mark') marks.pop(); else { base = h.c; marks = h.marks; baseChanged = h.changed; } render(); });
+        $('clearMarks').addEventListener('click', function () { if (!marks.length || !confirm('Tüm oklar silinsin mi?')) return; marks = []; history = history.filter(function (h) { return h.t !== 'mark'; }); render(); });
         $('preview').addEventListener('click', function () { showMarks = !showMarks; render(); });
 
-        // ---------- Çıktı ----------
+        // ---------- Kaydet ----------
         function exportCanvas(withMarks) {
             var sc = Math.min(1, MAXW / base.width), c = document.createElement('canvas');
             c.width = Math.round(base.width * sc); c.height = Math.round(base.height * sc);
-            var cx = c.getContext('2d'); cx.drawImage(base, 0, 0, c.width, c.height);
-            if (withMarks) drawMarks(cx, sc);
-            return c;
+            var cx = c.getContext('2d'); cx.drawImage(base, 0, 0, c.width, c.height); if (withMarks) drawMarks(cx, sc, marks); return c;
         }
         function toBlob(c) { return new Promise(function (res) { c.toBlob(res, 'image/jpeg', 0.9); }); }
-        function summary() {
-            var parts = [];
-            var age = $('age').value, sex = $('sex').value, side = $('side').value, type = $('type').value, desc = $('desc').value.trim(), other = $('other').value.trim();
-            parts.push('Yeni vaka (' + (other || 'Pnömotoraks Vakaları') + ')');
-            var line = [age ? age + ' yaş' : '', sex, side ? side.toLowerCase() + ' taraf' : '', type ? type.toLowerCase() + ' pnömotoraks' : ''].filter(Boolean).join(', ');
-            if (line) parts.push(line);
-            if (desc) parts.push(desc);
-            parts.push('İşaretli görüntüde ' + marks.length + ' ok var.');
-            return parts.join('\n');
+        function check() {
+            if (!base || !sel) { setStatus('saveStatus', 'Önce bir vaka seçin.', true); return false; }
+            if (!$('privacy').checked) { setStatus('saveStatus', 'Lütfen hasta bilgilerinin görünmediğini onaylayın.', true); return false; }
+            if (!marks.length && !confirm('Hiç ok eklemediniz. Yine de devam edilsin mi?')) return false;
+            return true;
         }
-        var files = null;
-        $('build').addEventListener('click', function () {
-            if (!base) return;
-            if (!$('privacy').checked) { setStatus('buildStatus', 'Lütfen önce hasta bilgilerinin görünmediğini onaylayın.', true); return; }
-            if (!marks.length && !confirm('Hiç ok eklemediniz. Yine de devam edilsin mi?')) return;
-            setStatus('buildStatus', 'Hazırlanıyor…');
-            var stamp = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
-            Promise.all([toBlob(exportCanvas(false)), toBlob(exportCanvas(true))]).then(function (bl) {
-                files = [new File([bl[0]], 'vaka-' + stamp + '.jpg', { type: 'image/jpeg' }), new File([bl[1]], 'vaka-' + stamp + '-isaretli.jpg', { type: 'image/jpeg' })];
-                $('outPlain').src = URL.createObjectURL(bl[0]); $('outMarked').src = URL.createObjectURL(bl[1]);
-                $('dlPlain').href = $('outPlain').src; $('dlPlain').download = files[0].name;
-                $('dlMarked').href = $('outMarked').src; $('dlMarked').download = files[1].name;
-                $('out').hidden = false; $('share').hidden = false;
-                setStatus('buildStatus', 'Hazır. "Paylaş / Gönder" ile Claude\'a gönderin. Açıklama: ' + summary().replace(/\n/g, ' · '));
-            });
+        $('save').addEventListener('click', function () {
+            if (!check()) return;
+            if (!getToken()) { setStatus('saveStatus', 'Siteye kaydetmek için önce kaydetme anahtarını girin (en üstte).', true); $('tokenBox').open = true; return; }
+            var btn = $('save'); btn.disabled = true; setStatus('saveStatus', 'Kaydediliyor…');
+            var id = sel.id, v = Date.now(), plainPath = sel.yeni || baseChanged ? 'images/vakalar/' + id + '.jpg' : sel.isaretsiz, markedPath = 'images/vakalar/' + id + '-isaretli.jpg';
+            var W = base.width, H = base.height;
+            var oklar = marks.map(function (m) { return { x: +(m.x / W).toFixed(4), y: +(m.y / H).toFixed(4), ux: +m.ux.toFixed(3), uy: +m.uy.toFixed(3) }; });
+            Promise.all([toBlob(exportCanvas(false)), toBlob(exportCanvas(true))]).then(function (bl) { return Promise.all([blobB64(bl[0]), blobB64(bl[1])]); }).then(function (b) {
+                var steps = Promise.resolve();
+                if (plainPath !== sel.isaretsiz) steps = steps.then(function () { return getFile(plainPath); }).then(function (f) { return putFile(plainPath, b[0], id + ': işaretsiz grafi (uygulamadan)', f && f.sha); });
+                return steps.then(function () { return getFile(markedPath); }).then(function (f) { return putFile(markedPath, b[1], id + ': pnömotoraks hattı işaretlendi (uygulamadan)', f && f.sha); });
+            }).then(function () {
+                return getFile(JSON_PATH).then(function (f) {
+                    var d = JSON.parse(utf8b64(f.content)), list = d.vakalar || (d.vakalar = []);
+                    var entry = list.filter(function (x) { return x.id === id; })[0];
+                    if (!entry) { entry = { id: id }; list.push(entry); }
+                    entry.baslik = $('title').value.trim() || sel.baslik || id;
+                    entry.aciklama = $('desc').value.trim();
+                    entry.ipucu = $('tip').value.trim();
+                    entry.isaretsiz = plainPath;
+                    entry.isaretli = markedPath + '?v=' + v;
+                    if (plainPath !== sel.isaretsiz) entry.isaretsiz = plainPath + '?v=' + v;
+                    entry.oklar = oklar; entry.birlestir = joined;
+                    return putFile(JSON_PATH, b64utf8(JSON.stringify(d, null, 2) + '\n'), id + ': vaka bilgileri güncellendi (uygulamadan)', f.sha);
+                });
+            }).then(function () {
+                setStatus('saveStatus', 'Kaydedildi. Yaklaşık bir dakika içinde Pnömotoraks Vakaları sayfasında yayında olur.');
+                sel.yeni = false; baseChanged = false; loadList();
+            }).catch(function (e) {
+                setStatus('saveStatus', 'Kaydedilemedi: ' + e.message + (e.status === 401 ? '\nAnahtar geçersiz veya süresi dolmuş olabilir.' : e.status === 409 ? '\nBu sırada başka bir değişiklik yapılmış; tekrar deneyin.' : ''), true);
+            }).then(function () { btn.disabled = false; });
         });
         $('share').addEventListener('click', function () {
-            if (!files) return;
-            var data = { files: files, text: summary(), title: 'Yeni vaka' };
-            if (navigator.canShare && navigator.canShare({ files: files })) {
-                navigator.share(data).catch(function () {});
-            } else {
-                if (navigator.clipboard) navigator.clipboard.writeText(summary()).catch(function () {});
-                setStatus('buildStatus', 'Bu tarayıcı dosya paylaşmayı desteklemiyor. Görüntüleri indirip sohbete ekleyin; açıklama panoya kopyalandı.');
-            }
+            if (!check()) return;
+            Promise.all([toBlob(exportCanvas(false)), toBlob(exportCanvas(true))]).then(function (bl) {
+                var files = [new File([bl[0]], sel.id + '.jpg', { type: 'image/jpeg' }), new File([bl[1]], sel.id + '-isaretli.jpg', { type: 'image/jpeg' })];
+                var text = ($('title').value || sel.baslik) + '\n' + $('desc').value;
+                if (navigator.canShare && navigator.canShare({ files: files })) navigator.share({ files: files, text: text, title: 'Vaka' }).catch(function () {});
+                else setStatus('saveStatus', 'Bu cihaz dosya paylaşmayı desteklemiyor; "Siteye kaydet"i kullanın.', true);
+            });
         });
     })();
     </script>

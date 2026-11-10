@@ -42,6 +42,7 @@
     <main>
         <a class="back" href="./">← Ana sayfa</a>
         <h1>Pnömotoraks Vakaları</h1>
+        <div id="cases">
         <section class="case" data-plain="images/pnomotoraks-1.jpg" data-marked="images/pnomotoraks-1-isaretli.jpg">
             <h2>Vaka 1</h2>
             <figure>
@@ -68,6 +69,7 @@
                 </figcaption>
             </figure>
         </section>
+        </div>
     </main>
 
     <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Grafi görüntüleyici">
@@ -86,16 +88,7 @@
         var viewer = document.getElementById('viewer');
         var viewerImage = document.getElementById('viewerImage');
         var viewerToggle = viewer.querySelector('.toggle-line');
-        var cases = Array.prototype.slice.call(document.querySelectorAll('.case[data-plain]'));
         var current = null;
-
-        cases.forEach(function (c) {
-            c.showLine = false;
-            new Image().src = c.dataset.marked;
-            c.querySelector('.toggle-line').addEventListener('click', function (e) { e.stopPropagation(); c.showLine = !c.showLine; render(c); });
-            c.querySelector('.case-image').addEventListener('click', function () { current = c; render(c); openViewer(); });
-        });
-        viewerToggle.addEventListener('click', function (e) { e.stopPropagation(); if (current) { current.showLine = !current.showLine; render(current); } });
 
         function setButton(b, on) { b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Hattı gizle' : 'Hattı göster'; }
         function render(c) {
@@ -104,7 +97,29 @@
             setButton(c.querySelector('.toggle-line'), c.showLine);
             if (c === current) { viewerImage.src = src; setButton(viewerToggle, c.showLine); }
         }
-        cases.forEach(render);
+        function initCases() {
+            Array.prototype.slice.call(document.querySelectorAll('.case[data-plain]')).forEach(function (c) {
+                c.showLine = false;
+                new Image().src = c.dataset.marked;
+                c.querySelector('.toggle-line').addEventListener('click', function (e) { e.stopPropagation(); c.showLine = !c.showLine; render(c); });
+                c.querySelector('.case-image').addEventListener('click', function () { current = c; render(c); openViewer(); });
+                render(c);
+            });
+        }
+        viewerToggle.addEventListener('click', function (e) { e.stopPropagation(); if (current) { current.showLine = !current.showLine; render(current); } });
+
+        function esc(t) { var d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; }
+        fetch('vakalar/pnomotoraks.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (data) {
+            var list = (data.vakalar || []).filter(function (v) { return v.isaretsiz && v.isaretli; });
+            if (!list.length) throw 0;
+            document.getElementById('cases').innerHTML = list.map(function (v) {
+                return '<section class="case" id="' + esc(v.id) + '" data-plain="' + esc(v.isaretsiz) + '" data-marked="' + esc(v.isaretli) + '">' +
+                    '<h2>' + esc(v.baslik) + '</h2><figure><div class="xray">' +
+                    '<img class="case-image" src="' + esc(v.isaretsiz) + '" alt="' + esc(v.baslik) + ': Akciğer grafisi">' +
+                    '<button class="toggle-line" type="button" aria-pressed="false">Hattı göster</button></div>' +
+                    '<figcaption>' + esc(v.aciklama) + (v.ipucu ? '<span class="hint">' + esc(v.ipucu) + '</span>' : '') + '</figcaption></figure></section>';
+            }).join('');
+        }).catch(function () {}).then(initCases);
 
         // Görüntüleyici: yakınlaştırma ve gezdirme
         var scale = 1, x = 0, y = 0, minScale = 1, maxScale = 8;
