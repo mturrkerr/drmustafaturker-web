@@ -120,9 +120,31 @@
     {
       "id": "vaka-4",
       "baslik": "Vaka 4",
-      "aciklama": "Pnömotoraks vaka örneği.",
+      "aciklama": "Pnomotoraks hattı Kostaların arkasına saklanmış",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
-      "isaretsiz": "images/vakalar/vaka-4.jpg"
+      "isaretsiz": "images/vakalar/vaka-4.jpg",
+      "isaretli": "images/vakalar/vaka-4-isaretli.jpg?v=1794333665768",
+      "oklar": [
+        {
+          "x": 0.2921,
+          "y": 0.2215,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.3376,
+          "y": 0.1984,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.4303,
+          "y": 0.1818,
+          "ux": 0,
+          "uy": 1
+        }
+      ],
+      "birlestir": false
     },
     {
       "id": "vaka-5",
