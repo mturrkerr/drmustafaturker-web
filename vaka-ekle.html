@@ -33,7 +33,10 @@
         .btn:disabled { opacity: 0.45; cursor: default; }
         .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
         .stage { position: relative; width: 100%; background: #0b1015; border-radius: 10px; overflow: hidden; touch-action: none; }
-        .stage canvas { display: block; width: 100%; height: auto; }
+        .stage canvas { display: block; width: 100%; height: auto; transform-origin: 0 0; }
+        .zoombar { position: absolute; right: 8px; bottom: 8px; display: flex; gap: 6px; }
+        .zoombar button { width: 40px; height: 40px; border: none; border-radius: 10px; background: rgba(255,255,255,0.88); color: #1f3a52; font-size: 20px; font-weight: 700; cursor: pointer; }
+        .zoombar button.fit { width: auto; padding: 0 10px; font-size: 13px; }
         .empty { color: #8a98a5; text-align: center; padding: 60px 10px; font-size: 14px; }
         label.f { display: block; font-size: 13px; font-weight: 700; color: #3a4a57; margin: 10px 0 4px; }
         input[type=text], input[type=password], input[type=number], select, textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 15px; padding: 9px 10px; border: 1px solid #c9d3dc; border-radius: 9px; background: #fff; color: #1f2a33; }
@@ -90,7 +93,7 @@
                 <button type="button" data-mode="crop" aria-pressed="false">✂️ Kırp</button>
                 <button type="button" data-mode="redact" aria-pressed="false">⬛ Gizle</button>
             </div>
-            <p class="hint" id="modeHint"><strong>Yeni ok:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> hangi yöne gelecekse o yöne çekin (her yöne olur). Sadece dokunursanız aşağıdaki varsayılan yön kullanılır.<br><strong>Oku taşımak:</strong> okun ucunu veya gövdesini tutup sürükleyin. <strong>Döndürmek:</strong> kuyruğunun ucundan tutup çevirin.<br><strong>Geri al:</strong> iki parmakla ekrana dokunun · <strong>Yeniden yap:</strong> üç parmakla dokunun.</p>
+            <p class="hint" id="modeHint"><strong>Yeni ok:</strong> kalemi hattın üzerine koyun ve okun <strong>kuyruğu</strong> hangi yöne gelecekse o yöne çekin (her yöne olur). Sadece dokunursanız aşağıdaki varsayılan yön kullanılır.<br><strong>Oku taşımak:</strong> okun ucunu veya gövdesini tutup sürükleyin. <strong>Döndürmek:</strong> kuyruğunun ucundan tutup çevirin.<br><strong>Yakınlaştırma:</strong> iki parmağı açıp kapatın, iki parmakla kaydırın (yakınken tek parmakla da kaydırabilirsiniz). Sağ alttaki <strong>Sığdır</strong> ile geri dönün.<br><strong>Geri al:</strong> iki parmakla kısa dokunun · <strong>Yeniden yap:</strong> üç parmakla kısa dokunun.</p>
             <div class="row" id="markOpts">
                 <label for="dir" style="font-size:13px;font-weight:700;color:#3a4a57">Dokununca ok yönü</label>
                 <select id="dir" style="width:auto">
@@ -105,7 +108,7 @@
                 </select>
                 <button type="button" class="btn" id="joinLine" aria-pressed="false">┄ Okları kesikli hatla birleştir</button>
             </div>
-            <div class="stage" id="stage" style="margin-top:10px"><div class="empty" id="empty">Önce bir vaka seçin.</div><canvas id="view" hidden></canvas><div class="flash" id="flash" hidden></div></div>
+            <div class="stage" id="stage" style="margin-top:10px"><div class="empty" id="empty">Önce bir vaka seçin.</div><canvas id="view" hidden></canvas><div class="flash" id="flash" hidden></div><div class="zoombar" id="zoombar" hidden><button type="button" id="zOut" aria-label="Uzaklaştır">−</button><button type="button" id="zIn" aria-label="Yakınlaştır">+</button><button type="button" class="fit" id="zFit">Sığdır</button></div></div>
             <div class="row">
                 <button type="button" class="btn" id="undo" disabled>↶ Geri al</button>
                 <button type="button" class="btn" id="redo" disabled>↷ Yeniden yap</button>
@@ -287,9 +290,29 @@
         var view = $('view'), vctx = view.getContext('2d');
         var DIRS = { left: [1, 0.18], right: [-1, 0.18], up: [0, 1], down: [0, -1], upleft: [0.7, 0.7], upright: [-0.7, 0.7], downleft: [0.7, -0.7], downright: [-0.7, -0.7] };
 
+        // ---------- Yakınlaştırma (iki parmakla sıkıştır/aç, iki parmakla kaydır) ----------
+        var Z = { s: 1, tx: 0, ty: 0 }, pinch = null, pan = null;
+        function applyZoom() {
+            var W = view.offsetWidth, H = view.offsetHeight;
+            Z.s = Math.max(1, Math.min(8, Z.s));
+            Z.tx = Math.min(0, Math.max(W - W * Z.s, Z.tx)); Z.ty = Math.min(0, Math.max(H - H * Z.s, Z.ty));
+            view.style.transform = Z.s === 1 ? '' : 'translate(' + Z.tx + 'px,' + Z.ty + 'px) scale(' + Z.s + ')';
+            $('zFit').textContent = Z.s === 1 ? 'Sığdır' : '×' + Z.s.toFixed(1) + ' · Sığdır';
+        }
+        function zoomAt(ns, cx, cy) { var qx = (cx - Z.tx) / Z.s, qy = (cy - Z.ty) / Z.s; Z.s = Math.max(1, Math.min(8, ns)); Z.tx = cx - Z.s * qx; Z.ty = cy - Z.s * qy; applyZoom(); }
+        function resetZoom() { Z = { s: 1, tx: 0, ty: 0 }; pinch = null; pan = null; applyZoom(); }
+        function stagePt(t) { var r = $('stage').getBoundingClientRect(); return { x: t.x - r.left, y: t.y - r.top }; }
+        function pinchInfo() { var ids = Object.keys(touches); var a = stagePt(touches[ids[0]]), b = stagePt(touches[ids[1]]); return { c: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, d: Math.max(10, Math.hypot(a.x - b.x, a.y - b.y)) }; }
+        function startPinch() { var i = pinchInfo(); pinch = { d0: i.d, qx: (i.c.x - Z.tx) / Z.s, qy: (i.c.y - Z.ty) / Z.s, s0: Z.s }; pan = null; }
+        $('zIn').addEventListener('click', function () { zoomAt(Z.s * 1.5, view.offsetWidth / 2, view.offsetHeight / 2); });
+        $('zOut').addEventListener('click', function () { zoomAt(Z.s / 1.5, view.offsetWidth / 2, view.offsetHeight / 2); });
+        $('zFit').addEventListener('click', resetZoom);
+        $('stage').addEventListener('wheel', function (e) { if (!base) return; e.preventDefault(); var p = stagePt({ x: e.clientX, y: e.clientY }); zoomAt(Z.s * Math.exp(-e.deltaY * 0.002), p.x, p.y); }, { passive: false });
+        window.addEventListener('resize', function () { if (base) resetZoom(); });
+
         function setBase(c, changed) {
             base = c; baseChanged = changed; history = []; future = []; cropRect = null;
-            $('empty').hidden = true; view.hidden = false;
+            $('empty').hidden = true; view.hidden = false; $('zoombar').hidden = false; resetZoom();
             ['undo', 'redo', 'clearMarks', 'preview', 'save', 'share'].forEach(function (id) { $(id).disabled = false; });
         }
         function copyMarks(l) { return l.map(function (m) { return { x: m.x, y: m.y, ux: m.ux, uy: m.uy }; }); }
@@ -401,7 +424,9 @@
                 var n = Object.keys(touches).length;
                 if (n === 1) gesture = { t: Date.now(), max: 1, moved: false, start: {} };
                 else { gesture.max = Math.max(gesture.max, n); cancelAction(); }
+                if (n === 2) startPinch(); else pinch = null;
                 gesture.start[e.pointerId] = { x: e.clientX, y: e.clientY };
+                if (n === 1 && penSeen && Z.s > 1) pan = { id: e.pointerId, x: e.clientX, y: e.clientY, tx: Z.tx, ty: Z.ty };
                 if (n > 1 || penSeen) return;
             }
             view.setPointerCapture(e.pointerId);
@@ -415,6 +440,12 @@
             drag = { x0: p.x, y0: p.y, x1: p.x, y1: p.y, id: e.pointerId }; render();
         });
         view.addEventListener('pointermove', function (e) {
+            if (e.pointerType === 'touch' && touches[e.pointerId]) {
+                touches[e.pointerId] = { x: e.clientX, y: e.clientY };
+                if (pinch && Object.keys(touches).length === 2) {
+                    var pi = pinchInfo(); Z.s = Math.max(1, Math.min(8, pinch.s0 * pi.d / pinch.d0)); Z.tx = pi.c.x - Z.s * pinch.qx; Z.ty = pi.c.y - Z.s * pinch.qy; applyZoom();
+                } else if (pan && pan.id === e.pointerId) { Z.tx = pan.tx + e.clientX - pan.x; Z.ty = pan.ty + e.clientY - pan.y; applyZoom(); }
+            }
             if (e.pointerType === 'touch' && touches[e.pointerId] && gesture) {
                 var st = gesture.start[e.pointerId];
                 if (st && Math.hypot(e.clientX - st.x, e.clientY - st.y) > 25) gesture.moved = true;
@@ -436,7 +467,7 @@
         });
         function endPointer(e) {
             if (e.pointerType === 'touch' && touches[e.pointerId]) {
-                delete touches[e.pointerId];
+                delete touches[e.pointerId]; pinch = null; if (pan && pan.id === e.pointerId) pan = null;
                 if (!Object.keys(touches).length && gesture) {
                     var g = gesture; gesture = null;
                     if (g.max >= 2 && !g.moved && Date.now() - g.t < 450) { if (g.max === 2) undo(); else redo(); return; }
@@ -452,7 +483,7 @@
             render();
         }
         view.addEventListener('pointerup', endPointer);
-        view.addEventListener('pointercancel', function (e) { delete touches[e.pointerId]; if (!Object.keys(touches).length) gesture = null; cancelAction(); });
+        view.addEventListener('pointercancel', function (e) { delete touches[e.pointerId]; pinch = null; pan = null; if (!Object.keys(touches).length) gesture = null; cancelAction(); });
 
         $('applyCrop').addEventListener('click', function () {
             if (!cropRect) return; var r = cropRect;
@@ -460,7 +491,7 @@
             var c = document.createElement('canvas'); c.width = Math.round(r.w); c.height = Math.round(r.h);
             c.getContext('2d').drawImage(base, r.x, r.y, r.w, r.h, 0, 0, c.width, c.height);
             marks = marks.map(function (m) { return { x: m.x - r.x, y: m.y - r.y, ux: m.ux, uy: m.uy }; }).filter(function (m) { return m.x >= 0 && m.y >= 0 && m.x <= c.width && m.y <= c.height; });
-            base = c; baseChanged = true; cropRect = null; $('applyCrop').hidden = true; render();
+            base = c; baseChanged = true; cropRect = null; $('applyCrop').hidden = true; render(); resetZoom();
         });
         document.querySelectorAll('.modes button').forEach(function (b) {
             b.addEventListener('click', function () {
