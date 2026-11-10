@@ -42,16 +42,29 @@
     <main>
         <a class="back" href="./">← Ana sayfa</a>
         <h1>Pnömotoraks Vakaları</h1>
-        <section class="case">
+        <section class="case" data-plain="images/pnomotoraks-1.jpg" data-marked="images/pnomotoraks-1-isaretli.jpg">
             <h2>Vaka 1</h2>
             <figure>
                 <div class="xray">
-                    <img id="caseImage" src="images/pnomotoraks-1.jpg" alt="Vaka 1: Akciğer grafisi">
+                    <img class="case-image" src="images/pnomotoraks-1.jpg" alt="Vaka 1: Akciğer grafisi">
                     <button class="toggle-line" type="button" aria-pressed="false">Hattı göster</button>
                 </div>
                 <figcaption>
                     35 yaş, erkek. Spontan pnömotoraks vaka örneği.
                     <span class="hint">Önce grafiyi kendiniz değerlendirin, ardından "Hattı göster" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.</span>
+                </figcaption>
+            </figure>
+        </section>
+        <section class="case" data-plain="images/pnomotoraks-2.jpg" data-marked="images/pnomotoraks-2-isaretli.jpg">
+            <h2>Vaka 2</h2>
+            <figure>
+                <div class="xray">
+                    <img class="case-image" src="images/pnomotoraks-2.jpg" alt="Vaka 2: Akciğer grafisi">
+                    <button class="toggle-line" type="button" aria-pressed="false">Hattı göster</button>
+                </div>
+                <figcaption>
+                    51 yaş. Sağ spontan pnömotoraks, 2. atak.
+                    <span class="hint">Grafi yatak başı (AP) çekilmiştir; skapula akciğer alanının üzerine biner ve ince pnömotoraks hattı kolayca gözden kaçabilir. Önce kendiniz arayın, ardından "Hattı göster" ile kontrol edin. Büyütmek için grafiye tıklayın.</span>
                 </figcaption>
             </figure>
         </section>
@@ -65,34 +78,33 @@
             <button type="button" id="zoomReset">Sığdır</button>
             <button type="button" id="viewerClose" aria-label="Kapat">✕</button>
         </div>
-        <img id="viewerImage" alt="Vaka 1: Akciğer grafisi (büyük görünüm)" draggable="false">
+        <img id="viewerImage" alt="Akciğer grafisi (büyük görünüm)" draggable="false">
         <div class="viewer-help">Fare tekerleği ile yakınlaştırın, sürükleyerek gezdirin. Telefonda iki parmakla yakınlaştırın.</div>
     </div>
 
     <script>
-        var plain = 'images/pnomotoraks-1.jpg';
-        var marked = 'images/pnomotoraks-1-isaretli.jpg';
-        new Image().src = marked;
-
-        var caseImage = document.getElementById('caseImage');
         var viewer = document.getElementById('viewer');
         var viewerImage = document.getElementById('viewerImage');
-        var toggles = document.querySelectorAll('.toggle-line');
-        var showLine = false;
+        var viewerToggle = viewer.querySelector('.toggle-line');
+        var cases = Array.prototype.slice.call(document.querySelectorAll('.case[data-plain]'));
+        var current = null;
 
-        function render() {
-            var src = showLine ? marked : plain;
-            caseImage.src = src;
-            viewerImage.src = src;
-            toggles.forEach(function (b) {
-                b.setAttribute('aria-pressed', String(showLine));
-                b.textContent = showLine ? 'Hattı gizle' : 'Hattı göster';
-            });
-        }
-        toggles.forEach(function (b) {
-            b.addEventListener('click', function (e) { e.stopPropagation(); showLine = !showLine; render(); });
+        cases.forEach(function (c) {
+            c.showLine = false;
+            new Image().src = c.dataset.marked;
+            c.querySelector('.toggle-line').addEventListener('click', function (e) { e.stopPropagation(); c.showLine = !c.showLine; render(c); });
+            c.querySelector('.case-image').addEventListener('click', function () { current = c; render(c); openViewer(); });
         });
-        render();
+        viewerToggle.addEventListener('click', function (e) { e.stopPropagation(); if (current) { current.showLine = !current.showLine; render(current); } });
+
+        function setButton(b, on) { b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Hattı gizle' : 'Hattı göster'; }
+        function render(c) {
+            var src = c.showLine ? c.dataset.marked : c.dataset.plain;
+            c.querySelector('.case-image').src = src;
+            setButton(c.querySelector('.toggle-line'), c.showLine);
+            if (c === current) { viewerImage.src = src; setButton(viewerToggle, c.showLine); }
+        }
+        cases.forEach(render);
 
         // Görüntüleyici: yakınlaştırma ve gezdirme
         var scale = 1, x = 0, y = 0, minScale = 1, maxScale = 8;
@@ -122,7 +134,6 @@
         }
         function closeViewer() { viewer.hidden = true; document.body.style.overflow = ''; }
 
-        caseImage.addEventListener('click', openViewer);
         document.getElementById('viewerClose').addEventListener('click', closeViewer);
         document.getElementById('zoomIn').addEventListener('click', function () { var c = center(); zoomAt(1.4, c[0], c[1]); });
         document.getElementById('zoomOut').addEventListener('click', function () { var c = center(); zoomAt(1 / 1.4, c[0], c[1]); });
