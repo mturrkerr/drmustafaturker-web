@@ -270,6 +270,13 @@
       "aciklama": "Pnömotoraks vaka örneği.",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
       "isaretsiz": "images/vakalar/vaka-9.jpg"
+    },
+    {
+      "id": "vaka-10",
+      "baslik": "Vaka 10",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-10.jpg"
     }
   ]
 }
