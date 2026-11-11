@@ -297,7 +297,53 @@
       "baslik": "Vaka 9",
       "aciklama": "Pnömotoraks vaka örneği.",
       "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
-      "isaretsiz": "images/vakalar/vaka-9.jpg"
+      "isaretsiz": "images/vakalar/vaka-9.jpg",
+      "isaretli": "images/vakalar/vaka-9-isaretli.jpg?v=1794421399175",
+      "oklar": [
+        {
+          "x": 0.1977,
+          "y": 0.5207,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2192,
+          "y": 0.4576,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.238,
+          "y": 0.3987,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.2817,
+          "y": 0.3341,
+          "ux": 0.984,
+          "uy": 0.177
+        },
+        {
+          "x": 0.3315,
+          "y": 0.29,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.3717,
+          "y": 0.2532,
+          "ux": 0,
+          "uy": 1
+        },
+        {
+          "x": 0.4057,
+          "y": 0.238,
+          "ux": 0,
+          "uy": 1
+        }
+      ],
+      "birlestir": true
     },
     {
       "id": "vaka-10",
