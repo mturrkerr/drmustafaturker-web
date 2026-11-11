@@ -403,6 +403,34 @@
         }
       ],
       "birlestir": false
+    },
+    {
+      "id": "vaka-11",
+      "baslik": "Vaka 11",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-11.jpg"
+    },
+    {
+      "id": "vaka-12",
+      "baslik": "Vaka 12",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-12.jpg"
+    },
+    {
+      "id": "vaka-13",
+      "baslik": "Vaka 13",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-13.jpg"
+    },
+    {
+      "id": "vaka-14",
+      "baslik": "Vaka 14",
+      "aciklama": "Pnömotoraks vaka örneği.",
+      "ipucu": "Önce grafiyi kendiniz değerlendirin, ardından \"Hattı göster\" ile pnömotoraks alanını kontrol edin. Büyütmek için grafiye tıklayın.",
+      "isaretsiz": "images/vakalar/vaka-14.jpg"
     }
   ]
 }
