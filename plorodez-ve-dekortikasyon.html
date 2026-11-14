@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Plörodez ve Dekortikasyon - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+        .ct svg { background: #000; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Plörodez ve Dekortikasyon</h1>
+        <p class="lead">Plörodez, plevral boşluğu kalıcı olarak kapatmak için iki plevra yaprağını birbirine yapıştırmaktır. Dekortikasyon ise akciğeri saran kalın fibröz kabuğu soyarak akciğerin yeniden genişlemesini sağlamaktır. Bu sayfada iki işlemin endikasyonları ve teknikleri anlatılıyor. Ağırlık verilen konular: <strong>talk plörodezinin oluşturduğu inflamasyon</strong> ve <strong>bu hastalarda NSAİİ kullanımı</strong>.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#tanim">Tanımlar</a></li>
+                <li><a href="#endikasyon">Plörodez: endikasyonlar ve ön şart</a></li>
+                <li><a href="#yontem">Plörodez yöntemleri ve ajanlar</a></li>
+                <li><a href="#inflamasyon">Talk plörodezinde inflamasyon</a></li>
+                <li><a href="#sistemik">İstenmeyen inflamasyon: ateş, SIRS, ARDS</a></li>
+                <li><a href="#nsaii">NSAİİ ve steroid kullanımı</a></li>
+                <li><a href="#dekortikasyon">Fibrotoraks ve dekortikasyon</a></li>
+                <li><a href="#teknik">Dekortikasyon tekniği</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="tanim"><span class="num">1</span>Tanımlar</h2>
+            <ul>
+                <li><strong>Plörodez:</strong> Tekrarlayan plevral efüzyon veya pnömotoraksı önlemek için visseral ve paryetal plevrayı yapıştırarak plevral boşluğu ortadan kaldırmaktır. Yöntemi ne olursa olsun mantık aynıdır: plevrada <strong>kontrollü bir inflamasyon</strong> oluşturmak, bu inflamasyonun fibrozla iyileşmesini ve iki yaprağın kaynaşmasını sağlamak.</li>
+                <li><strong>Kimyasal plörodez:</strong> Plevral boşluğa talk, tetrasiklin türevleri veya povidon-iyot gibi bir sklerozan madde verilmesi.</li>
+                <li><strong>Mekanik plörodez:</strong> Cerrahi sırasında paryetal plevranın kuru gazlı bezle aşındırılması (<strong>abrazyon</strong>) veya soyulması (<strong>plörektomi</strong>).</li>
+                <li><strong>Dekortikasyon:</strong> Visseral plevrayı (ve gerekirse paryetal plevrayı) saran kalın fibrin–fibröz kabuğun soyularak çıkarılması. Amaç, kabuğun içinde hapsolmuş akciğerin yeniden genişlemesidir.</li>
+                <li><strong>Fibrotoraks:</strong> İyi boşaltılamamış efüzyon, ampiyem veya hemotoraks sonrasında plevranın kalınlaşıp akciğeri bir zırh gibi sarması.</li>
+            </ul>
+            <div class="note"><p><strong>Zıt gibi görünen iki işlem:</strong> Plörodezde amaç inflamasyon ve fibrozu <em>bilerek</em> oluşturmaktır. Dekortikasyonda ise kontrolsüz gelişmiş fibrozu <em>temizleriz</em>. İkisinin ortak noktası, akciğerin göğüs duvarına tam temas edecek şekilde genişlemesidir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="endikasyon"><span class="num">2</span>Plörodez: endikasyonlar ve ön şart</h2>
+            <h3>Endikasyonlar</h3>
+            <ul>
+                <li><strong>Tekrarlayan malign plevral efüzyon:</strong> En sık ve en kabul gören endikasyon. Nefes darlığı olmayan hastaya erken (profilaktik) plörodez önerilmez.</li>
+                <li><strong>Tekrarlayan primer ve sekonder spontan pnömotoraks:</strong> Genellikle VATS ile bleb/bül rezeksiyonuna eklenen abrazyon, plörektomi veya talk ile yapılır.</li>
+                <li><strong>Tedaviye dirençli benign efüzyonlar:</strong> Kalp, böbrek ve karaciğer yetmezliği, şilotoraks, lupus plörezisi gibi durumlar. Burada önce altta yatan hastalık tedavi edilir. Uzun süreli tünelli plevral kateter de bir seçenektir.</li>
+            </ul>
+            <h3>Olmazsa olmaz ön şart: akciğer tam genişlemeli</h3>
+            <p>Plörodezin başarısı, sıvının veya havanın tamamen boşaltılıp <strong>iki plevra yaprağının birbirine temas etmesine</strong> bağlıdır. Akciğer genişlemiyorsa sklerozan madde verilmez, verilse de başarısız olur. Akciğerin genişlemesini engelleyen durumlar:</p>
+            <ul>
+                <li>Hapsolmuş akciğer (trapped lung): visseral plevrada kalın kabuk</li>
+                <li>Endobronşiyal tıkanma ve atelektazi</li>
+                <li>Lokülasyonlar ve yapışıklıklar, yetersiz drenaj</li>
+            </ul>
+            <div class="pearl"><p><strong>Basit bir ipucu:</strong> Büyük efüzyonda mediastenin karşı tarafa itilmesi beklenir. Mediasten efüzyon tarafına <strong>çekilmişse</strong> o tarafta plevral basınç çok negatiftir ve akciğer hapsolmuş olabilir. Bu hastada plörodez yerine kalıcı plevral kateter veya dekortikasyon düşünülür.</p></div>
+            <h3>Başarıyı azaltan etkenler</h3>
+            <p>TGCD kitabında sayılan başlıcaları:</p>
+            <ul>
+                <li>Plevral sıvı pH &lt;7,20, glukoz &lt;60, LDH yüksekliği</li>
+                <li>Karnofsky skoru &lt;60</li>
+                <li>Plevral adezyonlar ve tüpün 10 günden uzun kalması</li>
+                <li>Göğse radyoterapi, sigara</li>
+                <li><strong>Sistemik steroid kullanımı</strong></li>
+                <li>NSAİİ kullanımı (etkisi tartışmalı; bkz. <a href="#nsaii">6. bölüm</a>)</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="yontem"><span class="num">3</span>Plörodez yöntemleri ve ajanlar</h2>
+            <h3>Kimyasal plörodezin iki uygulama yolu</h3>
+            <ul>
+                <li><strong>Talk pudrajı (insüflasyon):</strong> VATS veya açık cerrahi sırasında sıvı boşaltıldıktan sonra 2–4 g talk, pulverizatör ya da sprey ile görüş altında bütün plevra yüzeyine püskürtülür. Plevra "kar yağmış" gibi görünür. Tanısal torakoskopide malignite saptanırsa aynı seansta yapılması önerilir.</li>
+                <li><strong>Talk bulamacı (slurry):</strong> Yatak başında, önceden takılmış tüpten verilir. Genellikle 4 g talk 50 mL serum fizyolojikte karıştırılır; talk suda erimediği için enjektör sürekli çalkalanır. Tüp 1–4 saat klemplenir, sonra açılır. Genel anestezi alamayacak hastalarda tercih edilir.</li>
+            </ul>
+            <p>İki yöntemin başarısı benzerdir. Seçim, tanı sorunu olup olmadığına ve hastanın genel durumuna göre yapılır. Tüp genellikle günlük drenaj 100–150 mL'nin altına inince çekilir.</p>
+            <h3>Başlıca sklerozan ajanlar</h3>
+            <div class="table-wrap"><table>
+                <tr><th>Ajan</th><th>Doz</th><th>Başarı</th><th>Not</th></tr>
+                <tr><td><strong>Talk</strong> (hidratlı magnezyum silikat)</td><td>2–4 g</td><td>%72–100</td><td>En etkili ve en yaygın ajan. Tıbbi talk asbest içermez; kozmetik talk kullanılmaz.</td></tr>
+                <tr><td>Tetrasiklin türevleri</td><td>15–20 mg/kg</td><td>%50–92</td><td>Benign durumlarda tercih eden var. Nüks talka göre daha sık.</td></tr>
+                <tr><td>Povidon-iyot</td><td>%10'luk 20 mL + 30 mL SF</td><td>%86–96</td><td>Ucuz ve kolay bulunur. İyot alerjisinde kontrendike.</td></tr>
+                <tr><td>Otolog kan</td><td>100 mL</td><td>~%85</td><td>Uzamış hava kaçağında ucuz bir seçenek</td></tr>
+                <tr><td>Bleomisin</td><td>60 Ü</td><td>%60–85</td><td>Sistemik toksisite ve maliyet nedeniyle artık önerilmez</td></tr>
+            </table></div>
+            <p class="tip">Dozlar ve oranlar TGCD <em>Plevranın Malign Hastalıkları</em> kitabındaki tablodan alınmıştır.</p>
+            <h3>Pnömotoraksta mekanik plörodez</h3>
+            <p>VATS ile bleb/bül rezeksiyonundan sonra paryetal plevraya <strong>abrazyon</strong> veya <strong>apikal plörektomi</strong> eklenir. Bleb ve büllerin en sık bulunduğu apikal bölge dikkatle işlenir (bkz. <a href="bul-ve-hava-kistleri.html#apeks">Bül ve Hava Kistleri</a>). Çalışmalar abrazyon ile plörektominin birlikte uygulanmasının daha iyi sonuç verdiğini düşündürür.</p>
+        </section>
+
+        <section class="card">
+            <h2 id="inflamasyon"><span class="num">4</span>Talk plörodezinde inflamasyon</h2>
+            <p class="tag">Önemli</p>
+            <p>Talk plörodezinin başarısı tamamen <strong>inflamasyona</strong> dayanır. Talk plevrayı "yapıştırmaz". Plevrada şiddetli bir inflamatuvar yanıt başlatır; bu yanıtın fibrozla iyileşmesi iki plevra yaprağını kaynaştırır. İnflamasyon olmadan plörodez olmaz.</p>
+            <h3>Ana oyuncu: mezotel hücresi</h3>
+            <p>Plörodezin yapısal ekseni mezotel hücreleridir. Talk partikülleriyle uyarılan mezotel hücreleri ve plevral makrofajlar çok sayıda aracı madde salgılar:</p>
+            <div class="table-wrap"><table>
+                <tr><th>Aracı</th><th>Etkisi</th></tr>
+                <tr><td><strong>IL-8</strong>, MCP-1</td><td>Kemotaksi: önce nötrofilleri, sonra monosit ve makrofajları plevraya çağırır</td></tr>
+                <tr><td><strong>VEGF</strong></td><td>Kılcal damar geçirgenliğini artırır, yeni damar ve lenf damarı oluşumunu uyarır. Plörodezin ilk günlerinde sıvının artmasının nedenlerinden biridir.</td></tr>
+                <tr><td><strong>TGF-β</strong>, bFGF</td><td>Fibroblastları çoğaltır, kollajen yapımını uyarır. Fibrozun ana sürücüsüdür.</td></tr>
+                <tr><td>Doku faktörü ↑, PAI-1 ↑, tPA ↓</td><td>Pıhtılaşma artar, fibrinoliz baskılanır. Plevra yüzeylerinde fibrin birikir ve iki yaprak arasında fibrin köprüleri oluşur.</td></tr>
+                <tr><td>Prostaglandinler (COX-2 ürünleri)</td><td>Damar genişlemesi, ödem, ağrı ve ateş. NSAİİ'lerin etki ettiği nokta budur.</td></tr>
+            </table></div>
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Talk plörodezinin evreleri: talk, inflamasyon, fibrin köprüleri ve fibroz">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <!-- 4 panel; her panelde üstte paryetal (göğüs duvarı), altta visseral (akciğer) -->
+                        <g id="p1">
+                            <rect x="10" y="40" width="165" height="50" fill="#e9d8c4"/>
+                            <rect x="10" y="190" width="165" height="60" fill="#f8e3e0"/>
+                            <line x1="10" y1="90" x2="175" y2="90" stroke="#2f6fa3" stroke-width="3"/>
+                            <line x1="10" y1="190" x2="175" y2="190" stroke="#2f6fa3" stroke-width="3"/>
+                            <g fill="#fff" stroke="#8a98a5" stroke-width="1.2">
+                                <polygon points="40,110 48,106 52,114 44,118"/><polygon points="80,150 90,146 94,156 84,159"/><polygon points="120,120 129,117 131,126 122,128"/><polygon points="60,175 68,171 72,179 64,182"/><polygon points="145,165 153,161 156,170 148,172"/><polygon points="100,98 108,95 111,103 103,106"/><polygon points="30,150 37,147 40,154 33,157"/>
+                                <polygon points="150,96 158,93 161,101 153,103"/><polygon points="95,182 103,179 106,187 98,189"/>
+                            </g>
+                            <text x="92" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">1. Talk verilir</text>
+                            <text x="92" y="275" text-anchor="middle" font-size="11.5" fill="#3a4a57">saatler</text>
+                            <text x="92" y="290" text-anchor="middle" font-size="11" fill="#6a7a87">mezotel uyarılır</text>
+                        </g>
+                        <g transform="translate(180 0)">
+                            <rect x="10" y="40" width="165" height="50" fill="#e9d8c4"/>
+                            <rect x="10" y="190" width="165" height="60" fill="#f8e3e0"/>
+                            <line x1="10" y1="90" x2="175" y2="90" stroke="#c0392b" stroke-width="5"/>
+                            <line x1="10" y1="190" x2="175" y2="190" stroke="#c0392b" stroke-width="5"/>
+                            <rect x="10" y="93" width="165" height="94" fill="#fbe9c9" opacity="0.7"/>
+                            <g fill="#e08a00"><circle cx="35" cy="110" r="5"/><circle cx="70" cy="125" r="5"/><circle cx="110" cy="105" r="5"/><circle cx="150" cy="130" r="5"/><circle cx="55" cy="160" r="5"/><circle cx="95" cy="170" r="5"/><circle cx="135" cy="160" r="5"/><circle cx="85" cy="140" r="5"/></g>
+                            <g fill="#7a5a9a"><circle cx="120" cy="150" r="6.5"/><circle cx="45" cy="135" r="6.5"/><circle cx="160" cy="105" r="6.5"/></g>
+                            <text x="92" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">2. Akut inflamasyon</text>
+                            <text x="92" y="275" text-anchor="middle" font-size="11.5" fill="#3a4a57">1–3. gün</text>
+                            <text x="92" y="290" text-anchor="middle" font-size="11" fill="#6a7a87">nötrofil, makrofaj, eksüda</text>
+                        </g>
+                        <g transform="translate(360 0)">
+                            <rect x="10" y="40" width="165" height="50" fill="#e9d8c4"/>
+                            <rect x="10" y="190" width="165" height="60" fill="#f8e3e0"/>
+                            <line x1="10" y1="90" x2="175" y2="90" stroke="#c0392b" stroke-width="4"/>
+                            <line x1="10" y1="190" x2="175" y2="190" stroke="#c0392b" stroke-width="4"/>
+                            <g stroke="#d9b44a" stroke-width="4" stroke-linecap="round" fill="none">
+                                <path d="M30 92 Q36 140 28 188"/><path d="M62 92 Q55 140 66 188"/><path d="M95 92 Q102 140 92 188"/><path d="M128 92 Q120 140 132 188"/><path d="M160 92 Q166 140 156 188"/>
+                            </g>
+                            <text x="92" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">3. Fibrin köprüleri</text>
+                            <text x="92" y="275" text-anchor="middle" font-size="11.5" fill="#3a4a57">günler</text>
+                            <text x="92" y="290" text-anchor="middle" font-size="11" fill="#6a7a87">fibrinoliz baskılanır</text>
+                        </g>
+                        <g transform="translate(540 0)">
+                            <rect x="10" y="40" width="165" height="50" fill="#e9d8c4"/>
+                            <rect x="10" y="190" width="165" height="60" fill="#f8e3e0"/>
+                            <rect x="10" y="90" width="165" height="100" fill="#d8dde2"/>
+                            <g stroke="#9aa6b1" stroke-width="1.5" fill="none"><path d="M10 110 Q90 100 175 115"/><path d="M10 130 Q90 140 175 128"/><path d="M10 150 Q90 145 175 155"/><path d="M10 170 Q90 178 175 168"/></g>
+                            <g fill="#4a6a85"><ellipse cx="50" cy="120" rx="9" ry="3"/><ellipse cx="120" cy="140" rx="9" ry="3"/><ellipse cx="80" cy="162" rx="9" ry="3"/><ellipse cx="145" cy="105" rx="9" ry="3"/></g>
+                            <text x="92" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">4. Fibroz, kaynaşma</text>
+                            <text x="92" y="275" text-anchor="middle" font-size="11.5" fill="#3a4a57">1–4 hafta</text>
+                            <text x="92" y="290" text-anchor="middle" font-size="11" fill="#6a7a87">fibroblast, kollajen</text>
+                        </g>
+                        <text x="6" y="70" font-size="10.5" fill="#6a5a45">göğüs duvarı</text>
+                        <text x="6" y="226" font-size="10.5" fill="#8a5a55">akciğer</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: talk plörodezinin evreleri. Talk mezotel hücrelerini uyarır; nötrofil ve makrofajlardan zengin akut inflamasyon gelişir, fibrin köprüleri kurulur ve haftalar içinde fibrozla iki plevra yaprağı kaynaşır (kendi çizimimiz).</figcaption>
+            </figure>
+            <h3>Klinik yansımaları</h3>
+            <ul>
+                <li><strong>Ağrı ve ateş beklenen bulgulardır.</strong> Ateş hastaların %10–17'sinde görülür, genellikle ilk 24–72 saatte çıkar ve kendiliğinden geçer. Talk plörodezi sonrası ilk günlerdeki ateş tek başına ampiyem anlamına gelmez. Yine de ateş uzarsa, yükselirse veya tüpten bulanık sıvı gelirse ampiyem araştırılır.</li>
+                <li><strong>Plevral sıvı ilk günlerde artabilir.</strong> Bunun nedeni VEGF'e bağlı geçirgenlik artışıdır. Tüpü erken çekmemek bu yüzden önemlidir.</li>
+                <li>Talk pudrajından sonra ateş, lökosit ve CRP, yalnız torakoskopi yapılanlara göre belirgin yüksektir.</li>
+                <li><strong>PET/BT'ye etkisi:</strong> Talkın oluşturduğu kronik inflamasyon yıllarca (20 yıla kadar bildirilmiş) FDG tutulumuna yol açar. Bu tutulum malignite ile karışabilir. BT'de tutulumla aynı yerde yüksek yoğunluklu (hiperdens) talk birikintileri görülmesi yorumu kolaylaştırır. İzlemde sabit kalan tutulum talka bağlıdır; yeni ortaya çıkan odaklar metastaz yönünden şüphelidir.</li>
+            </ul>
+            <div class="pearl"><p><strong>Malign efüzyonda ek etki:</strong> Talk, normal mezotel hücrelerinde yapmadığı hâlde malign hücrelerde apoptozu uyarır ve plevral boşluktaki anjiyogenez dengesini değiştirir. Talkın malign efüzyonda bu kadar etkili olmasının nedenlerinden biri bu olabilir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="sistemik"><span class="num">5</span>İstenmeyen inflamasyon: ateş, SIRS, ARDS</h2>
+            <p>Plevrada lokal inflamasyon istenen bir durumdur. Talk sistemik dolaşıma geçerse ise inflamasyon vücuda yayılır. Bu durumda <strong>sistemik inflamatuvar yanıt</strong>, solunum yetmezliği ve nadiren <strong>ARDS</strong> gelişebilir. Bu komplikasyon talkta diğer ajanlara göre daha sıktır.</p>
+            <h3>Neden olur? Partikül boyutu belirleyicidir</h3>
+            <p>Paryetal plevrada lenf damarlarına açılan küçük delikler (stomalar) bulunur. <strong>Küçük talk partikülleri</strong> (5–10 µm ve altı) bu stomalardan lenfatik sisteme ve oradan kana geçer. Akciğer, karaciğer, böbrek gibi organlarda birikerek sistemik inflamasyon başlatırlar. Büyük partiküller ise plevrada kalır ve yalnızca istenen lokal etkiyi yapar.</p>
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Talk partikül boyutu ve sistemik emilim şeması">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <rect x="20" y="40" width="680" height="70" fill="#e9d8c4"/>
+                        <text x="30" y="62" font-size="12" fill="#6a5a45">göğüs duvarı / paryetal plevra</text>
+                        <path d="M20 110 L330 110 M370 110 L520 110 M560 110 L700 110" stroke="#2f6fa3" stroke-width="4"/>
+                        <path d="M330 110 L330 60 Q350 40 370 60 L370 110" fill="#d6e8f5" stroke="#2f6fa3" stroke-width="2"/>
+                        <path d="M520 110 L520 60 Q540 40 560 60 L560 110" fill="#d6e8f5" stroke="#2f6fa3" stroke-width="2"/>
+                        <text x="350" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#2f6fa3">stoma → lenf damarı</text>
+                        <text x="540" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#2f6fa3">stoma → lenf damarı</text>
+                        <!-- küçük partiküller geçiyor -->
+                        <g fill="#c0392b"><circle cx="350" cy="95" r="4"/><circle cx="345" cy="75" r="4"/><circle cx="356" cy="58" r="4"/><circle cx="540" cy="90" r="4"/><circle cx="535" cy="68" r="4"/></g>
+                        <g fill="#c0392b"><circle cx="330" cy="150" r="4"/><circle cx="380" cy="175" r="4"/><circle cx="520" cy="160" r="4"/><circle cx="575" cy="185" r="4"/><circle cx="445" cy="150" r="4"/></g>
+                        <!-- büyük partiküller kalıyor -->
+                        <g fill="#fff" stroke="#3a4a57" stroke-width="1.5">
+                            <polygon points="80,140 100,132 108,150 88,160"/><polygon points="150,170 172,162 178,182 156,188"/><polygon points="220,138 240,130 246,150 226,156"/><polygon points="260,190 280,182 286,202 266,206"/><polygon points="430,195 452,186 458,206 436,212"/><polygon points="620,145 642,138 648,158 626,164"/><polygon points="660,195 680,188 685,206 664,210"/>
+                        </g>
+                        <rect x="20" y="225" width="680" height="35" fill="#f8e3e0"/>
+                        <text x="30" y="247" font-size="12" fill="#8a5a55">akciğer / visseral plevra</text>
+                        <!-- açıklama -->
+                        <circle cx="40" cy="284" r="4" fill="#c0392b"/><text x="50" y="288" font-size="12" fill="#3a4a57">küçük partikül (&lt;10 µm): kana geçer → SIRS, ARDS</text>
+                        <polygon points="440,278 456,272 460,286 444,290" fill="#fff" stroke="#3a4a57" stroke-width="1.5"/>
+                        <text x="468" y="288" font-size="12" fill="#3a4a57">büyük partikül (~25 µm): plevrada kalır</text>
+                        
+                        <defs><marker id="arP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c0392b"/></marker></defs>
+                    </g>
+                </svg>
+                <figcaption>Şema: küçük talk partikülleri paryetal plevradaki lenfatik stomalardan sistemik dolaşıma geçer. Büyük ("kalibre edilmiş") partiküller plevrada kalır (kendi çizimimiz).</figcaption>
+            </figure>
+            <h3>Sistemik talk emilimini artıran durumlar</h3>
+            <ul>
+                <li>Partikül boyutunun küçük olması. Ortalama 15 µm'nin altındaki preparatlar, ortalama 25 µm olanlara göre çok daha güçlü sistemik ve akciğer inflamasyonu yapar. Avrupa'daki tıbbi talk (Steritalc) bu nedenle "kalibre" edilmiştir: 15 µm'den küçük partikül oranı %15'in altında tutulur.</li>
+                <li><strong>5 g'dan fazla talk</strong> kullanılması. Komplikasyon artar, başarı artmaz.</li>
+                <li>Plevra bütünlüğünü bozan geniş abrazyon veya çok sayıda paryetal plevra biyopsisinden sonra talk verilmesi</li>
+                <li><strong>Aynı anda iki taraflı</strong> plörodez yapılması</li>
+            </ul>
+            <div class="pearl"><p><strong>Güvenli talk plörodezi için:</strong> Kalibre (büyük partiküllü) tıbbi talk kullanılır, doz 5 g'ı geçmez (genellikle 2–4 g), iki taraf aynı anda yapılmaz, geniş biyopsi veya abrazyon yapılan seansta talk dozu düşük tutulur ya da talktan kaçınılır.</p></div>
+            <h3>Diğer komplikasyonlar</h3>
+            <ul>
+                <li>Aritmi, hipotansiyon, göğüs ağrısı</li>
+                <li>Ampiyem: talk bulamacında %0–11, pudrajda %0–3</li>
+                <li>Uzun dönem güvenlik: pnömotoraks için talk yapılan hastalarda uzun dönemde akciğer fonksiyonlarında bozulma veya kanser artışı gösterilmemiştir. Talk plörodezi, ileride aynı tarafta akciğer ameliyatı yapılmasını engellemez; ancak ameliyatı zorlaştırır.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="nsaii"><span class="num">6</span>NSAİİ ve steroid kullanımı</h2>
+            <p class="tag">Önemli</p>
+            <p>Plörodez inflamasyonla oluştuğuna göre şu soru akla gelir: <strong>İnflamasyonu baskılayan ilaçlar plörodezi bozar mı?</strong> Soru önemlidir, çünkü plörodez ağrılı bir işlemdir ve iyi analjezi, hastanın derin nefes alıp öksürebilmesi ve akciğerin genişlemesi için şarttır.</p>
+            <figure>
+                <svg viewBox="0 0 720 270" role="img" aria-label="Araşidonik asit yolu: steroid ve NSAİİ'lerin etki noktası">
+                    <defs><marker id="arN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f3a52"/></marker></defs>
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="13">
+                        <rect x="230" y="12" width="260" height="36" rx="8" fill="#e3ebf2"/><text x="360" y="35" text-anchor="middle" font-weight="700" fill="#1f3a52">Hücre zarı fosfolipidleri</text>
+                        <path d="M360 48 L360 82" stroke="#1f3a52" stroke-width="2" marker-end="url(#arN)"/>
+                        <text x="348" y="70" text-anchor="end" fill="#3a4a57">fosfolipaz A2</text>
+                        <rect x="230" y="86" width="260" height="36" rx="8" fill="#e3ebf2"/><text x="360" y="109" text-anchor="middle" font-weight="700" fill="#1f3a52">Araşidonik asit</text>
+                        <path d="M330 122 L230 160" stroke="#1f3a52" stroke-width="2" marker-end="url(#arN)"/>
+                        <path d="M390 122 L500 160" stroke="#1f3a52" stroke-width="2" marker-end="url(#arN)"/>
+                        <text x="290" y="150" fill="#3a4a57">COX-1 / COX-2</text>
+                        <text x="500" y="140" fill="#3a4a57">lipoksijenaz</text>
+                        <rect x="60" y="164" width="300" height="36" rx="8" fill="#fbe9c9"/><text x="210" y="187" text-anchor="middle" font-weight="700" fill="#7a4b00">Prostaglandinler</text>
+                        <rect x="420" y="164" width="240" height="36" rx="8" fill="#fbe9c9"/><text x="540" y="187" text-anchor="middle" font-weight="700" fill="#7a4b00">Lökotrienler</text>
+                        <text x="210" y="222" text-anchor="middle" fill="#3a4a57">ödem, damar geçirgenliği, ağrı, ateş</text>
+                        <!-- steroid blok -->
+                        <rect x="500" y="56" width="200" height="30" rx="15" fill="#c0392b"/><text x="600" y="76" text-anchor="middle" font-weight="700" fill="#fff">STEROİD ✕</text>
+                        <path d="M500 71 L366 66" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+                        <text x="600" y="104" text-anchor="middle" font-size="11.5" fill="#c0392b">yolun başını ve sitokinleri</text>
+                        <text x="600" y="118" text-anchor="middle" font-size="11.5" fill="#c0392b">geniş çapta baskılar</text>
+                        <!-- NSAİİ blok -->
+                        <rect x="20" y="126" width="130" height="30" rx="15" fill="#e08a00"/><text x="85" y="146" text-anchor="middle" font-weight="700" fill="#fff">NSAİİ ✕</text>
+                        <path d="M150 141 L276 141" stroke="#e08a00" stroke-width="2" stroke-dasharray="5 4"/>
+                        <text x="360" y="252" text-anchor="middle" font-size="12" fill="#6a7a87">Fibrozu süren TGF-β, bFGF ve fibrin birikimi NSAİİ'lerin doğrudan hedefi değildir.</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: steroidler inflamasyonu çok daha geniş baskılar (fosfolipaz A2 ve sitokin yapımı). NSAİİ'ler yalnızca COX basamağını keser (kendi çizimimiz).</figcaption>
+            </figure>
+            <h3>Steroidler: net olarak olumsuz</h3>
+            <p>Sistemik kortikosteroidlerin güçlü antiinflamatuvar etkiyle plörodez başarısını <strong>azalttığı</strong> hem hayvan çalışmalarında hem klinik çalışmalarda gösterilmiştir. Bu nedenle mümkünse steroid plörodezden birkaç gün önce kesilir. Romatizmal hastalık gibi nedenlerle uzun süre kullanılıyorsa doz kısa süreliğine azaltılır.</p>
+            <h3>NSAİİ'ler: neden kaygı duyuldu?</h3>
+            <ul>
+                <li><strong>Teorik gerekçe:</strong> NSAİİ'ler COX enzimini, özellikle inflamasyonda artan COX-2'yi baskılar ve prostaglandin yapımını azaltır. Plörodezin dayandığı inflamasyon zayıflarsa kaynaşma da zayıflayabilir.</li>
+                <li><strong>Hayvan çalışmaları:</strong> Tavşan modellerinde <strong>diklofenak ve ketoprofenin</strong> talk plörodezinin etkinliğini azalttığı gösterildi. Kaygının asıl kaynağı bu çalışmalardır.</li>
+            </ul>
+            <h3>İnsanda en güçlü kanıt: TIME1 çalışması</h3>
+            <p>Malign plevral efüzyonlu <strong>320 hastada</strong> yapılan randomize faz III çalışmada (Rahman ve ark., <em>JAMA</em> 2015) iki soru aynı anda sorulmuştur:</p>
+            <div class="table-wrap"><table>
+                <tr><th>Karşılaştırma</th><th>Plörodez başarısızlığı (3. ay)</th><th>Ağrı</th></tr>
+                <tr><td><strong>NSAİİ (ibuprofen)</strong> ile <strong>opioid (morfin)</strong></td><td>%20 ile %22: NSAİİ daha kötü değil</td><td>Ağrı skorları benzer; NSAİİ grubunda ek (kurtarma) analjezik ihtiyacı daha fazla</td></tr>
+                <tr><td>12F ince tüp ile 24F kalın tüp</td><td>%30 ile %24: ince tüp daha başarısız</td><td>İnce tüpte ağrı biraz daha az</td></tr>
+            </table></div>
+            <p>Sonuç: Malign efüzyonda talk plörodezi sonrası analjezi için verilen NSAİİ, plörodez başarısını opioide göre anlamlı ölçüde azaltmadı. İnce tüple drenajda ise başarı düştü. Bu yüzden plörodez düşünülen malign efüzyonda çok ince kateterle drenaj tercih edilmez.</p>
+            <h3>Kılavuzlar ve kaynaklar ne diyor?</h3>
+            <ul>
+                <li><strong>TGCD (<em>Plevranın Malign Hastalıkları</em>):</strong> Daha temkinlidir. "Glukokortikoid ve NSAİİ tedavisi mümkünse plörodezden önce azaltılmalı veya kesilmeli" (kanıt düzeyi 2C). Daha fazla klinik çalışma olana kadar plörodez sonrası NSAİİ'lerin dikkatli kullanılması ve muhtemelen rutin önerilmemesi gerektiğini yazar.</li>
+                <li><strong>İngiliz Toraks Derneği (BTS) gibi güncel kılavuzlar:</strong> TIME1 sonrasında NSAİİ'lerin plörodez sonrası analjezide kullanılabileceğini kabul etme eğilimindedir.</li>
+            </ul>
+            <h3>Pnömotoraks hastasında durum farklı olabilir</h3>
+            <p>TIME1 <strong>malign efüzyonlu</strong> hastalarda yapılmıştır. Malign efüzyonda plevra zaten tümör nedeniyle inflamedir; ayrıca talk tümör hücreleri üzerinden ek etki gösterir. Pnömotoraks için plörodez yapılan genç hastanın plevrası ise sağlamdır ve kaynaşma tamamen işlemle oluşturulan inflamasyona bağlıdır. Bu nedenle NSAİİ'nin etkisi bu grupta daha belirgin olabilir. Ancak bu teorik bir kaygıdır ve bu soruyu yanıtlayan yeterli randomize çalışma yoktur. Bu yüzden birçok cerrah, pnömotoraks için plörodez yapılan hastada ilk günlerde NSAİİ'den kaçınmayı tercih eder.</p>
+            <div class="note">
+                <p><strong>Pratik bir yaklaşım (kurum protokolüne göre uyarlanmalıdır):</strong></p>
+                <ul>
+                    <li><strong>Steroid:</strong> Mümkünse kesilir veya azaltılır. Kanıt nettir.</li>
+                    <li><strong>Temel analjezi:</strong> Parasetamol. Plörodez başarısını azaltmaz.</li>
+                    <li><strong>Gerekirse:</strong> Opioid ve/veya rejyonel blok (paravertebral, interkostal ya da serratus blok). İşlemden hemen önce tüpten lidokain verilebilir: 3 mg/kg, en fazla 250 mg. Lidokain talkla aynı enjektörde verilmez.</li>
+                    <li><strong>NSAİİ:</strong> Malign efüzyonda kullanılabilir (TIME1). Pnömotoraks plörodezinde ilk günlerde kaçınmak yaygın ve temkinli bir tercihtir, ama kesin kontrendikasyon değildir.</li>
+                    <li><strong>Unutulmaması gereken:</strong> Ağrısı kontrol edilmeyen hasta derin nefes alamaz, akciğer tam genişlemez ve plörodez yine başarısız olur. Kötü analjezi de bir başarısızlık nedenidir.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 id="dekortikasyon"><span class="num">7</span>Fibrotoraks ve dekortikasyon</h2>
+            <h3>Fibrotoraks nasıl gelişir?</h3>
+            <p>Plevral boşlukta kalan kan, irin veya eksüda inflamatuvar bir yanıt başlatır. Fibrin birikir, ardından makrofaj ve fibroblastlar gelir. Visseral ve paryetal plevra kalınlaşır, akciğer bir kabuğun içinde hapsolur. Sonuçta akciğerin elastikiyeti ve göğüs duvarının hareketi bozulur. <strong>Restriktif</strong> solunum bozukluğu, V/Q uyumsuzluğu ve hipoksik vazokonstriksiyon gelişir. Hasta istirahatte normal olup eforla desatüre olabilir.</p>
+            <p><strong>En sık nedenler:</strong></p>
+            <ul>
+                <li>Ampiyem</li>
+                <li>Hemotoraks</li>
+                <li>İyi boşaltılmamış efüzyonlar</li>
+                <li>Tüberküloz plörezi</li>
+                <li>Kronik pnömotoraks</li>
+                <li>Asbest</li>
+                <li>Kollajen doku hastalıkları</li>
+                <li>Bazen terapötik plörodez</li>
+            </ul>
+            <h3>Tanı</h3>
+            <ul>
+                <li><strong>Grafi:</strong> Etkilenen tarafta interkostal aralıklar daralmış, mediasten aynı tarafa çekilmiş, diyafram yükselmiştir. Plevral kalsifikasyon görülebilir.</li>
+                <li><strong>BT:</strong> Kabuğun kalınlığını, yaygınlığını ve alttaki parankimin durumunu en iyi BT gösterir.</li>
+                <li><strong>Fonksiyonel değerlendirme:</strong> Solunum fonksiyon testi (restriktif patern), DLCO, kan gazı ve kantitatif perfüzyon sintigrafisi. Sintigrafi etkilenen tarafta perfüzyonun azaldığını gösterir.</li>
+            </ul>
+            <h3>Endikasyonlar ve zamanlama</h3>
+            <div class="table-wrap"><table>
+                <tr><th>Durum</th><th>Ne zaman?</th></tr>
+                <tr><td><strong>Ampiyem</strong> (organizasyon evresi)</td><td>Drenaj, antibiyotik, fibrinolitik ve VATS debridmanla düzelmeyen hastada. Fibrinopürülan evrede (yaklaşık 6 hafta dolmadan) VATS debridman genellikle yeterlidir; organize kabukta torakotomi ile dekortikasyon gerekir.</td></tr>
+                <tr><td><strong>Hemotoraks sonrası fibrotoraks</strong></td><td>Travmadan <strong>en az 6 hafta</strong> sonra. Bu sürede kabuk olgunlaşır ve diseksiyon planı belirginleşir. Pıhtılaşmış hemotoraksın erken boşaltılması ise ayrı bir konudur ve ilk günlerde VATS ile yapılır.</td></tr>
+                <tr><td><strong>Tüberküloz</strong></td><td>Tedaviye rağmen kalınlaşma sürüyorsa ve hemitoraksın 1/3–1/4'ünü tutuyorsa. Yaklaşık 3 aylık antitüberküloz tedaviyle balgam ve plevral sıvıda basil negatifleştikten sonra karar verilir.</td></tr>
+                <tr><td><strong>Semptomatik benign fibrotoraks</strong></td><td>Restriktif bozukluk ve nefes darlığı varsa</td></tr>
+                <tr><td><strong>Çocuklarda ampiyem</strong></td><td>Acele edilmez. Çocuklarda plevral reaksiyonun gerilemesi mükemmeldir; uygun drenaj ve medikal tedaviyle çoğu sekelsiz iyileşir. Ancak hemitoraks küçülüyor ve akciğer genişlemiyorsa beklenmeden yapılır, çünkü büyüme sırasında göğüs deformitesi ve kalıcı fonksiyon kaybı gelişebilir.</td></tr>
+            </table></div>
+            <h3>Kontrendikasyonlar</h3>
+            <ul>
+                <li>Ana bronş tıkanıklığı</li>
+                <li>Alttaki akciğerin harap olması: bu durumda dekortikasyon yerine rezeksiyon düşünülür</li>
+                <li>Kontrolsüz sepsis</li>
+                <li>Karşı akciğerin ciddi hastalığı</li>
+                <li>Kronik düşkünlük, eşlik eden organ yetmezlikleri</li>
+            </ul>
+            <div class="pearl"><p><strong>Başarının anahtarı alttaki akciğerdir.</strong> Kabuğun altındaki parankim sağlıklıysa akciğer dekortikasyondan sonra güzelce genişler. Ampiyemin nedeni akciğer apsesi, tıkayıcı tümör veya harap akciğerse dekortikasyon tek başına yetmez. Başarı oranı uygun hastada %87–100'dür.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="teknik"><span class="num">8</span>Dekortikasyon tekniği</h2>
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Dekortikasyon öncesi ve sonrası şeması">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <text x="180" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a52">Önce: hapsolmuş akciğer</text>
+                        <path d="M180 40 C 95 45, 50 140, 50 210 C 50 262, 90 278, 180 278 C 270 278, 310 262, 310 210 C 310 140, 265 45, 180 40 Z" fill="#e9d8c4" stroke="#b49a7a" stroke-width="2"/>
+                        <path d="M180 62 C 112 66, 75 145, 75 205 C 75 248, 108 260, 180 260 C 252 260, 285 248, 285 205 C 285 145, 248 66, 180 62 Z" fill="#c8ccd1"/>
+                        <path d="M180 82 C 128 86, 100 150, 102 200 C 104 232, 130 240, 180 240 C 230 240, 256 232, 258 200 C 260 150, 232 86, 180 82 Z" fill="#f8e3e0" stroke="#c98a83" stroke-width="1.5"/>
+                        <text x="180" y="170" text-anchor="middle" font-size="12" fill="#8a5a55">sıkışmış akciğer</text>
+                        <text x="180" y="290" text-anchor="middle" font-size="11.5" fill="#3a4a57">gri: visseral + paryetal kabuk</text>
+                        <path d="M360 160 L400 160" stroke="#1f3a52" stroke-width="3" marker-end="url(#arD)"/>
+                        <defs><marker id="arD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f3a52"/></marker></defs>
+                        <text x="540" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a52">Sonra: genişlemiş akciğer</text>
+                        <path d="M540 40 C 455 45, 410 140, 410 210 C 410 262, 450 278, 540 278 C 630 278, 670 262, 670 210 C 670 140, 625 45, 540 40 Z" fill="#e9d8c4" stroke="#b49a7a" stroke-width="2"/>
+                        <path d="M540 50 C 465 54, 420 145, 420 208 C 420 256, 455 268, 540 268 C 625 268, 660 256, 660 208 C 660 145, 615 54, 540 50 Z" fill="#f8e3e0" stroke="#2f6fa3" stroke-width="2"/>
+                        <text x="540" y="165" text-anchor="middle" font-size="12" fill="#8a5a55">göğüs duvarına temas eden akciğer</text>
+                        <g stroke="#1f3a52" stroke-width="5" stroke-linecap="round"><path d="M600 255 L640 205"/><path d="M470 110 L520 75"/></g>
+                        <text x="540" y="290" text-anchor="middle" font-size="11.5" fill="#3a4a57">çizgiler: apekse ve diyafram üstüne göğüs tüpleri</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: dekortikasyon öncesinde akciğer kalın kabuğun içinde sıkışmıştır. Kabuk soyulunca akciğer genişleyip göğüs duvarına temas eder (kendi çizimimiz).</figcaption>
+            </figure>
+            <ol class="rules">
+                <li><strong>Giriş:</strong> Çoğunlukla posterolateral torakotomi, seçilmiş hastada VATS. Alt lob ve diyaframı iyi görmek için genellikle 6. interkostal aralıktan girilir. Gerekirse kot rezeksiyonu yapılır.</li>
+                <li><strong>Ekartöre yer açma:</strong> Ekartör yerleştirilmeden önce plevral kabuk göğüs duvarından birkaç santimetre künt diseksiyonla ayrılır.</li>
+                <li><strong>Boşluğun temizlenmesi:</strong> Yapışıklıklar ayrılır, loküle alanlar boşaltılır, sıvı kültüre gönderilir.</li>
+                <li><strong>Visseral kabuğun soyulması:</strong> Kabuk, altındaki parlak visseral plevra görünene kadar dikkatle kesilir. Bulunan plan boyunca künt diseksiyonla ilerlenir. Anestezistten akciğeri <strong>şişirmesi</strong> istenir: şişik akciğerde kabuk daha kolay ayrılır.</li>
+                <li><strong>Paryetal taraf ve diyafram:</strong> Göğüs duvarının hareketi ve diyaframın serbestleşmesi için paryetal kalınlaşma ve diyafram üzerindeki kabuk da temizlenir.</li>
+                <li><strong>Hava kaçağı beklenir.</strong> Akciğer yüzeyinden hava kaçağı kaçınılmazdır, akciğer genişledikçe azalır. Parankimin ciddi yaralanacağı yerlerde kabuğun bir kısmını bırakmak daha doğrudur.</li>
+                <li><strong>Hemostaz:</strong> Göğüs duvarındaki yaygın sızıntılı kanama elektrokoterle kontrol edilir.</li>
+                <li><strong>Drenaj:</strong> İki tüp önden ve arkadan apekse doğru yerleştirilir, gerekirse üçüncüsü diyafram üstüne konur. Amaç hava kaçağını kontrol etmek ve akciğerin tam genişlemesini sağlamaktır.</li>
+            </ol>
+            <h3>Dekortikasyon mu, başka bir seçenek mi?</h3>
+            <ul>
+                <li><strong>Erken ampiyem (fibrinopürülan evre):</strong> Tüp, antibiyotik, intraplevral fibrinolitik ("kimyasal dekortikasyon") veya VATS debridman</li>
+                <li><strong>Dekortikasyonu kaldıramayacak hasta:</strong> Açık drenaj, örneğin kot rezeksiyonuyla Eloesser penceresi. Plevra yaprakları kaynaşmadan erken yapılırsa akciğer kollabe olabilir ve mortalite artar.</li>
+                <li><strong>Malign efüzyonda hapsolmuş akciğer:</strong> Plörodez başarısız olacağından genellikle kalıcı tünelli plevral kateter tercih edilir. Malign mezotelyomada plörektomi/dekortikasyon ayrı bir onkolojik ameliyattır.</li>
+            </ul>
+            <p class="see">İlgili sayfalar: <a href="plevral-efuzyon.html">Plevral Efüzyon</a> · <a href="bul-ve-hava-kistleri.html">Bül ve Hava Kistleri</a> · <a href="pnomotoraks.html">Pnömotoraks Vakaları</a></p>
+        </section>
+
+        <p class="source">Bu sayfa Türk Göğüs Cerrahisi Derneği e-kitapları <a href="https://tgcd.org.tr/e-kitaplar/" target="_blank" rel="noopener"><em>Plevranın Malign Hastalıkları</em></a> ("Malign Plevral Efüzyonlarda Plöredez ve Sonuçları" bölümü: ajanlar, etki mekanizması, analjezi, steroid ve NSAİİ, komplikasyonlar) ve <em>Her Yönüyle Plevra ve Hastalıkları</em> (fibrotoraks ve dekortikasyon, ampiyem, pnömotoraks cerrahisi, PET/BT'de talk tutulumu) ile Rahman NM ve ark. TIME1 çalışması (<em>JAMA</em> 2015;314:2641–53) esas alınarak hazırlanmıştır. İlaç ve dozlar eğitim amaçlıdır; uygulamada kurum protokolü ve güncel kılavuzlar esas alınmalıdır. Çizimler şematiktir.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
