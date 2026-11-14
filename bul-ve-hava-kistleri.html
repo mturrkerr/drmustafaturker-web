@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Bül ve Hava Kistleri - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+        .ct svg { background: #000; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Bül ve Hava Kistleri</h1>
+        <p class="lead">Akciğerde normal parankimin yerini alan, içi hava dolu ince duvarlı boşluklar; bleb, bül, kist ve pnömatosel adlarıyla anılır. Göğüs cerrahisinde önemlerinin başlıca nedeni, <strong>primer spontan pnömotoraksın en sık sebebi</strong> olmalarıdır. Bu sayfada nasıl oluştukları, <strong>neden özellikle akciğer apeksinde görüldükleri</strong>, solunum fizyolojisine etkileri ve BT bulguları anlatılıyor.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#tanim">Tanımlar: bleb, bül, kist, kavite</a></li>
+                <li><a href="#olusum">Nasıl oluşur?</a></li>
+                <li><a href="#apeks">Neden apekste? (önemli)</a></li>
+                <li><a href="#fizyopatoloji">Fizyopatoloji</a></li>
+                <li><a href="#nedenler">Risk faktörleri ve ilişkili hastalıklar</a></li>
+                <li><a href="#goruntuleme">Grafi ve BT bulguları</a></li>
+                <li><a href="#ayirim">Dev bül mü, pnömotoraks mı?</a></li>
+                <li><a href="#tedavi">Tedavi ilkeleri</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="tanim"><span class="num">1</span>Tanımlar: bleb, bül, kist, kavite</h2>
+            <p>Hepsi "hava dolu boşluk" olsa da yerleşimleri, duvar yapıları ve oluşum yolları farklıdır. Bu ayrım hem raporlamada hem de tedavi kararında önemlidir.</p>
+            <figure>
+                <svg viewBox="0 0 720 260" role="img" aria-label="Bleb, bül, kist ve kavitenin karşılaştırmalı şeması">
+                    <defs>
+                        <pattern id="alv" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="5" fill="none" stroke="#e3a8a1" stroke-width="1.2"/></pattern>
+                    </defs>
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" text-anchor="middle">
+                        <!-- 1 bleb -->
+                        <rect x="10" y="70" width="165" height="120" rx="6" fill="#f8e3e0"/><rect x="10" y="70" width="165" height="120" rx="6" fill="url(#alv)"/>
+                        <line x1="10" y1="70" x2="175" y2="70" stroke="#2f6fa3" stroke-width="3"/>
+                        <path d="M58 70 Q60 32 92 30 Q124 32 126 70 Z" fill="#fff" stroke="#2f6fa3" stroke-width="2"/>
+                        <text x="92" y="22" font-size="15" font-weight="700" fill="#1f3a52">Bleb</text>
+                        <text x="92" y="212" font-size="12" fill="#3a4a57">Visseral plevra katmanları</text>
+                        <text x="92" y="227" font-size="12" fill="#3a4a57">arasında, genellikle &lt;1–2 cm</text>
+                        <!-- 2 bul -->
+                        <rect x="190" y="70" width="165" height="120" rx="6" fill="#f8e3e0"/><rect x="190" y="70" width="165" height="120" rx="6" fill="url(#alv)"/>
+                        <line x1="190" y1="70" x2="355" y2="70" stroke="#2f6fa3" stroke-width="3"/>
+                        <circle cx="272" cy="122" r="46" fill="#fff" stroke="#7a8a97" stroke-width="1.2"/>
+                        <path d="M240 100 L262 130 M290 92 L282 140 M250 150 L300 130" stroke="#c9ced3" stroke-width="1"/>
+                        <text x="272" y="22" font-size="15" font-weight="700" fill="#1f3a52">Bül</text>
+                        <text x="272" y="212" font-size="12" fill="#3a4a57">Parankim içinde, &gt;1 cm,</text>
+                        <text x="272" y="227" font-size="12" fill="#3a4a57">kıl inceliğinde duvar (&lt;1 mm)</text>
+                        <!-- 3 kist -->
+                        <rect x="370" y="70" width="165" height="120" rx="6" fill="#f8e3e0"/><rect x="370" y="70" width="165" height="120" rx="6" fill="url(#alv)"/>
+                        <line x1="370" y1="70" x2="535" y2="70" stroke="#2f6fa3" stroke-width="3"/>
+                        <circle cx="452" cy="128" r="36" fill="#fff" stroke="#1f3a52" stroke-width="3.5"/>
+                        <text x="452" y="22" font-size="15" font-weight="700" fill="#1f3a52">Kist</text>
+                        <text x="452" y="212" font-size="12" fill="#3a4a57">Belirgin, düzgün duvar</text>
+                        <text x="452" y="227" font-size="12" fill="#3a4a57">(genellikle ≤2 mm)</text>
+                        <!-- 4 kavite -->
+                        <rect x="550" y="70" width="165" height="120" rx="6" fill="#f8e3e0"/><rect x="550" y="70" width="165" height="120" rx="6" fill="url(#alv)"/>
+                        <line x1="550" y1="70" x2="715" y2="70" stroke="#2f6fa3" stroke-width="3"/>
+                        <path d="M632 84 Q676 88 676 128 Q680 170 632 172 Q586 170 590 128 Q586 86 632 84 Z" fill="#c9b3ad" stroke="#8a6f68" stroke-width="2"/>
+                        <path d="M632 100 Q660 104 660 128 Q662 154 632 156 Q604 152 606 128 Q604 102 632 100 Z" fill="#fff"/>
+                        <text x="632" y="22" font-size="15" font-weight="700" fill="#1f3a52">Kavite</text>
+                        <text x="632" y="212" font-size="12" fill="#3a4a57">Kalın, düzensiz duvar (&gt;4 mm);</text>
+                        <text x="632" y="227" font-size="12" fill="#3a4a57">nekroz, apse, tümör, TB</text>
+                        <text x="360" y="252" font-size="11.5" fill="#6a7a87">Mavi çizgi: visseral plevra · pembe doku: alveoller</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: bleb, bül, kist ve kavitenin karşılaştırması (kendi çizimimiz).</figcaption>
+            </figure>
+            <div class="table-wrap"><table>
+                <tr><th>Terim</th><th>Tanım</th><th>Oluşum</th></tr>
+                <tr><td><strong>Bleb</strong></td><td>Visseral plevranın iç ve dış elastik katmanları arasında toplanmış hava; genellikle 1–2 cm'den küçük, akciğer yüzeyinde kabarcık gibi</td><td>Alveol yırtılır, hava interstisyum boyunca yüzeye ilerler ve plevranın altında birikir</td></tr>
+                <tr><td><strong>Bül</strong></td><td>Parankim içinde, 1 cm'den büyük, ince duvarlı hava boşluğu; duvarı sıkışmış ve harap olmuş alveol dokusudur</td><td>Amfizematöz yıkım: alveol duvarları yıkılır, komşu alveoller birleşir</td></tr>
+                <tr><td><strong>Dev bül</strong></td><td>Hemitoraksın en az üçte birini kaplayan bül</td><td>Bülün zaman içinde büyümesi (bkz. Laplace yasası)</td></tr>
+                <tr><td><strong>Kist</strong></td><td>Epitel veya fibröz dokuyla döşeli, belirgin ve düzgün duvarlı yuvarlak boşluk</td><td>LAM, Langerhans hücreli histiyositoz, Birt-Hogg-Dubé, LIP gibi kistik akciğer hastalıkları</td></tr>
+                <tr><td><strong>Pnömatosel</strong></td><td>İnce duvarlı, genellikle geçici hava boşluğu</td><td>Enfeksiyon (özellikle stafilokok, <em>Pneumocystis</em>) veya travma sonrası; çoğu kendiliğinden kaybolur</td></tr>
+                <tr><td><strong>Kavite</strong></td><td>Duvarı 4 mm'den kalın, çoğu zaman düzensiz boşluk</td><td>Nekrotizan enfeksiyon, apse, tüberküloz, tümör</td></tr>
+            </table></div>
+            <div class="pearl"><p><strong>Cerrahi pratik:</strong> Ameliyatta bleb, akciğer yüzeyinde şeffaf, ince ve parlak kabarcık olarak görülür. Bül ise parankimin içine gömülüdür ve aynı zamanda akciğer yüzeyine de kabarabilir. Raporlarda iki terim sık sık birbirinin yerine kullanılır. Pnömotoraks cerrahisinde hedef ikisi için de aynıdır: kaçak kaynağını bulup çıkarmak.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="olusum"><span class="num">2</span>Nasıl oluşur?</h2>
+            <p>Bleb ve büllerin oluşumunda birbirini besleyen üç ana mekanizma vardır:</p>
+            <h3>a) Alveol rüptürü ve interstisyel hava (bleb oluşumu)</h3>
+            <p>Alveol içi basınç ani olarak interstisyel basıncın üzerine çıkarsa (öksürük, ıkınma, derin nefes alıp tutma, ani basınç değişimi) gergin alveol duvarı yırtılır. Kaçan hava bronkovasküler kılıflar ve interlobüler septalar boyunca yüzeye doğru ilerler ve <strong>visseral plevranın altında toplanarak bleb oluşturur</strong>.</p>
+            <h3>b) Alveol duvarlarının yıkımı (bül oluşumu)</h3>
+            <p>Sigara dumanı gibi uyaranlar küçük hava yollarında ve alveollerde inflamasyon başlatır. Nötrofil ve makrofajlardan salınan <strong>elastaz ve metalloproteinazlar</strong>, normalde α1-antitripsin gibi antiproteazlarla dengelenir. Denge bozulduğunda elastik lifler sindirilir, alveol duvarları yıkılır ve komşu alveoller birleşerek büyük hava boşluklarına dönüşür. Duvarı sağlam tutan elastik ağ zayıfladıkça bu süreç hızlanır.</p>
+            <h3>c) Çek valf (sübap) mekanizması ve Laplace yasası</h3>
+            <p>İnflamasyon ve mukusla daralmış bir bronşiyol, nefes alırken genişlediği için havanın girmesine izin verir. Nefes verirken ise daralır ve havanın çıkışını engeller. Böylece distaldeki alan her solunumda biraz daha şişer.</p>
+            <p>Büyüme kendi kendini besler. <strong>Laplace yasasına</strong> göre (P = 2T / r) aynı basınç farkında yarıçapı büyük bir boşluğun duvarında daha fazla gerilim oluşur. Yani büyüyen bül daha kolay büyür ve sonunda çevresindeki sağlıklı akciğeri sıkıştırır.</p>
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Bleb ve bül oluşum mekanizmaları şeması">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <!-- A: bleb -->
+                        <text x="175" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#1f3a52">A. Alveol rüptürü → bleb</text>
+                        <rect x="20" y="70" width="310" height="190" rx="8" fill="#f8e3e0"/>
+                        <line x1="20" y1="70" x2="330" y2="70" stroke="#2f6fa3" stroke-width="3"/>
+                        <g fill="#fff" stroke="#e3a8a1" stroke-width="2">
+                            <circle cx="70" cy="215" r="20"/><circle cx="112" cy="225" r="18"/><circle cx="92" cy="185" r="17"/><circle cx="135" cy="192" r="16"/>
+                        </g>
+                        <circle cx="160" cy="220" r="20" fill="#fff" stroke="#c0392b" stroke-width="2" stroke-dasharray="40 10"/>
+                        <text x="160" y="226" text-anchor="middle" font-size="16" fill="#c0392b">✱</text>
+                        <path d="M178 208 C 210 180, 220 140, 240 90" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ar1)"/>
+                        <defs><marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c0392b"/></marker>
+                              <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f3a52"/></marker></defs>
+                        <path d="M212 70 Q214 38 246 36 Q278 38 280 70 Z" fill="#fff" stroke="#2f6fa3" stroke-width="2"/>
+                        <text x="246" y="58" text-anchor="middle" font-size="12" font-weight="700" fill="#1f3a52">bleb</text>
+                        <text x="160" y="256" text-anchor="middle" font-size="12" fill="#c0392b">yırtılan alveol</text>
+                        <text x="262" y="160" font-size="12" fill="#3a4a57">interstisyel</text>
+                        <text x="262" y="175" font-size="12" fill="#3a4a57">hava yolu</text>
+                        <text x="24" y="62" font-size="11" fill="#2f6fa3">visseral plevra</text>
+                        <!-- B: bul -->
+                        <text x="545" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#1f3a52">B. Yıkım + çek valf → bül</text>
+                        <rect x="390" y="70" width="310" height="190" rx="8" fill="#f8e3e0"/>
+                        <path d="M390 165 L455 165" stroke="#1f3a52" stroke-width="16" stroke-linecap="round"/>
+                        <path d="M390 165 L455 165" stroke="#f3c2bb" stroke-width="6"/>
+                        <path d="M455 158 Q470 165 455 172" fill="#e08a00"/>
+                        <text x="420" y="145" text-anchor="middle" font-size="11.5" fill="#3a4a57">(daralmış)</text>
+                        <text x="420" y="132" text-anchor="middle" font-size="11.5" fill="#3a4a57">bronşiyol</text>
+                        <path d="M400 192 L450 192" stroke="#1f3a52" stroke-width="2.5" marker-end="url(#ar2)"/>
+                        <text x="425" y="210" text-anchor="middle" font-size="11.5" fill="#1f3a52">inspiryum: girer</text>
+                        <path d="M450 232 L415 232" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="5 4"/>
+                        <text x="432" y="236" text-anchor="middle" font-size="18" fill="#c0392b">✕</text>
+                        <text x="425" y="252" text-anchor="middle" font-size="11.5" fill="#c0392b">ekspiryum: çıkamaz</text>
+                        <circle cx="580" cy="165" r="70" fill="#fff" stroke="#7a8a97" stroke-width="1.2"/>
+                        <path d="M528 140 L560 160 M600 112 L590 170 M545 205 L615 180 M620 140 L640 150" stroke="#d3c7c4" stroke-width="1.5"/>
+                        <g fill="#fff" stroke="#e3a8a1" stroke-width="1.5"><circle cx="672" cy="90" r="11"/><circle cx="680" cy="240" r="11"/><circle cx="500" cy="96" r="10"/></g>
+                        <text x="580" y="170" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">bül</text>
+                        <text x="580" y="188" text-anchor="middle" font-size="11" fill="#6a7a87">yıkılmış septa kalıntıları</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: (A) yüzeye ilerleyen interstisyel hava visseral plevra altında bleb oluşturur; (B) duvar yıkımı ve çek valf mekanizmasıyla bül büyür (kendi çizimimiz).</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="apeks"><span class="num">3</span>Neden özellikle apekste?</h2>
+            <p class="tag">Önemli</p>
+            <p>Primer spontan pnömotorakslı hastaların ameliyatında bleb ve büller çok büyük oranda <strong>üst lobun apikal segmentinde</strong>, ikinci sıklıkta da <strong>alt lobun süperior (apikal) segmentinde</strong> bulunur. Bunun tek bir nedeni yoktur. Aşağıdaki etkenler aynı bölgede üst üste biner:</p>
+
+            <h3>1. Plevral basınç apekste çok daha negatiftir</h3>
+            <p>Ayakta duran bir insanda akciğer kendi ağırlığıyla aşağı doğru sarkar. Bu nedenle plevral basınç her yerde aynı değildir. Bazalde yaklaşık −2 ila −2,5 cmH₂O iken apekste yaklaşık −10 cmH₂O'ya kadar iner. Yukarıdan aşağıya her santimetrede yaklaşık 0,25 cmH₂O azalır.</p>
+            <p>Alveolü açık tutan <strong>transpulmoner basınç</strong> (alveol basıncı − plevral basınç) bu yüzden apekste çok daha yüksektir. Sonuçta apeks alveolleri:</p>
+            <ul>
+                <li>istirahatte bile <strong>daha büyük</strong> ve <strong>daha gergindir</strong>,</li>
+                <li>duvarlarında <strong>sürekli yüksek mekanik stres</strong> taşır,</li>
+                <li>basınç-hacim eğrisinin düz üst kısmında çalıştıkları için her nefeste az genişler. Bu nedenle ventilasyonları bazale göre daha azdır.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 720 400" role="img" aria-label="Ayakta akciğerde apeksten bazale plevral basınç, alveol büyüklüğü ve kan akımı farkı">
+                    <defs>
+                        <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#f6d3cf"/></linearGradient>
+                        <linearGradient id="qg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6e4f0"/><stop offset="1" stop-color="#1f3a52"/></linearGradient>
+                    </defs>
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <!-- akciğer silueti -->
+                        <path d="M255 42 C 300 42, 338 100, 352 180 C 364 250, 368 320, 364 362 Q 258 308, 150 368 C 140 300, 150 200, 178 125 C 198 72, 222 42, 255 42 Z" fill="#fbecea" stroke="#c98a83" stroke-width="2"/>
+                        <!-- alveoller: üstte büyük, altta küçük -->
+                        <g fill="#fff" stroke="#c0392b" stroke-width="1.8">
+                            <circle cx="245" cy="80" r="17"/><circle cx="282" cy="92" r="16"/>
+                            <circle cx="215" cy="150" r="13"/><circle cx="250" cy="150" r="13"/><circle cx="285" cy="152" r="13"/><circle cx="318" cy="158" r="12"/>
+                            <circle cx="195" cy="225" r="10"/><circle cx="222" cy="225" r="10"/><circle cx="249" cy="225" r="10"/><circle cx="276" cy="225" r="10"/><circle cx="303" cy="225" r="10"/><circle cx="330" cy="226" r="10"/>
+                            <circle cx="180" cy="292" r="7.5"/><circle cx="200" cy="292" r="7.5"/><circle cx="220" cy="292" r="7.5"/><circle cx="240" cy="292" r="7.5"/><circle cx="260" cy="292" r="7.5"/><circle cx="280" cy="292" r="7.5"/><circle cx="300" cy="292" r="7.5"/><circle cx="320" cy="292" r="7.5"/><circle cx="340" cy="292" r="7.5"/>
+                            <circle cx="190" cy="322" r="6.5"/><circle cx="207" cy="322" r="6.5"/><circle cx="224" cy="322" r="6.5"/><circle cx="241" cy="322" r="6.5"/><circle cx="258" cy="322" r="6.5"/><circle cx="275" cy="322" r="6.5"/><circle cx="292" cy="322" r="6.5"/><circle cx="309" cy="322" r="6.5"/><circle cx="326" cy="322" r="6.5"/><circle cx="343" cy="322" r="6.5"/>
+                        </g>
+                        <text x="245" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#c0392b">APEKS</text>
+                        <text x="255" y="392" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a52">BAZAL</text>
+                        <!-- plevral basınç ölçeği -->
+                        <rect x="400" y="50" width="26" height="310" rx="6" fill="url(#pg)"/>
+                        <text x="413" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#3a4a57">Plevral basınç</text>
+                        <text x="434" y="68" font-size="13" font-weight="700" fill="#c0392b">≈ −10 cmH₂O</text>
+                        <text x="434" y="358" font-size="13" font-weight="700" fill="#3a4a57">≈ −2,5 cmH₂O</text>
+                        <!-- kan akımı ölçeği -->
+                        <rect x="560" y="50" width="26" height="310" rx="6" fill="url(#qg)"/>
+                        <text x="573" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#3a4a57">Kan akımı</text>
+                        <text x="594" y="68" font-size="13" font-weight="700" fill="#3a4a57">en az</text>
+                        <text x="594" y="358" font-size="13" font-weight="700" fill="#1f3a52">en fazla</text>
+                        <!-- açıklamalar -->
+                        <text x="40" y="96" font-size="12" fill="#3a4a57">büyük, gergin</text>
+                        <text x="40" y="111" font-size="12" fill="#3a4a57">alveoller</text>
+                        <text x="40" y="320" font-size="12" fill="#3a4a57">küçük, iyi</text>
+                        <text x="40" y="335" font-size="12" fill="#3a4a57">ventile alveoller</text>
+                        <text x="434" y="205" font-size="12" fill="#3a4a57">her cm'de</text>
+                        <text x="434" y="220" font-size="12" fill="#3a4a57">≈ 0,25 cmH₂O</text>
+                        <text x="594" y="205" font-size="12" fill="#3a4a57">yerçekimi</text>
+                        <text x="594" y="220" font-size="12" fill="#3a4a57">(West zonları)</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: ayakta duran kişide apeksten bazale doğru plevral basınç, alveol büyüklüğü ve kan akımı. Apeks alveolleri büyük, gergin ve kanlanması zayıftır (kendi çizimimiz).</figcaption>
+            </figure>
+
+            <h3>2. Uzun boylu ve zayıf kişilerde fark daha da büyür</h3>
+            <p>Basınç farkı akciğerin dikey boyuyla orantılıdır. Uzun ve dar göğüs kafesinde apeks ile baz arasındaki toplam fark artar, apeksteki mekanik stres de büyür. Primer spontan pnömotoraksın tipik hastasının <strong>uzun boylu, zayıf, genç erkek</strong> olmasının ana açıklamalarından biri budur. Bir başka görüşe göre ergenlikteki hızlı boy uzaması sırasında göğüs kafesi akciğerden hızlı büyür ve apeks daha da gerilir. Bu henüz bir hipotezdir.</p>
+            <p>Mühendislik modellerinde, kubbe şeklindeki apeksin tepesinde gerilimin yoğunlaştığı gösterilmiştir. Bu, bir balonun en ince ve en gergin yerinden patlamasına benzer.</p>
+
+            <h3>3. Apeksin kanlanması zayıftır</h3>
+            <p>Ayakta pulmoner arter basıncı apekse ancak zorlukla ulaşır (West zon 1–2), bu yüzden apeks bölgesinde kan akımı en azdır. Ventilasyon/perfüzyon oranı yüksektir. Bunun sonuçları:</p>
+            <ul>
+                <li>Alveol duvarına giden oksijen ve besin desteği azdır. Göreceli bir <strong>iskemi</strong> duvarın onarımını zayıflatır.</li>
+                <li>Doku hasarını sınırlayan antiproteazlar ve onarım hücreleri bölgeye daha az taşınır.</li>
+            </ul>
+
+            <h3>4. Temizlenme (klirens) apekste daha yavaştır</h3>
+            <p>Apeksin ventilasyonu ve solunum hareketi daha az olduğu için lenfatik drenaj ve mukosiliyer temizlik burada daha yavaştır. Solunan sigara ve esrar dumanının partikülleri ile inflamatuvar hücreler apekste daha uzun süre kalır. Sigaraya bağlı <strong>sentrilobüler amfizemin üst loblarda baskın</strong> olması da aynı nedene bağlanır. Bu bölgede biriken inflamasyon, proteaz-antiproteaz dengesini duvar yıkımı yönünde bozar.</p>
+
+            <h3>5. Plevral porozite apekste yoğunlaşır</h3>
+            <p>Hastaların bir kısmında görünür bir bleb rüptürü olmadan da hava kaçar. Ameliyat materyallerinde visseral plevranın mezotel tabakasında soyulmalar ve onun yerini alan gözenekli, elastofibrotik bir doku gösterilmiştir. Bu "porozite" alanları da apikal bölgede yoğunlaşır. Bu nedenle pnömotoraks cerrahisinde apeks dikkatle incelenir. Plörektomi ve abrazyon da en çok apikal bölgeye uygulanır.</p>
+
+            <div class="note">
+                <p><strong>Özetle apeks:</strong> en negatif plevral basınç, en gergin alveoller, en yüksek duvar stresi, en zayıf kanlanma ve en yavaş temizlik aynı yerde toplanır. Bu yüzden bleb ve büller en çok burada oluşur. Ayakta yapılan grafide pnömotoraks havasının da ilk olarak apekste toplanması ayrı bir konudur: bu, havanın yukarı yükselmesinden kaynaklanır.</p>
+            </div>
+
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Basınç-hacim eğrisinde apeks ve baz alveollerinin konumu">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <line x1="90" y1="250" x2="660" y2="250" stroke="#3a4a57" stroke-width="2"/>
+                        <line x1="90" y1="250" x2="90" y2="30" stroke="#3a4a57" stroke-width="2"/>
+                        <text x="375" y="285" text-anchor="middle" font-size="13" fill="#3a4a57">Transpulmoner basınç (alveolü açık tutan basınç) →</text>
+                        <text x="40" y="140" text-anchor="middle" font-size="13" fill="#3a4a57" transform="rotate(-90 40 140)">Alveol hacmi →</text>
+                        <path d="M95 240 C 200 236, 240 200, 300 140 C 360 80, 430 58, 640 50" fill="none" stroke="#1f3a52" stroke-width="3"/>
+                        <circle cx="270" cy="170" r="9" fill="#1f3a52"/>
+                        <text x="285" y="195" font-size="13" font-weight="700" fill="#1f3a52">Baz</text>
+                        <text x="285" y="211" font-size="12" fill="#3a4a57">dik bölge: küçük basınç</text>
+                        <text x="285" y="226" font-size="12" fill="#3a4a57">değişimi = büyük hacim değişimi</text>
+                        <circle cx="560" cy="53" r="9" fill="#c0392b"/>
+                        <text x="545" y="85" text-anchor="end" font-size="13" font-weight="700" fill="#c0392b">Apeks</text>
+                        <text x="545" y="101" text-anchor="end" font-size="12" fill="#3a4a57">düz bölge: alveol zaten gergin,</text>
+                        <text x="545" y="116" text-anchor="end" font-size="12" fill="#3a4a57">her nefeste az genişler,</text>
+                        <text x="545" y="131" text-anchor="end" font-size="12" fill="#3a4a57">duvar gerilimi sürekli yüksek</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: akciğer basınç-hacim eğrisi. Apeks alveolleri eğrinin üst, düz kısmında çalışır (kendi çizimimiz).</figcaption>
+            </figure>
+            <div class="pearl"><p><strong>Karşılaştırma için güzel bir istisna:</strong> α1-antitripsin eksikliğinde amfizem <strong>bazallerde</strong> (panlobüler) baskındır. Bu hastalıkta sorun dışarıdan gelen partikül değil, kandaki koruyucu enzimin eksikliğidir. Kanla taşınan nötrofil elastazı en çok kan akımının fazla olduğu bazallere ulaşır. Hasarın yeri, hasarı getiren yolu izler: dumanla gelen hasar apekse, kanla gelen hasar bazale yerleşir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="fizyopatoloji"><span class="num">4</span>Fizyopatoloji</h2>
+            <h3>a) Pnömotoraks gelişimi</h3>
+            <p>Pnömotoraksın temel mekanizması, transpulmoner basınçtaki artışa eşlik eden bir visseral plevra defektidir. Alveol içi basınç interstisyel basıncın üzerine çıktığında incelmiş bleb veya bül duvarı yırtılır ve hava plevral boşluğa geçer. Plevral basınç atmosfer basıncına yaklaştıkça akciğer kendi elastik geri çekim gücüyle söner.</p>
+            <ul>
+                <li>Primer spontan pnömotoraks çoğunlukla <strong>istirahatte</strong> başlar. Ağır efor şart değildir.</li>
+                <li>Bleb ve büller genellikle iki taraflıdır. Karşı akciğerde de bulunmaları, karşı tarafta da pnömotoraks gelişebileceğini açıklar.</li>
+                <li>Ameliyatta görünür bleb yoksa kaçağın kaynağı plevral porozite olabilir.</li>
+            </ul>
+            <h3>b) Büyük ve dev büllerin solunum fizyolojisine etkisi</h3>
+            <ul>
+                <li><strong>Ölü boşluk:</strong> Bül gaz değişimine katılmaz ama her nefeste hacim kaplar. Bül hiç ventile olmasa bile çevre dokuyu sıkıştırdığı için zararlıdır.</li>
+                <li><strong>Komşu parankimin sıkışması:</strong> Büyüyen bül çevresindeki sağlıklı ve daha iyi çalışan akciğeri ezer (kompresyon atelektazisi). Bu alanlarda perfüzyon sürerken ventilasyon azalır. V/Q uyumsuzluğu ve hipoksemi gelişir.</li>
+                <li><strong>Hiperinflasyon:</strong> Göğüs kafesi genişler, diyafram düzleşir, solunum kaslarının mekanik avantajı azalır ve solunum işi artar.</li>
+                <li><strong>Hava hapsi:</strong> Çek valf mekanizması nedeniyle bül her solunumla biraz daha büyüyebilir. Laplace yasası gereği büyüdükçe büyümesi kolaylaşır.</li>
+                <li><strong>Basınç değişimleri (Boyle yasası):</strong> Uçak yolculuğunda ya da dalışta dış basınç değişince kapalı hava boşluğunun hacmi de değişir. Kabin basıncı düşük olduğunda bül genişler ve rüptür riski teorik olarak artar. Büllü hastaların dalış yapmaması önerilir.</li>
+            </ul>
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Dev bülün komşu akciğeri sıkıştırması şeması">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <path d="M200 30 C 120 40, 80 140, 80 200 C 80 245, 120 255, 200 255 C 280 255, 320 245, 320 200 C 320 120, 280 30, 200 30 Z" fill="#fbecea" stroke="#c98a83" stroke-width="2"/>
+                        <text x="200" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">Normal</text>
+                        <g fill="#fff" stroke="#e3a8a1" stroke-width="1.5">
+                            <circle cx="160" cy="90" r="10"/><circle cx="200" cy="80" r="10"/><circle cx="240" cy="95" r="10"/><circle cx="140" cy="140" r="10"/><circle cx="180" cy="135" r="10"/><circle cx="220" cy="135" r="10"/><circle cx="260" cy="140" r="10"/><circle cx="130" cy="190" r="10"/><circle cx="170" cy="190" r="10"/><circle cx="210" cy="190" r="10"/><circle cx="250" cy="190" r="10"/><circle cx="290" cy="195" r="10"/><circle cx="150" cy="230" r="10"/><circle cx="195" cy="232" r="10"/><circle cx="240" cy="232" r="10"/>
+                        </g>
+                        <path d="M520 30 C 440 40, 400 140, 400 200 C 400 245, 440 255, 520 255 C 600 255, 640 245, 640 200 C 640 120, 600 30, 520 30 Z" fill="#fbecea" stroke="#c98a83" stroke-width="2"/>
+                        <text x="520" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">Dev bül</text>
+                        <defs><clipPath id="lungclip"><path d="M520 30 C 440 40, 400 140, 400 200 C 400 245, 440 255, 520 255 C 600 255, 640 245, 640 200 C 640 120, 600 30, 520 30 Z"/></clipPath></defs>
+                        <circle cx="520" cy="95" r="92" fill="#fff" stroke="#7a8a97" stroke-width="2" clip-path="url(#lungclip)"/>
+                        <text x="520" y="105" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a52">bül</text>
+                        <text x="520" y="123" text-anchor="middle" font-size="11.5" fill="#6a7a87">gaz değişimi yok</text>
+                        <g fill="#f2c8c2" stroke="#c0392b" stroke-width="1.2">
+                            <ellipse cx="440" cy="205" rx="10" ry="5"/><ellipse cx="470" cy="215" rx="10" ry="5"/><ellipse cx="500" cy="222" rx="10" ry="5"/><ellipse cx="530" cy="224" rx="10" ry="5"/><ellipse cx="560" cy="222" rx="10" ry="5"/><ellipse cx="590" cy="215" rx="10" ry="5"/><ellipse cx="618" cy="205" rx="10" ry="5"/>
+                            <ellipse cx="462" cy="238" rx="10" ry="5"/><ellipse cx="495" cy="243" rx="10" ry="5"/><ellipse cx="530" cy="245" rx="10" ry="5"/><ellipse cx="565" cy="243" rx="10" ry="5"/><ellipse cx="598" cy="238" rx="10" ry="5"/>
+                        </g>
+                        <path d="M520 186 L520 201" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar3)"/>
+                        <defs><marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c0392b"/></marker></defs>
+                        <text x="520" y="285" text-anchor="middle" font-size="12" fill="#c0392b">sıkışmış, az havalanan sağlıklı doku</text>
+                        <text x="200" y="285" text-anchor="middle" font-size="12" fill="#3a4a57">eşit havalanan alveoller</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: dev bül çevresindeki sağlıklı parankimi sıkıştırır. Bülektomi bu dokunun yeniden açılmasını sağlar (kendi çizimimiz).</figcaption>
+            </figure>
+            <h3>c) Diğer komplikasyonlar</h3>
+            <ul>
+                <li><strong>Enfeksiyon:</strong> Bül içinde hava-sıvı seviyesi oluşabilir. Apseden ayırt edilmesi gerekir; bülün duvarı incedir ve hasta çoğunlukla daha az hastadır.</li>
+                <li><strong>Kanama:</strong> Bül içine kanama hemoptizi veya ani büyüme ile kendini gösterebilir.</li>
+                <li><strong>Kanser:</strong> Bül duvarında akciğer kanseri gelişme riski artmıştır. Bül duvarında yeni kalınlaşma veya nodül görülürse dikkatle izlenmelidir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="nedenler"><span class="num">5</span>Risk faktörleri ve ilişkili hastalıklar</h2>
+            <div class="table-wrap"><table>
+                <tr><th>Durum</th><th>Tipik yerleşim ve özellik</th></tr>
+                <tr><td><strong>Sigara</strong> (en önemli risk faktörü)</td><td>Üst lob, apikal bleb ve büller; sentrilobüler ve paraseptal amfizem</td></tr>
+                <tr><td><strong>Esrar (kanabis)</strong></td><td>Genç yaşta, üst lob ve subplevral yerleşimli büyük paraseptal büller. Derin çekip nefes tutma alışkanlığı alveol basıncını artırır.</td></tr>
+                <tr><td><strong>Uzun boylu, zayıf fenotip</strong>; düşük vücut kitle indeksi (&lt;18,5), anoreksiya</td><td>Apikal blebler, primer spontan pnömotoraks</td></tr>
+                <tr><td><strong>KOAH / amfizem</strong></td><td>Yaygın bül, dev bül; sekonder spontan pnömotoraksın en sık nedeni</td></tr>
+                <tr><td><strong>α1-antitripsin eksikliği</strong></td><td>Alt loblarda baskın panlobüler amfizem</td></tr>
+                <tr><td><strong>Marfan, Ehlers-Danlos, homosistinüri</strong></td><td>Bağ dokusu zayıflığı; apikal bül ve pnömotoraks eğilimi</td></tr>
+                <tr><td><strong>Birt-Hogg-Dubé sendromu</strong> (FLCN gen mutasyonu)</td><td>Alt loblarda, mediastinal plevraya komşu, oval kistler; ailede pnömotoraks ve böbrek tümörü öyküsü</td></tr>
+                <tr><td><strong>Lenfanjiyoleiomiyomatozis (LAM)</strong></td><td>Genç kadın, akciğerde yaygın, düzgün duvarlı kistler; tekrarlayan pnömotoraks, şilotoraks</td></tr>
+                <tr><td><strong>Langerhans hücreli histiyositoz</strong></td><td>Sigara içen genç erişkin, üst ve orta zonlarda tuhaf şekilli kistler ve nodüller; kostofrenik açılar korunur</td></tr>
+                <tr><td><strong><em>Pneumocystis</em> pnömonisi, HIV</strong></td><td>Üst lob ağırlıklı pnömatoseller, pnömotoraks</td></tr>
+                <tr><td><strong>Damar içi ilaç kullanımı</strong></td><td>Talk granülomatozu; üst lob büllöz değişiklikler</td></tr>
+            </table></div>
+        </section>
+
+        <section class="card">
+            <h2 id="goruntuleme"><span class="num">6</span>Grafi ve BT bulguları</h2>
+            <h3>Akciğer grafisi</h3>
+            <ul>
+                <li>Bül; damar gölgesi içermeyen (avasküler), ince ve kıl gibi duvarlı, yuvarlak bir radyolüsen alan olarak görülür.</li>
+                <li>Küçük apikal bleblerin çoğu grafide <strong>görülemez</strong>. Normal grafi bleb olmadığı anlamına gelmez.</li>
+                <li>Dev bül komşu akciğeri sıkıştırır, damar gölgelerini kenara iter ve hemitoraksın şişkin görünmesine yol açabilir.</li>
+            </ul>
+            <h3>Toraks BT</h3>
+            <p>BT, bül ve blebleri göstermede altın standarttır. Sayısını, büyüklüğünü, yerini ve karşı akciğerin durumunu gösterir. İnce kesit ve akciğer penceresinde değerlendirilir.</p>
+            <ul>
+                <li><strong>Bleb:</strong> Plevranın hemen altında, genellikle 1–2 cm'den küçük, kümeler hâlinde hava kesecikleri</li>
+                <li><strong>Paraseptal amfizem / bül:</strong> Plevraya ve septalara dayanan, tek sıra hâlinde dizilmiş hava boşlukları</li>
+                <li><strong>Bül:</strong> 1 cm'den büyük, damar içermeyen, çok ince duvarlı hava alanı; içinde ince septa kalıntıları olabilir</li>
+                <li>Değerlendirilecekler: iki taraflı olup olmadığı, en büyüğünün boyutu, çevre parankimin sıkışıp sıkışmadığı, duvarda nodül veya kalınlaşma olup olmadığı</li>
+            </ul>
+            <figure class="ct">
+                <svg viewBox="0 0 720 440" role="img" aria-label="Akciğer apeksi düzeyinde aksiyel BT şeması: iki taraflı apikal subplevral bleb ve paraseptal bül">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <!-- vücut -->
+                        <ellipse cx="360" cy="225" rx="300" ry="165" fill="#5c5c5c"/>
+                        <ellipse cx="360" cy="228" rx="282" ry="148" fill="#727272"/>
+                        <!-- kotlar -->
+                        <g fill="none" stroke="#e8e8e8" stroke-width="7" stroke-linecap="round">
+                            <path d="M150 120 Q105 160 95 220"/><path d="M95 255 Q102 300 135 335"/>
+                            <path d="M570 120 Q615 160 625 220"/><path d="M625 255 Q618 300 585 335"/>
+                        </g>
+                        <!-- akciğerler (apeks düzeyi) -->
+                        <path d="M318 112 C 260 95, 175 110, 128 165 C 98 205, 100 275, 140 318 C 180 352, 255 352, 300 330 C 322 300, 326 240, 322 190 C 320 160, 322 130, 318 112 Z" fill="#141414"/>
+                        <path d="M402 112 C 460 95, 545 110, 592 165 C 622 205, 620 275, 580 318 C 540 352, 465 352, 420 330 C 398 300, 394 240, 398 190 C 400 160, 398 130, 402 112 Z" fill="#141414"/>
+                        <!-- damar noktaları -->
+                        <g fill="#5a5a5a">
+                            <circle cx="250" cy="230" r="3"/><circle cx="220" cy="270" r="2.5"/><circle cx="275" cy="290" r="2.5"/><circle cx="200" cy="215" r="2"/><circle cx="285" cy="250" r="2"/><circle cx="240" cy="315" r="2"/><circle cx="170" cy="290" r="2"/>
+                            <circle cx="470" cy="235" r="3"/><circle cx="500" cy="275" r="2.5"/><circle cx="445" cy="290" r="2.5"/><circle cx="520" cy="215" r="2"/><circle cx="435" cy="250" r="2"/><circle cx="480" cy="315" r="2"/><circle cx="550" cy="290" r="2"/>
+                        </g>
+                        <!-- mediasten: trakea, özofagus, damarlar -->
+                        <circle cx="360" cy="185" r="20" fill="#000" stroke="#9a9a9a" stroke-width="3"/>
+                        <circle cx="372" cy="225" r="9" fill="#3c3c3c"/>
+                        <circle cx="330" cy="145" r="13" fill="#8c8c8c"/><circle cx="392" cy="140" r="11" fill="#8c8c8c"/><circle cx="405" cy="170" r="9" fill="#8c8c8c"/>
+                        <!-- vertebra -->
+                        <path d="M325 300 Q360 270 395 300 L392 335 Q360 350 328 335 Z" fill="#ededed"/>
+                        <circle cx="360" cy="356" r="13" fill="#555"/>
+                        <path d="M330 345 L300 352 M390 345 L420 352" stroke="#ededed" stroke-width="9" stroke-linecap="round"/>
+                        <!-- sternum -->
+                        <rect x="340" y="68" width="40" height="16" rx="6" fill="#e0e0e0"/>
+                        <!-- sağ apeks (görüntünün solu): subplevral bleb kümesi -->
+                        <g fill="#000" stroke="#cfcfcf" stroke-width="1.3">
+                            <circle cx="182" cy="140" r="15"/><circle cx="207" cy="126" r="12"/><circle cx="158" cy="160" r="11"/><circle cx="231" cy="118" r="9"/>
+                        </g>
+                        <!-- sol apeks (görüntünün sağı): büyük paraseptal bül -->
+                        <path d="M498 118 C 540 112, 585 140, 590 178 C 595 212, 565 228, 530 222 C 495 216, 478 190, 480 160 C 482 135, 488 120, 498 118 Z" fill="#000" stroke="#d6d6d6" stroke-width="1.3"/>
+                        <path d="M520 140 L545 200 M560 150 L540 205" stroke="#2c2c2c" stroke-width="1"/>
+                        <!-- etiketler -->
+                        <g font-size="13" fill="#ffd166" font-weight="700">
+                            <path d="M150 128 L80 72" stroke="#ffd166" stroke-width="1.5"/><text x="20" y="62">Subplevral bleb kümesi</text>
+                            <path d="M575 150 L640 80" stroke="#ffd166" stroke-width="1.5"/><text x="560" y="66">Paraseptal bül</text>
+                            <path d="M260 250 L200 405" stroke="#9ad1ff" stroke-width="1.5"/><text x="120" y="422" fill="#9ad1ff">Normal parankim (damar noktaları)</text>
+                            <path d="M360 205 L460 405" stroke="#9ad1ff" stroke-width="1.5"/><text x="430" y="422" fill="#9ad1ff">Trakea</text>
+                        </g>
+                        <text x="30" y="225" font-size="15" font-weight="700" fill="#fff">R</text>
+                        <text x="680" y="225" font-size="15" font-weight="700" fill="#fff">L</text>
+                    </g>
+                </svg>
+                <figcaption>Şematik BT (akciğer penceresi), apeks düzeyinde aksiyel kesit. Görüntünün solu hastanın sağıdır. Sağ apekste plevraya dayalı küçük bleb kümesi, sol apekste septa kalıntıları içeren paraseptal bül (kendi çizimimiz, gerçek hasta görüntüsü değildir).</figcaption>
+            </figure>
+        </section>
+
+        <section class="card">
+            <h2 id="ayirim"><span class="num">7</span>Dev bül mü, pnömotoraks mı?</h2>
+            <p>Grafide geniş, avasküler bir alan görüldüğünde dev bül ile pnömotoraksı ayırmak her zaman kolay değildir. Ayırım hayati önemdedir: <strong>bülü pnömotoraks sanıp göğüs tüpü takmak</strong> bülü deler ve kapanması zor bir hava kaçağına (bronkoplevral fistül) yol açabilir.</p>
+            <div class="table-wrap"><table>
+                <tr><th></th><th>Pnömotoraks</th><th>Dev bül</th></tr>
+                <tr><td>Şekil</td><td>Göğüs duvarı boyunca hilal (kresent) şeklinde</td><td>Yuvarlak veya oval</td></tr>
+                <tr><td>Akciğer kenarı</td><td>Visseral plevra çizgisi göğüs duvarına paraleldir ve dışa doğru dışbükeydir. Akciğer hilusa doğru çekilir.</td><td>Bülün akciğerle sınırı göğüs duvarına doğru içbükeydir. Akciğer bülün etrafını sarar.</td></tr>
+                <tr><td>İçerik</td><td>Tamamen damarsız, çizgisiz</td><td>İçinde ince septa kalıntıları görülebilir</td></tr>
+                <tr><td>Kostofrenik açı ve apeks</td><td>Hava apeks ve laterale yayılır</td><td>Bül çoğu zaman bir bölgeyle sınırlıdır; akciğer apekse ve göğüs duvarına temas edebilir</td></tr>
+            </table></div>
+            <figure class="ct">
+                <svg viewBox="0 0 720 300" role="img" aria-label="BT şeması: pnömotoraks, dev bül ve çift duvar işareti">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <!-- panel 1: pnömotoraks -->
+                        <g>
+                            <path d="M30 60 Q 30 30 70 26 L200 26 Q 230 30 230 70 L230 230 Q230 262 200 262 L70 262 Q 30 262 30 230 Z" fill="#6d6d6d"/>
+                            <path d="M45 70 Q 50 40 90 40 L190 40 Q 215 44 215 75 L215 225 Q215 248 190 248 L80 248 Q 45 248 45 220 Z" fill="#000"/>
+                            <path d="M200 70 C 140 60, 110 100, 110 150 C 110 205, 140 236, 205 232 L205 70 Z" fill="#1a1a1a" stroke="#d9d9d9" stroke-width="2"/>
+                            <g fill="#5a5a5a"><circle cx="160" cy="120" r="2.5"/><circle cx="150" cy="170" r="2.5"/><circle cx="180" cy="200" r="2"/><circle cx="135" cy="140" r="2"/></g>
+                            <text x="130" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Pnömotoraks</text>
+                            <text x="70" y="150" font-size="11" fill="#ffd166">hava</text>
+                        </g>
+                        <!-- panel 2: dev bül -->
+                        <g transform="translate(245 0)">
+                            <path d="M30 60 Q 30 30 70 26 L200 26 Q 230 30 230 70 L230 230 Q230 262 200 262 L70 262 Q 30 262 30 230 Z" fill="#6d6d6d"/>
+                            <path d="M45 70 Q 50 40 90 40 L190 40 Q 215 44 215 75 L215 225 Q215 248 190 248 L80 248 Q 45 248 45 220 Z" fill="#1a1a1a"/>
+                            <circle cx="105" cy="130" r="62" fill="#000" stroke="#d9d9d9" stroke-width="1.5"/>
+                            <path d="M80 95 L120 160 M125 85 L100 175" stroke="#2c2c2c" stroke-width="1"/>
+                            <g fill="#5a5a5a"><circle cx="185" cy="120" r="2.5"/><circle cx="180" cy="190" r="2.5"/><circle cx="120" cy="225" r="2"/><circle cx="70" cy="215" r="2"/></g>
+                            <text x="130" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Dev bül</text>
+                        </g>
+                        <!-- panel 3: çift duvar -->
+                        <g transform="translate(490 0)">
+                            <path d="M30 60 Q 30 30 70 26 L200 26 Q 230 30 230 70 L230 230 Q230 262 200 262 L70 262 Q 30 262 30 230 Z" fill="#6d6d6d"/>
+                            <path d="M45 70 Q 50 40 90 40 L190 40 Q 215 44 215 75 L215 225 Q215 248 190 248 L80 248 Q 45 248 45 220 Z" fill="#000"/>
+                            <path d="M205 62 C 120 55, 80 100, 82 150 C 84 205, 130 240, 205 238 Z" fill="#1a1a1a" stroke="#d9d9d9" stroke-width="2"/>
+                            <circle cx="140" cy="130" r="42" fill="#000" stroke="#d9d9d9" stroke-width="1.5"/>
+                            <path d="M98 118 L60 90" stroke="#ffd166" stroke-width="1.5"/>
+                            <text x="125" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Çift duvar işareti</text>
+                        </g>
+                    </g>
+                </svg>
+                <figcaption>Şematik BT. <strong>Pnömotoraks:</strong> hava göğüs duvarı boyunca yayılır, akciğer kenarı göğüs duvarına paraleldir. <strong>Dev bül:</strong> yuvarlak, sınırlı, içinde septa kalıntıları var ve akciğer bülün etrafını sarar. <strong>Çift duvar işareti:</strong> bül duvarının iki yanında da hava görülmesi, bülün yanında pnömotoraks da olduğunu gösterir (kendi çizimimiz).</figcaption>
+            </figure>
+            <div class="pearl"><p><strong>Altın kural:</strong> Hasta stabilse ve grafide ayırım yapılamıyorsa göğüs tüpü takmadan önce <strong>BT çekilir</strong>. Özellikle bilinen KOAH'ı olan hastada "pnömotoraks" sanılan görüntü dev bül olabilir.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="tedavi"><span class="num">8</span>Tedavi ilkeleri</h2>
+            <h3>Asemptomatik bleb ve bül</h3>
+            <ul>
+                <li>Pnömotoraks öyküsü olmayan, rastlantısal olarak saptanmış küçük bleb ve büllerin profilaktik cerrahisi genellikle önerilmez.</li>
+                <li>En önemli adım <strong>sigara ve esrarın bırakılmasıdır</strong>. Nüks riskini belirgin şekilde azaltır.</li>
+                <li>Dalış konusunda hasta uyarılır, uçuş öncesi değerlendirme yapılır.</li>
+            </ul>
+            <h3>Pnömotoraks ile birlikte</h3>
+            <ul>
+                <li>Uzamış hava kaçağı, nüks, karşı tarafta pnömotoraks, iki taraflı pnömotoraks, hemopnömotoraks, meslek riski (pilot, dalgıç) gibi durumlarda cerrahi uygulanır. Bazı merkezlerde, BT'de büyük bül görülen hastalarda ilk atakta da cerrahi yapılır.</li>
+                <li>Standart yaklaşım <strong>VATS ile bleb/bül rezeksiyonu</strong> (stapler ile wedge rezeksiyon) ve buna eklenen <strong>plörodezdir</strong> (apikal plörektomi veya plevral abrazyon).</li>
+                <li>Bleb ve büllerin en sık bulunduğu apikal segment ve alt lobun süperior segmenti ameliyatta mutlaka dikkatle incelenir. Görünür bleb bulunamasa da plörodez yapılır.</li>
+            </ul>
+            <h3>Dev bül (bülektomi)</h3>
+            <ul>
+                <li><strong>Uygun hasta:</strong> Hemitoraksın en az üçte birini kaplayan, komşu akciğeri belirgin şekilde sıkıştıran, nefes darlığı yapan veya komplikasyon (enfeksiyon, kanama, pnömotoraks) gelişen bül.</li>
+                <li>BT'de çevrede sıkışmış ama sağlıklı parankim görülmesi, ameliyattan fayda göreceğinin en iyi göstergesidir. Çevresi de yaygın amfizemli hastada fayda daha sınırlıdır.</li>
+                <li>Bülektomi sonrası sıkışmış akciğer yeniden açılır. Solunum fonksiyonları ve nefes darlığı belirgin şekilde düzelebilir.</li>
+                <li>Cerrahiyi kaldıramayacak hastalarda bül içine perkütan drenaj (Monaldi yöntemi) gibi seçenekler vardır.</li>
+            </ul>
+            <p class="see">İlgili sayfalar: <a href="pnomotoraks.html">Pnömotoraks Vakaları</a> · <a href="toraks-bt.html">Toraks BT</a> · <a href="plevral-efuzyon.html">Plevral Efüzyon</a></p>
+        </section>
+
+        <p class="source">Bu sayfa Türk Göğüs Cerrahisi Derneği e-kitabı <a href="https://tgcd.org.tr/e-kitaplar/" target="_blank" rel="noopener"><em>Her Yönüyle Plevra ve Hastalıkları</em></a> (plevral basınç fizyolojisi, pnömotoraksın patofizyolojisi, epidemiyolojisi ve cerrahi tedavisi) ile standart solunum fizyolojisi (West), göğüs radyolojisi ve göğüs cerrahisi kaynakları esas alınarak hazırlanmıştır. Tüm çizimler ve BT görüntüleri şematiktir ve bu site için hazırlanmıştır; gerçek hasta görüntüsü değildir.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
