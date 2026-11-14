@@ -11,6 +11,9 @@ Ass. Dr. Mustafa Türker'in (göğüs cerrahisi) kişisel/eğitim sitesi. Düz H
 - Eski Vercel middleware denemesi (commit 553bec3, geri alındı) artık geçersiz; Vercel kullanılmıyor, geri getirme.
 - Asıl adres Cloudflare'de olduğundan koruma Cloudflare Access (Zero Trust, e-posta ile giriş) veya Worker ile yapılmalı. Sahibi isterse birlikte kurulacak.
 
+## Sıradaki konu (sahibi istedi)
+- **Plörodez ve dekortikasyon** konu sayfası. Özellikle: talk plörodezi yapılan hastalarda gelişen inflamasyon (mekanizma, plörodezin inflamasyona dayalı oluşumu, sistemik inflamatuvar yanıt/ARDS riski, talk partikül boyutu) ve bu hastalara **NSAİİ verilmesi** tartışması (plörodez başarısına etkisi; TIME1 çalışması vb. kanıtlar). Kaynak: TGCD *Her Yönüyle Plevra ve Hastalıkları* (plörodez/dekortikasyon bölümleri), Hilmi Keskin notları (varsa); kendi SVG şemaları.
+
 ## Yapı
 - `index.html`: giriş (bayrak, "Göğüs Cerrahisi", "Ass. Dr. Mustafa Türker", hamburger menü: Vaka Örnekleri, Konular).
 - `pnomotoraks.html`, `akciger-grafileri.html`: vaka ve konu sayfaları. `toraks-anatomisi.html`: sekmesiz tek sayfa; genel anatomi ve iki seminer (Kayseri Şehir Hastanesi "Toraks Anatomisi" ve "Cerrahi Klinik Korelasyonlar") konulara göre 20 başlıkta birleşik. Alt blokların id'leri eski önekleri korur (`g-`, `s-`, `c-`); `toraks-anatomisi-semineri.html` ve `toraks-cerrahi-anatomi.html` yalnızca yönlendirme. `bronkoskopi.html`, `plevral-efuzyon.html`, `atelektazi.html`, `bul-ve-hava-kistleri.html` (bleb/bül/kist tanımları, oluşum, apeks yerleşiminin nedenleri, fizyopatoloji; BT görselleri kendi SVG şemalarımız), `toraks-bt.html` (sahibinin kontrastlı BT kesitleri `images/bt/`; ekran fotoğraflarından araç çubukları ve hasta adı içeren tarayıcı başlığı kırpıldı) konu sayfaları. `images/`: anonimleştirilmiş görüntüler.
