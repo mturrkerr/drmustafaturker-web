@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Alfa-1 Antitripsin - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+        .ct svg { background: #000; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Alfa-1 Antitripsin</h1>
+        <p class="lead">Alfa-1 antitripsin (AAT), akciğeri kendi bağışıklık hücrelerinin enzimlerinden koruyan bir proteindir. Eksikliği, genç yaşta ve <strong>alt loblarda başlayan amfizemin</strong> en iyi bilinen kalıtsal nedenidir. Aynı hastalık karaciğeri ise tam tersi bir yolla hasta eder. Bu sayfada AAT'nin ne olduğu, ne işe yaradığı ve eksikliğinin fizyopatolojisi anlatılıyor.</p>
+
+        <nav class="card toc" aria-label="İçindekiler">
+            <h2>İçindekiler</h2>
+            <ol>
+                <li><a href="#nedir">Nedir?</a></li>
+                <li><a href="#gorev">Ne işe yarar?</a></li>
+                <li><a href="#genetik">Genetik: M, S, Z ve null alelleri</a></li>
+                <li><a href="#akciger">Fizyopatoloji 1: akciğer</a></li>
+                <li><a href="#karaciger">Fizyopatoloji 2: karaciğer</a></li>
+                <li><a href="#klinik">Klinik tablo ve kime test yapılır?</a></li>
+                <li><a href="#tani">Tanı</a></li>
+                <li><a href="#tedavi">Tedavi ve göğüs cerrahisi açısından önemi</a></li>
+            </ol>
+        </nav>
+
+        <section class="card">
+            <h2 id="nedir"><span class="num">1</span>Nedir?</h2>
+            <ul>
+                <li><strong>Bir proteaz inhibitörüdür.</strong> Serin proteazları baskılayan <strong>serpin</strong> ailesinin en tanınan üyesidir. Plazmada en bol bulunan proteaz inhibitörüdür.</li>
+                <li><strong>Geni:</strong> 14. kromozomdaki <em>SERPINA1</em> (14q32.1). Kalıtım <strong>kodominanttır</strong>: iki alelin ikisi de üretime katılır.</li>
+                <li><strong>Yapısı:</strong> Yaklaşık 52 kDa ağırlığında, 394 amino asitlik bir glikoprotein.</li>
+                <li><strong>Nerede üretilir:</strong> Büyük kısmı <strong>karaciğerde (hepatositlerde)</strong> üretilir. Az miktarda makrofajlar, nötrofiller ve bronş epiteli de üretir.</li>
+                <li><strong>Nereye gider:</strong> Kana salınır ve difüzyonla akciğer interstisyumuna ve alveolleri kaplayan sıvıya geçer. Yarı ömrü 4–5 gündür.</li>
+                <li><strong>Normal serum düzeyi:</strong> Yaklaşık 20–53 µmol/L (kabaca 1–2 g/L).</li>
+                <li><strong>Akut faz reaktanıdır.</strong> Enfeksiyon, inflamasyon, gebelik ve östrojen kullanımında düzeyi birkaç kat artabilir. Ölçümde bu yüzden aynı anda CRP'ye de bakılır.</li>
+                <li><strong>Adının kaynağı:</strong> Serum protein elektroforezindeki <strong>alfa-1 bandının</strong> büyük kısmını oluşturur. İlk tanımlanan etkisi de tripsini baskılamasıdır. Elektroforezde alfa-1 bandının belirgin düşük olması eksikliğin ilk ipucu olabilir; hastalık 1963'te bu şekilde fark edilmiştir.</li>
+            </ul>
+            <div class="note"><p><strong>Önemli ayrıntı:</strong> Adı "antitripsin" olsa da akciğerdeki asıl hedefi tripsin değil, <strong>nötrofil elastazıdır</strong>.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="gorev"><span class="num">2</span>Ne işe yarar?</h2>
+            <p>Nötrofiller mikropları öldürmek için güçlü proteazlar taşır. Bunların en önemlisi <strong>nötrofil elastazıdır</strong>. Elastaz, akciğerin esnekliğini sağlayan <strong>elastin liflerini</strong> ve alveol duvarındaki diğer bağ dokusu proteinlerini parçalayabilir.</p>
+            <p>Normalde nötrofil iş yerinde elastaz salar. Ortamdaki fazla elastazı ise AAT hemen etkisiz hâle getirir. AAT, alt solunum yollarında nötrofil elastazına karşı koruyucu "antiproteaz kalkanının" büyük bölümünü oluşturur. Ayrıca proteinaz-3 ve katepsin G'yi de baskılar ve inflamasyonu düzenleyici etkileri vardır.</p>
+            <figure>
+                <svg viewBox="0 0 720 270" role="img" aria-label="Proteaz-antiproteaz dengesi: terazi şeması">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <text x="180" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a52">Sağlıklı akciğer: denge</text>
+                        <path d="M180 60 L180 220" stroke="#3a4a57" stroke-width="4"/><path d="M150 230 L210 230" stroke="#3a4a57" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M70 70 L290 70" stroke="#3a4a57" stroke-width="4" stroke-linecap="round"/><circle cx="180" cy="66" r="7" fill="#3a4a57"/>
+                        <path d="M70 70 L50 120 M70 70 L90 120 M290 70 L270 120 M290 70 L310 120" stroke="#8a98a5" stroke-width="1.5"/>
+                        <path d="M40 120 Q70 140 100 120 Z" fill="#c0392b"/><path d="M260 120 Q290 140 320 120 Z" fill="#2f8f6f"/>
+                        <text x="70" y="160" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c0392b">Elastaz</text>
+                        <text x="70" y="176" text-anchor="middle" font-size="11" fill="#3a4a57">(nötrofil)</text>
+                        <text x="290" y="160" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2f8f6f">AAT</text>
+                        <text x="290" y="176" text-anchor="middle" font-size="11" fill="#3a4a57">(antiproteaz)</text>
+                        <text x="180" y="258" text-anchor="middle" font-size="12" fill="#3a4a57">elastin korunur</text>
+
+                        <text x="540" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#c0392b">AAT eksikliği ve/veya sigara</text>
+                        <path d="M540 60 L540 220" stroke="#3a4a57" stroke-width="4"/><path d="M510 230 L570 230" stroke="#3a4a57" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M435 105 L645 40" stroke="#3a4a57" stroke-width="4" stroke-linecap="round"/><circle cx="540" cy="72" r="7" fill="#3a4a57"/>
+                        <path d="M435 105 L415 155 M435 105 L455 155 M645 40 L625 90 M645 40 L665 90" stroke="#8a98a5" stroke-width="1.5"/>
+                        <path d="M395 155 Q435 185 475 155 Z" fill="#c0392b"/><path d="M630 90 Q645 98 660 90 Z" fill="#2f8f6f"/>
+                        <text x="435" y="200" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c0392b">Elastaz ↑</text>
+                        <text x="645" y="118" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2f8f6f">AAT ↓</text>
+                        <text x="540" y="258" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">elastin yıkılır → amfizem</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: proteaz-antiproteaz dengesi. AAT azaldığında veya sigara ile elastaz yükü arttığında denge elastin yıkımı yönüne kayar (kendi çizimimiz).</figcaption>
+            </figure>
+            <h3>Nasıl çalışır? "Fare kapanı" mekanizması</h3>
+            <p>AAT'nin yüzeyinde dışa doğru uzanan bir <strong>reaktif merkez halkası</strong> vardır. Bu halkanın ucundaki <strong>metiyonin (Met358)</strong> elastaz için bir yemdir. Elastaz yemi kesmeye başladığı anda AAT yapısını hızla değiştirir: elastazı kendi gövdesine doğru çeker ve aktif bölgesini bozarak kalıcı olarak kilitler. Bu kalıcı AAT–elastaz kompleksi karaciğerde temizlenir. AAT bu süreçte kendisi de harcanır; bu nedenle "intihar inhibitörü" olarak anılır.</p>
+            <figure>
+                <svg viewBox="0 0 720 230" role="img" aria-label="AAT'nin elastazı yakalama mekanizması">
+                    <defs><marker id="arA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f3a52"/></marker></defs>
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <ellipse cx="110" cy="130" rx="70" ry="55" fill="#bfe3d6" stroke="#2f8f6f" stroke-width="2"/>
+                        <path d="M140 80 Q170 40 200 70" fill="none" stroke="#2f8f6f" stroke-width="5" stroke-linecap="round"/>
+                        <circle cx="178" cy="52" r="7" fill="#e08a00"/>
+                        <text x="110" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#1f5a45">AAT</text>
+                        <text x="200" y="38" font-size="11.5" fill="#7a4b00">Met358 (yem)</text>
+                        <path d="M270 50 Q300 30 330 50 L330 100 Q300 115 270 100 Z" fill="#f2c2bc" stroke="#c0392b" stroke-width="2"/>
+                        <text x="300" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#8a2a20">Elastaz</text>
+                        <text x="200" y="215" text-anchor="middle" font-size="12" fill="#3a4a57">1. Elastaz yeme bağlanır</text>
+                        <path d="M360 130 L420 130" stroke="#1f3a52" stroke-width="3" marker-end="url(#arA)"/>
+                        <ellipse cx="560" cy="130" rx="80" ry="58" fill="#bfe3d6" stroke="#2f8f6f" stroke-width="2"/>
+                        <path d="M490 110 Q470 70 510 50 L560 50 Q590 62 580 95 Z" fill="#f2c2bc" stroke="#c0392b" stroke-width="2"/>
+                        <text x="535" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#8a2a20">elastaz</text>
+                        <text x="535" y="92" text-anchor="middle" font-size="11" fill="#8a2a20">(bozulmuş)</text>
+                        <text x="575" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#1f5a45">AAT</text>
+                        <text x="560" y="215" text-anchor="middle" font-size="12" fill="#3a4a57">2. AAT kapanır: kalıcı kompleks, karaciğerde temizlenir</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: AAT reaktif halkasındaki yemle elastazı yakalar, yapısını değiştirerek kilitler ve kalıcı olarak etkisiz bırakır (kendi çizimimiz).</figcaption>
+            </figure>
+            <div class="pearl"><p><strong>Sigara bu mekanizmayı doğrudan bozar.</strong> Sigara dumanındaki oksidanlar Met358'i oksitler (metiyonin sülfoksit). Oksitlenmiş AAT elastazı yakalayamaz. Sigara aynı anda akciğere daha çok nötrofil çağırır, yani elastaz yükü de artar. Bu yüzden AAT eksikliği olan bir kişi sigara içerse amfizem yaklaşık 10–20 yıl daha erken başlar ve çok daha hızlı ilerler.</p></div>
+        </section>
+
+        <section class="card">
+            <h2 id="genetik"><span class="num">3</span>Genetik: M, S, Z ve null alelleri</h2>
+            <p>AAT varyantları "Pi" (protease inhibitor) sistemiyle adlandırılır. Harfler, proteinin elektroforezdeki göç hızını gösterir. Yüzden fazla varyant bilinse de klinikte en önemlileri şunlardır:</p>
+            <div class="table-wrap"><table>
+                <tr><th>Alel</th><th>Değişiklik</th><th>Sonuç</th></tr>
+                <tr><td><strong>M</strong></td><td>Normal</td><td>Toplumun büyük çoğunluğu MM'dir</td></tr>
+                <tr><td><strong>S</strong></td><td>Glu264Val</td><td>Hafif düşüklük. Tek başına nadiren hastalık yapar, Z ile birleşince önem kazanır.</td></tr>
+                <tr><td><strong>Z</strong></td><td>Glu342Lys</td><td>Ağır eksiklik. Protein yanlış katlanır ve karaciğerde birikir. Ağır eksikliklerin çoğundan sorumludur.</td></tr>
+                <tr><td><strong>Null</strong></td><td>Çeşitli (protein hiç üretilmez)</td><td>Kanda AAT yoktur. En ağır akciğer hastalığı görülür, karaciğerde birikim olmaz.</td></tr>
+            </table></div>
+            <figure>
+                <svg viewBox="0 0 720 300" role="img" aria-label="Genotiplere göre yaklaşık serum AAT düzeyi ve koruyucu eşik">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <line x1="80" y1="250" x2="690" y2="250" stroke="#3a4a57" stroke-width="2"/>
+                        <line x1="80" y1="250" x2="80" y2="30" stroke="#3a4a57" stroke-width="2"/>
+                        <text x="30" y="140" text-anchor="middle" font-size="12" fill="#3a4a57" transform="rotate(-90 30 140)">Normalin yüzdesi</text>
+                        <g font-size="11" fill="#6a7a87" text-anchor="end"><text x="72" y="254">0</text><text x="72" y="154">%50</text><text x="72" y="54">%100</text></g>
+                        <line x1="80" y1="50" x2="690" y2="50" stroke="#e3e9ee" stroke-width="1"/><line x1="80" y1="150" x2="690" y2="150" stroke="#e3e9ee" stroke-width="1"/>
+                        <!-- barlar: yükseklik = yüzde*2 -->
+                        <g>
+                            <rect x="100" y="50" width="60" height="200" fill="#2f8f6f"/><text x="130" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">MM</text><text x="130" y="44" text-anchor="middle" font-size="11" fill="#3a4a57">%100</text>
+                            <rect x="185" y="90" width="60" height="160" fill="#2f8f6f"/><text x="215" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">MS</text><text x="215" y="84" text-anchor="middle" font-size="11" fill="#3a4a57">~%80</text>
+                            <rect x="270" y="130" width="60" height="120" fill="#7fb59f"/><text x="300" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">MZ</text><text x="300" y="124" text-anchor="middle" font-size="11" fill="#3a4a57">~%60</text>
+                            <rect x="355" y="130" width="60" height="120" fill="#7fb59f"/><text x="385" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">SS</text><text x="385" y="124" text-anchor="middle" font-size="11" fill="#3a4a57">~%60</text>
+                            <rect x="440" y="170" width="60" height="80" fill="#e08a00"/><text x="470" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">SZ</text><text x="470" y="164" text-anchor="middle" font-size="11" fill="#3a4a57">~%40</text>
+                            <rect x="525" y="222" width="60" height="28" fill="#c0392b"/><text x="555" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">ZZ</text><text x="555" y="216" text-anchor="middle" font-size="11" fill="#3a4a57">%10–15</text>
+                            <rect x="610" y="248" width="60" height="2" fill="#7a1f16"/><text x="640" y="272" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">Null</text><text x="640" y="240" text-anchor="middle" font-size="11" fill="#3a4a57">%0</text>
+                        </g>
+                        <line x1="80" y1="190" x2="690" y2="190" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5"/>
+                        <text x="688" y="166" text-anchor="end" font-size="11.5" font-weight="700" fill="#c0392b">koruyucu eşik</text><text x="688" y="182" text-anchor="end" font-size="11.5" font-weight="700" fill="#c0392b">≈ 11 µmol/L (~%30)</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: genotiplere göre yaklaşık serum AAT düzeyi (normalin yüzdesi olarak). Kesikli çizgi, akciğeri korumaya yettiği kabul edilen eşiği gösterir. Değerler yaklaşıktır, kişiden kişiye değişir (kendi çizimimiz).</figcaption>
+            </figure>
+            <ul>
+                <li><strong>ZZ</strong> ağır eksikliğin klasik tipidir. Kuzey Avrupa kökenli toplumlarda birkaç bin kişide bir görülür.</li>
+                <li><strong>MZ taşıyıcılar</strong> çoğunlukla sağlıklıdır. Ancak <strong>sigara içerlerse</strong> KOAH riskleri artar.</li>
+                <li>Hastalık dünyada ve ülkemizde <strong>yeterince tanınmıyor</strong>. Tanı çoğu zaman belirtilerin başlamasından yıllar sonra konur.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="akciger"><span class="num">4</span>Fizyopatoloji 1: akciğer (işlev kaybı)</h2>
+            <p>Akciğerdeki hastalık bir <strong>işlev kaybıdır</strong>: koruyucu protein yetersiz olduğu için akciğer korumasız kalır.</p>
+            <ol class="rules">
+                <li><strong>Antiproteaz kalkanı zayıflar.</strong> Akciğere yeterli AAT ulaşmaz. Ulaşan Z proteini de normal AAT'ye göre elastazı daha yavaş yakalar.</li>
+                <li><strong>Elastaz denetimsiz kalır.</strong> Her nötrofil, etrafında AAT'nin baskılayamadığı bir elastaz "yıkım alanı" bırakır.</li>
+                <li><strong>Elastin yıkılır, alveol duvarları kaybolur.</strong> Komşu alveoller birleşir ve <strong>panlobüler (panasiner) amfizem</strong> gelişir. Lobülün tamamı eşit şekilde harap olur.</li>
+                <li><strong>Kısır döngü oluşur.</strong> Elastin yıkım ürünleri ve akciğerde de oluşan Z polimerleri nötrofilleri çeken (kemotaktik) maddeler gibi davranır. Daha çok nötrofil gelir, daha çok elastaz salınır.</li>
+                <li><strong>Sigara her şeyi hızlandırır.</strong> Kalan AAT'yi oksitleyip işlevsiz bırakır ve nötrofil sayısını artırır.</li>
+            </ol>
+            <h3>Neden alt loblarda? Sigaraya bağlı amfizemden farkı</h3>
+            <figure>
+                <svg viewBox="0 0 720 320" role="img" aria-label="Sentrilobüler (apikal) ve panlobüler (bazal) amfizem karşılaştırması">
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <!-- sol: sentrilobüler -->
+                        <text x="180" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#1f3a52">Sigara: sentrilobüler</text>
+                        <rect x="60" y="40" width="240" height="190" rx="10" fill="#f8e3e0" stroke="#c98a83" stroke-width="2"/>
+                        <g fill="#fff" stroke="#e3a8a1" stroke-width="1.2">
+                            <circle cx="85" cy="65" r="9"/><circle cx="110" cy="62" r="9"/><circle cx="250" cy="65" r="9"/><circle cx="275" cy="68" r="9"/><circle cx="80" cy="200" r="9"/><circle cx="110" cy="208" r="9"/><circle cx="250" cy="205" r="9"/><circle cx="278" cy="200" r="9"/><circle cx="80" cy="130" r="9"/><circle cx="280" cy="135" r="9"/><circle cx="180" cy="62" r="9"/><circle cx="180" cy="210" r="9"/>
+                        </g>
+                        <circle cx="180" cy="135" r="48" fill="#fff" stroke="#7a8a97" stroke-width="1.2"/>
+                        <path d="M180 230 L180 180" stroke="#1f3a52" stroke-width="5"/>
+                        <text x="180" y="140" text-anchor="middle" font-size="11.5" fill="#1f3a52">merkezde yıkım</text>
+                        <text x="180" y="252" text-anchor="middle" font-size="12" fill="#3a4a57">Yıkım lobülün merkezinde (solunum bronşiyolü)</text>
+                        <text x="180" y="270" text-anchor="middle" font-size="12" fill="#3a4a57">Yer: <tspan font-weight="700">üst loblar, apeks</tspan></text>
+                        <text x="180" y="288" text-anchor="middle" font-size="12" fill="#3a4a57">Hasar <tspan font-weight="700">solunan dumanla</tspan> gelir</text>
+                        <!-- sağ: panlobüler -->
+                        <text x="540" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#c0392b">AAT eksikliği: panlobüler</text>
+                        <rect x="420" y="40" width="240" height="190" rx="10" fill="#fff" stroke="#c98a83" stroke-width="2"/>
+                        <g stroke="#d3c7c4" stroke-width="1.5"><path d="M440 80 L520 110"/><path d="M600 60 L580 140"/><path d="M450 190 L540 170"/><path d="M620 200 L640 150"/><path d="M500 140 L530 210"/></g>
+                        <path d="M540 230 L540 190" stroke="#1f3a52" stroke-width="5"/>
+                        <text x="540" y="128" text-anchor="middle" font-size="11.5" fill="#1f3a52">lobülün tamamı harap</text>
+                        <text x="540" y="252" text-anchor="middle" font-size="12" fill="#3a4a57">Yıkım lobülün her yerinde eşit</text>
+                        <text x="540" y="270" text-anchor="middle" font-size="12" fill="#3a4a57">Yer: <tspan font-weight="700">alt loblar, bazaller</tspan></text>
+                        <text x="540" y="288" text-anchor="middle" font-size="12" fill="#3a4a57">Hasar <tspan font-weight="700">kanla</tspan> gelir (nötrofil, elastaz)</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: sigaraya bağlı sentrilobüler amfizem ile AAT eksikliğindeki panlobüler amfizemin karşılaştırması (kendi çizimimiz).</figcaption>
+            </figure>
+            <p>Ayakta duran insanda <strong>kan akımı bazallerde en fazladır</strong>. Hasarı yapan nötrofiller ve elastaz kanla geldiği için en çok bazallere ulaşır. Sigara dumanının partikülleri ise ventilasyonu ve temizlenmesi zayıf olan apekste birikir. Kısacası, <strong>hasar onu getiren yolu izler</strong>. Bu karşılaştırma <a href="bul-ve-hava-kistleri.html#apeks">Bül ve Hava Kistleri</a> sayfasındaki "neden apekste?" bölümünün tam tersidir.</p>
+            <ul>
+                <li><strong>Başlangıç yaşı:</strong> Sigara içen ZZ hastada nefes darlığı genellikle 30–40'lı yaşlarda başlar. Hiç içmeyenlerde ise çok daha geç başlar, bazıları ömür boyu hafif kalır.</li>
+                <li><strong>Diğer akciğer bulguları:</strong> Bronşektazi, astım benzeri tablo, sekonder spontan pnömotoraks. AAT eksikliği TGCD kitabında da pnömotoraks risk faktörleri arasında sayılır.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="karaciger"><span class="num">5</span>Fizyopatoloji 2: karaciğer (toksik birikim)</h2>
+            <p>Karaciğerdeki hastalığın mekanizması akciğerin tam tersidir. Burada sorun proteinin eksikliği değil, <strong>yanlış katlanmış proteinin birikmesidir</strong> (toksik işlev kazanımı).</p>
+            <ol class="rules">
+                <li><strong>Z proteini yanlış katlanır.</strong> Glu342Lys değişikliği molekülün kapanma mekanizmasını gevşetir.</li>
+                <li><strong>Polimerleşir.</strong> Bir Z molekülünün reaktif halkası, komşu molekülün yapısına girer. Moleküller boncuk dizisi gibi uzun zincirler oluşturur ("halka-tabaka polimerizasyonu").</li>
+                <li><strong>Hücre içinde hapsolur.</strong> Polimerler hepatositin endoplazmik retikulumundan çıkamaz. Üretilen Z proteininin büyük kısmı kana salınamaz; bu yüzden kandaki düzey düşüktür.</li>
+                <li><strong>Hepatosit hasarı gelişir.</strong> Biriken polimerler hücre stresi, inflamasyon ve hücre ölümüne yol açar. Zamanla fibroz, siroz ve hepatosellüler karsinom gelişebilir. Biyopside birikimler <strong>PAS pozitif, diastaza dirençli globüller</strong> olarak görülür.</li>
+            </ol>
+            <figure>
+                <svg viewBox="0 0 720 280" role="img" aria-label="Z proteininin hepatositte polimerleşmesi ve akciğer ile karaciğerdeki iki farklı hastalık mekanizması">
+                    <defs><marker id="arK" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f3a52"/></marker></defs>
+                    <g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif">
+                        <rect x="20" y="30" width="330" height="220" rx="30" fill="#f3dfc8" stroke="#b48a5a" stroke-width="2"/>
+                        <text x="185" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#7a4b00">Hepatosit</text>
+                        <circle cx="90" cy="140" r="30" fill="#d9b88f" stroke="#b48a5a" stroke-width="1.5"/>
+                        <text x="90" y="145" text-anchor="middle" font-size="11" fill="#5a3a1a">çekirdek</text>
+                        <path d="M140 80 Q200 60 250 90 Q290 120 260 160 Q230 200 170 190 Q130 180 140 140 Q150 110 140 80 Z" fill="#fbecd9" stroke="#b48a5a" stroke-width="1.5"/>
+                        <text x="200" y="56" text-anchor="middle" font-size="11" fill="#7a4b00">endoplazmik retikulum</text>
+                        <g fill="#c0392b">
+                            <circle cx="170" cy="120" r="6"/><circle cx="182" cy="126" r="6"/><circle cx="194" cy="131" r="6"/><circle cx="206" cy="135" r="6"/><circle cx="218" cy="137" r="6"/>
+                            <circle cx="180" cy="155" r="6"/><circle cx="192" cy="160" r="6"/><circle cx="204" cy="162" r="6"/><circle cx="216" cy="162" r="6"/><circle cx="228" cy="158" r="6"/><circle cx="240" cy="150" r="6"/>
+                        </g>
+                        <text x="210" y="222" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">Z polimerleri birikir → hepatosit hasarı</text>
+                        <circle cx="322" cy="110" r="5" fill="#2f8f6f"/>
+                        <path d="M330 110 L395 110" stroke="#1f3a52" stroke-width="2.5" marker-end="url(#arK)"/>
+                        <text x="362" y="100" text-anchor="middle" font-size="11" fill="#3a4a57">kana az</text>
+                        <text x="362" y="128" text-anchor="middle" font-size="11" fill="#3a4a57">salınır</text>
+                        <rect x="405" y="70" width="295" height="80" rx="12" fill="#e3ebf2"/>
+                        <text x="552" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3a52">Akciğer: işlev KAYBI</text>
+                        <text x="552" y="116" text-anchor="middle" font-size="12" fill="#3a4a57">AAT az → elastaz denetimsiz</text>
+                        <text x="552" y="134" text-anchor="middle" font-size="12" fill="#3a4a57">→ panlobüler amfizem</text>
+                        <rect x="405" y="170" width="295" height="80" rx="12" fill="#fbe9c9"/>
+                        <text x="552" y="196" text-anchor="middle" font-size="13" font-weight="700" fill="#7a4b00">Karaciğer: toksik KAZANIM</text>
+                        <text x="552" y="216" text-anchor="middle" font-size="12" fill="#3a4a57">Z birikir → hepatit, siroz, HCC</text>
+                        <text x="552" y="234" text-anchor="middle" font-size="12" fill="#3a4a57">(null alelde karaciğer hastalığı olmaz)</text>
+                    </g>
+                </svg>
+                <figcaption>Şema: aynı Z mutasyonu iki organda iki farklı mekanizmayla hastalık yapar. Akciğer proteinin yokluğundan, karaciğer proteinin birikmesinden zarar görür (kendi çizimimiz).</figcaption>
+            </figure>
+            <div class="pearl"><p><strong>Akılda kalıcı karşılaştırma:</strong> <strong>Null-null</strong> hastada hiç protein üretilmez. Akciğer hastalığı en ağır olandır, ama karaciğer tamamen sağlamdır, çünkü biriken bir şey yoktur. <strong>ZZ</strong> hastada ise iki organ da etkilenebilir.</p></div>
+            <ul>
+                <li><strong>Yenidoğan ve çocukluk:</strong> ZZ bebeklerin yaklaşık %10'unda uzamış yenidoğan sarılığı ve kolestaz görülür. Çocukluk çağında karaciğer nakline giden önemli bir genetik nedendir.</li>
+                <li><strong>Erişkin:</strong> Siroz ve karaciğer kanseri riski artar. Alkol, obezite ve yağlı karaciğer bu riski büyütür.</li>
+                <li><strong>Diğer:</strong> Nekrotizan panniküllit (ağrılı deri altı yağ dokusu iltihabı) ve c-ANCA (PR3) pozitif vaskülit (granülomatozlu polianjiit) ile ilişkilidir.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="klinik"><span class="num">6</span>Klinik tablo ve kime test yapılır?</h2>
+            <p>Belirtiler sıradan KOAH'tan ayırt edilemez: efor dispnesi, öksürük, balgam, hışıltı. Hastalığı akla getiren şey <strong>hastanın kim olduğu</strong> ve <strong>amfizemin nerede olduğudur</strong>. Dünya Sağlık Örgütü ve ATS/ERS önerilerine göre AAT düzeyi şu durumlarda ölçülmelidir:</p>
+            <ul>
+                <li><strong>Tüm KOAH hastalarında, en az bir kez</strong></li>
+                <li>Erken yaşta (yaklaşık 45 yaş altı) amfizem; sigara öyküsü az ya da hiç olmayan amfizem</li>
+                <li><strong>Alt loblarda baskın</strong> amfizem veya bül</li>
+                <li>Tam düzelmeyen hava yolu tıkanıklığı olan erişkin astım</li>
+                <li>Nedeni açıklanamayan bronşektazi</li>
+                <li>Ailede AAT eksikliği, erken amfizem veya karaciğer hastalığı öyküsü</li>
+                <li>Nedeni bilinmeyen karaciğer hastalığı (yenidoğanda uzamış kolestaz dahil)</li>
+                <li>Nekrotizan panniküllit, c-ANCA pozitif vaskülit</li>
+                <li>Göğüs cerrahisi pratiğinde: genç hastada <strong>bazal yerleşimli büller</strong>, sekonder spontan pnömotoraks ve akciğer hacim azaltma cerrahisi veya transplantasyon değerlendirmesi</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 id="tani"><span class="num">7</span>Tanı</h2>
+            <ol class="rules">
+                <li><strong>Serum AAT düzeyi</strong> (nefelometri) aynı anda <strong>CRP</strong> ile birlikte ölçülür. AAT akut faz reaktanı olduğu için inflamasyon sırasında düşük düzey "normal" çıkabilir.</li>
+                <li><strong>Düzey düşük veya sınırdaysa:</strong> Hangi alellerin taşındığı belirlenir. Bunun için izoelektrik odaklama ile <strong>fenotipleme</strong> veya <strong>genotipleme</strong> yapılır. Parmaktan alınan kuru kan lekesi testleri tarama için kullanılabilir.</li>
+                <li><strong>Akciğer değerlendirmesi:</strong>
+                    <ul>
+                        <li>Solunum fonksiyon testi: geri dönüşümsüz obstrüksiyon</li>
+                        <li><strong>DLCO</strong> düşüklüğü</li>
+                        <li><strong>Toraks BT:</strong> alt loblarda baskın panlobüler amfizem; damarların seyrekleştiği, yaygın düşük yoğunluklu alanlar</li>
+                        <li>BT'de ölçülen akciğer yoğunluğu (dansitometri), hastalığın ilerleyişini izlemenin en duyarlı yoludur</li>
+                    </ul>
+                </li>
+                <li><strong>Karaciğer:</strong> Karaciğer enzimleri, ultrason ve elastografi ile izlenir.</li>
+                <li><strong>Aile taraması:</strong> Tanı konan hastanın kardeşlerine ve çocuklarına test ve genetik danışmanlık önerilir.</li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <h2 id="tedavi"><span class="num">8</span>Tedavi ve göğüs cerrahisi açısından önemi</h2>
+            <ul>
+                <li><strong>Sigarayı bırakmak en etkili tedavidir.</strong> Pasif içicilikten ve tozlu mesleklerden de kaçınılmalıdır.</li>
+                <li><strong>Standart KOAH tedavisi:</strong> Bronkodilatörler, grip ve pnömokok aşıları, pulmoner rehabilitasyon, gerekirse oksijen.</li>
+                <li><strong>Augmentasyon tedavisi:</strong> Sağlıklı vericilerin plazmasından elde edilen AAT, haftada bir damardan verilir (genellikle 60 mg/kg). Ağır eksikliği (ZZ, null) olan ve amfizemi gösterilmiş hastalarda kullanılır. Randomize çalışmalarda (ör. RAPID) BT'de ölçülen akciğer yoğunluğu kaybını yavaşlattığı gösterilmiştir. Karaciğer hastalığına etkisi yoktur, çünkü karaciğerdeki sorun eksiklik değil birikimdir.</li>
+                <li><strong>Karaciğer nakli:</strong> Son dönem karaciğer hastalığında yapılır. Yeni karaciğer normal (M) AAT ürettiği için kandaki eksiklik de düzelir.</li>
+            </ul>
+            <h3>Göğüs cerrahisi açısından</h3>
+            <ul>
+                <li><strong>Akciğer transplantasyonu:</strong> AAT eksikliğine bağlı amfizem, akciğer nakli endikasyonları arasında önemli bir yer tutar.</li>
+                <li><strong>Akciğer hacim azaltma cerrahisi ve endobronşiyal valf:</strong> Sigaraya bağlı, üst lob ağırlıklı ve heterojen amfizemde en iyi sonuç alınır. AAT eksikliğindeki <strong>bazal ve homojen</strong> amfizemde fayda daha sınırlı ve kısa sürelidir. Bu yüzden hasta seçimi çok dikkatli yapılır.</li>
+                <li><strong>Bül ve pnömotoraks:</strong> Genç hastada alt loblarda bül veya sekonder pnömotoraks varsa AAT düzeyine bakılmalıdır.</li>
+                <li><strong>Ameliyat öncesi:</strong> Bilinen AAT eksikliği olan hastada DLCO ve egzersiz kapasitesi mutlaka değerlendirilir. Hastalık genç yaşta ağır olabileceği için rezeksiyon sınırları bu değerlere göre planlanır.</li>
+            </ul>
+            <p class="see">İlgili sayfalar: <a href="bul-ve-hava-kistleri.html">Bül ve Hava Kistleri</a> · <a href="plorodez-ve-dekortikasyon.html">Plörodez ve Dekortikasyon</a> · <a href="toraks-bt.html">Toraks BT</a></p>
+        </section>
+
+        <p class="source">Bu sayfa ATS/ERS'in AAT eksikliği bildirgesi (2003), Avrupa Solunum Derneği'nin AAT eksikliği bildirgesi (2017), GOLD KOAH raporu ve standart göğüs hastalıkları, fizyoloji ve patoloji kaynakları esas alınarak hazırlanmıştır. Pnömotoraks ile ilişki için Türk Göğüs Cerrahisi Derneği e-kitabı <a href="https://tgcd.org.tr/e-kitaplar/" target="_blank" rel="noopener"><em>Her Yönüyle Plevra ve Hastalıkları</em></a> kullanılmıştır. Serum düzeyleri yaklaşık değerlerdir ve laboratuvara göre değişir. Çizimler şematiktir.</p>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
