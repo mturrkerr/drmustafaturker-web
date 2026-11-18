@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Deneme 1, 2, 3: Tüp Torakostomi - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 1000px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+        .ct svg { background: #000; }
+        .player { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 12px; margin-bottom: 20px; }
+        .stage { position: relative; background: #eef3f6; border-radius: 10px; overflow: hidden; }
+        #anim { display: block; width: 100%; height: auto; }
+        #anim text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+        #anim .h { paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+        .cap { min-height: 70px; margin: 10px 4px 6px; font-size: 16px; line-height: 1.55; color: #1f2a33; }
+        .ctrl { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .ctrl button { border: none; border-radius: 10px; padding: 10px 14px; font: inherit; font-size: 15px; font-weight: 700; background: #e3ebf2; color: #1f3a52; cursor: pointer; }
+        .ctrl button.main { background: #1f3a52; color: #fff; min-width: 110px; }
+        .bar { flex: 1 1 200px; height: 10px; background: #e3e9ee; border-radius: 6px; cursor: pointer; position: relative; }
+        .bar > div { position: absolute; left: 0; top: 0; bottom: 0; background: #E30A17; border-radius: 6px; width: 0; }
+        .time { font-size: 13px; color: #6a7a87; font-variant-numeric: tabular-nums; min-width: 84px; text-align: right; }
+        .ctrl label { font-size: 14px; font-weight: 600; color: #3a4a57; display: flex; gap: 6px; align-items: center; }
+        .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+        .chips button { border: 1px solid #c9d3dc; border-radius: 999px; padding: 6px 11px; font: inherit; font-size: 13px; background: #fff; color: #1f3a52; cursor: pointer; }
+        .chips button.on { background: #1f3a52; color: #fff; border-color: #1f3a52; }
+        .steps li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Deneme 1, 2, 3: Tüp Torakostomi</h1>
+        <p class="lead">Animasyonlu anlatım denemesi. Göğüs boşluğunun normal işleyişinden başlayarak pnömotoraksın ne olduğunu ve <strong>sağ tüp torakostominin</strong> nasıl yapıldığını adım adım gösteriyor: 5. interkostal aralık, meme başı hizası, orta aksiller hat; 28 F tüp apekse; sütürler ve su altı drenaj şişesi. Hiç bilmeyen biri de anlayabilsin diye sade bir dille hazırlandı.</p>
+
+        <div class="player" id="player">
+            <div class="stage"><svg id="anim" viewBox="0 0 960 540" role="img" aria-label="Tüp torakostomi animasyonu"></svg></div>
+            <div class="cap" id="cap" aria-live="polite"></div>
+            <div class="ctrl">
+                <button type="button" id="prev" aria-label="Önceki sahne">⏮</button>
+                <button type="button" class="main" id="play">▶ Oynat</button>
+                <button type="button" id="next" aria-label="Sonraki sahne">⏭</button>
+                <div class="bar" id="bar" role="slider" aria-label="İlerleme"><div id="fill"></div></div>
+                <span class="time" id="time">0:00 / 0:00</span>
+                <label><input type="checkbox" id="tts"> Sesli anlatım</label>
+            </div>
+            <div class="chips" id="chips"></div>
+        </div>
+
+        <section class="card">
+            <h2>Adım adım (yazılı anlatım)</h2>
+            <ol class="steps" id="steps"></ol>
+        </section>
+
+        <p class="source">Bu sayfa bir animasyon denemesidir. Tüm çizimler bu site için hazırlanmış şemalardır; ölçüler ve oranlar gerçeği birebir yansıtmaz. Eğitim amaçlıdır. Tüp torakostomi, uygun eğitim ve gözetim altında, kurum protokollerine göre uygulanmalıdır.</p>
+    </main>
+
+    <script>
+    (function () {
+        var SKIN = '#f2d4bd';
+        var clamp = function (x, a, b) { a = a === undefined ? 0 : a; b = b === undefined ? 1 : b; return Math.max(a, Math.min(b, x)); };
+        var ease = function (t) { t = clamp(t); return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+        var lerp = function (a, b, t) { return a + (b - a) * t; };
+        function mirror(d) { var i = 0; return d.replace(/-?\d+(\.\d+)?/g, function (m) { return (i++ % 2 === 0) ? String(960 - parseFloat(m)) : m; }); }
+        function txt(x, y, s, o) {
+            o = o || {};
+            return '<text x="' + x + '" y="' + y + '" font-size="' + (o.size || 14) + '" font-weight="' + (o.bold ? 700 : 400) + '" fill="' + (o.color || '#1f3a52') + '" text-anchor="' + (o.anchor || 'start') + '"' + (o.halo === false ? '' : ' class="h"') + (o.op !== undefined ? ' opacity="' + o.op + '"' : '') + '>' + s + '</text>';
+        }
+        function arrow(x1, y1, x2, y2, c, w, op) {
+            c = c || '#1f3a52'; w = w || 3; op = op === undefined ? 1 : op;
+            var a = Math.atan2(y2 - y1, x2 - x1), h = 7 + w * 2;
+            var p1 = (x2 - h * Math.cos(a - 0.45)) + ',' + (y2 - h * Math.sin(a - 0.45)), p2 = (x2 - h * Math.cos(a + 0.45)) + ',' + (y2 - h * Math.sin(a + 0.45));
+            return '<g opacity="' + op + '"><line x1="' + x1 + '" y1="' + y1 + '" x2="' + (x2 - Math.cos(a) * h * 0.6) + '" y2="' + (y2 - Math.sin(a) * h * 0.6) + '" stroke="' + c + '" stroke-width="' + w + '" stroke-linecap="round"/><polygon points="' + x2 + ',' + y2 + ' ' + p1 + ' ' + p2 + '" fill="' + c + '"/></g>';
+        }
+
+        // ---------- Göğüs (koronal kesit) ----------
+        var BODY = 'M150 540 L168 175 Q178 98 268 80 L410 60 Q480 50 550 60 L692 80 Q782 98 792 175 L810 540 Z';
+        var R_CAV = 'M 452 118 C 400 92, 318 98, 286 180 C 258 250, 254 360, 268 442 Q 360 402 452 434 Z';
+        var R_LUNG = 'M 446 126 C 402 100, 324 106, 294 184 C 266 252, 262 356, 276 434 Q 362 398 448 428 C 454 330, 454 222, 446 126 Z';
+        var R_BR = 'M 448 255 L 404 214 L 362 182 M 404 214 L 384 256 M 448 265 L 398 304 L 352 344 M 398 304 L 404 364';
+        var L_CAV = mirror(R_CAV), L_LUNG = mirror(R_LUNG), L_BR = mirror(R_BR);
+        var RR = [[312, 118], [286, 160], [268, 205], [258, 252], [254, 300], [255, 348], [260, 396]];
+        var TUBE_D = 'M 175 330 L 256 322 C 290 318, 300 210, 352 138';
+        var tubeEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        var hidden = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        hidden.setAttribute('width', '0'); hidden.setAttribute('height', '0'); hidden.style.position = 'absolute';
+        tubeEl.setAttribute('d', TUBE_D); hidden.appendChild(tubeEl); document.body.appendChild(hidden);
+        var TUBE_L = tubeEl.getTotalLength();
+        function tubePt(f) { var p = tubeEl.getPointAtLength(clamp(f) * TUBE_L); return { x: p.x, y: p.y }; }
+
+        function lungG(d, br, hx, s) {
+            return '<g transform="translate(' + hx + ' 255) scale(' + s + ') translate(' + (-hx) + ' -255)"><path d="' + d + '" fill="#f3b5ac" stroke="#c46f64" stroke-width="2.5"/><path d="' + br + '" fill="none" stroke="#dc958b" stroke-width="3" stroke-linecap="round"/></g>';
+        }
+        function tube(p, holes) {
+            if (p <= 0) return '';
+            var off = 100 * (1 - p), s = '';
+            s += '<path d="' + TUBE_D + '" pathLength="100" stroke-dasharray="100 200" stroke-dashoffset="' + off + '" fill="none" stroke="#6f8597" stroke-width="13" stroke-linecap="round"/>';
+            s += '<path d="' + TUBE_D + '" pathLength="100" stroke-dasharray="100 200" stroke-dashoffset="' + off + '" fill="none" stroke="#f4f9fc" stroke-width="8" stroke-linecap="round"/>';
+            s += '<path d="' + TUBE_D + '" pathLength="100" stroke-dasharray="100 200" stroke-dashoffset="' + off + '" fill="none" stroke="#2f6fa3" stroke-width="1.5"/>';
+            if (holes) [0.8, 0.88, 0.95].forEach(function (f) { var q = tubePt(f); s += '<circle cx="' + q.x + '" cy="' + q.y + '" r="3.2" fill="#1f3a52"/>'; });
+            return s;
+        }
+        function chest(o) {
+            o = Object.assign({ r: 1, l: 1, shift: 0, breath: 0, air: false, tubeP: 0, holes: false }, o);
+            var s = '';
+            s += '<rect x="440" y="0" width="80" height="70" fill="' + SKIN + '"/>';
+            s += '<path d="' + BODY + '" fill="' + SKIN + '" stroke="#c99f86" stroke-width="2"/>';
+            s += '<path d="' + R_CAV + '" fill="' + (o.air ? '#e6f1f9' : '#f7efe4') + '" stroke="#5d9cc9" stroke-width="3"/>';
+            s += '<path d="' + L_CAV + '" fill="#f7efe4" stroke="#5d9cc9" stroke-width="3"/>';
+            RR.forEach(function (p) {
+                s += '<ellipse cx="' + p[0] + '" cy="' + p[1] + '" rx="11" ry="7" fill="#fbf7ef" stroke="#c2ad94" stroke-width="2"/>';
+                s += '<ellipse cx="' + (960 - p[0]) + '" cy="' + p[1] + '" rx="11" ry="7" fill="#fbf7ef" stroke="#c2ad94" stroke-width="2"/>';
+            });
+            var bs = 1 + 0.03 * o.breath;
+            s += lungG(R_LUNG, R_BR, 448, o.r * bs);
+            s += lungG(L_LUNG, L_BR, 512, o.l * bs);
+            s += '<g transform="translate(' + o.shift + ' 0)">';
+            s += '<path d="M 480 20 L 480 212 M 480 212 L 450 252 M 480 212 L 510 252" fill="none" stroke="#8fa3b3" stroke-width="14" stroke-linecap="round"/>';
+            s += '<path d="M 480 20 L 480 212 M 480 212 L 450 252 M 480 212 L 510 252" fill="none" stroke="#eef3f6" stroke-width="7" stroke-linecap="round"/>';
+            s += '<path d="M 470 270 C 520 255, 590 290, 585 350 C 580 410, 520 430, 478 420 C 455 400, 452 330, 470 270 Z" fill="#d9776f" stroke="#a9524b" stroke-width="2"/>';
+            s += '</g>';
+            s += tube(o.tubeP, o.holes);
+            return s;
+        }
+        function bubbleDots(time, n, fn) { var s = ''; for (var k = 0; k < n; k++) { s += fn(((time * 0.45) + k / n) % 1, k); } return s; }
+
+        // ---------- Sahneler ----------
+        // Her sahnede altyazılar sırayla gösterilir; P(i) = i. altyazının ilerlemesi (0 önce, 1 sonra).
+        var scenes = [
+            { title: 'Normal göğüs', caps: [
+                'Göğüs boşluğunda iki akciğer vardır. Her akciğeri plevra denen ince, kaygan bir zar sarar. Plevranın iki yaprağı arasında çok ince bir boşluk bulunur: plevral boşluk.',
+                'Bu boşluktaki basınç atmosfer basıncından düşüktür (yaklaşık −5 cmH₂O). Akciğer kendi esnekliğiyle içe doğru büzülmek, göğüs duvarı ise dışa doğru açılmak ister. Bu iki zıt kuvvetin oluşturduğu negatif basınç akciğeri göğüs duvarına yapışık tutar.',
+                'Nefes alırken göğüs kafesi genişler, negatif basınç artar ve akciğer de onunla birlikte genişler. Akciğer, göğüs duvarını bir vantuz gibi takip eder.'
+            ], draw: function (P, time) {
+                var amp = P(2) > 0 ? 1 : 0.4, b = (Math.sin(time * Math.PI / 2) + 1) / 2 * amp;
+                var s = chest({ breath: b });
+                s += txt(200, 470, 'sağ akciğer', { anchor: 'middle', bold: true, op: clamp(P(0) * 3) });
+                s += txt(760, 470, 'sol akciğer', { anchor: 'middle', bold: true, op: clamp(P(0) * 3) });
+                s += txt(560, 500, 'kalp', { anchor: 'middle', op: clamp(P(0) * 3) });
+                if (P(0) > 0.3) { s += arrow(150, 170, 282, 200, '#2f6fa3', 2.5, clamp((P(0) - 0.3) * 4)); s += txt(40, 158, 'plevral boşluk', { bold: true, color: '#2f6fa3', op: clamp((P(0) - 0.3) * 4) }); }
+                if (P(1) > 0) {
+                    var o = clamp(P(1) * 3);
+                    s += arrow(330, 250, 380, 255, '#c0392b', 4, o); s += txt(388, 236, 'akciğer içe çeker', { color: '#c0392b', bold: true, op: o, size: 13 });
+                    s += arrow(250, 300, 196, 300, '#2f6fa3', 4, o); s += txt(40, 335, 'göğüs duvarı dışa çeker', { color: '#2f6fa3', bold: true, op: o, size: 13 });
+                    s += '<rect x="20" y="20" width="0" height="0"/>';
+                    s += txt(812, 160, '−5 cmH₂O', { size: 26, bold: true, color: '#2f6fa3', anchor: 'middle', op: o });
+                    s += txt(812, 184, 'negatif basınç', { size: 13, color: '#2f6fa3', anchor: 'middle', op: o });
+                }
+                if (P(2) > 0) s += txt(812, 260, b > 0.5 ? 'nefes al ⬆' : 'nefes ver ⬇', { size: 18, bold: true, anchor: 'middle', color: '#2f8f6f' });
+                return s;
+            } },
+            { title: 'Sorun: pnömotoraks', caps: [
+                'Pnömotoraks: Akciğer yüzeyindeki küçük bir yırtıktan (örneğin patlayan bir bül) ya da göğse giren bir yaralanmadan plevral boşluğa hava girer.',
+                'Boşluktaki basınç atmosfer basıncına eşitlenince vantuz etkisi kaybolur. Akciğer kendi esnekliğiyle büzülür ve söner. Hasta ani nefes darlığı ve göğüs ağrısı hisseder.',
+                'Hava girişi tek yönlü bir valf gibi sürerse basınç giderek artar: tansiyon pnömotoraks. Kalp ve büyük damarlar karşı tarafa itilir, kalbe kan dönüşü azalır. Bu hemen boşaltılması gereken hayati bir acildir.'
+            ], draw: function (P, time) {
+                var r = lerp(1, 0.9, P(0)); r = lerp(r, 0.6, ease(P(1))); r = lerp(r, 0.5, ease(P(2)));
+                var shift = 35 * ease(P(2)), l = lerp(1, 0.9, ease(P(2)));
+                var s = chest({ r: r, l: l, shift: shift, air: true, breath: 0 });
+                if (P(0) > 0 && P(1) < 1) s += bubbleDots(time, 6, function (a, k) { return '<circle cx="' + (lerp(300, 262, a) + 4 * Math.sin(k)) + '" cy="' + (lerp(250, 200 + k * 25, a)) + '" r="5" fill="#fff" stroke="#5d9cc9" stroke-width="1.5" opacity="' + (1 - a) + '"/>'; });
+                if (P(0) > 0) s += txt(40, 120, 'yırtık: hava kaçağı', { bold: true, color: '#c0392b', op: clamp(P(0) * 3) }) + arrow(150, 128, 290, 240, '#c0392b', 2.5, clamp(P(0) * 3));
+                if (P(1) > 0.2) s += txt(330, 160, 'HAVA', { size: 22, bold: true, color: '#5d9cc9', anchor: 'middle', op: clamp((P(1) - 0.2) * 3) });
+                if (P(1) > 0.4) s += txt(812, 160, '0 cmH₂O', { size: 26, bold: true, color: '#c0392b', anchor: 'middle', op: clamp((P(1) - 0.4) * 3) }) + txt(812, 184, 'vantuz etkisi kayboldu', { size: 13, color: '#c0392b', anchor: 'middle', op: clamp((P(1) - 0.4) * 3) });
+                if (P(2) > 0) {
+                    var o = clamp(P(2) * 3);
+                    s += arrow(400, 320, 470, 320, '#c0392b', 5, o) + arrow(400, 200, 455, 200, '#c0392b', 5, o);
+                    s += txt(812, 300, 'TANSİYON!', { size: 24, bold: true, color: '#c0392b', anchor: 'middle', op: o });
+                    s += txt(812, 324, 'kalp karşıya itilir', { size: 13, color: '#c0392b', anchor: 'middle', op: o });
+                }
+                return s;
+            } },
+            { title: 'Çözüm: tüpün mantığı', caps: [
+                'Tüp torakostominin mantığı basittir: göğüs duvarından plevral boşluğa bir tüp yerleştirilir ve içerideki hava (ya da kan, sıvı) dışarı alınır.',
+                'Tüp, su altında çalışan tek yönlü bir sisteme bağlanır. Hava dışarı çıkabilir ama geri giremez. Negatif basınç yeniden oluşur ve akciğer tekrar genişler.'
+            ], draw: function (P, time) {
+                var r = lerp(0.6, 1, ease(P(1)));
+                var s = chest({ r: r, air: true, tubeP: ease(clamp(P(0) * 2)), holes: true });
+                s += '<path d="M 175 330 C 120 340, 90 370, 86 410" fill="none" stroke="#6f8597" stroke-width="9"/>';
+                s += '<rect x="40" y="410" width="92" height="110" rx="12" fill="rgba(220,235,245,0.8)" stroke="#6f8fa6" stroke-width="2.5"/><rect x="43" y="460" width="86" height="57" fill="#bfe0f2"/>';
+                s += txt(86, 534, 'su altı şişe', { anchor: 'middle', size: 12 });
+                var leak = 1 - P(1) * 0.9;
+                if (P(0) > 0.5) s += bubbleDots(time, 7, function (a, k) { var q = tubePt(1 - a); return '<circle cx="' + q.x + '" cy="' + q.y + '" r="4" fill="#fff" stroke="#2f6fa3" stroke-width="1.5" opacity="' + leak + '"/>'; });
+                if (P(0) > 0.5) s += bubbleDots(time * 1.6, 4, function (a, k) { return '<circle cx="' + (80 + k * 6) + '" cy="' + lerp(505, 465, a) + '" r="3.5" fill="#fff" stroke="#2f6fa3" opacity="' + leak + '"/>'; });
+                if (P(1) > 0) s += txt(812, 160, 'hava çıkar,', { size: 18, bold: true, anchor: 'middle', color: '#2f8f6f' }) + txt(812, 184, 'geri giremez', { size: 18, bold: true, anchor: 'middle', color: '#2f8f6f' }) + txt(812, 214, 'akciğer genişler', { size: 14, anchor: 'middle', color: '#2f8f6f' });
+                return s;
+            } },
+            { title: 'Yer seçimi: güvenli üçgen', caps: [
+                'Hasta sırtüstü yatırılır, sağ kol başın arkasına alınır. Böylece koltuk altındaki yan göğüs duvarı açığa çıkar. Burada göğsün sağ yanına yandan bakıyoruz.',
+                'Tüpün gireceği yer "güvenli üçgen"dir: önde büyük göğüs kasının (pektoralis majör) kenarı, arkada geniş sırt kasının (latissimus dorsi) kenarı, altta meme başı hizası.',
+                'Meme başı hizası, orta aksiller hatta yaklaşık 5. interkostal aralığa denk gelir. Bu bölgede kas tabakası incedir; büyük damar ve önemli organlardan uzaktır.',
+                'Bu noktada, bir alttaki 6. kotun üzerine, kota paralel 2–3 cm\'lik bir cilt kesisi yapılır. Böylece tüp göğse eğik bir tünelle girer ve tüp çekildiğinde bu tünel kendiliğinden kapanır.'
+            ], draw: function (P, time) {
+                var s = '<rect width="960" height="540" fill="#eef3f6"/>';
+                s += '<path d="M 395 128 L 300 12 Q 330 -2 362 8 L 470 112 Z" fill="' + SKIN + '" stroke="#c99f86" stroke-width="2"/>';
+                s += '<path d="M 270 540 L 285 165 Q 300 112 370 102 L 470 112 Q 565 98 645 124 Q 708 156 714 236 L 722 540 Z" fill="' + SKIN + '" stroke="#c99f86" stroke-width="2"/>';
+                for (var i = 0; i < 7; i++) {
+                    var y0 = 120 + 48 * i;
+                    s += '<path d="M 292 ' + y0 + ' Q 490 ' + (y0 + 20) + ' 690 ' + (y0 + 40) + '" fill="none" stroke="#c9ad90" stroke-width="9" stroke-linecap="round" opacity="0.55"/>';
+                    s += txt(700, y0 + 44, (i + 2) + '. kot', { size: 11, color: '#7a5a45' });
+                }
+                s += txt(860, 60, 'ÖN (göğüs) →', { anchor: 'middle', bold: true, size: 13 }) + txt(110, 60, '← ARKA (sırt)', { anchor: 'middle', bold: true, size: 13 });
+                s += txt(250, 30, 'sağ kol başın arkasında', { anchor: 'end', size: 13, op: clamp(P(0) * 3) });
+                s += '<circle cx="668" cy="304" r="8" fill="#c9897a"/>' + txt(676, 296, 'meme başı', { size: 12, op: clamp(P(0) * 3) });
+                if (P(1) > 0) {
+                    var o = clamp(P(1) * 2);
+                    s += '<polygon points="495,130 604,304 386,304" fill="rgba(47,143,111,' + (0.3 * o) + ')" stroke="#2f8f6f" stroke-width="2.5" opacity="' + o + '"/>';
+                    [[600, 'ön aksiller hat'], [495, 'orta aksiller hat'], [390, 'arka aksiller hat']].forEach(function (l) {
+                        s += '<line x1="' + l[0] + '" y1="120" x2="' + l[0] + '" y2="520" stroke="#1f3a52" stroke-width="1.5" stroke-dasharray="6 6" opacity="' + o + '"/>';
+                        s += txt(l[0], 515, l[1], { size: 12, anchor: 'middle', op: o });
+                    });
+                    s += txt(612, 180, 'pektoralis majör kenarı', { size: 12, op: o, color: '#2f8f6f', bold: true });
+                    s += txt(378, 180, 'latissimus dorsi kenarı', { size: 12, op: o, color: '#2f8f6f', bold: true, anchor: 'end' });
+                    s += txt(495, 230, 'güvenli üçgen', { size: 14, op: o, color: '#1f5a45', bold: true, anchor: 'middle' });
+                }
+                if (P(2) > 0) {
+                    var o2 = clamp(P(2) * 2);
+                    s += '<line x1="380" y1="304" x2="690" y2="304" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 5" opacity="' + o2 + '"/>';
+                    s += txt(380, 296, 'meme başı hizası', { size: 12, color: '#c0392b', bold: true, anchor: 'end', op: o2 });
+                    var pr = 9 + 3 * Math.sin(time * 5);
+                    s += '<circle cx="495" cy="304" r="' + pr + '" fill="none" stroke="#c0392b" stroke-width="3" opacity="' + o2 + '"/>';
+                    s += txt(790, 260, '5. interkostal aralık', { size: 15, bold: true, color: '#c0392b', anchor: 'middle', op: o2 }) + txt(790, 280, '+ orta aksiller hat', { size: 13, color: '#c0392b', anchor: 'middle', op: o2 });
+                    s += arrow(720, 286, 512, 304, '#c0392b', 2, o2);
+                }
+                if (P(3) > 0) {
+                    var p = ease(P(3));
+                    s += '<line x1="470" y1="325" x2="' + lerp(470, 526, p) + '" y2="' + lerp(325, 331, p) + '" stroke="#8a1c12" stroke-width="4.5" stroke-linecap="round"/>';
+                    s += txt(498, 360, 'cilt kesisi 2–3 cm (6. kotun üzerinde)', { size: 13, bold: true, anchor: 'middle', color: '#8a1c12', op: clamp(P(3) * 2) });
+                }
+                return s;
+            } },
+            { title: 'Göğüs duvarından giriş (kesit)', caps: [
+                'Burada göğüs duvarını kesit hâlinde görüyoruz: deri, deri altı yağ, kas, kotlar ve aralarındaki interkostal kaslar, en altta plevra ve akciğer. Önce cilde, kot zarına ve plevraya kadar lokal anestezi yapılır.',
+                'İğneyle aspirasyon yapılır: enjektöre hava gelmesi plevral boşluğa ulaşıldığını, yani doğru yerde olduğumuzu gösterir.',
+                'Her kotun alt kenarında bir damar–sinir paketi (ven, arter, sinir) seyreder. Bu yüzden göğse her zaman alttaki kotun ÜST kenarından girilir.',
+                'Cilt kesisinden sonra kıvrık bir klemple kaslar künt olarak, yani kesmeden açıp kapatarak ayrılır ve 6. kotun üst kenarı boyunca ilerlenir.',
+                'Klemp kontrollü bir basınçla paryetal plevrayı deler. Bu sırada boşluktaki havanın "fıss" diye çıktığı duyulabilir.',
+                'Parmakla kanaldan girilip plevral boşluk yoklanır: akciğer göğüs duvarına yapışık mı, kanal yeterince geniş mi? Bu adım tüpün akciğere batmasını önler.'
+            ], draw: function (P, time) {
+                var s = '<rect width="960" height="540" fill="#eef3f6"/>';
+                s += '<rect x="0" y="70" width="960" height="25" fill="' + SKIN + '"/>';
+                s += '<rect x="0" y="95" width="960" height="55" fill="#f6e3a1"/>';
+                s += '<rect x="0" y="150" width="960" height="45" fill="#d48a83"/>';
+                for (var i = 0; i < 24; i++) s += '<line x1="' + (i * 40) + '" y1="155" x2="' + (i * 40 + 30) + '" y2="190" stroke="#c0756e" stroke-width="2"/>';
+                s += '<rect x="0" y="195" width="960" height="80" fill="#c8746d"/>';
+                for (var j = 0; j < 30; j++) s += '<line x1="' + (j * 32) + '" y1="200" x2="' + (j * 32 - 25) + '" y2="270" stroke="#b5635c" stroke-width="2"/>';
+                s += '<ellipse cx="230" cy="235" rx="112" ry="38" fill="#f7f1e3" stroke="#bfa98a" stroke-width="3"/><ellipse cx="230" cy="235" rx="80" ry="22" fill="#efe1c4"/>';
+                s += '<ellipse cx="730" cy="235" rx="112" ry="38" fill="#f7f1e3" stroke="#bfa98a" stroke-width="3"/><ellipse cx="730" cy="235" rx="80" ry="22" fill="#efe1c4"/>';
+                s += txt(230, 240, '5. kot (üstteki)', { anchor: 'middle', size: 13, bold: true, color: '#6a5a45' }) + txt(730, 240, '6. kot (alttaki)', { anchor: 'middle', size: 13, bold: true, color: '#6a5a45' });
+                s += '<circle cx="356" cy="246" r="8" fill="#3b6fb6"/><circle cx="358" cy="264" r="7" fill="#c0392b"/><circle cx="372" cy="256" r="5" fill="#e0b400"/>';
+                var pleuraBroken = P(4) > 0.3;
+                s += '<rect x="0" y="275" width="960" height="6" fill="#5d9cc9"/>';
+                s += '<rect x="0" y="281" width="960" height="19" fill="#e6f1f9"/>';
+                s += '<rect x="0" y="300" width="960" height="240" fill="#f3b5ac"/><rect x="0" y="300" width="960" height="4" fill="#c46f64"/>';
+                for (var k = 0; k < 16; k++) s += '<circle cx="' + (30 + k * 62) + '" cy="' + (360 + (k % 3) * 45) + '" r="16" fill="none" stroke="#dc958b" stroke-width="2"/>';
+                [['deri', 87], ['deri altı yağ', 127], ['kas', 177], ['interkostal kas', 287 - 30]].forEach(function (l) { s += txt(10, l[1], l[0], { size: 12, bold: true, color: '#3a2a20' }); });
+                s += txt(10, 296, 'paryetal plevra / plevral boşluk', { size: 11, bold: true, color: '#2f6fa3' });
+                s += txt(10, 330, 'akciğer', { size: 12, bold: true, color: '#8a2a20' });
+                s += txt(480, 530, '← baş tarafı                    ayak tarafı →', { anchor: 'middle', size: 12, color: '#6a7a87', halo: false });
+                var X = 600;
+                if (P(3) > 0 || P(4) > 0 || P(5) > 0) {
+                    var depth = P(4) > 0 ? lerp(268, 292, ease(P(4))) : lerp(80, 268, ease(P(3)));
+                    s += '<rect x="' + (X - 12) + '" y="70" width="24" height="' + (depth - 70) + '" fill="#fbe3dc" opacity="0.95"/>';
+                    s += '<line x1="' + (X - 30) + '" y1="71" x2="' + (X + 30) + '" y2="71" stroke="#8a1c12" stroke-width="4"/>';
+                    if (pleuraBroken) s += '<rect x="' + (X - 12) + '" y="274" width="24" height="8" fill="#e6f1f9"/>';
+                }
+                if (P(0) > 0 && P(2) === 0) {
+                    var yn = P(1) > 0 ? 290 : lerp(70, 290, ease(P(0)));
+                    var pl = P(1) > 0 ? 18 * ease(P(1)) : 0;
+                    s += '<rect x="' + (X - 14) + '" y="-10" width="28" height="60" rx="4" fill="rgba(255,255,255,0.85)" stroke="#6f8597" stroke-width="2"/>';
+                    s += '<rect x="' + (X - 4) + '" y="' + (-40 - pl) + '" width="8" height="' + (60) + '" fill="#6f8597"/>';
+                    s += '<line x1="' + X + '" y1="50" x2="' + X + '" y2="' + yn + '" stroke="#5a6a77" stroke-width="2.5"/>';
+                    if (P(1) === 0) for (var d = 0; d < 6; d++) { var yy = lerp(85, yn, d / 6); if (yy < yn) s += '<circle cx="' + (X + 8) + '" cy="' + yy + '" r="3" fill="#3b8fd0" opacity="0.7"/>'; }
+                    if (P(1) > 0) { s += bubbleDots(time, 4, function (a, kk) { return '<circle cx="' + (X - 5 + kk * 3) + '" cy="' + lerp(45, 5, a) + '" r="3" fill="#fff" stroke="#2f6fa3"/>'; }); s += txt(X + 24, 30, 'hava geldi ✓', { bold: true, color: '#2f8f6f' }); }
+                    else s += txt(X + 24, 30, 'lokal anestezi', { bold: true, color: '#2f6fa3' });
+                }
+                if (P(2) > 0) {
+                    var o = clamp(P(2) * 2), pr = 22 + 4 * Math.sin(time * 5);
+                    s += '<circle cx="362" cy="255" r="' + pr + '" fill="none" stroke="#c0392b" stroke-width="3" opacity="' + o + '"/>';
+                    s += txt(362, 330, 'damar–sinir paketi: kotun ALT kenarı ✕', { anchor: 'middle', bold: true, color: '#c0392b', op: o });
+                    if (P(3) === 0) s += '<line x1="' + X + '" y1="60" x2="' + X + '" y2="280" stroke="#2f8f6f" stroke-width="3" stroke-dasharray="8 6" opacity="' + o + '"/>';
+                    s += txt(X + 20, 140, 'güvenli yol ✓', { bold: true, color: '#2f8f6f', op: o }) + txt(X + 20, 158, '6. kotun ÜST kenarı', { size: 12, color: '#2f8f6f', op: o });
+                }
+                if ((P(3) > 0 && P(5) === 0)) {
+                    var tip = P(4) > 0 ? lerp(268, 292, ease(P(4))) : lerp(80, 268, ease(P(3)));
+                    var spread = (P(3) > 0 && P(3) < 1) ? 10 * Math.abs(Math.sin(time * 4)) : 3;
+                    s += '<path d="M ' + (X - 6) + ' -20 L ' + (X - 3) + ' ' + (tip - 50) + ' Q ' + (X - spread - 2) + ' ' + (tip - 20) + ' ' + (X - spread) + ' ' + tip + '" fill="none" stroke="#4a5a67" stroke-width="5" stroke-linecap="round"/>';
+                    s += '<path d="M ' + (X + 6) + ' -20 L ' + (X + 3) + ' ' + (tip - 50) + ' Q ' + (X + spread + 2) + ' ' + (tip - 20) + ' ' + (X + spread) + ' ' + tip + '" fill="none" stroke="#4a5a67" stroke-width="5" stroke-linecap="round"/>';
+                    if (P(4) === 0) s += txt(X + 24, 110, 'künt diseksiyon: aç–kapa', { size: 13, bold: true });
+                }
+                if (P(4) > 0.3 && P(5) < 1) {
+                    s += bubbleDots(time * 1.5, 6, function (a, kk) { return '<circle cx="' + (X - 8 + (kk % 3) * 8) + '" cy="' + lerp(288, 60, a) + '" r="4" fill="#fff" stroke="#2f6fa3" stroke-width="1.5" opacity="' + (1 - a) + '"/>'; });
+                    if (P(5) === 0) s += txt(X - 30, 50, 'fıss!', { size: 20, bold: true, color: '#2f6fa3', anchor: 'end' });
+                }
+                if (P(5) > 0) {
+                    var ang = 10 * Math.sin(time * 3) * clamp(P(5) * 3), fy = lerp(60, 300, ease(clamp(P(5) * 3)));
+                    s += '<g transform="rotate(' + ang + ' ' + X + ' 70)"><path d="M ' + (X - 15) + ' -30 L ' + (X - 15) + ' ' + (fy - 15) + ' Q ' + X + ' ' + (fy + 8) + ' ' + (X + 15) + ' ' + (fy - 15) + ' L ' + (X + 15) + ' -30 Z" fill="#e9b9a0" stroke="#b07a62" stroke-width="2"/></g>';
+                    s += txt(X + 40, 340, 'parmakla kontrol: yapışıklık var mı?', { bold: true, color: '#1f3a52' });
+                }
+                return s;
+            } },
+            { title: '28 F tüp apekse', caps: [
+                '28 French (yaklaşık 9 mm çaplı) göğüs tüpünün ucu kıvrık bir klempe tutturulur ve hazırlanan kanaldan göğüs boşluğuna sokulur.',
+                'Tüp yukarıya ve arkaya, akciğerin tepesine (apeks) doğru yönlendirilir. Hava hafif olduğu için yukarıda toplanır; bu yüzden pnömotoraksta tüpün ucu apekse gönderilir.',
+                'Tüpün üzerindeki tüm yan delikler göğüs boşluğunun içinde kalmalıdır. Dışarıda kalan bir delik hava kaçağına ve deri altı amfizemine yol açar.'
+            ], draw: function (P, time) {
+                var p = P(0) < 1 ? lerp(0, 0.38, ease(P(0))) : lerp(0.38, 1, ease(P(1)));
+                var s = chest({ r: 0.6, air: true, tubeP: p, holes: P(2) > 0 });
+                var tp = tubePt(p);
+                if (P(2) === 0 && p > 0) {
+                    s += '<path d="M ' + (tp.x - 60) + ' ' + (tp.y + 40) + ' L ' + tp.x + ' ' + tp.y + '" stroke="#4a5a67" stroke-width="5" stroke-linecap="round"/>';
+                    s += '<circle cx="' + tp.x + '" cy="' + tp.y + '" r="5" fill="#4a5a67"/>';
+                }
+                s += txt(118, 380, '28 F ≈ 9 mm', { size: 16, bold: true, anchor: 'middle' });
+                s += txt(118, 400, '(French ÷ 3 = mm)', { size: 12, anchor: 'middle', color: '#6a7a87' });
+                s += txt(230, 316, '5. aralık', { size: 12, bold: true, color: '#c0392b', anchor: 'end' });
+                if (P(1) > 0.3) s += txt(352, 100, 'APEKS', { size: 18, bold: true, anchor: 'middle', color: '#2f6fa3', op: clamp((P(1) - 0.3) * 3) }) + txt(352, 82, 'hava yukarıda toplanır', { size: 12, anchor: 'middle', color: '#2f6fa3', op: clamp((P(1) - 0.3) * 3) });
+                if (P(2) > 0) {
+                    var o = clamp(P(2) * 2);
+                    s += txt(812, 160, 'yan delikler', { size: 18, bold: true, anchor: 'middle', op: o }) + txt(812, 184, 'göğüs İÇİNDE ✓', { size: 18, bold: true, anchor: 'middle', color: '#2f8f6f', op: o });
+                    s += arrow(740, 180, 380, 160, '#2f8f6f', 2, o);
+                }
+                return s;
+            } },
+            { title: 'Sütürler ve tespit', caps: [
+                'Tüp yerine oturduktan sonra kesinin iki yanından U şeklinde (yatay matris) bir sütür geçilir. Bu sütür şimdilik bağlanmaz; tüp çekildiğinde deliği kapatmak için kullanılacaktır.',
+                'Ayrı bir tespit sütürü cilde bağlanır, ardından tüpün etrafına birkaç kez sarılıp sıkıca düğümlenir. Böylece tüp kaymaz ve dışarı çıkmaz.',
+                'Üzerine steril pansuman yapılır. Tüp bükülmeyecek ve cildi çekmeyecek şekilde flasterle göğüs duvarına sabitlenir.'
+            ], draw: function (P, time) {
+                var s = '<rect width="960" height="540" fill="' + SKIN + '"/>';
+                for (var i = 0; i < 40; i++) s += '<circle cx="' + ((i * 97) % 960) + '" cy="' + ((i * 61) % 540) + '" r="1.5" fill="#d9b49b"/>';
+                s += txt(20, 74, 'Yakından görünüm: sağ yan göğüs duvarındaki kesi', { size: 14, bold: true });
+                s += '<path d="M 380 270 Q 480 262 580 270 Q 480 280 380 270 Z" fill="#a8463d" stroke="#7a2a22" stroke-width="2"/>';
+                s += '<rect x="480" y="252" width="470" height="36" rx="6" fill="#f4f9fc" stroke="#8fa3b3" stroke-width="2"/>';
+                s += '<line x1="480" y1="262" x2="950" y2="262" stroke="#2f6fa3" stroke-width="3"/>';
+                for (var t = 0; t < 8; t++) s += '<line x1="' + (560 + t * 50) + '" y1="278" x2="' + (560 + t * 50) + '" y2="288" stroke="#1f3a52" stroke-width="2"/>' + txt(560 + t * 50, 300, String(4 + t * 2), { size: 10, anchor: 'middle', halo: false });
+                s += '<ellipse cx="482" cy="270" rx="9" ry="19" fill="#e9f1f6" stroke="#8fa3b3" stroke-width="2"/>';
+                s += txt(900, 245, '28 F tüp', { size: 13, bold: true, anchor: 'end' });
+                if (P(0) > 0) {
+                    var off = 100 * (1 - ease(P(0)));
+                    s += '<path d="M 400 190 L 430 238 L 430 304 L 530 304 L 530 238 L 560 190" pathLength="100" stroke-dasharray="100 200" stroke-dashoffset="' + off + '" fill="none" stroke="#1f4fa0" stroke-width="3"/>';
+                    s += '<circle cx="430" cy="238" r="3" fill="#1f4fa0"/><circle cx="430" cy="304" r="3" fill="#1f4fa0"/><circle cx="530" cy="304" r="3" fill="#1f4fa0"/><circle cx="530" cy="238" r="3" fill="#1f4fa0"/>';
+                    s += txt(480, 175, 'U (yatay matris) sütür: BAĞLANMADI', { size: 13, bold: true, anchor: 'middle', color: '#1f4fa0', op: clamp(P(0) * 2) });
+                    s += txt(480, 340, 'tüp çekilince bağlanıp deliği kapatır', { size: 12, anchor: 'middle', color: '#1f4fa0', op: clamp(P(0) * 2) });
+                }
+                if (P(1) > 0) {
+                    var q = P(1);
+                    s += '<path d="M 600 316 Q 615 330 630 316" fill="none" stroke="#111" stroke-width="3"/>';
+                    for (var w = 0; w < 4; w++) if (q > 0.2 + w * 0.15) s += '<line x1="' + (640 + w * 18) + '" y1="294" x2="' + (656 + w * 18) + '" y2="246" stroke="#111" stroke-width="3"/>';
+                    s += '<path d="M 630 316 Q 640 305 640 294" fill="none" stroke="#111" stroke-width="3" opacity="' + clamp(q * 4) + '"/>';
+                    if (q > 0.85) s += '<circle cx="716" cy="244" r="6" fill="#111"/>';
+                    s += txt(680, 380, 'tespit sütürü: cilde bağlanır,', { size: 13, bold: true, anchor: 'middle', op: clamp(q * 2) }) + txt(680, 398, 'tüpe sarılıp düğümlenir', { size: 13, bold: true, anchor: 'middle', op: clamp(q * 2) });
+                }
+                if (P(2) > 0) {
+                    var o = clamp(P(2) * 2);
+                    s += '<rect x="360" y="200" width="250" height="140" rx="6" fill="#fff" opacity="' + (0.92 * o) + '" stroke="#ddd"/>';
+                    for (var g = 0; g < 9; g++) s += '<line x1="' + (370 + g * 28) + '" y1="205" x2="' + (370 + g * 28) + '" y2="335" stroke="#eee" opacity="' + o + '"/>';
+                    s += '<rect x="620" y="225" width="70" height="90" rx="6" fill="rgba(236,226,200,0.95)" opacity="' + o + '"/>';
+                    s += '<rect x="330" y="186" width="310" height="22" rx="4" fill="rgba(236,226,200,0.95)" opacity="' + o + '"/>';
+                    s += txt(485, 440, 'steril pansuman + flaster ile sabitleme', { size: 15, bold: true, anchor: 'middle', op: o });
+                }
+                return s;
+            } },
+            { title: 'Drenaj: su altı şişe', caps: [
+                'Tüp kapalı bir su altı drenaj şişesine bağlanır. Hastadan gelen borunun ucu suyun yaklaşık 2 cm altındadır: buna "su kilidi" denir. Şişedeki ikinci kısa boru havaya açıktır.',
+                'Hasta nefes verirken veya öksürürken göğüs içi basınç yükselir; hava tüpten çıkar ve suyun içinde kabarcıklar hâlinde yükselir. Su havanın geri dönmesine izin vermez: tek yönlü valf.',
+                'Nefes alırken göğüs içi basınç düşer ve borudaki su biraz yukarı çekilir. Suyun nefesle inip çıkmasına "osilasyon" denir; tüpün açık ve çalıştığını gösterir.',
+                'Akciğer genişledikçe ve yırtık iyileştikçe kabarcıklar azalır, sonra kaybolur. Kan veya sıvı gelirse şişede birikir; miktarı ve rengi takip edilir.',
+                'İki kural: Şişe her zaman göğüs seviyesinin altında tutulur, yoksa su göğse geri kaçabilir. Tüp rutin olarak klemplenmez; hava kaçağı varken klemplemek tansiyon pnömotoraksa yol açabilir.'
+            ], draw: function (P, time) {
+                var ph = (time % 4) / 4, insp = ph < 0.5, sinv = Math.sin(ph * 2 * Math.PI);
+                var r = P(3) > 0 ? lerp(0.62, 1, ease(P(3))) : 0.62;
+                var leak = P(3) > 0 ? 1 - ease(P(3)) : 1;
+                var s = '<rect width="960" height="540" fill="#eef3f6"/>';
+                s += '<g transform="translate(10 30) scale(0.55)">' + chest({ r: r, air: true, tubeP: 1, holes: true, breath: insp ? sinv : 0 }) + '</g>';
+                var L = 432 - 16 * P(3), tipY = L + 22, osc = 22 * Math.max(0, sinv);
+                var fl = clamp(P(3)), water = 'rgb(' + Math.round(lerp(191, 226, fl)) + ',' + Math.round(lerp(224, 178, fl)) + ',' + Math.round(lerp(242, 170, fl)) + ')';
+                s += '<path d="M 106 212 C 40 300, 160 470, 360 460 S 560 300 640 312" fill="none" stroke="#6f8597" stroke-width="10" stroke-linecap="round"/>';
+                s += '<path d="M 106 212 C 40 300, 160 470, 360 460 S 560 300 640 312" fill="none" stroke="#f4f9fc" stroke-width="5" stroke-linecap="round"/>';
+                s += '<rect x="560" y="330" width="200" height="192" rx="18" fill="rgba(220,235,245,0.55)" stroke="#6f8fa6" stroke-width="3"/>';
+                s += '<rect x="563" y="' + L + '" width="194" height="' + (519 - L) + '" rx="14" fill="' + water + '"/>';
+                s += '<rect x="600" y="314" width="120" height="20" rx="4" fill="#7a8a97"/>';
+                s += '<rect x="635" y="' + (L - osc) + '" width="10" height="' + (tipY - L + osc) + '" fill="' + water + '"/>';
+                s += '<line x1="634" y1="312" x2="634" y2="' + tipY + '" stroke="#4a5a67" stroke-width="2.5"/><line x1="646" y1="312" x2="646" y2="' + tipY + '" stroke="#4a5a67" stroke-width="2.5"/>';
+                s += '<line x1="694" y1="290" x2="694" y2="360" stroke="#4a5a67" stroke-width="2.5"/><line x1="706" y1="290" x2="706" y2="360" stroke="#4a5a67" stroke-width="2.5"/>';
+                s += arrow(700, 300, 700, 262, '#6a7a87', 2) + txt(712, 270, 'havaya açık', { size: 12, color: '#3a4a57' });
+                s += '<line x1="618" y1="' + L + '" x2="618" y2="' + tipY + '" stroke="#c0392b" stroke-width="2"/><line x1="612" y1="' + L + '" x2="624" y2="' + L + '" stroke="#c0392b" stroke-width="2"/><line x1="612" y1="' + tipY + '" x2="624" y2="' + tipY + '" stroke="#c0392b" stroke-width="2"/>';
+                s += txt(608, L + 16, '2 cm', { size: 12, bold: true, color: '#c0392b', anchor: 'end' });
+                s += txt(660, 530, 'su altı drenaj şişesi', { size: 13, bold: true, anchor: 'middle' });
+                if (!insp && P(1) > 0 && leak > 0.02) s += bubbleDots(time * 2.2, 6, function (a, k) { return '<circle cx="' + (640 + 7 * Math.sin(a * 10 + k)) + '" cy="' + lerp(tipY, L + 4, a) + '" r="' + (4 + (k % 2) * 2) + '" fill="#fff" stroke="#2f6fa3" stroke-width="1.5" opacity="' + leak + '"/>'; });
+                if (P(1) > 0 || P(2) > 0) {
+                    s += txt(800, 380, insp ? 'NEFES AL' : 'NEFES VER', { size: 16, bold: true, color: insp ? '#2f8f6f' : '#2f6fa3' });
+                    s += txt(800, 400, insp ? 'su boruda yükselir' : (leak > 0.05 ? 'kabarcık çıkar' : 'kabarcık yok ✓'), { size: 13, color: '#3a4a57' });
+                }
+                if (P(2) > 0) s += arrow(668, L + 10, 668, L - 26, '#2f8f6f', 2.5, insp ? 1 : 0.25) + txt(674, L - 30, 'osilasyon', { size: 12, bold: true, color: '#2f8f6f' });
+                if (P(4) > 0) {
+                    var o = clamp(P(4) * 2);
+                    s += '<line x1="20" y1="212" x2="940" y2="212" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 6" opacity="' + o + '"/>';
+                    s += txt(940, 204, 'göğüs seviyesi', { size: 12, bold: true, color: '#c0392b', anchor: 'end', op: o });
+                    s += txt(800, 450, 'şişe hep aşağıda ✓', { size: 14, bold: true, color: '#2f8f6f', op: o });
+                    s += txt(800, 472, 'rutin klemp yok ✕', { size: 14, bold: true, color: '#c0392b', op: o });
+                }
+                return s;
+            } },
+            { title: 'Kontrol ve takip', caps: [
+                'İşlemden sonra mutlaka akciğer grafisi çekilir: tüpün yerine ve akciğerin genişlediğine bakılır.',
+                'Günlük takipte bakılanlar: osilasyon var mı, kabarcık (hava kaçağı) sürüyor mu, ne kadar ve ne renkte sıvı geliyor, hastanın ağrısı ve solunumu nasıl?',
+                'Hava kaçağı durup akciğer tam genişlediğinde ve drenaj azaldığında tüp çekilir. Tüp, hasta nefesini tutarken hızla çıkarılır ve bekleyen U sütür bağlanarak delik kapatılır.'
+            ], draw: function (P, time) {
+                var s = '<rect width="960" height="540" fill="#eef3f6"/>';
+                s += '<g transform="translate(-10 40) scale(0.62)">' + chest({ r: 1, tubeP: 1, holes: true, breath: (Math.sin(time * Math.PI / 2) + 1) / 2 }) + '</g>';
+                s += '<rect x="560" y="50" width="380" height="440" rx="16" fill="#fff" stroke="#d6dee5"/>';
+                s += txt(580, 86, 'Kontrol listesi', { size: 18, bold: true, halo: false });
+                var items = [[0, 'Akciğer grafisi: tüp yeri ✓'], [0, 'Akciğer genişlemiş ✓'], [1, 'Osilasyon var mı?'], [1, 'Kabarcık (hava kaçağı)?'], [1, 'Sıvı miktarı ve rengi'], [1, 'Ağrı ve solunum'], [2, 'Kaçak yok + akciğer açık → tüp çekilir'], [2, 'U sütür bağlanır']];
+                var gi = {};
+                items.forEach(function (it, i) {
+                    gi[it[0]] = (gi[it[0]] || 0) + 1;
+                    var o = clamp(P(it[0]) * 4 - (gi[it[0]] - 1) * 0.6);
+                    s += txt(584, 130 + i * 44, (it[0] === 2 ? '➜ ' : '☑ ') + it[1], { size: 15, op: o, halo: false, color: it[0] === 2 ? '#1f5a45' : '#1f3a52', bold: it[0] === 2 });
+                });
+                s += txt(290, 525, 'Tüp apekste, akciğer genişlemiş', { size: 15, bold: true, anchor: 'middle' });
+                return s;
+            } }
+        ];
+
+        // ---------- Zamanlama ----------
+        var segs = [], total = 0;
+        scenes.forEach(function (sc, si) {
+            sc.start = total; sc.capT = [];
+            sc.caps.forEach(function (c) { var d = clamp(c.length / 12.5, 5, 15); sc.capT.push({ s: total, d: d }); segs.push({ si: si, ci: sc.capT.length - 1, s: total, d: d }); total += d; });
+            sc.end = total;
+        });
+        var T = 0, playing = false, last = null, svg = document.getElementById('anim');
+        var ttsOn = false, speaking = false, spokenKey = null;
+        function find(t) { for (var i = 0; i < segs.length; i++) if (t < segs[i].s + segs[i].d) return segs[i]; return segs[segs.length - 1]; }
+        function fmt(x) { x = Math.floor(x); return Math.floor(x / 60) + ':' + ('0' + (x % 60)).slice(-2); }
+        function frame(now) {
+            if (playing) {
+                var dt = last ? Math.min(0.1, (now - last) / 1000) : 0; T += dt;
+                var cur = find(T - dt);
+                if (ttsOn && speaking && T > cur.s + cur.d - 0.05) T = cur.s + cur.d - 0.05;
+                if (T >= total) { T = total - 0.001; playing = false; setPlay(); }
+            }
+            last = now;
+            render();
+            requestAnimationFrame(frame);
+        }
+        function render() {
+            var g = find(T), sc = scenes[g.si];
+            var P = function (i) { var c = sc.capT[i]; if (!c) return 0; return clamp((T - c.s) / c.d); };
+            var body = sc.draw(P, T);
+            body += '<rect x="12" y="12" width="' + (40 + (sc.title.length + 6) * 8.4) + '" height="32" rx="8" fill="rgba(31,58,82,0.9)"/>';
+            body += '<text x="24" y="34" font-size="15" font-weight="700" fill="#fff">' + (g.si + 1) + '/' + scenes.length + ' · ' + sc.title + '</text>';
+            svg.innerHTML = body;
+            var key = g.si + '-' + g.ci;
+            if (document.getElementById('cap').dataset.k !== key) {
+                document.getElementById('cap').dataset.k = key;
+                document.getElementById('cap').textContent = sc.caps[g.ci];
+                if (ttsOn && playing) speak(sc.caps[g.ci]);
+                document.querySelectorAll('#chips button').forEach(function (b, i) { b.classList.toggle('on', i === g.si); });
+            }
+            document.getElementById('fill').style.width = (T / total * 100) + '%';
+            document.getElementById('time').textContent = fmt(T) + ' / ' + fmt(total);
+        }
+        function setPlay() { document.getElementById('play').textContent = playing ? '⏸ Durdur' : (T >= total - 0.01 ? '↺ Baştan' : '▶ Oynat'); }
+        function speak(t) {
+            if (!('speechSynthesis' in window)) return;
+            speechSynthesis.cancel();
+            var u = new SpeechSynthesisUtterance(t); u.lang = 'tr-TR'; u.rate = 1;
+            var v = speechSynthesis.getVoices().filter(function (x) { return /^tr/i.test(x.lang); })[0]; if (v) u.voice = v;
+            speaking = true; u.onend = u.onerror = function () { speaking = false; };
+            speechSynthesis.speak(u);
+        }
+        function stopSpeech() { if ('speechSynthesis' in window) speechSynthesis.cancel(); speaking = false; }
+        function jump(t) { T = clamp(t, 0, total - 0.001); stopSpeech(); document.getElementById('cap').dataset.k = ''; }
+        document.getElementById('play').addEventListener('click', function () {
+            if (T >= total - 0.01) jump(0);
+            playing = !playing; setPlay();
+            if (!playing) stopSpeech(); else { document.getElementById('cap').dataset.k = ''; }
+        });
+        document.getElementById('prev').addEventListener('click', function () { var g = find(T); var st = scenes[g.si].start; jump(T - st > 1.5 ? st : scenes[Math.max(0, g.si - 1)].start); });
+        document.getElementById('next').addEventListener('click', function () { var g = find(T); if (g.si < scenes.length - 1) jump(scenes[g.si + 1].start); });
+        document.getElementById('bar').addEventListener('click', function (e) { var r = this.getBoundingClientRect(); jump((e.clientX - r.left) / r.width * total); });
+        document.getElementById('tts').addEventListener('change', function () { ttsOn = this.checked; if (!ttsOn) stopSpeech(); else if (playing) speak(document.getElementById('cap').textContent); });
+        var chips = document.getElementById('chips'), steps = document.getElementById('steps');
+        scenes.forEach(function (sc, i) {
+            var b = document.createElement('button'); b.type = 'button'; b.textContent = (i + 1) + '. ' + sc.title; b.addEventListener('click', function () { jump(sc.start); if (!playing) { playing = true; setPlay(); } }); chips.appendChild(b);
+            var li = document.createElement('li'); var h = document.createElement('strong'); h.textContent = sc.title + ': '; li.appendChild(h); li.appendChild(document.createTextNode(sc.caps.join(' '))); steps.appendChild(li);
+        });
+        if ('speechSynthesis' in window) speechSynthesis.getVoices();
+        requestAnimationFrame(frame);
+    })();
+    </script>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
