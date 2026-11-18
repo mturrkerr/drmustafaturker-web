@@ -107,6 +107,7 @@
                 <div class="bar" id="bar" role="slider" aria-label="İlerleme"><div id="fill"></div></div>
                 <span class="time" id="time">0:00 / 0:00</span>
                 <label><input type="checkbox" id="tts"> Sesli anlatım</label>
+                <select id="voice" aria-label="Anlatıcı sesi" style="font:inherit;font-size:14px;padding:6px;border-radius:8px;border:1px solid #c9d3dc;max-width:200px" hidden></select>
             </div>
             <div class="chips" id="chips"></div>
         </div>
@@ -494,14 +495,14 @@
             sc.end = total;
         });
         var T = 0, playing = false, last = null, svg = document.getElementById('anim');
-        var ttsOn = false, speaking = false, spokenKey = null;
+        var ttsOn = false, speaking = false, speakStart = 0;
         function find(t) { for (var i = 0; i < segs.length; i++) if (t < segs[i].s + segs[i].d) return segs[i]; return segs[segs.length - 1]; }
         function fmt(x) { x = Math.floor(x); return Math.floor(x / 60) + ':' + ('0' + (x % 60)).slice(-2); }
         function frame(now) {
             if (playing) {
                 var dt = last ? Math.min(0.1, (now - last) / 1000) : 0; T += dt;
                 var cur = find(T - dt);
-                if (ttsOn && speaking && T > cur.s + cur.d - 0.05) T = cur.s + cur.d - 0.05;
+                if (ttsOn && speaking && T > cur.s + cur.d - 0.05) { if (now - speakStart < cur.d * 1000 + 8000) T = cur.s + cur.d - 0.05; else speaking = false; }
                 if (T >= total) { T = total - 0.001; playing = false; setPlay(); }
             }
             last = now;
@@ -530,8 +531,8 @@
             if (!('speechSynthesis' in window)) return;
             speechSynthesis.cancel();
             var u = new SpeechSynthesisUtterance(t); u.lang = 'tr-TR'; u.rate = 1;
-            var v = speechSynthesis.getVoices().filter(function (x) { return /^tr/i.test(x.lang); })[0]; if (v) u.voice = v;
-            speaking = true; u.onend = u.onerror = function () { speaking = false; };
+            var v = currentVoice(); if (v) u.voice = v; u.rate = 0.95;
+            speaking = true; speakStart = performance.now(); u.onend = u.onerror = function () { speaking = false; };
             speechSynthesis.speak(u);
         }
         function stopSpeech() { if ('speechSynthesis' in window) speechSynthesis.cancel(); speaking = false; }
@@ -550,7 +551,24 @@
             var b = document.createElement('button'); b.type = 'button'; b.textContent = (i + 1) + '. ' + sc.title; b.addEventListener('click', function () { jump(sc.start); if (!playing) { playing = true; setPlay(); } }); chips.appendChild(b);
             var li = document.createElement('li'); var h = document.createElement('strong'); h.textContent = sc.title + ': '; li.appendChild(h); li.appendChild(document.createTextNode(sc.caps.join(' '))); steps.appendChild(li);
         });
-        if ('speechSynthesis' in window) speechSynthesis.getVoices();
+        // Türkçe sesler: kadın sesler öne alınır (Apple "Yelda", Microsoft "Emel", "Google Türkçe" vb.)
+        var FEMALE = /yelda|emel|filiz|seda|zeynep|google türkçe|google turkish|female|kadın/i, MALE = /tolga|cem|ahmet|male|erkek/i;
+        function trVoices() {
+            if (!('speechSynthesis' in window)) return [];
+            return speechSynthesis.getVoices().filter(function (x) { return /^tr/i.test(x.lang); })
+                .sort(function (a, b) { var sa = (FEMALE.test(a.name) ? 0 : MALE.test(a.name) ? 2 : 1), sb = (FEMALE.test(b.name) ? 0 : MALE.test(b.name) ? 2 : 1); return sa - sb; });
+        }
+        function currentVoice() { var name = document.getElementById('voice').value; var l = trVoices(); return l.filter(function (x) { return x.name === name; })[0] || l[0]; }
+        function fillVoices() {
+            var sel = document.getElementById('voice'), l = trVoices(), saved = null;
+            try { saved = localStorage.getItem('anlaticiSesi'); } catch (e) {}
+            sel.innerHTML = '';
+            l.forEach(function (x) { var o = document.createElement('option'); o.value = x.name; o.textContent = x.name.replace(/\s*\(.*\)\s*/, '') + (FEMALE.test(x.name) ? ' (kadın)' : MALE.test(x.name) ? ' (erkek)' : ''); sel.appendChild(o); });
+            if (saved && l.some(function (x) { return x.name === saved; })) sel.value = saved;
+            sel.hidden = l.length < 2;
+        }
+        if ('speechSynthesis' in window) { fillVoices(); speechSynthesis.onvoiceschanged = fillVoices; }
+        document.getElementById('voice').addEventListener('change', function () { try { localStorage.setItem('anlaticiSesi', this.value); } catch (e) {} if (ttsOn) speak(document.getElementById('cap').textContent); });
         requestAnimationFrame(frame);
     })();
     </script>
