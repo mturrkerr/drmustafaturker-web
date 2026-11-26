@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="İngilizce">
+    <title>İngilizce</title>
+    <style>
+        :root { --bg: #edf2f5; --navy: #1f3a52; --red: #E30A17; --ink: #1f2a33; --text: #3a4a57; --muted: #6a7a87; --line: #e3e9ee; --soft: #f1f6fa; --fs: 16px; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; min-height: 100%; }
+        body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); -webkit-text-size-adjust: 100%; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+        header.top { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; display: flex; align-items: center; gap: 10px; min-height: 52px; }
+        header.top h1 { margin: 0; font-size: 18px; font-weight: 700; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        header.top button { border: none; background: rgba(255,255,255,0.14); color: #fff; border-radius: 9px; padding: 7px 11px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+        header.top button[hidden] { display: none; }
+        main { max-width: 760px; margin: 0 auto; padding: 16px; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.07); padding: 16px; margin-bottom: 14px; }
+        .card h2 { margin: 0 0 10px; font-size: 18px; color: var(--navy); }
+        p { margin: 0 0 10px; line-height: 1.6; color: var(--text); }
+        .muted { color: var(--muted); font-size: 13px; }
+        .btn { border: none; border-radius: 10px; padding: 11px 14px; font: inherit; font-size: 15px; font-weight: 700; background: #e3ebf2; color: var(--navy); cursor: pointer; }
+        .btn.primary { background: var(--navy); color: #fff; }
+        .btn.danger { background: #fdecea; color: #b3261e; }
+        .btn:disabled { opacity: 0.5; }
+        .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+        input[type=password], input[type=search], select { font: inherit; font-size: 16px; padding: 10px 11px; border: 1px solid #c9d3dc; border-radius: 10px; background: #fff; color: var(--ink); width: 100%; }
+        .status { font-size: 14px; margin: 8px 0 0; color: #2e7d32; }
+        .status.err { color: #b3261e; }
+        nav.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); display: flex; padding-bottom: env(safe-area-inset-bottom); }
+        nav.tabbar a { flex: 1; text-align: center; padding: 9px 2px 8px; text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 700; }
+        nav.tabbar a .i { display: block; font-size: 20px; line-height: 1.2; }
+        nav.tabbar a.on { color: var(--navy); }
+        nav.tabbar a.on .i { color: var(--red); }
+        /* Ders listesi */
+        .book h2 { display: flex; align-items: baseline; gap: 8px; }
+        .bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin: 2px 0 10px; }
+        .bar i { display: block; height: 100%; background: var(--navy); }
+        .lessons { list-style: none; margin: 0; padding: 0; }
+        .lessons li a { display: flex; align-items: center; gap: 10px; padding: 11px 4px; border-top: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+        .lessons li:first-child a { border-top: none; }
+        .lessons .t { flex: 1; font-size: 15px; line-height: 1.4; }
+        .lessons .t small { display: block; color: var(--muted); font-size: 12px; }
+        .chk { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 2px solid #c9d3dc; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
+        .chk.on { background: #2e7d32; border-color: #2e7d32; }
+        .resume { display: block; text-decoration: none; background: var(--navy); color: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; }
+        .resume small { display: block; opacity: 0.75; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .resume b { font-size: 16px; }
+        /* Ders içeriği */
+        .lesson { font-size: var(--fs); }
+        .lesson p, .lesson li, .lesson td, .lesson th { font-size: 1em; line-height: 1.65; color: var(--text); }
+        .lesson h2 { font-size: 1.2em; color: var(--navy); margin: 18px 0 8px; }
+        .lesson h2:first-child { margin-top: 0; }
+        .lesson h3 { font-size: 1.05em; color: var(--navy); margin: 14px 0 6px; }
+        .lesson ul, .lesson ol { padding-left: 22px; margin: 0 0 10px; }
+        .lesson li { margin-bottom: 4px; }
+        .lesson strong { color: var(--ink); }
+        .lesson u { text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+        .lesson .en { font-family: Georgia, "Times New Roman", serif; }
+        .note { background: var(--soft); border-left: 4px solid var(--navy); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
+        .note.warn { background: #fff4e5; border-left-color: #e08a00; }
+        .note p:last-child { margin: 0; }
+        .ex { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 8px 0; cursor: pointer; }
+        .ex .en { color: var(--ink); line-height: 1.55; }
+        .ex .tr { color: var(--muted); font-size: 0.92em; margin-top: 4px; line-height: 1.5; }
+        .ex .tr.hide { filter: blur(5px); user-select: none; }
+        .table-wrap { overflow-x: auto; margin: 8px 0 12px; }
+        .lesson table { border-collapse: collapse; width: 100%; }
+        .lesson th, .lesson td { text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.93em; }
+        .lesson th { background: var(--soft); color: var(--navy); }
+        .lesson figure { margin: 10px 0; }
+        .lesson figure img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); }
+        .lesson figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 4px; }
+        .sizer button { min-width: 44px; }
+        /* Kelimeler */
+        .seg { display: flex; background: #e3ebf2; border-radius: 10px; padding: 3px; gap: 3px; margin-bottom: 12px; }
+        .seg button { flex: 1; border: none; background: transparent; border-radius: 8px; padding: 9px 4px; font: inherit; font-size: 14px; font-weight: 700; color: var(--navy); cursor: pointer; }
+        .seg button.on { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .wl { list-style: none; margin: 0; padding: 0; }
+        .wl li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 2px; border-top: 1px solid var(--line); }
+        .wl li:first-child { border-top: none; }
+        .wl .w { flex: 1; }
+        .wl .w b { font-size: 16px; color: var(--ink); }
+        .wl .w div { font-size: 14px; color: var(--text); margin-top: 2px; line-height: 1.45; }
+        .wl .w i { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; }
+        .wl .k { flex: none; border: none; background: var(--soft); border-radius: 8px; padding: 6px 9px; font: inherit; font-size: 12px; font-weight: 700; color: var(--navy); cursor: pointer; }
+        .wl .k.on { background: #e8f5e9; color: #2e7d32; }
+        .flash { min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; cursor: pointer; user-select: none; }
+        .flash .front { font-size: 26px; font-weight: 700; color: var(--navy); }
+        .flash .back { margin-top: 14px; font-size: 18px; color: var(--text); line-height: 1.5; }
+        .flash .ex2 { margin-top: 8px; font-size: 14px; color: var(--muted); font-style: italic; }
+        .count { text-align: center; color: var(--muted); font-size: 13px; margin: -4px 0 10px; }
+        /* Test */
+        .q { font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.5; margin-bottom: 12px; }
+        .opts { display: grid; gap: 8px; }
+        .opts button { text-align: left; border: 1px solid #c9d3dc; background: #fff; border-radius: 10px; padding: 12px; font: inherit; font-size: 15px; color: var(--ink); cursor: pointer; line-height: 1.4; }
+        .opts button.ok { background: #e8f5e9; border-color: #2e7d32; }
+        .opts button.bad { background: #fdecea; border-color: #b3261e; }
+        .expl { margin-top: 10px; }
+        .score { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+        .empty { text-align: center; padding: 28px 12px; color: var(--muted); }
+        details summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+        .guide ol { padding-left: 20px; margin: 8px 0; }
+        .guide li { margin-bottom: 6px; line-height: 1.5; color: var(--text); font-size: 15px; }
+        code { background: var(--soft); border-radius: 4px; padding: 1px 4px; font-size: 0.92em; }
+        [hidden] { display: none !important; }
+    </style>
+</head>
+<body>
+    <header class="top">
+        <button type="button" id="backBtn" hidden aria-label="Geri">‹ Geri</button>
+        <h1 id="title">İngilizce</h1>
+        <button type="button" id="syncBtn" aria-label="Güncelle" title="Güncelle">⟳</button>
+    </header>
+    <main id="view"></main>
+    <nav class="tabbar" id="tabbar">
+        <a href="#/" data-tab="dersler"><span class="i">📘</span>Dersler</a>
+        <a href="#/kelimeler" data-tab="kelimeler"><span class="i">🔤</span>Kelimeler</a>
+        <a href="#/test" data-tab="test"><span class="i">✎</span>Test</a>
+        <a href="#/ayarlar" data-tab="ayarlar"><span class="i">⚙</span>Ayarlar</a>
+    </nav>
+
+    <script>
+    (function () {
+        'use strict';
+        // Ders içerikleri gizli depoda durur; bu sayfada kitap içeriği yoktur.
+        var REPO = 'mturrkerr/Ders-kaynaklar-';
+        var REF = 'main';
+        var ROOT = 'ingilizce/';
+        var INDEX = 'icerik.json';
+        var DATA_CACHE = 'ingilizce-veri';
+
+        var $ = function (id) { return document.getElementById(id); };
+        var view = $('view');
+
+        // ---------- Küçük yardımcılar ----------
+        function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+        // **kalın**, __altı çizili__, *eğik*, `İngilizce` (serif)
+        function fmt(s) {
+            return esc(s)
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/__(.+?)__/g, '<u>$1</u>')
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                .replace(/`(.+?)`/g, '<span class="en">$1</span>')
+                .replace(/\n/g, '<br>');
+        }
+        function lsGet(k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }
+        function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+        function getToken() { try { return localStorage.getItem('ingToken') || ''; } catch (e) { return ''; } }
+        function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+        // ---------- Veri: gizli depodan çek, telefonda sakla ----------
+        var mem = {};
+        function cacheKey(path) { return new URL('__veri/' + path, location.href).href; }
+        function cacheGet(path, asBlob) {
+            if (!('caches' in window)) return Promise.resolve(mem[path] || null);
+            return caches.open(DATA_CACHE).then(function (c) { return c.match(cacheKey(path)); })
+                .then(function (r) { return r ? (asBlob ? r.blob() : r.text()) : null; })
+                .catch(function () { return mem[path] || null; });
+        }
+        function cachePut(path, body) {
+            mem[path] = body;
+            if (!('caches' in window)) return Promise.resolve();
+            return caches.open(DATA_CACHE).then(function (c) { return c.put(cacheKey(path), new Response(body)); }).catch(function () {});
+        }
+        function ghFetch(path, asBlob) {
+            var t = getToken();
+            if (!t) return Promise.reject(new Error('anahtar yok'));
+            var url = 'https://api.github.com/repos/' + REPO + '/contents/' + (ROOT + path).split('/').map(encodeURIComponent).join('/') + '?ref=' + REF;
+            return fetch(url, { cache: 'no-store', headers: { 'Authorization': 'Bearer ' + t, 'Accept': 'application/vnd.github.raw+json', 'X-GitHub-Api-Version': '2022-11-28' } })
+                .then(function (r) {
+                    if (r.status === 401) throw new Error('Anahtar geçersiz veya süresi dolmuş (401).');
+                    if (r.status === 403) throw new Error('Anahtarın bu depoya izni yok ya da istek sınırı doldu (403).');
+                    if (r.status === 404) throw new Error('Dosya bulunamadı: ' + path + ' (anahtar "Ders-kaynaklar-" deposunu görebiliyor mu?)');
+                    if (!r.ok) throw new Error('GitHub hatası ' + r.status);
+                    return asBlob ? r.blob() : r.text();
+                })
+                .then(function (body) { return cachePut(path, body).then(function () { return body; }); });
+        }
+        // Önce telefondaki kopya; yoksa ya da "fresh" isteniyorsa internetten.
+        function getText(path, fresh) {
+            return cacheGet(path).then(function (c) {
+                if (c != null && !fresh) return c;
+                return ghFetch(path).catch(function (e) { if (c != null) return c; throw e; });
+            });
+        }
+        function getJSON(path, fresh) { return getText(path, fresh).then(JSON.parse); }
+        var blobUrls = {};
+        function getImageUrl(path) {
+            if (blobUrls[path]) return Promise.resolve(blobUrls[path]);
+            return cacheGet(path, true).then(function (b) { return b || ghFetch(path, true); })
+                .then(function (b) { blobUrls[path] = URL.createObjectURL(b); return blobUrls[path]; });
+        }
+
+        // ---------- Durum ----------
+        var index = null;          // icerik.json
+        var lessons = {};          // id -> ders JSON
+        var lessonMeta = {};       // id -> {kitap, ders}
+        var progress = lsGet('ingIlerleme', {});      // id -> {t: tarih}
+        var known = lsGet('ingBilinen', {});          // kelime anahtarı -> 1
+        var versions = lsGet('ingSurum', {});         // dosya -> indirilen sürüm
+        var fontSize = lsGet('ingYazi', 16);
+        document.documentElement.style.setProperty('--fs', fontSize + 'px');
+
+        function allLessons() {
+            var out = [];
+            if (!index) return out;
+            (index.kitaplar || []).forEach(function (k) { (k.dersler || []).forEach(function (d) { if (d.dosya) out.push({ kitap: k, ders: d }); }); });
+            return out;
+        }
+        function indexLessons() {
+            lessonMeta = {};
+            allLessons().forEach(function (x) { lessonMeta[x.ders.id] = x; });
+        }
+        function loadLesson(id, fresh) {
+            var m = lessonMeta[id];
+            if (!m) return Promise.reject(new Error('Ders bulunamadı.'));
+            var file = m.ders.dosya;
+            var stale = m.ders.surum && versions[file] !== m.ders.surum;
+            if (lessons[id] && !fresh && !stale) return Promise.resolve(lessons[id]);
+            return getJSON(file, fresh || stale).then(function (j) {
+                lessons[id] = j;
+                if (m.ders.surum) { versions[file] = m.ders.surum; lsSet('ingSurum', versions); }
+                return j;
+            });
+        }
+        // Tüm dersleri (ve resimlerini) arka planda indir: dışarıda internetsiz de açılsın.
+        var syncing = false;
+        function syncAll(fresh) {
+            if (syncing) return Promise.resolve();
+            syncing = true; $('syncBtn').textContent = '…';
+            return getJSON(INDEX, true).then(function (j) {
+                index = j; indexLessons();
+                var list = allLessons(), i = 0;
+                function next() {
+                    if (i >= list.length) return Promise.resolve();
+                    var id = list[i++].ders.id;
+                    return loadLesson(id, fresh).then(function (l) {
+                        var imgs = (l.bloklar || []).filter(function (b) { return b.t === 'resim' && b.dosya; });
+                        return Promise.all(imgs.map(function (b) { return fresh ? ghFetch(b.dosya, true).catch(function () {}) : getImageUrl(b.dosya).catch(function () {}); }));
+                    }).catch(function () {}).then(next);
+                }
+                return next();
+            }).finally(function () { syncing = false; $('syncBtn').textContent = '⟳'; });
+        }
+        function loadIndexCached() {
+            return getJSON(INDEX, false).then(function (j) { index = j; indexLessons(); });
+        }
+        function loadAllCached() {
+            return Promise.all(allLessons().map(function (x) { return loadLesson(x.ders.id).catch(function () { return null; }); }));
+        }
+
+        // ---------- Görünümler ----------
+        function setHeader(title, back) {
+            $('title').textContent = title;
+            $('backBtn').hidden = !back;
+            document.title = title === 'İngilizce' ? 'İngilizce' : title + ' · İngilizce';
+        }
+        function setTab(tab) {
+            Array.prototype.forEach.call(document.querySelectorAll('nav.tabbar a'), function (a) { a.classList.toggle('on', a.getAttribute('data-tab') === tab); });
+        }
+        function needToken() {
+            view.innerHTML = '<div class="card"><h2>Hoş geldiniz</h2><p>Ders içerikleri gizli bir depoda duruyor. Görmek için bu cihaza bir kez <strong>okuma anahtarı</strong> girmeniz gerekiyor.</p><a class="btn primary" href="#/ayarlar" style="display:inline-block;text-decoration:none">Anahtarı gir</a></div>';
+        }
+        function showError(e) {
+            view.innerHTML = '<div class="card"><h2>İçerik alınamadı</h2><p>' + esc(e && e.message || e) + '</p><p class="muted">İnternet yoksa ve daha önce indirilmiş içerik de yoksa bu ekran görünür. Ayarlar sekmesinden anahtarı kontrol edebilirsiniz.</p></div>';
+        }
+
+        function renderHome() {
+            setHeader('İngilizce', false); setTab('dersler');
+            if (!getToken() && !index) return needToken();
+            if (!index) { view.innerHTML = '<div class="empty">Yükleniyor…</div>'; return; }
+            var html = '';
+            var last = lsGet('ingSon', null);
+            if (last && lessonMeta[last]) html += '<a class="resume" href="#/ders/' + encodeURIComponent(last) + '"><small>Kaldığın yer</small><b>' + esc(lessonMeta[last].ders.baslik) + '</b></a>';
+            (index.kitaplar || []).forEach(function (k) {
+                var ds = k.dersler || [];
+                var done = ds.filter(function (d) { return progress[d.id]; }).length, ready = ds.filter(function (d) { return d.dosya; }).length;
+                html += '<section class="card book"><h2>' + esc(k.baslik) + ' <span class="muted">' + done + '/' + ds.length + '</span></h2>';
+                if (ready < ds.length) html += '<p class="muted" style="margin:-4px 0 6px">' + ready + ' ders eklendi, ' + (ds.length - ready) + ' ders bekliyor.</p>';
+                if (k.aciklama) html += '<p class="muted">' + fmt(k.aciklama) + '</p>';
+                if (ds.length) html += '<div class="bar"><i style="width:' + Math.round(100 * done / ds.length) + '%"></i></div>';
+                html += '<ul class="lessons">';
+                ds.forEach(function (d) {
+                    if (!d.dosya) { html += '<li><a style="opacity:0.45"><span class="chk"></span><span class="t">' + esc(d.baslik) + '<small>' + (d.alt ? esc(d.alt) + ' · ' : '') + 'henüz eklenmedi</small></span></a></li>'; return; }
+                    html += '<li><a href="#/ders/' + encodeURIComponent(d.id) + '"><span class="chk' + (progress[d.id] ? ' on' : '') + '">' + (progress[d.id] ? '✓' : '') + '</span><span class="t">' + esc(d.baslik) + (d.alt ? '<small>' + esc(d.alt) + '</small>' : '') + '</span><span class="muted">›</span></a></li>';
+                });
+                if (!ds.length) html += '<li class="muted">Henüz ders eklenmedi.</li>';
+                html += '</ul></section>';
+            });
+            if (index.guncelleme) html += '<p class="muted" style="text-align:center">İçerik tarihi: ' + esc(index.guncelleme) + '</p>';
+            view.innerHTML = html;
+        }
+
+        function renderBlocks(bl) {
+            var h = '';
+            (bl || []).forEach(function (b) {
+                switch (b.t) {
+                    case 'h': h += '<h2>' + fmt(b.x) + '</h2>'; break;
+                    case 'h3': h += '<h3>' + fmt(b.x) + '</h3>'; break;
+                    case 'p': h += '<p>' + fmt(b.x) + '</p>'; break;
+                    case 'liste': h += (b.sirali ? '<ol>' : '<ul>') + (b.x || []).map(function (li) { return '<li>' + fmt(li) + '</li>'; }).join('') + (b.sirali ? '</ol>' : '</ul>'); break;
+                    case 'not': h += '<div class="note' + (b.uyari ? ' warn' : '') + '"><p>' + fmt(b.x) + '</p></div>'; break;
+                    case 'ornek': h += '<div class="ex"><div class="en">' + fmt(b.en) + '</div>' + (b.tr ? '<div class="tr hide">' + fmt(b.tr) + '</div>' : '') + '</div>'; break;
+                    case 'tablo':
+                        h += '<div class="table-wrap"><table>' + (b.baslik ? '<tr>' + b.baslik.map(function (c) { return '<th>' + fmt(c) + '</th>'; }).join('') + '</tr>' : '') +
+                            (b.satirlar || []).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + fmt(c) + '</td>'; }).join('') + '</tr>'; }).join('') + '</table></div>';
+                        break;
+                    case 'resim':
+                        if (b.kapali) { h += '<details style="margin:12px 0"><summary>' + esc(b.baslik || 'Kitap sayfasının fotoğrafı') + '</summary><figure><img data-src="' + esc(b.dosya) + '" alt="' + esc(b.alt || '') + '"></figure></details>'; break; }
+                        h += '<figure><img data-src="' + esc(b.dosya) + '" alt="' + esc(b.alt || '') + '">' + (b.alt ? '<figcaption>' + fmt(b.alt) + '</figcaption>' : '') + '</figure>'; break;
+                    default: if (b.x) h += '<p>' + fmt(b.x) + '</p>';
+                }
+            });
+            return h;
+        }
+        function renderQuestions(qs, box) {
+            var h = '<h2>Alıştırma</h2>';
+            qs.forEach(function (q, i) {
+                h += '<div class="card" style="box-shadow:none;border:1px solid var(--line)"><div class="q" style="font-size:1em">' + (i + 1) + '. ' + fmt(q.soru) + '</div><div class="opts" data-q="' + i + '">' +
+                    (q.secenekler || []).map(function (o, j) { return '<button type="button" data-j="' + j + '">' + 'ABCDE'.charAt(j) + ') ' + fmt(o) + '</button>'; }).join('') +
+                    '</div><div class="expl" hidden></div></div>';
+            });
+            box.innerHTML = h;
+            box.addEventListener('click', function (e) {
+                var btn = e.target.closest('button[data-j]'); if (!btn) return;
+                var wrap = btn.parentNode; if (wrap.dataset.done) return; wrap.dataset.done = 1;
+                var q = qs[+wrap.getAttribute('data-q')], j = +btn.getAttribute('data-j');
+                Array.prototype.forEach.call(wrap.children, function (b, k) { if (k === q.cevap) b.classList.add('ok'); });
+                if (j !== q.cevap) btn.classList.add('bad');
+                var ex = wrap.nextElementSibling;
+                if (q.aciklama) { ex.innerHTML = '<div class="note"><p>' + fmt(q.aciklama) + '</p></div>'; ex.hidden = false; }
+            });
+        }
+        function renderLesson(id) {
+            setTab('dersler');
+            var m = lessonMeta[id];
+            setHeader(m ? m.ders.baslik : 'Ders', true);
+            view.innerHTML = '<div class="empty">Yükleniyor…</div>';
+            loadLesson(id).then(function (l) {
+                if (location.hash !== '#/ders/' + encodeURIComponent(id)) return;
+                lsSet('ingSon', id);
+                var h = '<div class="row sizer" style="justify-content:flex-end;margin-bottom:10px"><span class="muted" style="margin-right:auto">' + esc(m.kitap.baslik) + '</span>' +
+                    '<button type="button" class="btn" data-fs="-1">A−</button><button type="button" class="btn" data-fs="1">A+</button></div>';
+                h += '<article class="card lesson">' + renderBlocks(l.bloklar) + '</article>';
+                if (l.kelimeler && l.kelimeler.length) {
+                    h += '<section class="card lesson"><h2>Bu dersin kelimeleri (' + l.kelimeler.length + ')</h2><ul class="wl">' + l.kelimeler.map(wordRow).join('') + '</ul>' +
+                        '<div class="row" style="margin-top:10px"><a class="btn" style="text-decoration:none" href="#/kelimeler?ders=' + encodeURIComponent(id) + '&mod=kart">Kartlarla çalış</a></div></section>';
+                }
+                if (l.sorular && l.sorular.length) h += '<section class="card lesson" id="qs"></section>';
+                h += '<div class="row" style="justify-content:center;margin:6px 0 10px"><button type="button" class="btn ' + (progress[id] ? '' : 'primary') + '" id="doneBtn">' + (progress[id] ? '✓ Çalışıldı (geri al)' : 'Çalıştım olarak işaretle') + '</button></div>';
+                var list = allLessons(), pos = list.findIndex(function (x) { return x.ders.id === id; });
+                h += '<div class="row" style="justify-content:space-between">' +
+                    (pos > 0 ? '<a class="btn" style="text-decoration:none" href="#/ders/' + encodeURIComponent(list[pos - 1].ders.id) + '">‹ Önceki</a>' : '<span></span>') +
+                    (pos >= 0 && pos < list.length - 1 ? '<a class="btn" style="text-decoration:none" href="#/ders/' + encodeURIComponent(list[pos + 1].ders.id) + '">Sonraki ›</a>' : '<span></span>') + '</div>';
+                if (l.kaynak) h += '<p class="muted" style="margin-top:14px">' + fmt(l.kaynak) + '</p>';
+                view.innerHTML = h;
+                if (l.sorular && l.sorular.length) renderQuestions(l.sorular, $('qs'));
+                Array.prototype.forEach.call(view.querySelectorAll('img[data-src]'), function (img) {
+                    getImageUrl(img.getAttribute('data-src')).then(function (u) { img.src = u; }).catch(function () { img.alt = 'Resim alınamadı'; });
+                });
+                $('doneBtn').addEventListener('click', function () {
+                    if (progress[id]) delete progress[id]; else progress[id] = { t: new Date().toISOString().slice(0, 10) };
+                    lsSet('ingIlerleme', progress); renderLesson(id);
+                });
+                view.querySelector('.sizer').addEventListener('click', function (e) {
+                    var b = e.target.closest('button[data-fs]'); if (!b) return;
+                    fontSize = Math.max(13, Math.min(24, fontSize + (+b.getAttribute('data-fs'))));
+                    lsSet('ingYazi', fontSize); document.documentElement.style.setProperty('--fs', fontSize + 'px');
+                });
+                view.addEventListener('click', exToggle);
+                bindKnown(view);
+                window.scrollTo(0, 0);
+            }).catch(showError);
+        }
+        function exToggle(e) { var ex = e.target.closest('.ex'); if (!ex) return; var t = ex.querySelector('.tr'); if (t) t.classList.toggle('hide'); }
+
+        // ---------- Kelimeler ----------
+        function wkey(w) { return String(w.en).toLowerCase().trim(); }
+        function wordRow(w) {
+            var k = wkey(w);
+            return '<li><div class="w"><b class="en">' + esc(w.en) + '</b><div>' + fmt(w.tr) + '</div>' + (w.ornek ? '<i class="en">' + fmt(w.ornek) + '</i>' : '') + '</div>' +
+                '<button type="button" class="k' + (known[k] ? ' on' : '') + '" data-k="' + esc(k) + '">' + (known[k] ? '✓ Biliyorum' : 'Biliyorum') + '</button></li>';
+        }
+        function bindKnown(root) {
+            root.addEventListener('click', function (e) {
+                var b = e.target.closest('button[data-k]'); if (!b) return;
+                var k = b.getAttribute('data-k');
+                if (known[k]) delete known[k]; else known[k] = 1;
+                lsSet('ingBilinen', known);
+                b.classList.toggle('on', !!known[k]); b.textContent = known[k] ? '✓ Biliyorum' : 'Biliyorum';
+            });
+        }
+        function collectWords(lessonId) {
+            var out = [], seen = {};
+            allLessons().forEach(function (x) {
+                if (lessonId && x.ders.id !== lessonId) return;
+                var l = lessons[x.ders.id]; if (!l || !l.kelimeler) return;
+                l.kelimeler.forEach(function (w) { var k = wkey(w); if (!seen[k]) { seen[k] = 1; out.push(Object.assign({ ders: x.ders.id }, w)); } });
+            });
+            return out;
+        }
+        function parseQuery() {
+            var q = {}, s = location.hash.split('?')[1] || '';
+            s.split('&').forEach(function (p) { if (!p) return; var kv = p.split('='); q[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1] || ''); });
+            return q;
+        }
+        function lessonSelect(sel) {
+            var h = '<select id="lsel"><option value="">Tüm dersler</option>';
+            allLessons().forEach(function (x) { var l = lessons[x.ders.id]; if (l && l.kelimeler && l.kelimeler.length) h += '<option value="' + esc(x.ders.id) + '"' + (sel === x.ders.id ? ' selected' : '') + '>' + esc(x.ders.baslik) + ' (' + l.kelimeler.length + ')</option>'; });
+            return h + '</select>';
+        }
+        function renderWords() {
+            setHeader('Kelimeler', false); setTab('kelimeler');
+            if (!getToken() && !index) return needToken();
+            var q = parseQuery(), mode = q.mod || 'liste', lid = q.ders || '';
+            view.innerHTML = '<div class="empty">Yükleniyor…</div>';
+            loadAllCached().then(function () {
+                var words = collectWords(lid);
+                var h = '<div class="seg" id="seg"><button type="button" data-m="liste">Liste</button><button type="button" data-m="kart">Kart</button></div>' +
+                    '<div class="card"><div style="margin-bottom:8px">' + lessonSelect(lid) + '</div>';
+                if (!words.length) { view.innerHTML = h + '<div class="empty">Henüz kelime eklenmedi. Kelime listelerini gönderdikçe burada görünecek.</div></div>'; bindSeg(mode, lid); return; }
+                if (mode === 'liste') {
+                    var nk = words.filter(function (w) { return known[wkey(w)]; }).length;
+                    h += '<input type="search" id="wq" placeholder="Ara (İngilizce ya da Türkçe)">' +
+                        '<label class="muted" style="display:block;margin:8px 0"><input type="checkbox" id="hideKnown"' + (lsGet('ingGizle', false) ? ' checked' : '') + '> Bildiklerimi gizle · ' + words.length + ' kelime, ' + nk + ' biliniyor</label>' +
+                        '<ul class="wl" id="wl"></ul></div>';
+                    view.innerHTML = h;
+                    var draw = function () {
+                        var s = $('wq').value.trim().toLocaleLowerCase('tr'), hide = $('hideKnown').checked;
+                        var f = words.filter(function (w) { return (!hide || !known[wkey(w)]) && (!s || (w.en + ' ' + w.tr).toLocaleLowerCase('tr').indexOf(s) >= 0); });
+                        $('wl').innerHTML = f.length ? f.map(wordRow).join('') : '<li class="muted">Sonuç yok.</li>';
+                    };
+                    $('wq').addEventListener('input', draw);
+                    $('hideKnown').addEventListener('change', function () { lsSet('ingGizle', this.checked); draw(); });
+                    bindKnown($('wl')); draw();
+                } else {
+                    var deck = shuffle(words.filter(function (w) { return !known[wkey(w)]; }));
+                    h += '<label class="muted" style="display:block;margin:4px 0 0"><input type="checkbox" id="trFirst"' + (lsGet('ingTrOnce', false) ? ' checked' : '') + '> Önce Türkçesini göster</label></div><div id="fc"></div>';
+                    view.innerHTML = h;
+                    var i = 0, open = false;
+                    var draw2 = function () {
+                        if (!deck.length) { $('fc').innerHTML = '<div class="card empty">Bu listedeki bütün kelimeleri biliyorsunuz. 🎉<br><br><button type="button" class="btn" id="resetK">Bu listede "biliyorum" işaretlerini sıfırla</button></div>';
+                            $('resetK').onclick = function () { words.forEach(function (w) { delete known[wkey(w)]; }); lsSet('ingBilinen', known); renderWords(); }; return; }
+                        if (i >= deck.length) { deck = shuffle(deck); i = 0; }
+                        var w = deck[i], trf = $('trFirst').checked;
+                        var front = trf ? fmt(w.tr) : esc(w.en), back = trf ? esc(w.en) : fmt(w.tr);
+                        $('fc').innerHTML = '<div class="count">' + (i + 1) + ' / ' + deck.length + ' (bilinmeyen)</div><div class="card flash" id="flip"><div class="front' + (trf ? '' : ' en') + '">' + front + '</div>' +
+                            (open ? '<div class="back">' + back + '</div>' + (w.ornek ? '<div class="ex2 en">' + fmt(w.ornek) + '</div>' : '') : '<div class="muted" style="margin-top:14px">Görmek için dokunun</div>') + '</div>' +
+                            '<div class="row" style="justify-content:center"><button type="button" class="btn" id="again">Tekrar sor</button><button type="button" class="btn primary" id="gotit">Biliyorum</button></div>';
+                        $('flip').onclick = function () { open = !open; draw2(); };
+                        $('again').onclick = function () { open = false; i++; draw2(); };
+                        $('gotit').onclick = function () { known[wkey(w)] = 1; lsSet('ingBilinen', known); deck.splice(i, 1); open = false; draw2(); };
+                    };
+                    $('trFirst').addEventListener('change', function () { lsSet('ingTrOnce', this.checked); open = false; draw2(); });
+                    draw2();
+                }
+                bindSeg(mode, lid);
+            }).catch(showError);
+        }
+        function bindSeg(mode, lid) {
+            Array.prototype.forEach.call(document.querySelectorAll('#seg button'), function (b) {
+                b.classList.toggle('on', b.getAttribute('data-m') === mode);
+                b.onclick = function () { location.hash = '#/kelimeler?mod=' + b.getAttribute('data-m') + (lid ? '&ders=' + encodeURIComponent(lid) : ''); };
+            });
+            var s = $('lsel'); if (s) s.onchange = function () { location.hash = '#/kelimeler?mod=' + mode + (s.value ? '&ders=' + encodeURIComponent(s.value) : ''); };
+        }
+
+        // ---------- Test ----------
+        function renderTest() {
+            setHeader('Test', false); setTab('test');
+            if (!getToken() && !index) return needToken();
+            var q = parseQuery(), kind = q.tur || 'kelime', lid = q.ders || '';
+            view.innerHTML = '<div class="empty">Yükleniyor…</div>';
+            loadAllCached().then(function () {
+                var h = '<div class="seg" id="tseg"><button type="button" data-k="kelime">Kelime testi</button><button type="button" data-k="soru">Ders soruları</button></div>';
+                var pool = [];
+                if (kind === 'kelime') {
+                    var words = collectWords(lid);
+                    if (words.length >= 4) {
+                        var dir = lsGet('ingTestYon', 'en');
+                        pool = shuffle(words).map(function (w) {
+                            var others = shuffle(words.filter(function (o) { return o !== w; })).slice(0, 3);
+                            var opts = shuffle([w].concat(others));
+                            return dir === 'en'
+                                ? { soru: '`' + w.en + '`', secenekler: opts.map(function (o) { return o.tr; }), cevap: opts.indexOf(w), w: w }
+                                : { soru: w.tr, secenekler: opts.map(function (o) { return '`' + o.en + '`'; }), cevap: opts.indexOf(w), w: w };
+                        });
+                    }
+                    h += '<div class="card"><div style="margin-bottom:8px">' + lessonSelect(lid) + '</div><div class="seg" id="dseg" style="margin:0"><button type="button" data-d="en">İngilizce → Türkçe</button><button type="button" data-d="tr">Türkçe → İngilizce</button></div></div>';
+                } else {
+                    allLessons().forEach(function (x) { var l = lessons[x.ders.id]; if (l && l.sorular) l.sorular.forEach(function (s) { pool.push(Object.assign({ ders: x.ders.baslik }, s)); }); });
+                    pool = shuffle(pool);
+                }
+                h += '<div id="tq"></div>';
+                view.innerHTML = h;
+                Array.prototype.forEach.call(document.querySelectorAll('#tseg button'), function (b) {
+                    b.classList.toggle('on', b.getAttribute('data-k') === kind);
+                    b.onclick = function () { location.hash = '#/test?tur=' + b.getAttribute('data-k'); };
+                });
+                var ds = document.querySelectorAll('#dseg button');
+                Array.prototype.forEach.call(ds, function (b) {
+                    b.classList.toggle('on', b.getAttribute('data-d') === lsGet('ingTestYon', 'en'));
+                    b.onclick = function () { lsSet('ingTestYon', b.getAttribute('data-d')); renderTest(); };
+                });
+                var s = $('lsel'); if (s) s.onchange = function () { location.hash = '#/test?tur=kelime' + (s.value ? '&ders=' + encodeURIComponent(s.value) : ''); };
+                if (!pool.length) { $('tq').innerHTML = '<div class="card empty">' + (kind === 'kelime' ? 'Kelime testi için en az 4 kelime gerekiyor.' : 'Derslere henüz alıştırma sorusu eklenmedi.') + '</div>'; return; }
+                var i = 0, right = 0, answered = 0;
+                var draw = function () {
+                    var it = pool[i % pool.length];
+                    $('tq').innerHTML = '<div class="card"><div class="score">Soru ' + (i + 1) + ' · Doğru ' + right + '/' + answered + (it.ders ? ' · ' + esc(it.ders) : '') + '</div>' +
+                        '<div class="q">' + fmt(it.soru) + '</div><div class="opts" id="opts">' +
+                        it.secenekler.map(function (o, j) { return '<button type="button" data-j="' + j + '">' + 'ABCDE'.charAt(j) + ') ' + fmt(o) + '</button>'; }).join('') +
+                        '</div><div class="expl" id="expl"></div><div class="row" style="justify-content:flex-end;margin-top:12px"><button type="button" class="btn primary" id="nextQ" hidden>Sonraki ›</button></div></div>';
+                    $('opts').onclick = function (e) {
+                        var b = e.target.closest('button[data-j]'); if (!b || this.dataset.done) return; this.dataset.done = 1;
+                        var j = +b.getAttribute('data-j'); answered++;
+                        this.children[it.cevap].classList.add('ok');
+                        if (j === it.cevap) right++; else b.classList.add('bad');
+                        var ex = it.aciklama || (it.w && it.w.ornek ? it.w.ornek : '');
+                        if (ex) $('expl').innerHTML = '<div class="note"><p>' + fmt(ex) + '</p></div>';
+                        $('nextQ').hidden = false;
+                    };
+                    $('nextQ').onclick = function () { i++; draw(); window.scrollTo(0, 0); };
+                };
+                draw();
+            }).catch(showError);
+        }
+
+        // ---------- Ayarlar ----------
+        function renderSettings() {
+            setHeader('Ayarlar', false); setTab('ayarlar');
+            var t = getToken();
+            var nl = allLessons().length;
+            view.innerHTML =
+                '<div class="card"><h2>Okuma anahtarı</h2>' +
+                '<p id="tokState" class="status' + (t ? '' : ' err') + '">' + (t ? 'Bu cihazda anahtar kayıtlı.' : 'Bu cihazda henüz anahtar yok.') + '</p>' +
+                '<input type="password" id="tok" autocomplete="off" placeholder="github_pat_..." style="margin:10px 0 8px">' +
+                '<div class="row"><button type="button" class="btn primary" id="saveTok">Kaydet ve dene</button>' + (t ? '<button type="button" class="btn danger" id="delTok">Anahtarı sil</button>' : '') + '</div>' +
+                '<details class="guide" style="margin-top:12px"' + (t ? '' : ' open') + '><summary>Anahtar nasıl alınır? (bir kez yapılır)</summary><ol>' +
+                '<li>Bilgisayardan ya da telefondan <strong>github.com</strong>’a girin → sağ üstte profil resmi → <strong>Settings</strong>.</li>' +
+                '<li>En altta <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Fine-grained tokens</strong> → <strong>Generate new token</strong>.</li>' +
+                '<li>Ad: <code>İngilizce okuma</code>. Süre (Expiration): 1 yıl ya da istediğiniz kadar.</li>' +
+                '<li><strong>Repository access</strong>: <em>Only select repositories</em> → yalnızca <code>Ders-kaynaklar-</code>.</li>' +
+                '<li><strong>Permissions → Repository permissions → Contents</strong>: <em>Read-only</em>. Başka hiçbir izin vermeyin.</li>' +
+                '<li><strong>Generate token</strong> → çıkan <code>github_pat_…</code> yazısını kopyalayıp yukarıya yapıştırın.</li>' +
+                '</ol><p class="muted">Anahtar yalnızca bu cihazda saklanır ve yalnızca dersleri okuyabilir; hiçbir şeyi değiştiremez. iPhone’da ana ekrana eklediğiniz uygulama Safari’den ayrı hafıza kullanır: anahtarı uygulamanın içinden girin.</p></details></div>' +
+                '<div class="card"><h2>İçerik</h2><p>' + (index ? nl + ' ders bu cihazda.' : 'Henüz içerik indirilmedi.') + ' Dersler internetten bir kez indirilir; sonra internet olmadan da açılır.</p>' +
+                '<div class="row"><button type="button" class="btn" id="syncAll"' + (t ? '' : ' disabled') + '>Tüm içeriği yeniden indir</button></div><p class="status" id="syncState" hidden></p></div>' +
+                '<div class="card"><h2>İlerleme</h2><p>' + Object.keys(progress).length + ' ders çalışıldı, ' + Object.keys(known).length + ' kelime "biliyorum" işaretli.</p>' +
+                '<div class="row"><button type="button" class="btn danger" id="resetP">İlerlemeyi sıfırla</button></div></div>' +
+                '<div class="card"><h2>Diğer</h2><p><a href="/ingilizce.html" style="color:var(--navy);font-weight:700">YÖKDİL Sağlık kelime listesi</a> (sitedeki sayfa)</p>' +
+                '<p id="installTip" class="muted">Telefonda uygulama gibi açmak için: iPhone’da Safari’de Paylaş → <strong>Ana Ekrana Ekle</strong>; Android’de Chrome menüsü → <strong>Uygulamayı yükle</strong>.</p></div>';
+            $('saveTok').onclick = function () {
+                var v = $('tok').value.trim(); if (!v) return;
+                try { localStorage.setItem('ingToken', v); } catch (e) {}
+                $('tok').value = '';
+                var st = $('tokState'); st.className = 'status'; st.textContent = 'Deneniyor…';
+                syncAll(true).then(function () {
+                    if (!index) throw new Error('İçerik dosyası okunamadı.');
+                    st.textContent = 'Anahtar çalışıyor. ' + allLessons().length + ' ders indirildi.';
+                    setTimeout(function () { location.hash = '#/'; }, 900);
+                }).catch(function (e) { st.className = 'status err'; st.textContent = 'Olmadı: ' + e.message; });
+            };
+            if ($('delTok')) $('delTok').onclick = function () { if (!confirm('Anahtar bu cihazdan silinsin mi? (İndirilmiş dersler kalır.)')) return; try { localStorage.removeItem('ingToken'); } catch (e) {} renderSettings(); };
+            $('syncAll').onclick = function () {
+                var st = $('syncState'); st.hidden = false; st.className = 'status'; st.textContent = 'İndiriliyor…';
+                syncAll(true).then(function () { st.textContent = 'Tamam: ' + allLessons().length + ' ders güncel.'; }).catch(function (e) { st.className = 'status err'; st.textContent = 'Olmadı: ' + e.message; });
+            };
+            $('resetP').onclick = function () {
+                if (!confirm('Çalışıldı işaretleri ve bilinen kelimeler silinsin mi?')) return;
+                progress = {}; known = {}; lsSet('ingIlerleme', progress); lsSet('ingBilinen', known); renderSettings();
+            };
+        }
+
+        // ---------- Yönlendirme ----------
+        function route() {
+            var h = location.hash || '#/';
+            var path = h.slice(1).split('?')[0];
+            if (path.indexOf('/ders/') === 0) return renderLesson(decodeURIComponent(path.slice(6)));
+            if (path === '/kelimeler') return renderWords();
+            if (path === '/test') return renderTest();
+            if (path === '/ayarlar') return renderSettings();
+            return renderHome();
+        }
+        window.addEventListener('hashchange', route);
+        $('backBtn').addEventListener('click', function () { if (history.length > 1) history.back(); else location.hash = '#/'; });
+        $('syncBtn').addEventListener('click', function () {
+            if (!getToken()) { location.hash = '#/ayarlar'; return; }
+            syncAll(true).then(route).catch(function (e) { alert('Güncellenemedi: ' + e.message); });
+        });
+
+        // Açılış: telefondaki kopyayla hemen göster, sonra internetten sessizce güncelle.
+        loadIndexCached().catch(function () {}).then(function () {
+            route();
+            if (getToken() && navigator.onLine !== false) {
+                syncAll(false).then(function () {
+                    var p = (location.hash || '#/').slice(1).split('?')[0];
+                    if (p === '/' || p === '' ) renderHome();
+                }).catch(function (e) { if (!index) showError(e); });
+            }
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+        }
+    })();
+    </script>
+</body>
+</html>

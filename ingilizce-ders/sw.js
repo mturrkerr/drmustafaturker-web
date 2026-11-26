@@ -1,0 +1,34 @@
+// İngilizce uygulaması: çevrimdışı çalışma (yalnızca uygulama kabuğu).
+// Ders içerikleri burada değil; gizli depodan çekilip sayfa tarafından ayrı bir önbellekte saklanır.
+const CACHE = 'ingilizce-ders-v1';
+const FILES = ['./', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
+
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
+});
+
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('ingilizce-ders-') && k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (e) => {
+  if (e.request.method !== 'GET') return;
+  const url = new URL(e.request.url);
+  if (url.origin !== location.origin) return;
+  e.respondWith(
+    fetch(e.request)
+      .then((res) => {
+        if (res.ok) {
+          const copy = res.clone();
+          const key = e.request.mode === 'navigate' ? './' : e.request;
+          caches.open(CACHE).then((c) => c.put(key, copy));
+        }
+        return res;
+      })
+      .catch(() => caches.match(e.request.mode === 'navigate' ? './' : e.request).then((r) => r || caches.match('./')))
+  );
+});
