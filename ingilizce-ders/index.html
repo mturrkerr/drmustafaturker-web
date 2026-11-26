@@ -10,123 +10,275 @@
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="İngilizce">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <title>İngilizce</title>
     <style>
-        :root { --bg: #edf2f5; --navy: #1f3a52; --red: #E30A17; --ink: #1f2a33; --text: #3a4a57; --muted: #6a7a87; --line: #e3e9ee; --soft: #f1f6fa; --fs: 16px; }
-        * { box-sizing: border-box; }
+        :root {
+            --bg: #eef3f7; --navy: #1f3a52; --navy2: #2c5478; --red: #E30A17; --ink: #172430; --text: #3a4a57; --muted: #6c7c89; --line: #e2e9ef; --soft: #f2f7fb;
+            --green: #16a34a; --green-bg: #e7f7ec; --amber: #f59e0b; --amber-bg: #fff5e0; --violet: #7c3aed; --violet-bg: #f1ebff; --sky: #0284c7; --sky-bg: #e3f3fc; --rose: #e11d48; --rose-bg: #ffe8ee;
+            --fs: 16px; --r: 18px;
+        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html, body { margin: 0; min-height: 100%; }
-        body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); -webkit-text-size-adjust: 100%; padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
-        header.top { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; padding: calc(10px + env(safe-area-inset-top)) 16px 10px; display: flex; align-items: center; gap: 10px; min-height: 52px; }
-        header.top h1 { margin: 0; font-size: 18px; font-weight: 700; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        header.top button { border: none; background: rgba(255,255,255,0.14); color: #fff; border-radius: 9px; padding: 7px 11px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
-        header.top button[hidden] { display: none; }
-        main { max-width: 760px; margin: 0 auto; padding: 16px; }
-        .card { background: #fff; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.07); padding: 16px; margin-bottom: 14px; }
-        .card h2 { margin: 0 0 10px; font-size: 18px; color: var(--navy); }
+        body { background: var(--bg); font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); -webkit-text-size-adjust: 100%; padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+        button { font-family: inherit; }
+        [hidden] { display: none !important; }
+
+        /* Üst çubuk */
+        header.top { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; padding: calc(8px + env(safe-area-inset-top)) 12px 8px; display: flex; align-items: center; gap: 8px; min-height: 54px; }
+        header.top h1 { margin: 0; font-size: 18px; font-weight: 800; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ibtn { border: none; background: rgba(255,255,255,0.14); color: #fff; border-radius: 12px; height: 38px; min-width: 38px; padding: 0 10px; font-size: 15px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+        .ibtn svg { width: 20px; height: 20px; }
+        .chip { display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.14); border-radius: 999px; padding: 6px 10px; font-size: 14px; font-weight: 800; white-space: nowrap; }
+        .spin svg { animation: spin 0.9s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        main { max-width: 680px; margin: 0 auto; padding: 14px 14px 8px; }
+        .card { background: #fff; border-radius: var(--r); box-shadow: 0 6px 20px rgba(23,36,48,0.07); padding: 16px; margin-bottom: 14px; }
+        .card h2 { margin: 0 0 10px; font-size: 18px; font-weight: 900; color: var(--navy); }
         p { margin: 0 0 10px; line-height: 1.6; color: var(--text); }
         .muted { color: var(--muted); font-size: 13px; }
-        .btn { border: none; border-radius: 10px; padding: 11px 14px; font: inherit; font-size: 15px; font-weight: 700; background: #e3ebf2; color: var(--navy); cursor: pointer; }
-        .btn.primary { background: var(--navy); color: #fff; }
+        .btn { border: none; border-radius: 14px; padding: 12px 16px; font-size: 16px; font-weight: 800; background: #e3ebf2; color: var(--navy); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; transition: transform 0.08s; }
+        .btn:active { transform: scale(0.97); }
+        .btn.primary { background: var(--navy); color: #fff; box-shadow: 0 4px 0 #122535; }
+        .btn.go { background: var(--green); color: #fff; box-shadow: 0 4px 0 #0f7a36; }
+        .btn.red { background: var(--red); color: #fff; box-shadow: 0 4px 0 #a5060f; }
+        .btn.ghost { background: transparent; color: var(--navy); }
         .btn.danger { background: #fdecea; color: #b3261e; }
+        .btn.block { display: flex; width: 100%; }
         .btn:disabled { opacity: 0.5; }
         .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-        input[type=password], input[type=search], select { font: inherit; font-size: 16px; padding: 10px 11px; border: 1px solid #c9d3dc; border-radius: 10px; background: #fff; color: var(--ink); width: 100%; }
-        .status { font-size: 14px; margin: 8px 0 0; color: #2e7d32; }
+        input[type=password], input[type=search], select { font: inherit; font-size: 16px; padding: 11px 12px; border: 2px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); width: 100%; }
+        .status { font-size: 14px; margin: 8px 0 0; color: var(--green); font-weight: 700; }
         .status.err { color: #b3261e; }
-        nav.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); display: flex; padding-bottom: env(safe-area-inset-bottom); }
-        nav.tabbar a { flex: 1; text-align: center; padding: 9px 2px 8px; text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 700; }
-        nav.tabbar a .i { display: block; font-size: 20px; line-height: 1.2; }
-        nav.tabbar a.on { color: var(--navy); }
-        nav.tabbar a.on .i { color: var(--red); }
-        /* Ders listesi */
-        .book h2 { display: flex; align-items: baseline; gap: 8px; }
-        .bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; margin: 2px 0 10px; }
-        .bar i { display: block; height: 100%; background: var(--navy); }
-        .lessons { list-style: none; margin: 0; padding: 0; }
-        .lessons li a { display: flex; align-items: center; gap: 10px; padding: 11px 4px; border-top: 1px solid var(--line); text-decoration: none; color: var(--ink); }
-        .lessons li:first-child a { border-top: none; }
-        .lessons .t { flex: 1; font-size: 15px; line-height: 1.4; }
-        .lessons .t small { display: block; color: var(--muted); font-size: 12px; }
-        .chk { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 2px solid #c9d3dc; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; }
-        .chk.on { background: #2e7d32; border-color: #2e7d32; }
-        .resume { display: block; text-decoration: none; background: var(--navy); color: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; }
-        .resume small { display: block; opacity: 0.75; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .resume b { font-size: 16px; }
-        /* Ders içeriği */
+
+        /* Alt sekmeler */
+        nav.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); display: flex; padding: 4px 6px calc(4px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 18px rgba(23,36,48,0.06); }
+        nav.tabbar a { flex: 1; text-align: center; padding: 6px 2px 5px; text-decoration: none; color: #93a3b0; font-size: 11.5px; font-weight: 800; border-radius: 14px; }
+        nav.tabbar a svg { display: block; margin: 0 auto 2px; width: 26px; height: 26px; }
+        nav.tabbar a.on { color: var(--navy); background: var(--soft); }
+        nav.tabbar a.on svg { color: var(--red); }
+
+        /* Ana sayfa */
+        .hero { position: relative; overflow: hidden; border-radius: 24px; padding: 18px; color: #fff; margin-bottom: 14px; background: linear-gradient(135deg, #1f3a52 0%, #2c5478 55%, #3b6e99 100%); box-shadow: 0 10px 28px rgba(31,58,82,0.35); }
+        .hero::after { content: ""; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.07); }
+        .hero::before { content: ""; position: absolute; right: 40px; bottom: -70px; width: 140px; height: 140px; border-radius: 50%; background: rgba(227,10,23,0.18); }
+        .hero .hi { font-size: 14px; opacity: 0.85; font-weight: 700; }
+        .hero .big { font-size: 24px; font-weight: 900; margin: 2px 0 12px; line-height: 1.2; position: relative; z-index: 1; }
+        .goal { display: flex; align-items: center; gap: 14px; position: relative; z-index: 1; }
+        .ring { flex: none; position: relative; width: 92px; height: 92px; }
+        .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .ring .lbl { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; line-height: 1; }
+        .ring .lbl small { font-size: 11px; font-weight: 700; opacity: 0.8; margin-top: 3px; }
+        .ring circle { transition: stroke-dashoffset 0.8s ease; }
+        .goal .msg { font-size: 15px; font-weight: 700; line-height: 1.4; }
+        .week { display: flex; gap: 6px; margin-top: 14px; position: relative; z-index: 1; }
+        .week div { flex: 1; text-align: center; font-size: 11px; font-weight: 800; opacity: 0.9; }
+        .week i { display: block; height: 28px; border-radius: 9px; background: rgba(255,255,255,0.14); margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 14px; }
+        .week i.on { background: #ffb020; color: #5b3a00; }
+        .week i.today { outline: 2px solid #fff; }
+
+        .next { display: block; text-decoration: none; color: inherit; border-radius: 22px; padding: 16px; margin-bottom: 14px; background: #fff; box-shadow: 0 6px 20px rgba(23,36,48,0.07); border: 2px solid transparent; position: relative; overflow: hidden; }
+        .next .tag { display: inline-block; font-size: 11px; font-weight: 900; letter-spacing: 0.8px; color: #fff; background: var(--red); border-radius: 8px; padding: 3px 8px; margin-bottom: 8px; }
+        .next .ttl { font-size: 19px; font-weight: 900; color: var(--navy); line-height: 1.3; }
+        .next .sub { font-size: 13px; color: var(--muted); margin-top: 4px; font-weight: 700; }
+        .next .acts { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+        .next .num { position: absolute; right: 12px; top: 4px; font-size: 64px; font-weight: 900; color: rgba(31,58,82,0.06); line-height: 1; }
+
+        .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        .tile { border-radius: 20px; padding: 14px; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 6px; min-height: 112px; box-shadow: 0 4px 14px rgba(23,36,48,0.05); transition: transform 0.08s; }
+        .tile:active { transform: scale(0.97); }
+        .tile .ic { width: 42px; height: 42px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: #fff; }
+        .tile b { font-size: 16px; font-weight: 900; }
+        .tile span { font-size: 12.5px; font-weight: 700; color: var(--text); line-height: 1.3; }
+        .t-amber { background: var(--amber-bg); } .t-violet { background: var(--violet-bg); } .t-sky { background: var(--sky-bg); } .t-rose { background: var(--rose-bg); } .t-green { background: var(--green-bg); }
+
+        .quote { border-radius: 20px; padding: 16px; margin-bottom: 14px; background: linear-gradient(135deg, #fff7e6, #ffeef0); cursor: pointer; }
+        .quote .q-en { font-family: Georgia, "Times New Roman", serif; font-size: 19px; color: var(--navy); line-height: 1.4; font-style: italic; }
+        .quote .q-tr { font-size: 14px; color: var(--text); margin-top: 6px; font-weight: 700; }
+        .quote .q-tr.hide { filter: blur(5px); }
+        .quote small { display: block; font-size: 11px; font-weight: 900; letter-spacing: 0.8px; color: var(--amber); margin-bottom: 6px; text-transform: uppercase; }
+
+        .bookp { display: flex; align-items: center; gap: 14px; }
+        .bookp .ring { width: 70px; height: 70px; }
+        .bookp .ring .lbl { color: var(--navy); font-size: 16px; }
+        .secbars { flex: 1; display: grid; gap: 7px; }
+        .secbars div { font-size: 12px; font-weight: 800; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+        .secbars .bar { flex: 1; height: 9px; border-radius: 5px; background: var(--line); overflow: hidden; }
+        .secbars .bar i { display: block; height: 100%; border-radius: 5px; }
+
+        /* Dersler: yol haritası */
+        .sec { margin-bottom: 14px; }
+        .sec-h { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 18px; color: #fff; cursor: pointer; user-select: none; }
+        .sec-h b { flex: 1; font-size: 16px; font-weight: 900; }
+        .sec-h small { font-size: 12px; font-weight: 800; opacity: 0.9; }
+        .sec-h .car { transition: transform 0.2s; font-size: 18px; }
+        .sec.open .sec-h .car { transform: rotate(90deg); }
+        .path { list-style: none; margin: 0; padding: 8px 0 0 0; position: relative; display: none; }
+        .sec.open .path { display: block; }
+        .path::before { content: ""; position: absolute; left: 27px; top: 16px; bottom: 16px; width: 4px; border-radius: 2px; background: var(--line); }
+        .path li { position: relative; }
+        .path a { display: flex; align-items: center; gap: 12px; padding: 7px 6px 7px 6px; text-decoration: none; color: var(--ink); }
+        .node { flex: none; position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px; background: #fff; color: #a8b6c2; border: 3px solid var(--line); }
+        .node.ok { background: var(--green); border-color: var(--green); color: #fff; }
+        .node.av { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 4px 0 #122535; }
+        .node.nx { background: var(--red); border-color: var(--red); color: #fff; box-shadow: 0 4px 0 #a5060f; animation: pulse 1.8s ease-in-out infinite; }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        .path .lt { flex: 1; background: #fff; border-radius: 14px; padding: 10px 12px; box-shadow: 0 3px 10px rgba(23,36,48,0.05); font-size: 14.5px; font-weight: 700; line-height: 1.35; }
+        .path .lt small { display: block; color: var(--muted); font-size: 12px; font-weight: 700; margin-top: 2px; }
+        .path .wait .lt { background: transparent; box-shadow: none; color: #9aa9b5; }
+        .path .badge { display: inline-block; font-size: 10px; font-weight: 900; letter-spacing: 0.6px; color: #fff; background: var(--red); border-radius: 6px; padding: 2px 6px; margin-bottom: 3px; }
+
+        /* Ders */
+        .lhead { border-radius: 22px; padding: 18px; color: #fff; margin-bottom: 14px; background: linear-gradient(135deg, #1f3a52, #2c5478); position: relative; overflow: hidden; }
+        .lhead .k { font-size: 12px; font-weight: 900; letter-spacing: 1px; opacity: 0.8; text-transform: uppercase; }
+        .lhead h2 { margin: 4px 0 10px; font-size: 21px; font-weight: 900; line-height: 1.3; color: #fff; }
+        .lhead .num { position: absolute; right: 10px; bottom: -14px; font-size: 96px; font-weight: 900; color: rgba(255,255,255,0.08); line-height: 1; }
+        .lhead .acts { display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 1; }
+        .pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 800; text-decoration: none; background: rgba(255,255,255,0.16); color: #fff; border: none; cursor: pointer; }
+        .pill.yt { background: #ff0033; }
+        .readbar { position: fixed; left: 0; top: 0; height: 4px; background: var(--red); z-index: 40; width: 0; transition: width 0.1s; }
         .lesson { font-size: var(--fs); }
         .lesson p, .lesson li, .lesson td, .lesson th { font-size: 1em; line-height: 1.65; color: var(--text); }
-        .lesson h2 { font-size: 1.2em; color: var(--navy); margin: 18px 0 8px; }
+        .lesson h2 { font-size: 1.2em; color: var(--navy); margin: 20px 0 8px; font-weight: 900; display: flex; align-items: center; gap: 8px; }
+        .lesson h2::before { content: ""; width: 6px; height: 1.1em; border-radius: 3px; background: var(--red); flex: none; }
         .lesson h2:first-child { margin-top: 0; }
-        .lesson h3 { font-size: 1.05em; color: var(--navy); margin: 14px 0 6px; }
+        .lesson h3 { font-size: 1.05em; color: var(--navy); margin: 14px 0 6px; font-weight: 900; }
         .lesson ul, .lesson ol { padding-left: 22px; margin: 0 0 10px; }
-        .lesson li { margin-bottom: 4px; }
+        .lesson li { margin-bottom: 5px; }
         .lesson strong { color: var(--ink); }
         .lesson u { text-decoration-color: var(--red); text-decoration-thickness: 2px; }
-        .lesson .en { font-family: Georgia, "Times New Roman", serif; }
-        .note { background: var(--soft); border-left: 4px solid var(--navy); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
-        .note.warn { background: #fff4e5; border-left-color: #e08a00; }
-        .note p:last-child { margin: 0; }
-        .ex { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 8px 0; cursor: pointer; }
-        .ex .en { color: var(--ink); line-height: 1.55; }
-        .ex .tr { color: var(--muted); font-size: 0.92em; margin-top: 4px; line-height: 1.5; }
-        .ex .tr.hide { filter: blur(5px); user-select: none; }
-        .table-wrap { overflow-x: auto; margin: 8px 0 12px; }
+        .en { font-family: Georgia, "Times New Roman", serif; }
+        .note { background: var(--sky-bg); border-radius: 14px; padding: 12px 14px; margin: 12px 0; display: flex; gap: 10px; }
+        .note::before { content: "💡"; flex: none; }
+        .note.warn { background: var(--amber-bg); }
+        .note.warn::before { content: "⚠️"; }
+        .note p { margin: 0; }
+        .ex { border-radius: 14px; padding: 12px 14px; margin: 8px 0; cursor: pointer; background: var(--soft); border-left: 5px solid var(--navy); transition: background 0.15s; }
+        .ex .en { color: var(--ink); line-height: 1.5; font-size: 1.08em; }
+        .ex .tr { color: var(--text); font-size: 0.93em; margin-top: 5px; line-height: 1.5; font-weight: 700; transition: filter 0.2s; }
+        .ex .tr.hide { filter: blur(6px); user-select: none; }
+        .ex.open { background: var(--green-bg); border-left-color: var(--green); }
+        .hint { font-size: 12px; color: var(--muted); font-weight: 700; margin: -2px 0 6px; }
+        .table-wrap { overflow-x: auto; margin: 8px 0 12px; border-radius: 12px; border: 1px solid var(--line); }
         .lesson table { border-collapse: collapse; width: 100%; }
-        .lesson th, .lesson td { text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.93em; }
-        .lesson th { background: var(--soft); color: var(--navy); }
+        .lesson th, .lesson td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.95em; }
+        .lesson tr:last-child td { border-bottom: none; }
+        .lesson th { background: var(--navy); color: #fff; font-weight: 800; }
+        .lesson tr:nth-child(even) td { background: #f8fbfd; }
         .lesson figure { margin: 10px 0; }
-        .lesson figure img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); }
+        .lesson figure img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); }
         .lesson figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 4px; }
-        .sizer button { min-width: 44px; }
+        .lesson details summary { cursor: pointer; font-weight: 800; color: var(--navy); padding: 6px 0; }
+        .sizer { display: flex; gap: 6px; justify-content: flex-end; margin: -4px 0 10px; }
+        .sizer button { border: none; background: #fff; border-radius: 10px; padding: 6px 12px; font-weight: 900; color: var(--navy); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+        .donebar { position: sticky; bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 10; margin: 8px 0 14px; }
+        .navrow { display: flex; gap: 10px; }
+        .navrow > * { flex: 1; }
+
         /* Kelimeler */
-        .seg { display: flex; background: #e3ebf2; border-radius: 10px; padding: 3px; gap: 3px; margin-bottom: 12px; }
-        .seg button { flex: 1; border: none; background: transparent; border-radius: 8px; padding: 9px 4px; font: inherit; font-size: 14px; font-weight: 700; color: var(--navy); cursor: pointer; }
-        .seg button.on { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .seg { display: flex; background: #dfe8ef; border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 12px; }
+        .seg button { flex: 1; border: none; background: transparent; border-radius: 11px; padding: 10px 4px; font-size: 14px; font-weight: 900; color: var(--navy); cursor: pointer; }
+        .seg button.on { background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        .pbar { height: 12px; border-radius: 6px; background: var(--line); overflow: hidden; margin: 4px 0 12px; }
+        .pbar i { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, #16a34a, #4ade80); transition: width 0.3s; }
+        .stage { perspective: 1000px; height: 300px; margin: 6px 0 16px; position: relative; }
+        .flash { position: absolute; inset: 0; cursor: pointer; user-select: none; touch-action: pan-y; }
+        .flash .inner { position: absolute; inset: 0; transition: transform 0.45s; transform-style: preserve-3d; }
+        .flash.flipped .inner { transform: rotateY(180deg); }
+        .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; box-shadow: 0 10px 28px rgba(23,36,48,0.12); }
+        .face.front { background: #fff; }
+        .face.back { background: linear-gradient(135deg, #1f3a52, #2c5478); color: #fff; transform: rotateY(180deg); }
+        .face .w { font-size: 34px; font-weight: 900; color: var(--navy); }
+        .face.back .w { color: #fff; font-size: 26px; }
+        .face .ex2 { margin-top: 12px; font-size: 15px; opacity: 0.85; font-style: italic; }
+        .face .tap { position: absolute; bottom: 14px; font-size: 12px; font-weight: 800; color: var(--muted); }
+        .face .say { position: absolute; top: 12px; right: 12px; border: none; background: var(--soft); border-radius: 12px; width: 42px; height: 42px; font-size: 20px; cursor: pointer; }
+        .swipe-l { box-shadow: 0 0 0 4px var(--amber) !important; }
+        .swipe-r { box-shadow: 0 0 0 4px var(--green) !important; }
+        .cardbtns { display: flex; gap: 12px; }
+        .cardbtns .btn { flex: 1; padding: 15px; }
         .wl { list-style: none; margin: 0; padding: 0; }
-        .wl li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 2px; border-top: 1px solid var(--line); }
+        .wl li { display: flex; gap: 10px; align-items: center; padding: 11px 2px; border-top: 1px solid var(--line); }
         .wl li:first-child { border-top: none; }
         .wl .w { flex: 1; }
-        .wl .w b { font-size: 16px; color: var(--ink); }
-        .wl .w div { font-size: 14px; color: var(--text); margin-top: 2px; line-height: 1.45; }
+        .wl .w b { font-size: 17px; color: var(--navy); }
+        .wl .w div { font-size: 14px; color: var(--text); margin-top: 1px; font-weight: 700; }
         .wl .w i { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; }
-        .wl .k { flex: none; border: none; background: var(--soft); border-radius: 8px; padding: 6px 9px; font: inherit; font-size: 12px; font-weight: 700; color: var(--navy); cursor: pointer; }
-        .wl .k.on { background: #e8f5e9; color: #2e7d32; }
-        .flash { min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; cursor: pointer; user-select: none; }
-        .flash .front { font-size: 26px; font-weight: 700; color: var(--navy); }
-        .flash .back { margin-top: 14px; font-size: 18px; color: var(--text); line-height: 1.5; }
-        .flash .ex2 { margin-top: 8px; font-size: 14px; color: var(--muted); font-style: italic; }
-        .count { text-align: center; color: var(--muted); font-size: 13px; margin: -4px 0 10px; }
+        .wl .k { flex: none; border: 2px solid var(--line); background: #fff; border-radius: 12px; padding: 7px 10px; font-size: 12px; font-weight: 900; color: var(--muted); cursor: pointer; }
+        .wl .k.on { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+
         /* Test */
-        .q { font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.5; margin-bottom: 12px; }
-        .opts { display: grid; gap: 8px; }
-        .opts button { text-align: left; border: 1px solid #c9d3dc; background: #fff; border-radius: 10px; padding: 12px; font: inherit; font-size: 15px; color: var(--ink); cursor: pointer; line-height: 1.4; }
-        .opts button.ok { background: #e8f5e9; border-color: #2e7d32; }
-        .opts button.bad { background: #fdecea; border-color: #b3261e; }
-        .expl { margin-top: 10px; }
-        .score { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
-        .empty { text-align: center; padding: 28px 12px; color: var(--muted); }
-        details summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+        .q { font-size: 21px; font-weight: 900; color: var(--ink); line-height: 1.4; margin: 4px 0 16px; }
+        .opts { display: grid; gap: 10px; }
+        .opts button { text-align: left; border: 2px solid var(--line); background: #fff; border-radius: 16px; padding: 14px; font-size: 16px; font-weight: 700; color: var(--ink); cursor: pointer; line-height: 1.4; box-shadow: 0 3px 0 var(--line); display: flex; gap: 10px; align-items: center; transition: transform 0.08s; }
+        .opts button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--line); }
+        .opts button .L { flex: none; width: 28px; height: 28px; border-radius: 9px; background: var(--soft); color: var(--navy); display: inline-flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; }
+        .opts button.ok { background: var(--green-bg); border-color: var(--green); box-shadow: 0 3px 0 var(--green); animation: pop 0.3s; }
+        .opts button.ok .L { background: var(--green); color: #fff; }
+        .opts button.bad { background: #fdecea; border-color: #e5484d; box-shadow: 0 3px 0 #e5484d; animation: shake 0.35s; }
+        .opts button.bad .L { background: #e5484d; color: #fff; }
+        @keyframes pop { 50% { transform: scale(1.03); } }
+        @keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
+        .fb { border-radius: 16px; padding: 14px; margin-top: 14px; font-weight: 700; display: flex; gap: 10px; align-items: flex-start; }
+        .fb.good { background: var(--green-bg); color: #0f5d2b; }
+        .fb.bad { background: #fdecea; color: #8a1c1c; }
+        .fb p { margin: 0; color: inherit; }
+        .tophud { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+        .tophud .pbar { flex: 1; margin: 0; }
+        .combo { font-weight: 900; color: var(--amber); font-size: 15px; white-space: nowrap; }
+        .result { text-align: center; padding: 26px 16px; }
+        .result .ring { width: 140px; height: 140px; margin: 0 auto 10px; }
+        .result .ring .lbl { color: var(--navy); font-size: 32px; }
+        .result h2 { font-size: 24px; }
+        .bigchoice { display: grid; gap: 12px; }
+        .bigchoice button { display: flex; align-items: center; gap: 14px; text-align: left; border: none; border-radius: 20px; padding: 16px; cursor: pointer; box-shadow: 0 4px 14px rgba(23,36,48,0.06); }
+        .bigchoice .ic { width: 50px; height: 50px; border-radius: 16px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; flex: none; }
+        .bigchoice b { display: block; font-size: 17px; font-weight: 900; color: var(--ink); }
+        .bigchoice span { font-size: 13px; font-weight: 700; color: var(--text); }
+
+        .empty { text-align: center; padding: 30px 14px; color: var(--muted); font-weight: 700; }
+        .empty .e { font-size: 48px; margin-bottom: 8px; }
         .guide ol { padding-left: 20px; margin: 8px 0; }
         .guide li { margin-bottom: 6px; line-height: 1.5; color: var(--text); font-size: 15px; }
+        details summary { cursor: pointer; font-weight: 800; color: var(--navy); }
         code { background: var(--soft); border-radius: 4px; padding: 1px 4px; font-size: 0.92em; }
-        [hidden] { display: none !important; }
+        .goalpick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .goalpick button { border: 2px solid var(--line); background: #fff; border-radius: 14px; padding: 10px 4px; font-weight: 900; color: var(--navy); cursor: pointer; font-size: 14px; }
+        .goalpick button small { display: block; font-size: 11px; color: var(--muted); font-weight: 700; }
+        .goalpick button.on { border-color: var(--navy); background: var(--soft); }
+
+        /* Bildirim ve konfeti */
+        .toast { position: fixed; left: 50%; top: calc(70px + env(safe-area-inset-top)); transform: translateX(-50%) translateY(-20px); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 900; font-size: 15px; z-index: 60; opacity: 0; transition: all 0.25s; pointer-events: none; white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .toast.gold { background: linear-gradient(135deg, #f59e0b, #e30a17); }
+        #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 70; }
+        .fade-in { animation: fadein 0.25s ease; }
+        @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
     </style>
 </head>
 <body>
+    <div class="readbar" id="readbar" hidden></div>
     <header class="top">
-        <button type="button" id="backBtn" hidden aria-label="Geri">‹ Geri</button>
+        <button type="button" class="ibtn" id="backBtn" hidden aria-label="Geri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
         <h1 id="title">İngilizce</h1>
-        <button type="button" id="syncBtn" aria-label="Güncelle" title="Güncelle">⟳</button>
+        <span class="chip" id="streakChip" title="Gün serisi">🔥 0</span>
+        <span class="chip" id="xpChip" title="Toplam puan">⭐ 0</span>
+        <button type="button" class="ibtn" id="syncBtn" aria-label="Güncelle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></button>
+        <a class="ibtn" href="#/ayarlar" aria-label="Ayarlar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
     </header>
     <main id="view"></main>
-    <nav class="tabbar" id="tabbar">
-        <a href="#/" data-tab="dersler"><span class="i">📘</span>Dersler</a>
-        <a href="#/kelimeler" data-tab="kelimeler"><span class="i">🔤</span>Kelimeler</a>
-        <a href="#/test" data-tab="test"><span class="i">✎</span>Test</a>
-        <a href="#/ayarlar" data-tab="ayarlar"><span class="i">⚙</span>Ayarlar</a>
+    <nav class="tabbar">
+        <a href="#/" data-tab="ana"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Ana sayfa</a>
+        <a href="#/dersler" data-tab="dersler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>Dersler</a>
+        <a href="#/kelimeler" data-tab="kelimeler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="15" rx="2.5"/><path d="M7 3h11.5A2.5 2.5 0 0 1 21 5.5V17"/></svg>Kartlar</a>
+        <a href="#/test" data-tab="test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Test</a>
     </nav>
+    <div class="toast" id="toast"></div>
+    <canvas id="confetti" hidden></canvas>
 
     <script>
     (function () {
@@ -152,10 +304,13 @@
                 .replace(/`(.+?)`/g, '<span class="en">$1</span>')
                 .replace(/\n/g, '<br>');
         }
+        function plain(s) { return String(s || '').replace(/[`*_]/g, ''); }
         function lsGet(k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }
         function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
         function getToken() { try { return localStorage.getItem('ingToken') || ''; } catch (e) { return ''; } }
         function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+        function each(sel, fn, root) { Array.prototype.forEach.call((root || document).querySelectorAll(sel), fn); }
+        function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) {} }
 
         // ---------- Veri: gizli depodan çek, telefonda sakla ----------
         var mem = {};
@@ -185,7 +340,6 @@
                 })
                 .then(function (body) { return cachePut(path, body).then(function () { return body; }); });
         }
-        // Önce telefondaki kopya; yoksa ya da "fresh" isteniyorsa internetten.
         function getText(path, fresh) {
             return cacheGet(path).then(function (c) {
                 if (c != null && !fresh) return c;
@@ -201,12 +355,10 @@
         }
 
         // ---------- Durum ----------
-        var index = null;          // icerik.json
-        var lessons = {};          // id -> ders JSON
-        var lessonMeta = {};       // id -> {kitap, ders}
-        var progress = lsGet('ingIlerleme', {});      // id -> {t: tarih}
-        var known = lsGet('ingBilinen', {});          // kelime anahtarı -> 1
-        var versions = lsGet('ingSurum', {});         // dosya -> indirilen sürüm
+        var index = null, lessons = {}, lessonMeta = {};
+        var progress = lsGet('ingIlerleme', {});
+        var known = lsGet('ingBilinen', {});
+        var versions = lsGet('ingSurum', {});
         var fontSize = lsGet('ingYazi', 16);
         document.documentElement.style.setProperty('--fs', fontSize + 'px');
 
@@ -216,10 +368,7 @@
             (index.kitaplar || []).forEach(function (k) { (k.dersler || []).forEach(function (d) { if (d.dosya) out.push({ kitap: k, ders: d }); }); });
             return out;
         }
-        function indexLessons() {
-            lessonMeta = {};
-            allLessons().forEach(function (x) { lessonMeta[x.ders.id] = x; });
-        }
+        function indexLessons() { lessonMeta = {}; allLessons().forEach(function (x) { lessonMeta[x.ders.id] = x; }); }
         function loadLesson(id, fresh) {
             var m = lessonMeta[id];
             if (!m) return Promise.reject(new Error('Ders bulunamadı.'));
@@ -232,11 +381,10 @@
                 return j;
             });
         }
-        // Tüm dersleri (ve resimlerini) arka planda indir: dışarıda internetsiz de açılsın.
         var syncing = false;
         function syncAll(fresh) {
             if (syncing) return Promise.resolve();
-            syncing = true; $('syncBtn').textContent = '…';
+            syncing = true; $('syncBtn').classList.add('spin');
             return getJSON(INDEX, true).then(function (j) {
                 index = j; indexLessons();
                 var list = allLessons(), i = 0;
@@ -249,59 +397,200 @@
                     }).catch(function () {}).then(next);
                 }
                 return next();
-            }).finally(function () { syncing = false; $('syncBtn').textContent = '⟳'; });
+            }).finally(function () { syncing = false; $('syncBtn').classList.remove('spin'); });
         }
-        function loadIndexCached() {
-            return getJSON(INDEX, false).then(function (j) { index = j; indexLessons(); });
+        function loadIndexCached() { return getJSON(INDEX, false).then(function (j) { index = j; indexLessons(); }); }
+        function loadAllCached() { return Promise.all(allLessons().map(function (x) { return loadLesson(x.ders.id).catch(function () { return null; }); })); }
+
+        // ---------- Puan, seri, günlük hedef ----------
+        function dayKey(d) { d = d || new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+        var xp = lsGet('ingXP', 0), days = lsGet('ingGunler', {}), goal = lsGet('ingHedef', 30);
+        function todayXP() { return days[dayKey()] || 0; }
+        function streak() {
+            var d = new Date(), n = 0;
+            if (!days[dayKey(d)]) d.setDate(d.getDate() - 1);
+            while (days[dayKey(d)]) { n++; d.setDate(d.getDate() - 1); }
+            return n;
         }
-        function loadAllCached() {
-            return Promise.all(allLessons().map(function (x) { return loadLesson(x.ders.id).catch(function () { return null; }); }));
+        function updateChips() { $('streakChip').textContent = '🔥 ' + streak(); $('xpChip').textContent = '⭐ ' + xp; }
+        function addXP(n, msg) {
+            if (!n) return;
+            var before = todayXP();
+            xp += n; days[dayKey()] = before + n;
+            lsSet('ingXP', xp); lsSet('ingGunler', days); updateChips();
+            if (before < goal && before + n >= goal) { toast('🎯 Günlük hedef tamam! Harikasın!', true); confetti(); buzz([40, 60, 40]); }
+            else if (msg) toast(msg);
+        }
+        var toastT;
+        function toast(t, gold) {
+            var el = $('toast'); el.textContent = t; el.className = 'toast show' + (gold ? ' gold' : '');
+            clearTimeout(toastT); toastT = setTimeout(function () { el.className = 'toast' + (gold ? ' gold' : ''); }, 1800);
+        }
+        function confetti() {
+            var c = $('confetti'), ctx = c.getContext('2d'); c.hidden = false;
+            var W = c.width = innerWidth, H = c.height = innerHeight, cols = ['#E30A17', '#1f3a52', '#f59e0b', '#16a34a', '#0284c7', '#7c3aed'];
+            var ps = []; for (var i = 0; i < 140; i++) ps.push({ x: W / 2 + (Math.random() - 0.5) * 80, y: H * 0.35, vx: (Math.random() - 0.5) * 14, vy: -Math.random() * 14 - 4, s: 5 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4, c: cols[i % cols.length] });
+            var t0 = performance.now();
+            (function f(t) {
+                ctx.clearRect(0, 0, W, H);
+                ps.forEach(function (p) { p.vy += 0.4; p.vx *= 0.99; p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 3, p.s, p.s * 0.66); ctx.restore(); });
+                if (t - t0 < 2200) requestAnimationFrame(f); else { ctx.clearRect(0, 0, W, H); c.hidden = true; }
+            })(t0);
+        }
+        function ringSVG(frac, color, track, sw) {
+            var r = 42, C = 2 * Math.PI * r, f = Math.max(0, Math.min(1, frac));
+            return '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="' + r + '" fill="none" stroke="' + (track || 'rgba(255,255,255,0.18)') + '" stroke-width="' + (sw || 10) + '"/>' +
+                '<circle cx="50" cy="50" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="' + (sw || 10) + '" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + (C * (1 - f)) + '"/></svg>';
+        }
+        var speechOK = 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
+        function say(t) {
+            if (!speechOK) return;
+            try { speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(plain(t)); u.lang = 'en-US'; u.rate = 0.9; speechSynthesis.speak(u); } catch (e) {}
         }
 
-        // ---------- Görünümler ----------
+        // ---------- Ortak ----------
         function setHeader(title, back) {
             $('title').textContent = title;
             $('backBtn').hidden = !back;
+            $('streakChip').hidden = $('xpChip').hidden = !!back;
+            $('readbar').hidden = true;
             document.title = title === 'İngilizce' ? 'İngilizce' : title + ' · İngilizce';
         }
-        function setTab(tab) {
-            Array.prototype.forEach.call(document.querySelectorAll('nav.tabbar a'), function (a) { a.classList.toggle('on', a.getAttribute('data-tab') === tab); });
-        }
+        function setTab(tab) { each('nav.tabbar a', function (a) { a.classList.toggle('on', a.getAttribute('data-tab') === tab); }); }
         function needToken() {
-            view.innerHTML = '<div class="card"><h2>Hoş geldiniz</h2><p>Ders içerikleri gizli bir depoda duruyor. Görmek için bu cihaza bir kez <strong>okuma anahtarı</strong> girmeniz gerekiyor.</p><a class="btn primary" href="#/ayarlar" style="display:inline-block;text-decoration:none">Anahtarı gir</a></div>';
+            view.innerHTML = '<div class="hero fade-in"><div class="hi">Hoş geldin 👋</div><div class="big">İngilizce yolculuğun burada başlıyor.</div><p style="color:#fff;opacity:.9;position:relative;z-index:1">Dersler gizli depoda duruyor. Bu cihazda bir kez <b>okuma anahtarını</b> girmen yeterli.</p><a class="btn red" href="#/ayarlar" style="position:relative;z-index:1">Anahtarı gir</a></div>';
         }
         function showError(e) {
-            view.innerHTML = '<div class="card"><h2>İçerik alınamadı</h2><p>' + esc(e && e.message || e) + '</p><p class="muted">İnternet yoksa ve daha önce indirilmiş içerik de yoksa bu ekran görünür. Ayarlar sekmesinden anahtarı kontrol edebilirsiniz.</p></div>';
+            view.innerHTML = '<div class="card empty"><div class="e">📡</div><b>İçerik alınamadı</b><p style="margin-top:8px">' + esc(e && e.message || e) + '</p><p class="muted">İnternet yoksa ve daha önce indirilmiş içerik de yoksa bu ekran görünür. Ayarlar’dan anahtarı kontrol edebilirsin.</p></div>';
+        }
+        function lessonNum(d) { var m = /^ka-(\d+)$/.exec(d.id); return m ? +m[1] : null; }
+        function shortTitle(d) { return String(d.baslik).replace(/^\d+\. Ders · /, '').replace(/^Bonus Ders · /, ''); }
+        function videoNo(d) { var m = /Video #(\d+)/.exec(d.alt || ''); return m ? m[1] : null; }
+        function ytUrl(d) { var n = videoNo(d); return n ? 'https://www.youtube.com/results?search_query=' + encodeURIComponent('Özer Kiraz İngilizce Konu Anlatımı ' + n + '. Ders') : null; }
+        function nextLesson() {
+            var list = allLessons();
+            for (var i = 0; i < list.length; i++) if (!progress[list[i].ders.id]) return list[i];
+            return null;
+        }
+        function firstWaiting() {
+            var out = null;
+            (index && index.kitaplar || []).some(function (k) { return (k.dersler || []).some(function (d) { if (!d.dosya) { out = { kitap: k, ders: d }; return true; } }); });
+            return out;
         }
 
+        // ---------- Ana sayfa ----------
+        var QUOTES = [
+            ['Practice makes perfect.', 'Pratik, mükemmelleştirir. (İşleye işleye demir ışıldar.)'],
+            ['Rome wasn’t built in a day.', 'Roma bir günde kurulmadı.'],
+            ['Little by little, one travels far.', 'Azar azar, insan çok yol alır.'],
+            ['Every expert was once a beginner.', 'Her uzman bir zamanlar acemiydi.'],
+            ['Slow and steady wins the race.', 'Yavaş ama istikrarlı olan yarışı kazanır.'],
+            ['Where there’s a will, there’s a way.', 'İrade varsa yol da vardır.'],
+            ['Better late than never.', 'Geç olsun, güç olmasın.'],
+            ['Don’t put off until tomorrow what you can do today.', 'Bugünün işini yarına bırakma.'],
+            ['Knowledge is power.', 'Bilgi güçtür.'],
+            ['Small steps every day.', 'Her gün küçük adımlar.'],
+            ['Mistakes are proof that you are trying.', 'Hatalar, denediğinin kanıtıdır.'],
+            ['One day or day one. You decide.', 'Bir gün mü, yoksa birinci gün mü? Sen karar ver.']
+        ];
+        function greet() { var h = new Date().getHours(); return h < 6 ? 'İyi geceler' : h < 12 ? 'Günaydın' : h < 18 ? 'İyi günler' : 'İyi akşamlar'; }
+        function goalMsg(t) {
+            if (t === 0) return 'Bugün henüz başlamadın. 5 dakika bile fark yaratır!';
+            if (t < goal / 2) return 'Güzel başlangıç! Biraz daha devam 💪';
+            if (t < goal) return 'Hedefe çok az kaldı, bitir şunu! 🚀';
+            return 'Bugünkü hedef tamam! Seriyi korudun 🔥';
+        }
         function renderHome() {
-            setHeader('İngilizce', false); setTab('dersler');
+            setHeader('İngilizce', false); setTab('ana');
             if (!getToken() && !index) return needToken();
-            if (!index) { view.innerHTML = '<div class="empty">Yükleniyor…</div>'; return; }
-            var html = '';
-            var last = lsGet('ingSon', null);
-            if (last && lessonMeta[last]) html += '<a class="resume" href="#/ders/' + encodeURIComponent(last) + '"><small>Kaldığın yer</small><b>' + esc(lessonMeta[last].ders.baslik) + '</b></a>';
+            if (!index) { view.innerHTML = '<div class="empty"><div class="e">⏳</div>Yükleniyor…</div>'; return; }
+            var t = todayXP(), s = streak();
+            var wd = ['Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct', 'Pa'], week = '';
+            var d0 = new Date(); var dow = (d0.getDay() + 6) % 7; d0.setDate(d0.getDate() - dow);
+            for (var i = 0; i < 7; i++) { var d = new Date(d0); d.setDate(d0.getDate() + i); var k = dayKey(d); week += '<div><i class="' + (days[k] ? 'on' : '') + (k === dayKey() ? ' today' : '') + '">' + (days[k] ? '🔥' : '') + '</i>' + wd[i] + '</div>'; }
+            var h = '<section class="hero fade-in"><div class="hi">' + greet() + ' 👋</div><div class="big">' + (s > 1 ? s + ' gündür aralıksız çalışıyorsun!' : s === 1 ? 'Seri başladı, yarın da gel!' : 'Bugün yeni bir seri başlat!') + '</div>' +
+                '<div class="goal"><div class="ring">' + ringSVG(t / goal, '#ffb020') + '<div class="lbl">' + Math.min(t, 999) + '<small>/ ' + goal + ' puan</small></div></div><div class="msg">' + goalMsg(t) + '</div></div>' +
+                '<div class="week">' + week + '</div></section>';
+            var nx = nextLesson();
+            if (nx) {
+                var n = lessonNum(nx.ders), yt = ytUrl(nx.ders);
+                h += '<a class="next fade-in" href="#/ders/' + encodeURIComponent(nx.ders.id) + '">' + (n ? '<span class="num">' + n + '</span>' : '') + '<span class="tag">SIRADAKİ</span>' +
+                    '<div class="ttl">' + esc(nx.ders.baslik) + '</div><div class="sub">' + esc(nx.kitap.baslik) + (nx.ders.alt ? ' · ' + esc(nx.ders.alt) : '') + '</div>' +
+                    '<div class="acts"><span class="btn go">▶ Derse başla</span>' + (yt ? '<span class="btn" data-yt="' + esc(yt) + '">🎬 Videoyu izle</span>' : '') + '</div></a>';
+            } else {
+                var w = firstWaiting();
+                h += '<div class="next fade-in"><span class="tag" style="background:var(--green)">HEPSİ BİTTİ</span><div class="ttl">Eklenen bütün dersleri tamamladın! 🏆</div>' +
+                    '<div class="sub">' + (w ? 'Sıradaki: ' + esc(w.ders.baslik) + '. Sayfalarının fotoğrafını gönder, hemen ekleyeyim.' : '') + '</div>' +
+                    '<div class="acts"><a class="btn go" href="#/test">Tekrar testi çöz</a></div></div>';
+            }
+            var words = collectWords(''), unk = words.filter(function (x) { return !known[wkey(x)]; }).length;
+            var qn = 0; allLessons().forEach(function (x) { var l = lessons[x.ders.id]; if (l && l.sorular) qn += l.sorular.length; });
+            h += '<div class="tiles fade-in">' +
+                '<a class="tile t-amber" href="#/kelimeler"><span class="ic">🃏</span><b>Kelime kartları</b><span>' + (words.length ? unk + ' kelime seni bekliyor' : 'Kelimeler derslerle gelecek') + '</span></a>' +
+                '<a class="tile t-violet" href="#/test?basla=kelime"><span class="ic">⚡</span><b>Hızlı test</b><span>10 soru · doğru başına +2 puan</span></a>' +
+                '<a class="tile t-sky" href="#/test?basla=soru"><span class="ic">✍️</span><b>Alıştırmalar</b><span>' + qn + ' ders sorusu</span></a>' +
+                '<a class="tile t-rose" href="#/ders/yontem-10-asama"><span class="ic">🧭</span><b>Çalışma planı</b><span>Setin 10 aşaması</span></a></div>';
+            var qi = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 1)) / 864e5) % QUOTES.length, q = QUOTES[qi];
+            h += '<div class="quote fade-in" id="quote"><small>Günün sözü · dokun, Türkçesini gör</small><div class="q-en">“' + esc(q[0]) + '”</div><div class="q-tr hide">' + esc(q[1]) + '</div></div>';
+            var ka = (index.kitaplar || []).filter(function (k) { return k.id === 'konu-anlatimi'; })[0];
+            if (ka) {
+                var ds = ka.dersler || [], done = ds.filter(function (d) { return progress[d.id]; }).length, ready = ds.filter(function (d) { return d.dosya; }).length;
+                var cols = ['#16a34a', '#0284c7', '#7c3aed', '#E30A17'], bars = '';
+                for (var b = 0; b < 4; b++) {
+                    var part = ds.slice(b * 25, b * 25 + 25), pd = part.filter(function (d) { return progress[d.id]; }).length;
+                    bars += '<div>' + (b * 25 + 1) + '–' + (b * 25 + 25) + '<span class="bar"><i style="width:' + (pd * 4) + '%;background:' + cols[b] + '"></i></span>' + pd + '/25</div>';
+                }
+                h += '<a class="card fade-in" href="#/dersler" style="display:block;text-decoration:none;color:inherit"><h2>📘 Konu Anlatımı</h2><div class="bookp"><div class="ring">' + ringSVG(done / ds.length, '#1f3a52', '#e2e9ef', 12) + '<div class="lbl">' + done + '<small style="color:var(--muted)">/ ' + ds.length + '</small></div></div><div class="secbars">' + bars + '</div></div>' +
+                    '<p class="muted" style="margin:10px 0 0">' + ready + ' ders eklendi · fotoğraf gönderdikçe yenileri açılır</p></a>';
+            }
+            view.innerHTML = h;
+            each('[data-yt]', function (el) { el.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); location.href = el.getAttribute('data-yt'); }); });
+            $('quote').addEventListener('click', function () { this.querySelector('.q-tr').classList.toggle('hide'); say(q[0]); });
+        }
+
+        // ---------- Dersler (yol haritası) ----------
+        var SEC_COLORS = ['linear-gradient(135deg,#16a34a,#22c55e)', 'linear-gradient(135deg,#0369a1,#0ea5e9)', 'linear-gradient(135deg,#6d28d9,#8b5cf6)', 'linear-gradient(135deg,#b91c1c,#E30A17)', 'linear-gradient(135deg,#b45309,#f59e0b)', 'linear-gradient(135deg,#1f3a52,#2c5478)'];
+        var openSecs = lsGet('ingAcik', null);
+        function renderLessons() {
+            setHeader('Dersler', false); setTab('dersler');
+            if (!getToken() && !index) return needToken();
+            if (!index) { view.innerHTML = '<div class="empty"><div class="e">⏳</div>Yükleniyor…</div>'; return; }
+            var nx = nextLesson(), nxId = nx ? nx.ders.id : '';
+            var groups = [];
             (index.kitaplar || []).forEach(function (k) {
                 var ds = k.dersler || [];
-                var done = ds.filter(function (d) { return progress[d.id]; }).length, ready = ds.filter(function (d) { return d.dosya; }).length;
-                html += '<section class="card book"><h2>' + esc(k.baslik) + ' <span class="muted">' + done + '/' + ds.length + '</span></h2>';
-                if (ready < ds.length) html += '<p class="muted" style="margin:-4px 0 6px">' + ready + ' ders eklendi, ' + (ds.length - ready) + ' ders bekliyor.</p>';
-                if (k.aciklama) html += '<p class="muted">' + fmt(k.aciklama) + '</p>';
-                if (ds.length) html += '<div class="bar"><i style="width:' + Math.round(100 * done / ds.length) + '%"></i></div>';
-                html += '<ul class="lessons">';
-                ds.forEach(function (d) {
-                    if (!d.dosya) { html += '<li><a style="opacity:0.45"><span class="chk"></span><span class="t">' + esc(d.baslik) + '<small>' + (d.alt ? esc(d.alt) + ' · ' : '') + 'henüz eklenmedi</small></span></a></li>'; return; }
-                    html += '<li><a href="#/ders/' + encodeURIComponent(d.id) + '"><span class="chk' + (progress[d.id] ? ' on' : '') + '">' + (progress[d.id] ? '✓' : '') + '</span><span class="t">' + esc(d.baslik) + (d.alt ? '<small>' + esc(d.alt) + '</small>' : '') + '</span><span class="muted">›</span></a></li>';
-                });
-                if (!ds.length) html += '<li class="muted">Henüz ders eklenmedi.</li>';
-                html += '</ul></section>';
+                if (k.id === 'konu-anlatimi') {
+                    for (var b = 0; b < ds.length; b += 25) groups.push({ id: k.id + '-' + b, t: b < 100 ? (b / 25 + 1) + '. Bölüm · Ders ' + (b + 1) + '–' + Math.min(b + 25, 100) : 'Bonus dersler', sub: k.baslik, ds: ds.slice(b, b + 25) });
+                } else groups.push({ id: k.id, t: k.baslik, sub: k.aciklama || '', ds: ds });
             });
-            if (index.guncelleme) html += '<p class="muted" style="text-align:center">İçerik tarihi: ' + esc(index.guncelleme) + '</p>';
-            view.innerHTML = html;
+            if (!openSecs) { openSecs = {}; groups.forEach(function (g) { if (g.ds.some(function (d) { return d.id === nxId; })) openSecs[g.id] = 1; }); if (!nxId && groups[0]) openSecs[groups[0].id] = 1; }
+            var h = '';
+            groups.forEach(function (g, gi) {
+                var done = g.ds.filter(function (d) { return progress[d.id]; }).length;
+                h += '<section class="sec fade-in' + (openSecs[g.id] ? ' open' : '') + '" data-sec="' + esc(g.id) + '"><div class="sec-h" style="background:' + SEC_COLORS[gi % SEC_COLORS.length] + '"><div style="flex:1"><b>' + esc(g.t) + '</b><br><small>' + esc(g.sub) + '</small></div><small>' + done + '/' + g.ds.length + ' ✓</small><span class="car">›</span></div><ul class="path">';
+                g.ds.forEach(function (d) {
+                    var n = lessonNum(d), lab = n ? n : (d.id.indexOf('bonus') >= 0 ? '★' : '•');
+                    var title = n ? shortTitle(d) : d.baslik;
+                    if (!d.dosya) { h += '<li class="wait"><a><span class="node">' + lab + '</span><span class="lt">' + esc(title) + '<small>📷 Fotoğraf bekleniyor</small></span></a></li>'; return; }
+                    var cls = progress[d.id] ? 'ok' : (d.id === nxId ? 'nx' : 'av');
+                    h += '<li><a href="#/ders/' + encodeURIComponent(d.id) + '"><span class="node ' + cls + '">' + (progress[d.id] ? '✓' : lab) + '</span><span class="lt">' + (d.id === nxId ? '<span class="badge">SIRADAKİ</span><br>' : '') + esc(title) + (d.alt ? '<small>' + esc(d.alt) + '</small>' : '') + '</span></a></li>';
+                });
+                h += '</ul></section>';
+            });
+            view.innerHTML = h;
+            each('.sec-h', function (el) {
+                el.addEventListener('click', function () {
+                    var s = el.parentNode, id = s.getAttribute('data-sec');
+                    s.classList.toggle('open'); if (s.classList.contains('open')) openSecs[id] = 1; else delete openSecs[id];
+                    lsSet('ingAcik', openSecs);
+                });
+            });
+            var cur = view.querySelector('.node.nx'); if (cur) setTimeout(function () { cur.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 150);
         }
 
+        // ---------- Ders ----------
         function renderBlocks(bl) {
-            var h = '';
+            var h = '', firstEx = true;
             (bl || []).forEach(function (b) {
                 switch (b.t) {
                     case 'h': h += '<h2>' + fmt(b.x) + '</h2>'; break;
@@ -309,79 +598,99 @@
                     case 'p': h += '<p>' + fmt(b.x) + '</p>'; break;
                     case 'liste': h += (b.sirali ? '<ol>' : '<ul>') + (b.x || []).map(function (li) { return '<li>' + fmt(li) + '</li>'; }).join('') + (b.sirali ? '</ol>' : '</ul>'); break;
                     case 'not': h += '<div class="note' + (b.uyari ? ' warn' : '') + '"><p>' + fmt(b.x) + '</p></div>'; break;
-                    case 'ornek': h += '<div class="ex"><div class="en">' + fmt(b.en) + '</div>' + (b.tr ? '<div class="tr hide">' + fmt(b.tr) + '</div>' : '') + '</div>'; break;
+                    case 'ornek':
+                        if (firstEx && b.tr) { h += '<div class="hint">👆 Türkçesini görmek için cümleye dokun' + (speechOK ? ' (sesli de okur)' : '') + '</div>'; firstEx = false; }
+                        h += '<div class="ex" data-say="' + esc(plain(b.en)) + '"><div class="en">' + fmt(b.en) + '</div>' + (b.tr ? '<div class="tr hide">' + fmt(b.tr) + '</div>' : '') + '</div>'; break;
                     case 'tablo':
                         h += '<div class="table-wrap"><table>' + (b.baslik ? '<tr>' + b.baslik.map(function (c) { return '<th>' + fmt(c) + '</th>'; }).join('') + '</tr>' : '') +
                             (b.satirlar || []).map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + fmt(c) + '</td>'; }).join('') + '</tr>'; }).join('') + '</table></div>';
                         break;
                     case 'resim':
-                        if (b.kapali) { h += '<details style="margin:12px 0"><summary>' + esc(b.baslik || 'Kitap sayfasının fotoğrafı') + '</summary><figure><img data-src="' + esc(b.dosya) + '" alt="' + esc(b.alt || '') + '"></figure></details>'; break; }
+                        if (b.kapali) { h += '<details style="margin:14px 0"><summary>📷 ' + esc(b.baslik || 'Kitap sayfasının fotoğrafı') + '</summary><figure><img data-src="' + esc(b.dosya) + '" alt="' + esc(b.alt || '') + '"></figure></details>'; break; }
                         h += '<figure><img data-src="' + esc(b.dosya) + '" alt="' + esc(b.alt || '') + '">' + (b.alt ? '<figcaption>' + fmt(b.alt) + '</figcaption>' : '') + '</figure>'; break;
                     default: if (b.x) h += '<p>' + fmt(b.x) + '</p>';
                 }
             });
             return h;
         }
+        function optsHTML(q) { return (q.secenekler || []).map(function (o, j) { return '<button type="button" data-j="' + j + '"><span class="L">' + 'ABCDE'.charAt(j) + '</span><span>' + fmt(o) + '</span></button>'; }).join(''); }
         function renderQuestions(qs, box) {
-            var h = '<h2>Alıştırma</h2>';
+            var right = 0, answered = 0;
+            var h = '<h2>Alıştırma <span class="muted" id="qscore" style="margin-left:auto;font-size:14px"></span></h2><p class="muted" style="margin-top:-4px">Her doğru +3 puan</p>';
             qs.forEach(function (q, i) {
-                h += '<div class="card" style="box-shadow:none;border:1px solid var(--line)"><div class="q" style="font-size:1em">' + (i + 1) + '. ' + fmt(q.soru) + '</div><div class="opts" data-q="' + i + '">' +
-                    (q.secenekler || []).map(function (o, j) { return '<button type="button" data-j="' + j + '">' + 'ABCDE'.charAt(j) + ') ' + fmt(o) + '</button>'; }).join('') +
-                    '</div><div class="expl" hidden></div></div>';
+                h += '<div style="margin:16px 0 20px"><div class="q" style="font-size:1.05em">' + (i + 1) + '. ' + fmt(q.soru) + '</div><div class="opts" data-q="' + i + '">' + optsHTML(q) + '</div><div class="fbx"></div></div>';
             });
             box.innerHTML = h;
             box.addEventListener('click', function (e) {
                 var btn = e.target.closest('button[data-j]'); if (!btn) return;
                 var wrap = btn.parentNode; if (wrap.dataset.done) return; wrap.dataset.done = 1;
-                var q = qs[+wrap.getAttribute('data-q')], j = +btn.getAttribute('data-j');
-                Array.prototype.forEach.call(wrap.children, function (b, k) { if (k === q.cevap) b.classList.add('ok'); });
-                if (j !== q.cevap) btn.classList.add('bad');
-                var ex = wrap.nextElementSibling;
-                if (q.aciklama) { ex.innerHTML = '<div class="note"><p>' + fmt(q.aciklama) + '</p></div>'; ex.hidden = false; }
+                var q = qs[+wrap.getAttribute('data-q')], j = +btn.getAttribute('data-j'), ok = j === q.cevap;
+                wrap.children[q.cevap].classList.add('ok');
+                answered++;
+                if (ok) { right++; addXP(3, '+3 ⭐ Doğru!'); buzz(30); } else { btn.classList.add('bad'); buzz([60, 40, 60]); }
+                wrap.nextElementSibling.innerHTML = '<div class="fb ' + (ok ? 'good' : 'bad') + '"><span>' + (ok ? '✅' : '❌') + '</span><p>' + (ok ? '<b>Doğru!</b> ' : '<b>Olmadı.</b> ') + (q.aciklama ? fmt(q.aciklama) : '') + '</p></div>';
+                $('qscore').textContent = right + '/' + answered + ' doğru';
+                if (answered === qs.length) setTimeout(function () { if (right === qs.length) { confetti(); toast('🏆 Hepsi doğru!', true); } else toast(right + '/' + qs.length + ' doğru, tekrar dene!'); }, 400);
             });
         }
         function renderLesson(id) {
             setTab('dersler');
             var m = lessonMeta[id];
-            setHeader(m ? m.ders.baslik : 'Ders', true);
-            view.innerHTML = '<div class="empty">Yükleniyor…</div>';
+            setHeader(m ? shortTitle(m.ders) : 'Ders', true);
+            view.innerHTML = '<div class="empty"><div class="e">📖</div>Yükleniyor…</div>';
             loadLesson(id).then(function (l) {
                 if (location.hash !== '#/ders/' + encodeURIComponent(id)) return;
                 lsSet('ingSon', id);
-                var h = '<div class="row sizer" style="justify-content:flex-end;margin-bottom:10px"><span class="muted" style="margin-right:auto">' + esc(m.kitap.baslik) + '</span>' +
-                    '<button type="button" class="btn" data-fs="-1">A−</button><button type="button" class="btn" data-fs="1">A+</button></div>';
-                h += '<article class="card lesson">' + renderBlocks(l.bloklar) + '</article>';
+                var n = lessonNum(m.ders), yt = ytUrl(m.ders);
+                var h = '<div class="lhead fade-in">' + (n ? '<span class="num">' + n + '</span>' : '') + '<div class="k">' + esc(m.kitap.baslik) + (n ? ' · ' + n + '. Ders' : '') + '</div><h2>' + esc(n ? shortTitle(m.ders) : m.ders.baslik) + '</h2>' +
+                    '<div class="acts">' + (yt ? '<a class="pill yt" href="' + esc(yt) + '">▶ Videoyu izle</a>' : '') + (m.ders.alt ? '<span class="pill">' + esc(m.ders.alt.replace(/ · Video #\d+/, '')) + '</span>' : '') + '</div></div>';
+                h += '<div class="sizer"><button type="button" data-fs="-1">A−</button><button type="button" data-fs="1">A+</button></div>';
+                h += '<article class="card lesson fade-in">' + renderBlocks(l.bloklar) + '</article>';
                 if (l.kelimeler && l.kelimeler.length) {
-                    h += '<section class="card lesson"><h2>Bu dersin kelimeleri (' + l.kelimeler.length + ')</h2><ul class="wl">' + l.kelimeler.map(wordRow).join('') + '</ul>' +
-                        '<div class="row" style="margin-top:10px"><a class="btn" style="text-decoration:none" href="#/kelimeler?ders=' + encodeURIComponent(id) + '&mod=kart">Kartlarla çalış</a></div></section>';
+                    h += '<section class="card lesson"><h2>Bu dersin kelimeleri</h2><ul class="wl">' + l.kelimeler.map(wordRow).join('') + '</ul>' +
+                        '<a class="btn block" style="margin-top:12px;background:var(--amber-bg);color:#7a4b00" href="#/kelimeler?ders=' + encodeURIComponent(id) + '">🃏 Bu kelimelerle kart çalış</a></section>';
                 }
                 if (l.sorular && l.sorular.length) h += '<section class="card lesson" id="qs"></section>';
-                h += '<div class="row" style="justify-content:center;margin:6px 0 10px"><button type="button" class="btn ' + (progress[id] ? '' : 'primary') + '" id="doneBtn">' + (progress[id] ? '✓ Çalışıldı (geri al)' : 'Çalıştım olarak işaretle') + '</button></div>';
+                h += '<div class="donebar">' + (progress[id]
+                    ? '<button type="button" class="btn block" id="doneBtn" style="background:var(--green-bg);color:var(--green)">✓ Bu dersi bitirdin · geri al</button>'
+                    : '<button type="button" class="btn go block" id="doneBtn">✓ Dersi bitirdim  +20 ⭐</button>') + '</div>';
                 var list = allLessons(), pos = list.findIndex(function (x) { return x.ders.id === id; });
-                h += '<div class="row" style="justify-content:space-between">' +
-                    (pos > 0 ? '<a class="btn" style="text-decoration:none" href="#/ders/' + encodeURIComponent(list[pos - 1].ders.id) + '">‹ Önceki</a>' : '<span></span>') +
-                    (pos >= 0 && pos < list.length - 1 ? '<a class="btn" style="text-decoration:none" href="#/ders/' + encodeURIComponent(list[pos + 1].ders.id) + '">Sonraki ›</a>' : '<span></span>') + '</div>';
-                if (l.kaynak) h += '<p class="muted" style="margin-top:14px">' + fmt(l.kaynak) + '</p>';
+                h += '<div class="navrow">' +
+                    (pos > 0 ? '<a class="btn" href="#/ders/' + encodeURIComponent(list[pos - 1].ders.id) + '">‹ Önceki</a>' : '<span></span>') +
+                    (pos >= 0 && pos < list.length - 1 ? '<a class="btn primary" href="#/ders/' + encodeURIComponent(list[pos + 1].ders.id) + '">Sonraki ›</a>' : '<span></span>') + '</div>';
+                if (l.kaynak) h += '<p class="muted" style="margin-top:16px">' + fmt(l.kaynak) + '</p>';
                 view.innerHTML = h;
                 if (l.sorular && l.sorular.length) renderQuestions(l.sorular, $('qs'));
-                Array.prototype.forEach.call(view.querySelectorAll('img[data-src]'), function (img) {
-                    getImageUrl(img.getAttribute('data-src')).then(function (u) { img.src = u; }).catch(function () { img.alt = 'Resim alınamadı'; });
-                });
+                each('img[data-src]', function (img) { getImageUrl(img.getAttribute('data-src')).then(function (u) { img.src = u; }).catch(function () { img.alt = 'Resim alınamadı'; }); }, view);
                 $('doneBtn').addEventListener('click', function () {
-                    if (progress[id]) delete progress[id]; else progress[id] = { t: new Date().toISOString().slice(0, 10) };
-                    lsSet('ingIlerleme', progress); renderLesson(id);
+                    if (progress[id]) { delete progress[id]; lsSet('ingIlerleme', progress); renderLesson(id); return; }
+                    progress[id] = { t: dayKey() }; lsSet('ingIlerleme', progress);
+                    confetti(); buzz([40, 60, 40]); addXP(20, '🎉 Ders bitti! +20 ⭐');
+                    var all = allLessons(), p0 = all.findIndex(function (x) { return x.ders.id === id; }), nx = null;
+                    for (var k = 1; k <= all.length && !nx; k++) { var c = all[(p0 + k) % all.length]; if (!progress[c.ders.id]) nx = c; }
+                    setTimeout(function () { if (nx) location.hash = '#/ders/' + encodeURIComponent(nx.ders.id); else location.hash = '#/'; }, 1400);
                 });
                 view.querySelector('.sizer').addEventListener('click', function (e) {
                     var b = e.target.closest('button[data-fs]'); if (!b) return;
                     fontSize = Math.max(13, Math.min(24, fontSize + (+b.getAttribute('data-fs'))));
                     lsSet('ingYazi', fontSize); document.documentElement.style.setProperty('--fs', fontSize + 'px');
                 });
-                view.addEventListener('click', exToggle);
+                view.addEventListener('click', function (e) {
+                    var ex = e.target.closest('.ex'); if (!ex) return;
+                    var t = ex.querySelector('.tr'); if (t) t.classList.toggle('hide');
+                    ex.classList.toggle('open'); if (ex.classList.contains('open')) say(ex.getAttribute('data-say'));
+                });
                 bindKnown(view);
+                $('readbar').hidden = false; onScroll();
                 window.scrollTo(0, 0);
             }).catch(showError);
         }
-        function exToggle(e) { var ex = e.target.closest('.ex'); if (!ex) return; var t = ex.querySelector('.tr'); if (t) t.classList.toggle('hide'); }
+        function onScroll() {
+            var rb = $('readbar'); if (rb.hidden) return;
+            var max = document.documentElement.scrollHeight - innerHeight;
+            rb.style.width = (max > 0 ? Math.min(100, 100 * scrollY / max) : 100) + '%';
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
 
         // ---------- Kelimeler ----------
         function wkey(w) { return String(w.en).toLowerCase().trim(); }
@@ -394,7 +703,7 @@
             root.addEventListener('click', function (e) {
                 var b = e.target.closest('button[data-k]'); if (!b) return;
                 var k = b.getAttribute('data-k');
-                if (known[k]) delete known[k]; else known[k] = 1;
+                if (known[k]) delete known[k]; else { known[k] = 1; addXP(1); }
                 lsSet('ingBilinen', known);
                 b.classList.toggle('on', !!known[k]); b.textContent = known[k] ? '✓ Biliyorum' : 'Biliyorum';
             });
@@ -414,24 +723,23 @@
             return q;
         }
         function lessonSelect(sel) {
-            var h = '<select id="lsel"><option value="">Tüm dersler</option>';
+            var h = '<select id="lsel"><option value="">📚 Tüm dersler</option>';
             allLessons().forEach(function (x) { var l = lessons[x.ders.id]; if (l && l.kelimeler && l.kelimeler.length) h += '<option value="' + esc(x.ders.id) + '"' + (sel === x.ders.id ? ' selected' : '') + '>' + esc(x.ders.baslik) + ' (' + l.kelimeler.length + ')</option>'; });
             return h + '</select>';
         }
         function renderWords() {
-            setHeader('Kelimeler', false); setTab('kelimeler');
+            setHeader('Kelime kartları', false); setTab('kelimeler');
             if (!getToken() && !index) return needToken();
-            var q = parseQuery(), mode = q.mod || 'liste', lid = q.ders || '';
-            view.innerHTML = '<div class="empty">Yükleniyor…</div>';
+            var q = parseQuery(), mode = q.mod || 'kart', lid = q.ders || '';
+            view.innerHTML = '<div class="empty"><div class="e">🃏</div>Yükleniyor…</div>';
             loadAllCached().then(function () {
                 var words = collectWords(lid);
-                var h = '<div class="seg" id="seg"><button type="button" data-m="liste">Liste</button><button type="button" data-m="kart">Kart</button></div>' +
-                    '<div class="card"><div style="margin-bottom:8px">' + lessonSelect(lid) + '</div>';
-                if (!words.length) { view.innerHTML = h + '<div class="empty">Henüz kelime eklenmedi. Kelime listelerini gönderdikçe burada görünecek.</div></div>'; bindSeg(mode, lid); return; }
+                var h = '<div class="seg" id="seg"><button type="button" data-m="kart">🃏 Kartlar</button><button type="button" data-m="liste">📋 Liste</button></div><div style="margin-bottom:12px">' + lessonSelect(lid) + '</div>';
+                if (!words.length) { view.innerHTML = h + '<div class="card empty"><div class="e">📭</div>Henüz kelime yok. Dersler eklendikçe kelimeler burada birikecek.</div>'; bindSeg(mode, lid); return; }
                 if (mode === 'liste') {
                     var nk = words.filter(function (w) { return known[wkey(w)]; }).length;
-                    h += '<input type="search" id="wq" placeholder="Ara (İngilizce ya da Türkçe)">' +
-                        '<label class="muted" style="display:block;margin:8px 0"><input type="checkbox" id="hideKnown"' + (lsGet('ingGizle', false) ? ' checked' : '') + '> Bildiklerimi gizle · ' + words.length + ' kelime, ' + nk + ' biliniyor</label>' +
+                    h += '<div class="card"><input type="search" id="wq" placeholder="🔎 Ara (İngilizce ya da Türkçe)">' +
+                        '<label class="muted" style="display:flex;gap:6px;align-items:center;margin:10px 0 4px;font-weight:700"><input type="checkbox" id="hideKnown"' + (lsGet('ingGizle', false) ? ' checked' : '') + '> Bildiklerimi gizle · ' + nk + '/' + words.length + ' biliniyor</label>' +
                         '<ul class="wl" id="wl"></ul></div>';
                     view.innerHTML = h;
                     var draw = function () {
@@ -443,31 +751,62 @@
                     $('hideKnown').addEventListener('change', function () { lsSet('ingGizle', this.checked); draw(); });
                     bindKnown($('wl')); draw();
                 } else {
-                    var deck = shuffle(words.filter(function (w) { return !known[wkey(w)]; }));
-                    h += '<label class="muted" style="display:block;margin:4px 0 0"><input type="checkbox" id="trFirst"' + (lsGet('ingTrOnce', false) ? ' checked' : '') + '> Önce Türkçesini göster</label></div><div id="fc"></div>';
+                    var deck = shuffle(words.filter(function (w) { return !known[wkey(w)]; })), total = words.length;
+                    h += '<div class="pbar"><i id="kbar"></i></div><div class="muted" id="kcount" style="text-align:center;font-weight:800;margin-top:-6px"></div><div class="stage" id="stage"></div>' +
+                        '<div class="cardbtns" id="cbtns"><button type="button" class="btn" id="again" style="background:var(--amber-bg);color:#7a4b00">↺ Tekrar sor</button><button type="button" class="btn go" id="gotit">✓ Biliyorum</button></div>' +
+                        '<p class="muted" style="text-align:center;margin-top:12px">Kartı çevirmek için dokun · sağa kaydır: biliyorum · sola: tekrar</p>' +
+                        '<label class="muted" style="display:flex;gap:6px;justify-content:center;align-items:center;font-weight:700"><input type="checkbox" id="trFirst"' + (lsGet('ingTrOnce', false) ? ' checked' : '') + '> Önce Türkçesini göster</label>';
                     view.innerHTML = h;
-                    var i = 0, open = false;
+                    var cur = 0;
                     var draw2 = function () {
-                        if (!deck.length) { $('fc').innerHTML = '<div class="card empty">Bu listedeki bütün kelimeleri biliyorsunuz. 🎉<br><br><button type="button" class="btn" id="resetK">Bu listede "biliyorum" işaretlerini sıfırla</button></div>';
-                            $('resetK').onclick = function () { words.forEach(function (w) { delete known[wkey(w)]; }); lsSet('ingBilinen', known); renderWords(); }; return; }
-                        if (i >= deck.length) { deck = shuffle(deck); i = 0; }
-                        var w = deck[i], trf = $('trFirst').checked;
-                        var front = trf ? fmt(w.tr) : esc(w.en), back = trf ? esc(w.en) : fmt(w.tr);
-                        $('fc').innerHTML = '<div class="count">' + (i + 1) + ' / ' + deck.length + ' (bilinmeyen)</div><div class="card flash" id="flip"><div class="front' + (trf ? '' : ' en') + '">' + front + '</div>' +
-                            (open ? '<div class="back">' + back + '</div>' + (w.ornek ? '<div class="ex2 en">' + fmt(w.ornek) + '</div>' : '') : '<div class="muted" style="margin-top:14px">Görmek için dokunun</div>') + '</div>' +
-                            '<div class="row" style="justify-content:center"><button type="button" class="btn" id="again">Tekrar sor</button><button type="button" class="btn primary" id="gotit">Biliyorum</button></div>';
-                        $('flip').onclick = function () { open = !open; draw2(); };
-                        $('again').onclick = function () { open = false; i++; draw2(); };
-                        $('gotit').onclick = function () { known[wkey(w)] = 1; lsSet('ingBilinen', known); deck.splice(i, 1); open = false; draw2(); };
+                        var kn = total - deck.length;
+                        $('kbar').style.width = (100 * kn / total) + '%';
+                        $('kcount').textContent = kn + ' / ' + total + ' biliniyor';
+                        if (!deck.length) {
+                            $('cbtns').hidden = true;
+                            $('stage').innerHTML = '<div class="card empty" style="height:100%;display:flex;flex-direction:column;justify-content:center"><div class="e">🏆</div><b style="font-size:18px;color:var(--navy)">Bu destedeki bütün kelimeleri biliyorsun!</b><br><button type="button" class="btn" id="resetK">Baştan çalış</button></div>';
+                            $('resetK').onclick = function () { words.forEach(function (w) { delete known[wkey(w)]; }); lsSet('ingBilinen', known); renderWords(); };
+                            return;
+                        }
+                        if (cur >= deck.length) { deck = shuffle(deck); cur = 0; }
+                        var w = deck[cur], trf = $('trFirst').checked;
+                        var front = trf ? '<div class="w" style="font-size:24px">' + fmt(w.tr) + '</div>' : '<div class="w en">' + esc(w.en) + '</div>';
+                        var back = trf ? '<div class="w en">' + esc(w.en) + '</div>' : '<div class="w">' + fmt(w.tr) + '</div>';
+                        $('stage').innerHTML = '<div class="flash fade-in" id="flip"><div class="inner"><div class="face front">' + (speechOK ? '<button type="button" class="say" data-s="1">🔊</button>' : '') + front + '<span class="tap">👆 çevirmek için dokun</span></div>' +
+                            '<div class="face back">' + back + (w.ornek ? '<div class="ex2 en">' + fmt(w.ornek) + '</div>' : '') + '</div></div></div>';
+                        var card = $('flip'), sx = null, dx = 0, moved = false;
+                        card.addEventListener('click', function (e) {
+                            if (moved) return;
+                            if (e.target.closest('[data-s]')) { e.stopPropagation(); say(w.en); return; }
+                            card.classList.toggle('flipped'); if (card.classList.contains('flipped') && !trf) say(w.en);
+                        });
+                        card.addEventListener('pointerdown', function (e) { sx = e.clientX; dx = 0; moved = false; card.style.transition = 'none'; });
+                        card.addEventListener('pointermove', function (e) {
+                            if (sx == null) return; dx = e.clientX - sx; if (Math.abs(dx) > 8) moved = true;
+                            card.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx / 18) + 'deg)';
+                            var f = card.querySelector('.face.front'), b2 = card.querySelector('.face.back');
+                            [f, b2].forEach(function (el) { el.classList.toggle('swipe-r', dx > 60); el.classList.toggle('swipe-l', dx < -60); });
+                        });
+                        var end = function () {
+                            if (sx == null) return; sx = null; card.style.transition = 'transform 0.25s';
+                            if (dx > 90) { fly(1); } else if (dx < -90) { fly(-1); } else { card.style.transform = ''; each('.face', function (el) { el.classList.remove('swipe-r', 'swipe-l'); }, card); }
+                            setTimeout(function () { moved = false; }, 50);
+                        };
+                        card.addEventListener('pointerup', end); card.addEventListener('pointercancel', end); card.addEventListener('pointerleave', end);
+                        function fly(dir) { card.style.transform = 'translateX(' + (dir * innerWidth) + 'px) rotate(' + (dir * 25) + 'deg)'; setTimeout(function () { dir > 0 ? gotit() : again(); }, 200); }
                     };
-                    $('trFirst').addEventListener('change', function () { lsSet('ingTrOnce', this.checked); open = false; draw2(); });
+                    var gotit = function () { known[wkey(deck[cur])] = 1; lsSet('ingBilinen', known); deck.splice(cur, 1); addXP(2, '+2 ⭐'); buzz(25); draw2(); };
+                    var again = function () { cur++; addXP(1); draw2(); };
+                    $('gotit').onclick = function () { var c = $('flip'); if (c) { c.style.transition = 'transform 0.25s'; c.style.transform = 'translateX(' + innerWidth + 'px) rotate(25deg)'; } setTimeout(gotit, 180); };
+                    $('again').onclick = function () { var c = $('flip'); if (c) { c.style.transition = 'transform 0.25s'; c.style.transform = 'translateX(' + (-innerWidth) + 'px) rotate(-25deg)'; } setTimeout(again, 180); };
+                    $('trFirst').addEventListener('change', function () { lsSet('ingTrOnce', this.checked); draw2(); });
                     draw2();
                 }
                 bindSeg(mode, lid);
             }).catch(showError);
         }
         function bindSeg(mode, lid) {
-            Array.prototype.forEach.call(document.querySelectorAll('#seg button'), function (b) {
+            each('#seg button', function (b) {
                 b.classList.toggle('on', b.getAttribute('data-m') === mode);
                 b.onclick = function () { location.hash = '#/kelimeler?mod=' + b.getAttribute('data-m') + (lid ? '&ders=' + encodeURIComponent(lid) : ''); };
             });
@@ -475,90 +814,104 @@
         }
 
         // ---------- Test ----------
+        function buildPool(kind) {
+            var pool = [];
+            if (kind === 'kelime') {
+                var words = collectWords('');
+                if (words.length < 4) return [];
+                var dir = lsGet('ingTestYon', 'en');
+                pool = shuffle(words).map(function (w) {
+                    var opts = shuffle([w].concat(shuffle(words.filter(function (o) { return o !== w; })).slice(0, 3)));
+                    var d = dir === 'karisik' ? (Math.random() < 0.5 ? 'en' : 'tr') : dir;
+                    return d === 'en'
+                        ? { soru: '`' + w.en + '`', ust: 'Bu kelimenin anlamı ne?', secenekler: opts.map(function (o) { return o.tr; }), cevap: opts.indexOf(w), w: w }
+                        : { soru: w.tr, ust: 'İngilizcesi hangisi?', secenekler: opts.map(function (o) { return '`' + o.en + '`'; }), cevap: opts.indexOf(w), w: w };
+                });
+            } else {
+                allLessons().forEach(function (x) { var l = lessons[x.ders.id]; if (l && l.sorular) l.sorular.forEach(function (s) { pool.push(Object.assign({ ust: shortTitle(x.ders) }, s)); }); });
+                pool = shuffle(pool);
+            }
+            return pool.slice(0, 10);
+        }
         function renderTest() {
             setHeader('Test', false); setTab('test');
             if (!getToken() && !index) return needToken();
-            var q = parseQuery(), kind = q.tur || 'kelime', lid = q.ders || '';
-            view.innerHTML = '<div class="empty">Yükleniyor…</div>';
+            var q = parseQuery();
+            view.innerHTML = '<div class="empty"><div class="e">⚡</div>Yükleniyor…</div>';
             loadAllCached().then(function () {
-                var h = '<div class="seg" id="tseg"><button type="button" data-k="kelime">Kelime testi</button><button type="button" data-k="soru">Ders soruları</button></div>';
-                var pool = [];
-                if (kind === 'kelime') {
-                    var words = collectWords(lid);
-                    if (words.length >= 4) {
-                        var dir = lsGet('ingTestYon', 'en');
-                        pool = shuffle(words).map(function (w) {
-                            var others = shuffle(words.filter(function (o) { return o !== w; })).slice(0, 3);
-                            var opts = shuffle([w].concat(others));
-                            return dir === 'en'
-                                ? { soru: '`' + w.en + '`', secenekler: opts.map(function (o) { return o.tr; }), cevap: opts.indexOf(w), w: w }
-                                : { soru: w.tr, secenekler: opts.map(function (o) { return '`' + o.en + '`'; }), cevap: opts.indexOf(w), w: w };
-                        });
-                    }
-                    h += '<div class="card"><div style="margin-bottom:8px">' + lessonSelect(lid) + '</div><div class="seg" id="dseg" style="margin:0"><button type="button" data-d="en">İngilizce → Türkçe</button><button type="button" data-d="tr">Türkçe → İngilizce</button></div></div>';
-                } else {
-                    allLessons().forEach(function (x) { var l = lessons[x.ders.id]; if (l && l.sorular) l.sorular.forEach(function (s) { pool.push(Object.assign({ ders: x.ders.baslik }, s)); }); });
-                    pool = shuffle(pool);
-                }
-                h += '<div id="tq"></div>';
-                view.innerHTML = h;
-                Array.prototype.forEach.call(document.querySelectorAll('#tseg button'), function (b) {
-                    b.classList.toggle('on', b.getAttribute('data-k') === kind);
-                    b.onclick = function () { location.hash = '#/test?tur=' + b.getAttribute('data-k'); };
-                });
-                var ds = document.querySelectorAll('#dseg button');
-                Array.prototype.forEach.call(ds, function (b) {
-                    b.classList.toggle('on', b.getAttribute('data-d') === lsGet('ingTestYon', 'en'));
-                    b.onclick = function () { lsSet('ingTestYon', b.getAttribute('data-d')); renderTest(); };
-                });
-                var s = $('lsel'); if (s) s.onchange = function () { location.hash = '#/test?tur=kelime' + (s.value ? '&ders=' + encodeURIComponent(s.value) : ''); };
-                if (!pool.length) { $('tq').innerHTML = '<div class="card empty">' + (kind === 'kelime' ? 'Kelime testi için en az 4 kelime gerekiyor.' : 'Derslere henüz alıştırma sorusu eklenmedi.') + '</div>'; return; }
-                var i = 0, right = 0, answered = 0;
-                var draw = function () {
-                    var it = pool[i % pool.length];
-                    $('tq').innerHTML = '<div class="card"><div class="score">Soru ' + (i + 1) + ' · Doğru ' + right + '/' + answered + (it.ders ? ' · ' + esc(it.ders) : '') + '</div>' +
-                        '<div class="q">' + fmt(it.soru) + '</div><div class="opts" id="opts">' +
-                        it.secenekler.map(function (o, j) { return '<button type="button" data-j="' + j + '">' + 'ABCDE'.charAt(j) + ') ' + fmt(o) + '</button>'; }).join('') +
-                        '</div><div class="expl" id="expl"></div><div class="row" style="justify-content:flex-end;margin-top:12px"><button type="button" class="btn primary" id="nextQ" hidden>Sonraki ›</button></div></div>';
-                    $('opts').onclick = function (e) {
-                        var b = e.target.closest('button[data-j]'); if (!b || this.dataset.done) return; this.dataset.done = 1;
-                        var j = +b.getAttribute('data-j'); answered++;
-                        this.children[it.cevap].classList.add('ok');
-                        if (j === it.cevap) right++; else b.classList.add('bad');
-                        var ex = it.aciklama || (it.w && it.w.ornek ? it.w.ornek : '');
-                        if (ex) $('expl').innerHTML = '<div class="note"><p>' + fmt(ex) + '</p></div>';
-                        $('nextQ').hidden = false;
-                    };
-                    $('nextQ').onclick = function () { i++; draw(); window.scrollTo(0, 0); };
-                };
-                draw();
+                if (q.basla) return runQuiz(q.basla);
+                var dir = lsGet('ingTestYon', 'en');
+                view.innerHTML = '<div class="hero fade-in" style="padding-bottom:20px"><div class="hi">Kendini dene</div><div class="big">10 soruluk mini test. Her doğru puan kazandırır!</div></div>' +
+                    '<div class="bigchoice fade-in">' +
+                    '<button type="button" class="t-violet" data-k="kelime"><span class="ic">⚡</span><span><b>Kelime testi</b><span>Derslerdeki kelimelerden 4 şıklı sorular · +2 ⭐</span></span></button>' +
+                    '<button type="button" class="t-sky" data-k="soru"><span class="ic">✍️</span><span><b>Ders alıştırmaları</b><span>Gramer soruları, açıklamalı · +3 ⭐</span></span></button></div>' +
+                    '<div class="card" style="margin-top:14px"><h2 style="font-size:15px">Kelime testi yönü</h2><div class="seg" id="dseg" style="margin:0"><button type="button" data-d="en">EN → TR</button><button type="button" data-d="tr">TR → EN</button><button type="button" data-d="karisik">Karışık</button></div></div>';
+                each('.bigchoice button', function (b) { b.onclick = function () { location.hash = '#/test?basla=' + b.getAttribute('data-k'); }; });
+                each('#dseg button', function (b) { b.classList.toggle('on', b.getAttribute('data-d') === dir); b.onclick = function () { lsSet('ingTestYon', b.getAttribute('data-d')); renderTest(); }; });
             }).catch(showError);
+        }
+        function runQuiz(kind) {
+            var pool = buildPool(kind), per = kind === 'kelime' ? 2 : 3;
+            if (!pool.length) { view.innerHTML = '<div class="card empty"><div class="e">🤷</div>' + (kind === 'kelime' ? 'Kelime testi için en az 4 kelime gerekiyor.' : 'Derslere henüz alıştırma eklenmedi.') + '<br><br><a class="btn" href="#/test">Geri</a></div>'; return; }
+            var i = 0, right = 0, combo = 0, best = 0, earned = 0;
+            setHeader(kind === 'kelime' ? 'Kelime testi' : 'Alıştırmalar', true);
+            var draw = function () {
+                var it = pool[i];
+                view.innerHTML = '<div class="tophud"><div class="pbar"><i style="width:' + (100 * i / pool.length) + '%"></i></div><span class="combo">' + (combo >= 2 ? '🔥 x' + combo : '') + '</span></div>' +
+                    '<div class="card fade-in" style="margin-top:12px"><div class="muted" style="font-weight:800">' + (i + 1) + '/' + pool.length + ' · ' + esc(it.ust || '') + '</div>' +
+                    '<div class="q">' + fmt(it.soru) + (speechOK && it.w ? ' <button type="button" class="ibtn" id="sayq" style="background:var(--soft);color:var(--navy);vertical-align:middle">🔊</button>' : '') + '</div>' +
+                    '<div class="opts" id="opts">' + optsHTML(it) + '</div><div id="fb"></div></div>' +
+                    '<button type="button" class="btn go block" id="nextQ" hidden>' + (i + 1 < pool.length ? 'Devam ›' : 'Sonucu gör 🏁') + '</button>';
+                if ($('sayq')) $('sayq').onclick = function () { say(it.w.en); };
+                $('opts').onclick = function (e) {
+                    var b = e.target.closest('button[data-j]'); if (!b || this.dataset.done) return; this.dataset.done = 1;
+                    var j = +b.getAttribute('data-j'), ok = j === it.cevap;
+                    this.children[it.cevap].classList.add('ok');
+                    if (ok) { right++; combo++; best = Math.max(best, combo); var bonus = combo >= 3 ? 1 : 0; earned += per + bonus; addXP(per + bonus, combo >= 3 ? '🔥 ' + combo + ' seri! +' + (per + bonus) + ' ⭐' : '+' + per + ' ⭐'); buzz(30); }
+                    else { combo = 0; b.classList.add('bad'); buzz([60, 40, 60]); }
+                    var ex = it.aciklama || (it.w && it.w.ornek ? '`' + it.w.ornek + '`' : '');
+                    $('fb').innerHTML = '<div class="fb ' + (ok ? 'good' : 'bad') + '"><span>' + (ok ? '✅' : '❌') + '</span><p><b>' + (ok ? ['Harika!', 'Süper!', 'Aynen böyle!', 'Doğru!'][Math.floor(Math.random() * 4)] : 'Olmadı, ama öğrendin.') + '</b> ' + (ex ? fmt(ex) : '') + '</p></div>';
+                    $('nextQ').hidden = false; $('nextQ').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                };
+                $('nextQ').onclick = function () { i++; if (i < pool.length) { draw(); window.scrollTo(0, 0); } else finish(); };
+            };
+            var finish = function () {
+                var pct = right / pool.length;
+                var msg = pct === 1 ? 'Kusursuz! 🏆' : pct >= 0.7 ? 'Çok iyi! 💪' : pct >= 0.4 ? 'Fena değil, tekrar dene! 🙂' : 'Tekrar zamanı, sen yaparsın! 📚';
+                view.innerHTML = '<div class="card result fade-in"><div class="ring">' + ringSVG(pct, pct >= 0.7 ? '#16a34a' : pct >= 0.4 ? '#f59e0b' : '#E30A17', '#e2e9ef', 12) + '<div class="lbl">' + right + '<small style="color:var(--muted)">/ ' + pool.length + '</small></div></div>' +
+                    '<h2>' + msg + '</h2><p>Kazandığın puan: <b>+' + earned + ' ⭐</b>' + (best >= 3 ? ' · En uzun seri: <b>🔥 ' + best + '</b>' : '') + '</p>' +
+                    '<div class="row" style="justify-content:center;margin-top:14px"><button type="button" class="btn go" id="againQ">↺ Yeni test</button><a class="btn" href="#/">Ana sayfa</a></div></div>';
+                if (pct >= 0.7) confetti();
+                $('againQ').onclick = function () { runQuiz(kind); window.scrollTo(0, 0); };
+            };
+            draw();
         }
 
         // ---------- Ayarlar ----------
         function renderSettings() {
-            setHeader('Ayarlar', false); setTab('ayarlar');
-            var t = getToken();
-            var nl = allLessons().length;
+            setHeader('Ayarlar', true); setTab('');
+            var t = getToken(), nl = allLessons().length;
+            var goals = [[20, 'Hafif'], [30, 'Normal'], [60, 'Yoğun']];
             view.innerHTML =
-                '<div class="card"><h2>Okuma anahtarı</h2>' +
+                '<div class="card"><h2>🎯 Günlük hedef</h2><div class="goalpick" id="gp">' + goals.map(function (g) { return '<button type="button" data-g="' + g[0] + '"' + (goal === g[0] ? ' class="on"' : '') + '>' + g[0] + ' ⭐<small>' + g[1] + '</small></button>'; }).join('') + '</div>' +
+                '<p class="muted" style="margin:10px 0 0">Puanlar: ders bitirme +20 · ders sorusu +3 · test sorusu +2 · bildiğin kart +2 · tekrar kartı +1</p></div>' +
+                '<div class="card"><h2>🔑 Okuma anahtarı</h2>' +
                 '<p id="tokState" class="status' + (t ? '' : ' err') + '">' + (t ? 'Bu cihazda anahtar kayıtlı.' : 'Bu cihazda henüz anahtar yok.') + '</p>' +
                 '<input type="password" id="tok" autocomplete="off" placeholder="github_pat_..." style="margin:10px 0 8px">' +
                 '<div class="row"><button type="button" class="btn primary" id="saveTok">Kaydet ve dene</button>' + (t ? '<button type="button" class="btn danger" id="delTok">Anahtarı sil</button>' : '') + '</div>' +
                 '<details class="guide" style="margin-top:12px"' + (t ? '' : ' open') + '><summary>Anahtar nasıl alınır? (bir kez yapılır)</summary><ol>' +
-                '<li>Bilgisayardan ya da telefondan <strong>github.com</strong>’a girin → sağ üstte profil resmi → <strong>Settings</strong>.</li>' +
-                '<li>En altta <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Fine-grained tokens</strong> → <strong>Generate new token</strong>.</li>' +
-                '<li>Ad: <code>İngilizce okuma</code>. Süre (Expiration): 1 yıl ya da istediğiniz kadar.</li>' +
+                '<li>Tarayıcıda <strong>github.com/settings/personal-access-tokens/new</strong> adresini açın.</li>' +
+                '<li>Ad: <code>İngilizce okuma</code>. Süre: 1 yıl ya da istediğiniz kadar.</li>' +
                 '<li><strong>Repository access</strong>: <em>Only select repositories</em> → yalnızca <code>Ders-kaynaklar-</code>.</li>' +
-                '<li><strong>Permissions → Repository permissions → Contents</strong>: <em>Read-only</em>. Başka hiçbir izin vermeyin.</li>' +
+                '<li><strong>Permissions → Repository permissions → Contents</strong>: <em>Read-only</em>.</li>' +
                 '<li><strong>Generate token</strong> → çıkan <code>github_pat_…</code> yazısını kopyalayıp yukarıya yapıştırın.</li>' +
-                '</ol><p class="muted">Anahtar yalnızca bu cihazda saklanır ve yalnızca dersleri okuyabilir; hiçbir şeyi değiştiremez. iPhone’da ana ekrana eklediğiniz uygulama Safari’den ayrı hafıza kullanır: anahtarı uygulamanın içinden girin.</p></details></div>' +
-                '<div class="card"><h2>İçerik</h2><p>' + (index ? nl + ' ders bu cihazda.' : 'Henüz içerik indirilmedi.') + ' Dersler internetten bir kez indirilir; sonra internet olmadan da açılır.</p>' +
-                '<div class="row"><button type="button" class="btn" id="syncAll"' + (t ? '' : ' disabled') + '>Tüm içeriği yeniden indir</button></div><p class="status" id="syncState" hidden></p></div>' +
-                '<div class="card"><h2>İlerleme</h2><p>' + Object.keys(progress).length + ' ders çalışıldı, ' + Object.keys(known).length + ' kelime "biliyorum" işaretli.</p>' +
-                '<div class="row"><button type="button" class="btn danger" id="resetP">İlerlemeyi sıfırla</button></div></div>' +
-                '<div class="card"><h2>Diğer</h2><p><a href="/ingilizce.html" style="color:var(--navy);font-weight:700">YÖKDİL Sağlık kelime listesi</a> (sitedeki sayfa)</p>' +
-                '<p id="installTip" class="muted">Telefonda uygulama gibi açmak için: iPhone’da Safari’de Paylaş → <strong>Ana Ekrana Ekle</strong>; Android’de Chrome menüsü → <strong>Uygulamayı yükle</strong>.</p></div>';
+                '</ol><p class="muted">Anahtar yalnızca bu cihazda saklanır ve yalnızca dersleri okuyabilir.</p></details></div>' +
+                '<div class="card"><h2>📦 İçerik</h2><p>' + (index ? nl + ' ders bu cihazda.' : 'Henüz içerik indirilmedi.') + ' Dersler bir kez indirilir; sonra internetsiz de açılır.</p>' +
+                '<button type="button" class="btn" id="syncAll"' + (t ? '' : ' disabled') + '>⟳ Tüm içeriği yeniden indir</button><p class="status" id="syncState" hidden></p></div>' +
+                '<div class="card"><h2>📈 İlerleme</h2><p>Toplam <b>' + xp + ' ⭐</b> · <b>🔥 ' + streak() + '</b> gün seri · ' + Object.keys(progress).length + ' ders bitti · ' + Object.keys(known).length + ' kelime biliniyor.</p>' +
+                '<button type="button" class="btn danger" id="resetP">İlerlemeyi sıfırla</button></div>' +
+                '<div class="card"><h2>🔗 Diğer</h2><p><a href="/ingilizce.html" style="color:var(--navy);font-weight:800">YÖKDİL Sağlık kelime listesi</a></p></div>';
+            each('#gp button', function (b) { b.onclick = function () { goal = +b.getAttribute('data-g'); lsSet('ingHedef', goal); renderSettings(); toast('Günlük hedef: ' + goal + ' ⭐'); }; });
             $('saveTok').onclick = function () {
                 var v = $('tok').value.trim(); if (!v) return;
                 try { localStorage.setItem('ingToken', v); } catch (e) {}
@@ -566,8 +919,8 @@
                 var st = $('tokState'); st.className = 'status'; st.textContent = 'Deneniyor…';
                 syncAll(true).then(function () {
                     if (!index) throw new Error('İçerik dosyası okunamadı.');
-                    st.textContent = 'Anahtar çalışıyor. ' + allLessons().length + ' ders indirildi.';
-                    setTimeout(function () { location.hash = '#/'; }, 900);
+                    st.textContent = 'Anahtar çalışıyor! ' + allLessons().length + ' ders indirildi.';
+                    confetti(); setTimeout(function () { location.hash = '#/'; }, 1200);
                 }).catch(function (e) { st.className = 'status err'; st.textContent = 'Olmadı: ' + e.message; });
             };
             if ($('delTok')) $('delTok').onclick = function () { if (!confirm('Anahtar bu cihazdan silinsin mi? (İndirilmiş dersler kalır.)')) return; try { localStorage.removeItem('ingToken'); } catch (e) {} renderSettings(); };
@@ -576,16 +929,17 @@
                 syncAll(true).then(function () { st.textContent = 'Tamam: ' + allLessons().length + ' ders güncel.'; }).catch(function (e) { st.className = 'status err'; st.textContent = 'Olmadı: ' + e.message; });
             };
             $('resetP').onclick = function () {
-                if (!confirm('Çalışıldı işaretleri ve bilinen kelimeler silinsin mi?')) return;
-                progress = {}; known = {}; lsSet('ingIlerleme', progress); lsSet('ingBilinen', known); renderSettings();
+                if (!confirm('Puanlar, seri, bitirilen dersler ve bilinen kelimeler silinsin mi?')) return;
+                progress = {}; known = {}; xp = 0; days = {};
+                lsSet('ingIlerleme', progress); lsSet('ingBilinen', known); lsSet('ingXP', 0); lsSet('ingGunler', {}); updateChips(); renderSettings();
             };
         }
 
         // ---------- Yönlendirme ----------
         function route() {
-            var h = location.hash || '#/';
-            var path = h.slice(1).split('?')[0];
+            var path = (location.hash || '#/').slice(1).split('?')[0];
             if (path.indexOf('/ders/') === 0) return renderLesson(decodeURIComponent(path.slice(6)));
+            if (path === '/dersler') return renderLessons();
             if (path === '/kelimeler') return renderWords();
             if (path === '/test') return renderTest();
             if (path === '/ayarlar') return renderSettings();
@@ -595,16 +949,16 @@
         $('backBtn').addEventListener('click', function () { if (history.length > 1) history.back(); else location.hash = '#/'; });
         $('syncBtn').addEventListener('click', function () {
             if (!getToken()) { location.hash = '#/ayarlar'; return; }
-            syncAll(true).then(route).catch(function (e) { alert('Güncellenemedi: ' + e.message); });
+            syncAll(true).then(function () { toast('✓ Güncel'); route(); }).catch(function (e) { toast('Güncellenemedi: ' + e.message); });
         });
+        updateChips();
 
-        // Açılış: telefondaki kopyayla hemen göster, sonra internetten sessizce güncelle.
         loadIndexCached().catch(function () {}).then(function () {
             route();
             if (getToken() && navigator.onLine !== false) {
                 syncAll(false).then(function () {
                     var p = (location.hash || '#/').slice(1).split('?')[0];
-                    if (p === '/' || p === '' ) renderHome();
+                    if (p === '/' || p === '' || p === '/dersler') route();
                 }).catch(function (e) { if (!index) showError(e); });
             }
         });

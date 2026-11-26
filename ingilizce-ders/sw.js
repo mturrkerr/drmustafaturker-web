@@ -1,6 +1,6 @@
 // İngilizce uygulaması: çevrimdışı çalışma (yalnızca uygulama kabuğu).
 // Ders içerikleri burada değil; gizli depodan çekilip sayfa tarafından ayrı bir önbellekte saklanır.
-const CACHE = 'ingilizce-ders-v4';
+const CACHE = 'ingilizce-ders-v5';
 const FILES = ['./', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
 
 self.addEventListener('install', (e) => {
