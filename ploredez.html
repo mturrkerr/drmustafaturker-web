@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1f3a52">
+    <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Göğüs Cerrahisi">
+    <title>Plöredez - Dr. Mustafa Türker</title>
+    <style>
+        html, body { min-height: 100%; margin: 0; }
+        body { background: #edf2f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #1f2a33; padding: 40px 16px; box-sizing: border-box; }
+        main { max-width: 760px; margin: 0 auto; }
+        .back { display: inline-block; color: #1f2a33; text-decoration: none; background: #fff; padding: 10px 18px; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-weight: 600; margin-bottom: 28px; }
+        h1 { margin: 0 0 8px; font-size: 28px; color: #1f3a52; }
+        .lead { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: #3a4a57; }
+        .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); padding: 22px; margin-bottom: 20px; }
+        .card h2 { margin: 0 0 12px; font-size: 20px; color: #1f3a52; scroll-margin-top: 16px; }
+        h3 { margin: 18px 0 6px; font-size: 16px; color: #1f3a52; }
+        p, li, td, th { font-size: 15px; line-height: 1.6; color: #3a4a57; }
+        p { margin: 0 0 10px; }
+        ul, ol { margin: 0 0 10px; padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        strong { color: #1f2a33; }
+        .toc ol { columns: 2; column-gap: 24px; }
+        .toc a { color: #1f3a52; }
+        @media (max-width: 560px) { .toc ol { columns: 1; } }
+        .tag { display: inline-block; font-size: 12px; font-weight: 700; color: #1f3a52; background: #e3ebf2; border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+        figure { margin: 14px 0; }
+        figure svg { width: 100%; height: auto; display: block; background: #f6f9fb; border-radius: 10px; }
+        figcaption { margin-top: 6px; font-size: 13px; color: #6a7a87; text-align: center; }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+        .note { background: #f1f6fa; border-left: 4px solid #1f3a52; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .note p:last-child { margin: 0; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3e9ee; vertical-align: top; }
+        .source { font-size: 13px; color: #6a7a87; line-height: 1.6; margin: 8px 4px 0; }
+        .source a { color: #1f3a52; }
+        h3 a, p a { color: #1f3a52; }
+        figure.lic { background: #fff; border: 1px solid #e3e9ee; border-radius: 10px; padding: 10px; }
+        figure.lic img { width: 100%; height: auto; display: block; }
+        figure.narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+        .credit, figcaption a { font-size: 12px; color: #6a7a87; }
+        .credit { margin: 4px 0 0; text-align: center; }
+        th { color: #1f3a52; background: #f1f6fa; font-weight: 700; }
+            .kicker { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #c0392b; }
+        .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 0 0 20px; }
+        .meta div { background: #fff; border-radius: 12px; padding: 10px 14px; font-size: 14px; font-weight: 600; color: #1f2a33; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .meta span { display: block; font-size: 11px; font-weight: 700; color: #6a7a87; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 2px; }
+        .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #1f3a52; color: #fff; font-size: 14px; margin-right: 10px; vertical-align: 2px; }
+        .pearl { background: #fff4e5; border-left: 4px solid #e08a00; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+        .pearl p { margin: 0; color: #5b3d0a; }
+        .pearl strong { color: #5b3d0a; }
+        figure.narrow-fig { max-width: 420px; margin-left: auto; margin-right: auto; }
+        .see { font-size: 14px; }
+        .see a, .card p a { color: #1f3a52; }
+        .rules li { margin-bottom: 8px; }
+        .tip { font-size: 13px; color: #6a7a87; font-style: italic; }
+        .muted { font-size: 12px; color: #6a7a87; font-weight: 400; }
+        .tabs { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 10px; margin: 0 0 16px; background: #edf2f5; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tabs button { flex: none; border: none; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 14px; font-weight: 700; color: #1f3a52; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.07); cursor: pointer; }
+        .tabs button[aria-selected="true"] { background: #1f3a52; color: #fff; }
+        .panel[hidden] { display: none; }
+        .panel-h { margin: 4px 0 8px; font-size: 24px; color: #1f3a52; }
+        .card h2 { scroll-margin-top: 70px; }
+        h1.page { margin: 0 0 6px; font-size: 30px; color: #1f3a52; }
+        .ct svg { background: #000; }
+    </style>
+</head>
+<body>
+    <main>
+        <a class="back" href="./">← Ana sayfa</a>
+        <h1>Plöredez</h1>
+        <p class="lead">Bu sayfanın içeriği hazırlanıyor.</p>
+
+        <section class="card">
+            <p>Plörodez yöntemleri, talk plörodezinde inflamasyon ve NSAİİ kullanımı şimdilik <a href="plorodez-ve-dekortikasyon.html">Plörodez ve Dekortikasyon</a> sayfasında yer alıyor.</p>
+        </section>
+    </main>
+    <script>if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });</script>
+</body>
+</html>
