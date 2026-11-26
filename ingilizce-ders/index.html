@@ -298,6 +298,7 @@
         // **kalın**, __altı çizili__, *eğik*, `İngilizce` (serif)
         function fmt(s) {
             return esc(s)
+                .replace(/~~(.+?)~~/g, '<s style="text-decoration-color:#E30A17;text-decoration-thickness:2px">$1</s>')
                 .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
                 .replace(/__(.+?)__/g, '<u>$1</u>')
                 .replace(/\*(.+?)\*/g, '<em>$1</em>')
