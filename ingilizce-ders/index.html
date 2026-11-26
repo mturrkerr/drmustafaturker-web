@@ -71,6 +71,8 @@
         .ex { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 8px 0; cursor: pointer; }
         .ex .en { color: var(--ink); line-height: 1.55; }
         .ex .tr { color: var(--muted); font-size: 0.92em; margin-top: 4px; line-height: 1.5; }
+        .ex .no { color: var(--muted); font-weight: 700; margin-right: 4px; }
+        .ex.cv .tr { margin-left: 22px; }
         .ex .tr.hide { filter: blur(5px); user-select: none; }
         .table-wrap { overflow-x: auto; margin: 8px 0 12px; }
         .lesson table { border-collapse: collapse; width: 100%; }
@@ -310,6 +312,9 @@
                     case 'p': h += '<p>' + fmt(b.x) + '</p>'; break;
                     case 'liste': h += (b.sirali ? '<ol>' : '<ul>') + (b.x || []).map(function (li) { return '<li>' + fmt(li) + '</li>'; }).join('') + (b.sirali ? '</ol>' : '</ul>'); break;
                     case 'not': h += '<div class="note' + (b.uyari ? ' warn' : '') + '"><p>' + fmt(b.x) + '</p></div>'; break;
+                    case 'ceviri':
+                        var yon = lsGet('ingYon', 'en'), en = '<span class="en">' + fmt(b.en) + '</span>', tr = fmt(b.tr);
+                        h += '<div class="ex cv"><div><b class="no">' + esc(b.no || '') + '.</b> ' + (yon === 'en' ? en : tr) + '</div><div class="tr hide">' + (yon === 'en' ? tr : en) + '</div></div>'; break;
                     case 'ornek': h += '<div class="ex"><div class="en">' + fmt(b.en) + '</div>' + (b.tr ? '<div class="tr hide">' + fmt(b.tr) + '</div>' : '') + '</div>'; break;
                     case 'tablo':
                         h += '<div class="table-wrap"><table>' + (b.baslik ? '<tr>' + b.baslik.map(function (c) { return '<th>' + fmt(c) + '</th>'; }).join('') + '</tr>' : '') +
@@ -351,6 +356,12 @@
                 lsSet('ingSon', id);
                 var h = '<div class="row sizer" style="justify-content:flex-end;margin-bottom:10px"><span class="muted" style="margin-right:auto">' + esc(m.kitap.baslik) + '</span>' +
                     '<button type="button" class="btn" data-fs="-1">A−</button><button type="button" class="btn" data-fs="1">A+</button></div>';
+                if ((l.bloklar || []).some(function (b) { return b.t === 'ceviri'; })) {
+                    var yon = lsGet('ingYon', 'en');
+                    h += '<div class="card" id="cvbar" style="padding:12px"><div class="row"><button type="button" class="btn' + (yon === 'en' ? ' primary' : '') + '" data-yon="en">İngilizce → Türkçe</button><button type="button" class="btn' + (yon === 'tr' ? ' primary' : '') + '" data-yon="tr">Türkçe → İngilizce</button></div>' +
+                        '<div class="row" style="margin-top:8px"><button type="button" class="btn" data-ac="1">Hepsini aç</button><button type="button" class="btn" data-ac="0">Hepsini kapat</button></div>' +
+                        '<p class="muted" style="margin:8px 0 0">Cümleyi kafanda (ya da kâğıda) çevir, sonra dokunup kontrol et.</p></div>';
+                }
                 h += '<article class="card lesson">' + renderBlocks(l.bloklar) + '</article>';
                 if (l.kelimeler && l.kelimeler.length) {
                     h += '<section class="card lesson"><h2>Bu dersin kelimeleri (' + l.kelimeler.length + ')</h2><ul class="wl">' + l.kelimeler.map(wordRow).join('') + '</ul>' +
@@ -372,16 +383,23 @@
                     if (progress[id]) delete progress[id]; else progress[id] = { t: new Date().toISOString().slice(0, 10) };
                     lsSet('ingIlerleme', progress); renderLesson(id);
                 });
+                if ($('cvbar')) $('cvbar').addEventListener('click', function (e) {
+                    var b = e.target.closest('button'); if (!b) return;
+                    if (b.hasAttribute('data-yon')) { lsSet('ingYon', b.getAttribute('data-yon')); renderLesson(id); return; }
+                    var open = b.getAttribute('data-ac') === '1';
+                    Array.prototype.forEach.call(view.querySelectorAll('.ex .tr'), function (t) { t.classList.toggle('hide', !open); });
+                });
                 view.querySelector('.sizer').addEventListener('click', function (e) {
                     var b = e.target.closest('button[data-fs]'); if (!b) return;
                     fontSize = Math.max(13, Math.min(24, fontSize + (+b.getAttribute('data-fs'))));
                     lsSet('ingYazi', fontSize); document.documentElement.style.setProperty('--fs', fontSize + 'px');
                 });
-                view.addEventListener('click', exToggle);
-                bindKnown(view);
                 window.scrollTo(0, 0);
             }).catch(showError);
         }
+        // Dinleyiciler bir kez eklenir (her çizimde eklenirse dokunuş iki kez işlenip etkisiz kalıyordu).
+        view.addEventListener('click', function (e) { exToggle(e); });
+        bindKnown(view);
         function exToggle(e) { var ex = e.target.closest('.ex'); if (!ex) return; var t = ex.querySelector('.tr'); if (t) t.classList.toggle('hide'); }
 
         // ---------- Kelimeler ----------
@@ -442,7 +460,7 @@
                     };
                     $('wq').addEventListener('input', draw);
                     $('hideKnown').addEventListener('change', function () { lsSet('ingGizle', this.checked); draw(); });
-                    bindKnown($('wl')); draw();
+                    draw();
                 } else {
                     var deck = shuffle(words.filter(function (w) { return !known[wkey(w)]; }));
                     h += '<label class="muted" style="display:block;margin:4px 0 0"><input type="checkbox" id="trFirst"' + (lsGet('ingTrOnce', false) ? ' checked' : '') + '> Önce Türkçesini göster</label></div><div id="fc"></div>';
